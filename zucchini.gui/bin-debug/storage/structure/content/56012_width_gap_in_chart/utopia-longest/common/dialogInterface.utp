@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-	<assessmentItem
-		 version="2.2"
-><properties><property name="width">400</property><property name="height">300</property></properties><stylesheet href="default.css"></stylesheet><stylesheet href="default.css"></stylesheet><layout><table cols="1" rows="1"><col></col><row></row><layer name="dialog"><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col width="1!"></col><row></row><layer name="background_dialogListPanel"><tr><td align="justify" valign="justify"><module ref="size H"></module></td></tr></layer><layer name="dialogListPanel"><tr><td align="justify" padding-left="18" padding-top="25" valign="justify"><module ref="dialogListPanel"></module></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="default.css"/>
-<itemBody><shape displayName="size H" height="399" id="size H"></shape><dialogListPanel id="dialogListPanel"></dialogListPanel></itemBody></assessmentItem>

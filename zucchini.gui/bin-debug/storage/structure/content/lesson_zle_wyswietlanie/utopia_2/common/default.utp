@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-	<assessmentItem
-		 version="2.2"
-><properties><property name="width">740</property><property name="height">200</property></properties><stylesheet href="default.css"></stylesheet><layout><table cols="1" rows="1"><col width="740!"></col><row></row><layer name="testy"><tr><td align="center" valign="justify"><table cols="1" rows="1"><col width="740"></col><row></row><layer name="content"><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col></col><row height="1!"></row><layer name="page"><tr><td align="justify"><table cols="1" hidden="true" rows="1"><col></col><row></row><layer><tr><td align="justify"><module ref="pageInPage"></module></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="default.css"/>
-<itemBody><pageInPage id="pageInPage"></pageInPage></itemBody></assessmentItem>

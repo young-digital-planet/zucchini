@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-	<assessmentItem
-		 version="2.2"
-><properties><property name="width">400</property><property name="height">300</property></properties><stylesheet href="default.css"></stylesheet><layout><table cols="1" rows="1"><col width="1!"></col><row></row><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col></col><row></row><layer><tr><td align="justify" padding-top="10" valign="justify"><module ref="dummy1"></module></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="default.css"/>
-<itemBody><dummy id="dummy1"></dummy></itemBody></assessmentItem>

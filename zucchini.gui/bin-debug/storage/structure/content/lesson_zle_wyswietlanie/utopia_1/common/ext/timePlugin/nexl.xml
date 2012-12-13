@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<library loadType="swf" id="timePlugin" src="timePlugin.swf">
-	<ext implementation="pl.ydp.p2.extensions.test.time.UtopiaTimePlugin">
-		<attr name="type" value="com.yauthor.module.plugin.IUtopiaPlugin"/>
-		<attr name="workMode" value="default" />
-	</ext>
-</library>

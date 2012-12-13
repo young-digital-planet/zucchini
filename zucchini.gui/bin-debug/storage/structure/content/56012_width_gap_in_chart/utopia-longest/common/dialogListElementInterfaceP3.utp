@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-	<assessmentItem
-		 version="2.2"
-><properties><property name="width">300</property><property name="height">80</property></properties><stylesheet href="default.css"></stylesheet><stylesheet href="default.css"></stylesheet><layout><table cols="1" rows="1"><col width="718"></col><row></row><layer><tr><td align="justify"><table cols="5" rows="1"><col width="70"></col><col></col><col></col><col width="1!"></col><col></col><row></row><layer><tr><td padding-bottom="2" valign="middle"><module ref="personName"></module></td><td><module ref="record"></module></td><td padding-left="5"><module ref="playMe"></module></td><td padding-bottom="2" padding-left="7" valign="middle"><module ref="content"></module></td><td><module ref="play"></module></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="default.css"/>
-<itemBody><simpleText id="personName"></simpleText><twoStateButton id="record"></twoStateButton><twoStateButton id="playMe"></twoStateButton><simpleText id="content"></simpleText><twoStateButton id="play"></twoStateButton></itemBody></assessmentItem>
