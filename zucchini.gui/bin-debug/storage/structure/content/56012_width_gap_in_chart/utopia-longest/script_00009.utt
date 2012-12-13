@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentTest title="Title of the paragraph 3.0" playerVersion="1.8.4" ><lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+	<general>
+		<title><string>test activity 3.0</string></title>
+	</general>
+	<annotation>
+		<entity>chapter</entity>
+		<description><string>Title of the chapter</string></description>
+	</annotation>
+</lom>
+	<!-- global css !-->
+	<stylesheet href="common/default.css"/>
+	<!-- test layout and css !-->
+	<testView href="common/computerlesson.utp" media="utopia"/>
+	<declarations>
+	</declarations>
+ 
+	<testPart>
+		<assessmentSection>
+			<assessmentItemRef 
+				href="script_00009/script_00009_000.utp"
+				title="ordering http://bugtrack/show_bug.cgi?id=48951"
+				class="3aaa" >
+				<itemDescription>
+						<modules>
+							<module type="ordering"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_001.utp"
+				title="ordering - image"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="ordering"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_002.utp"
+				title="ordering - image"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="ordering"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_003.utp"
+				title="choice"
+				class="2aa" >
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_004.utp"
+				title="choice - image"
+				class="2aa" >
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_005.utp"
+				title="choice type=horizontal_noPopup"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_006.utp"
+				title="choice type=vertical_popup_horizontal"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_007.utp"
+				title="choice type=vertical_popup_vertical"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_008.utp"
+				title="choice type=horizontal_popup_horizontal"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_009.utp"
+				title="choice type=horizontal_popup_vertical"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_010.utp"
+				title="selection"
+				class="2aa" >
+				<itemDescription>
+						<modules>
+							<module type="selection"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_011.utp"
+				title="mselection"
+				class="2aa" >
+				<itemDescription>
+						<modules>
+							<module type="mselection"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_012.utp"
+				title="connection"
+				class="2aa" >
+				<itemDescription>
+						<modules>
+							<module type="connection"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_013.utp"
+				title="connection"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="connection"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_014.utp"
+				title="gap"
+				class="1a" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_015.utp"
+				title="text type image"
+				class="3aaa" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_016.utp"
+				title="text type supsub"
+				class="3acc" >
+				<itemDescription>
+						<modules>
+							<module type="ordering"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_017.utp"
+				title="text type supsub"
+				class="3acc" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_018.utp"
+				title="text type formula"
+				class="3acc" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_019.utp"
+				title="text type link"
+				class="3acc" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_020.utp"
+				title="marking"
+				class="2aa" >
+				<itemDescription>
+						<modules>
+							<module type="marking"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_021.utp"
+				title="labelling"
+				class="2aa" >
+				<itemDescription>
+						<modules>
+							<module type="labelling"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_022.utp"
+				title="identification"
+				class="2aa" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_023.utp"
+				title="externalActivity"
+				class="1a" >
+				<itemDescription>
+						<modules>
+							<module type="externalActivity"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_024.utp"
+				title="chart"
+				class="4aaaa" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_025.utp"
+				title="chart"
+				class="2aa" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_026.utp"
+				title="chart + playerPicture"
+				class="1a" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00009/script_00009_027.utp"
+				title="chart TEST"
+				class="1a" >
+				<itemDescription>
+						<modules/>
+				</itemDescription>
+			</assessmentItemRef>
+		</assessmentSection>
+	</testPart>
+
+</assessmentTest>

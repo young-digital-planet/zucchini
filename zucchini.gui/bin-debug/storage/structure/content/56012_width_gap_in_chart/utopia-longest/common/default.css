@@ -1,0 +1,1983 @@
+assessmentItem{
+	font-family: Arial;
+	font-size: 12px;
+	color: #000000;
+ 	text-align:left;
+ 	leading:0; 
+	mark-partially-correct-color: #00FF00;
+	mark-partially-correct-width: 2px;	
+	modal-popups: false;
+	popup-panel: url(popupPanel.utp);
+}
+
+assessmentTest{
+	total-score-mode: average-with-errors;
+}
+
+pageInPage{
+	scrollbar-policy: both;
+}
+
+popupContentPage{
+	scrollbar-policy: vertical;
+}
+
+popupContentPage:scrollableContainer{
+     width: auto;
+}
+
+simpleText{
+	popup-panel: url(popupPanel.utp);
+	popup-valign: top, 74;
+}
+
+a{
+	text-decoration: underline;
+	color: #002BB8;
+}
+
+a:hover{
+	text-decoration: underline;
+	color: #FF0000;
+}
+
+#title_popup{
+	content: $[title];
+	font-size: 120%px;
+	font-weight: bold;
+	color: #FFFFFF;	
+}
+
+#printText{
+	content: Print deze pagina;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+#caption{
+	padding-top: -1px;
+}
+
+*{include-errors-in-result: false;}
+
+
+/* ================== pages switcher ================== */
+
+
+pagesSwitchBox{
+	horizontalGap: 0px;
+	verticalGap: 0px;
+	buttonsInRow: 8;
+	max-line-count: 1;
+	scroll-left-button: auto;
+	scroll-right-button: auto;
+}
+pagesSwitchBox:button{
+	labelValign: center;
+	labelHalign: center;
+	src: url(pagenumber_icon.swf);
+}
+pagesSwitchBox:button:label{
+	font-size: 15px;
+	text-align: right;
+	text-valign: top;
+	color: #FFFFFF;
+	font-weight: bold;
+ 	letter-spacing:0;
+ 	leading:0; 
+	margin-left: 2px;
+	margin-bottom: 0px;
+	measure-label: false;
+}
+pagesSwitchBox:button:label:over{
+	color: #FFFFFF;
+}
+pagesSwitchBox:button:label:press{
+	color: #FFFFFF; 
+}
+pagesSwitchBox:button:label:disabled{
+	color: #FFFFFF;
+}
+pagesSwitchBox:scrollLeft{
+	padding-right: 2px;
+	padding-top: 10px;
+	src: url(scrollleft_icon.swf);
+	tooltip-text: Terug;
+}
+pagesSwitchBox:scrollRight{
+	padding-left: 5px;
+	padding-top: 10px;
+	src: url(scrollright_icon.swf);
+	tooltip-text: Verder;
+}
+nextItemNavigation{
+	labelValign: center;
+	labelHalign: center;
+	src: url(pagenext_icon.swf);
+	tooltip-text: Volgende scherm;
+}
+prevItemNavigation{
+	labelValign: center;
+	labelHalign: center;
+	src: url(pageprevious_icon.swf);
+	tooltip-text: Vorige scherm;
+}
+#indicator {
+    content: $[currentItemIndex] van $[itemsCount];
+    font-size: 11px;
+    font-weight: bold;
+    text-align: right;
+    color: #000000;  
+	padding-top: 15px;
+	padding-right: 8px;
+}
+pagesSwitchBox:lessonreport{
+	display-page-number: false;
+	src: url(pagenumber_lreport_icon.swf);
+}
+
+
+/* ================== lesson raport ================== */
+
+
+#testItemReport1{
+	content: $[pages: 1:-2] Pagina $[index]: $[title.link] $[/pages];
+	lineHeight: 25px;
+	}
+
+#testItemReport2{
+	content: $[pages: 1:-2] $[doneMinusErrors] van $[todo] punt(en) $[/pages];
+	lineHeight: 25px;
+	text-align: right;
+	}
+	
+#showAnswers{
+	content: $[pages: 1:-2] $[hints.total] keer $[/pages];
+	lineHeight: 25px;
+	text-align: left;
+	}
+
+#total{
+	content:$[doneMinusErrors] van $[todo] punten behaald. Totaalscore $[result] %;
+	text-align: right;
+	font-weight: bold;
+	}
+	
+printButton {
+	src: url(print_icon.swf);
+	tooltip-text: Printen;
+	}
+
+#date{
+	content: Datum: $[currentDate];
+	text-align: right;	
+}	
+
+#time{
+	content: Je hebt $[totalTime] minuten over deze les gedaan;	
+}
+
+#resultaat {
+    content: Mijn punten;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+#snelheid {
+    content: Snelheid;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+#gespiekt{
+	content: Gespiekt?;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+#advies {
+    content: Advies;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}	
+
+/* === Reset lesson === */
+
+#resetAll {
+    content: Wis je score en maak de les opnieuw;
+    text-align: left;	
+}
+	
+#testResetButton{
+	src: url(resetAll_icon.swf);
+	test-reset-alert:url(reset_lesson.utp);
+	go-to-page: 1;
+	popup-panel: none;
+	popup-valign: top, 310;
+}
+
+#score_wissen{
+    content: Score wissen;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+#text_resetLesson{
+    content: Weet je zeker dat je al jouw scores wilt wissen en<br />de les opnieuw wilt maken?;
+}
+
+#resetLesson_YES{
+	src: url(showright_icon.swf);
+}
+
+#resetLesson_NO{
+	src: url(showwrong_icon.swf);
+}
+
+#resetLesson_textJa{
+	content:Ja;
+}
+
+#resetLesson_textNee{
+	content:Nee;
+}
+
+	
+/* ================== media players ================== */
+
+
+/* movie players */
+
+moviePlayer{
+	interface: url(moviePlayer.utp);
+	interface-fullscreen: url(moviePlayer_F.utp);
+	popup-panel: none;
+}
+.popup{
+	interface: url(moviePlayer.utp);
+	interface-fullscreen: url(moviePlayer_F.utp);
+	popup-panel: none;
+}  
+.noPopup{
+	interface: url(moviePlayer_noPopup.utp);
+}
+.playermovie_originalSize{
+	interface: url(moviePlayer_originalSize.utp);
+}
+.popup_movie_scale652{
+	interface: url(moviePlayer_popup_wide.utp);
+}
+.popup_movie_scale367{
+	interface: url(moviePlayer_popup_narrow.utp);
+}
+.popup_movie{
+	interface: url(moviePlayer_popupMargin.utp);
+}
+
+/* sound players */
+
+soundPlayer{
+	interface: url(audioPlayer.utp);
+}
+.playeraudio_ExtraWhitespace{
+	interface: url(audioPlayer_extraW_space.utp);	
+}
+
+/* image players */
+
+imagePlayer {
+	interface: url(imagePlayer_noPopup.utp);
+}
+.horizontal {
+	interface: url(imagePlayer_h.utp);
+	interface-fullscreen: url(imagePlayer_hF.utp);
+	popup-panel: none;
+}
+.horizontal_noTitle {
+	interface: url(imagePlayer_h.utp);
+	interface-fullscreen: url(imagePlayer_hF_nT.utp);
+	popup-panel: none;
+} 
+.scale347_popup {
+	interface: url(imagePlayer_347_popup.utp);
+	interface-fullscreen: url(imagePlayer_hFs.utp);
+	popup-panel: none;
+}
+.scale347_nopopup {
+	interface: url(imagePlayer_347_nopopup.utp);
+}
+.scale347_popup_noTitle {
+	interface: url(imagePlayer_347_popup.utp);
+	interface-fullscreen: url(imagePlayer_hFs_nT.utp);
+	popup-panel: none;
+} 
+.vertical{
+	interface: url(imagePlayer_v.utp);
+	interface-fullscreen: url(imagePlayer_vF.utp);
+	popup-panel: none;
+}
+.vertical_noTitle{
+	interface: url(imagePlayer_v.utp);
+	interface-fullscreen: url(imagePlayer_vF_nT.utp);
+	popup-panel: none;
+}
+.scale225_popup{
+	interface: url(imagePlayer_225_popup.utp);
+	interface-fullscreen: url(imagePlayer_vFs.utp);
+	popup-panel: none;
+}
+.scale225_nopopup{
+	interface: url(imagePlayer_225_nopopup.utp);
+}
+.scale225_popup_noTitle{
+	interface: url(imagePlayer_225_popup.utp);
+	interface-fullscreen: url(imagePlayer_vFs_nT.utp);
+	popup-panel: none;
+}
+.chart_picture {
+	interface: url(imagePlayer_chart.utp);
+}
+.table_picture {
+	interface: url(imagePlayer_chart.utp);
+}
+.popup_picture_scale{
+	interface: url(imagePlayer_popup.utp);
+}
+.popup_picture{
+	interface: url(imagePlayer_popupMargin.utp);
+}
+
+/* simulation players */
+
+simulationPlayer{
+	interface: url(simulationPlayer.utp);
+}
+.originalSize{
+	interface: url(simulationPlayer_2.utp);
+}
+.panorama{
+	interface: url(simulationPlayer_3.utp);
+}
+.popup_simulation_scale{
+	interface: url(simulationPlayer_popup.utp);
+}
+.popup_simulation{
+	interface: url(simulationPlayer_popupMargin.utp);
+}
+
+/* slide show players */
+
+slideShowPlayer{
+	interface: url(slideshowPlayer.utp);
+	slide-delay-time: 4000;
+} 
+.playerslideshow_audio{
+	interface: url(slideshowPlayer.utp);	
+}
+.popup_slideshow{
+	interface: url(slideshowPlayer_popupMargin.utp);
+}
+
+#downloadProgress {
+        background-style: solid;
+        background-color: #7e7e7e;
+        border-style: none;
+        border-color: #00FF00;
+        height: 3;      
+}
+#downloadProgress:bar {
+        background-style: solid;
+        background-color: #FF0000;
+        border-style: none;
+        border-color: #FFFFFF;
+        height: 3;       
+}
+#playProgress:button {
+        src: url(slider_icon.swf);
+}
+#playProgress:progress {
+        background-style: none;
+        background-color: #7e7e7e;
+        background-alpha: 1;
+        border-style: none;
+        border-color: #FFFFFF;
+        height: 1;       
+}
+#playProgress:progress:bar {
+        background-style: solid;
+        background-color: #000000;
+        background-alpha: 1;
+        border-style: none;
+        border-color: #FFFFFF;
+        height: 1;       
+}
+#totalTime {
+	color: #FFFFFF;
+}
+#playTime {
+	color: #FFFFFF;
+}
+#volume:button {
+        src: url(slider_volume_icon.swf);
+        icon-padding-left: 10px;
+}
+#volume:progress {
+        background-style: solid;
+        background-color: #7e7e7e;
+		background-alpha: 1;        
+        border-style: none;
+        border-color: #5b5b5b;
+        height: 2px;
+        width: 39;
+}
+#volume:progress:bar {
+       	background-style: solid;
+        background-color: #7e7e7e;
+        background-alpha: 1;
+        border-style: none;
+        border-color: #5b5b5b;
+        height: 2px;
+        width: 39;
+}
+#volume_short:button {
+        src: url(slider_volume_icon.swf);
+        icon-padding-left: 10px;
+}
+#volume_short:progress {
+        background-style: solid;
+        background-color: #7e7e7e;
+		background-alpha: 1;        
+        border-style: none;
+        border-color: #5b5b5b;
+        height: 2px;
+        width: 9;
+}
+#volume_short:progress:bar {
+       	background-style: solid;
+        background-color: #7e7e7e;
+        background-alpha: 1;
+        border-style: none;
+        border-color: #5b5b5b;
+        height: 2px;
+        width: 9;
+}
+
+
+/* ================== test buttons & tooltip ================== */
+
+
+tooltip{
+	align: center;
+	text-align: center;
+	color: #5A5A5A;
+	border-style: solid;
+	border-color: #5A5A5A;
+	border-weight: 1px;
+	background-style: solid;
+	background-color: #E9E9E9;
+	shadow-style: solid;
+	shadow-depth: 2;
+	shadow-alpha: 0.2;
+	text-decoration: none;
+	font-weight: normal;
+	marginBottom: 3;
+	padding-top: 5px;
+	padding-bottom: 2px;
+	padding-left: 5;
+	padding-right: 3;
+	
+}
+
+#fullscreen{
+	tooltip-text: Vergroot de afbeelding;
+}
+#close_popup {
+	tooltip-text: Sluiten;
+}
+#playPause {
+	tooltip-text: Afspelen/Pause;
+}
+#stop {
+	tooltip-text: Stop;
+}
+#mute {
+	tooltip-text: mute;
+}
+#previousSlide {
+	tooltip-text: vorige dia;
+	src: url(previous_slide_icon.swf)
+}
+#nextSlide {
+	tooltip-text: volgende dia;
+	src: url(next_slide_icon.swf);
+}
+
+button{
+	src: url(pagenumber_lreport_icon.swf);
+}
+
+
+/* ================== activity ================== */
+
+
+markCorrectButton{
+	src: url(showright_icon.swf);
+	tooltip-text: Toon mijn juiste antwoorden;
+}	
+markWrongButton{
+	src: url(showwrong_icon.swf);
+	tooltip-text: Toon mijn foute antwoorden;
+}
+resetButton{
+	src: url(reset_icon.swf);
+	tooltip-text: Wis antwoorden;
+}
+showAnswersButton{
+	src: url(showanswers_icon.swf);
+	tooltip-text: Controle;
+}
+checkButton{
+	tooltip-text: Controle;
+	src: url(showright_icon.swf);
+	popup-valign: top, 74;
+	clip-content: true;
+}
+popupFeedbackButton{
+	tooltip-text: Controle;
+	src: url(showright_icon.swf);
+	popup-valign: top, 74;
+	clip-content: true;
+}
+
+
+/* ================== Activity Report ================== */
+
+.activity{
+	popup-valign: top, 74;
+	clip-content: false;
+	popup-panel: none;
+	feedback-popup:url(activityReport.utp);
+}
+
+.activity_inline{
+	clip-content: false;
+}
+
+.activity_4acac_audio{
+	popup-valign: top, 74;
+	clip-content: false;
+	popup-panel: none;
+	feedback-popup:url(activityReport.utp);
+}
+
+.activity_inline_4acac_audio{
+	clip-content: false;
+}
+
+.nofeedback_speak{
+	clip-content: false;
+}
+
+.nofeedback{
+	clip-content: false;
+}
+#feedback_list{
+	border: none;
+	background-style: none;
+	item-classes: even_item, odd_item;
+}
+
+#feedback_list:item{
+	border: none;
+	background-style: none;
+}
+
+#feedback_list:item.even_item{
+	border: none;
+	background: none;
+}
+
+#feedback_list:item.odd_item{
+	border: none;
+	background: solid;
+	background-color: #D5D5D5;
+}
+
+#feedback_list:vscroll:upArrow{
+	src: url(dict_scroll_up.swf);
+}
+ 
+#feedback_list:vscroll:downArrow{
+	src: url(dict_scroll_down.swf);
+}
+ 
+#feedback_list:vscroll:thumb{
+	src: url(dict02_scroll_slide.swf);
+}
+#feedback_list:vscroll	{
+ 	border-left-style: none;
+ 	border-left-color: #808080;
+ 	backgroundStyle: gradient;
+ 	background-gradient-colors: #94999C, #e7e7e7;
+ 	background-gradient-alphas: 1, 1;
+ 	background-gradient-ratios: 0, 100;
+}
+	
+#resultaatoverzicht{
+    content: Resultaatoverzicht;
+    font-size: 120%px;
+	font-weight: bold;
+	color: #FFFFFF;		
+}
+
+#Toon_mijn{
+    content: Toon mijn foute antwoorden;	
+}
+
+#Wis_antwoorden{
+    content: Wis antwoorden;	
+}
+
+#mark_wrong{
+	src: url(showwrong_icon.swf);
+}
+
+#reset{
+	src: url(reset_icon.swf);
+}
+
+#bg_feedbackList{
+	src: url(feedbackList_bg.png);
+}
+
+
+/* ================== jigsaw (ordering) ================== */
+
+
+orderInteraction{
+	alignWidths: false;
+	alignHeights: false;
+	orientation: vertical;
+	padding-left: 18px;
+	padding-right: 0px;
+	padding-top: 11px;
+	padding-bottom: 10px;
+	check-mode: item;
+	itemHAlign: left;
+} 
+simpleOrderChoice{
+	border-style: none;
+	backgroundStyle: gradient;
+	background-gradient-colors:#747474,#797979,#5b5b5b,#5b5b5b;
+	background-gradient-alphas:1,1,1,1;
+	background-gradient-ratios:0,32,33,100;
+	background-gradient-rotation:90;
+	text-align: center;
+	color: #FFFFFF;
+	padding-right: 5px;
+	padding-left: 4px;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	margin-bottom: 10px;
+	margin-right: 3px;
+	shadow-style: none;
+	shadow-depth: 2;
+	shadow-alpha: 0.1; 
+}
+simpleOrderChoice:over{
+	border-style: none;
+	backgroundStyle: gradient;
+	background-gradient-colors:#444444,#4e4e4e,#121212,#121212;
+	background-gradient-alphas:1,1,1,1;
+	background-gradient-ratios:0,32,33,100;
+	background-gradient-rotation:90;
+}
+simpleOrderChoice:drag{
+	border-style: none;
+	backgroundStyle: gradient;
+	background-gradient-colors:#444444,#4e4e4e,#121212,#121212;
+	background-gradient-alphas:1,1,1,1;
+	background-gradient-ratios:0,32,33,100;
+	background-gradient-rotation: 90;	
+}
+imageOrderChoice{
+	border-style: none;
+	background-style: none;
+	shadow-style: none;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+imageOrderChoice:alphaBackground:over{
+	zPosition: above;
+	border-style: none;
+	background-style: solid;
+	background-color: #FFFFFF;
+	background-alpha: 0.4;
+}
+imageOrderChoice:alphaBackground:drag{
+	zPosition: above;
+	border-style: none;
+	background-style: solid;
+	background-color: #FFFFFF;
+	background-alpha: 0.4;
+}
+.ordering_horizontal {
+	orientation: horizontal;
+	alignHeights: true;
+}
+
+
+/* ================== choice  ================== */
+
+
+choiceInteraction{
+	verticalGap: 0px;
+	padding-top: 6px;
+	padding-left: 18px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+	include-errors-in-result: true;
+}
+simpleChoice:button{
+	src: url(choice_icon.swf);
+}
+simpleChoice:button.multiple{
+	src: url(mchoice_icon.swf);
+}
+simpleChoice{
+	padding-top: 5px;
+	padding-bottom: 6px;
+	button-valign: center;
+	button-halign: left;
+	clip-content: false;
+}
+simpleChoice:content{
+	padding-left:12px;
+}
+imageChoice{
+	border-style: none;
+	background-style: none;
+	padding-top: 5px;
+	padding-bottom: 6px;
+	image-align: right;
+	buttonValign: center;
+}
+imageChoice:content{
+	margin-left: 15px;
+}
+imageChoice:button{
+	src: url(choice_icon.swf);
+}
+imageChoice:button.multiple{
+	src: url(mchoice_icon.swf);
+}
+
+/* ==== horizontal_noPopup ==== */
+
+.horizontal_noPopup{
+	padding-top: 6px;
+	padding-left: 26px;
+	orientation: horizontal; 
+}
+.horizontal_noPopup>>>imageChoice{
+	buttonHalign: center;
+	buttonValign: bottom;
+}
+.horizontal_noPopup>>>imageChoice:content{
+	margin-left: -8px;
+}
+.horizontal_noPopup>>>imageChoice:button{
+	src: url(choice_icon.swf);
+	margin-bottom: -28px;
+}
+
+.horizontal_noPopup>>>imageChoice:button.multiple{
+	src: url(mchoice_icon.swf);
+	margin-bottom: -28px;
+}
+
+/* ==== Vertical_popup_HORIZONTAL ==== */
+
+.vertical_popup_horizontal{
+	border-style: none;
+	background-style: none;
+}
+.vertical_popup_horizontal>>>imageChoice:content{
+	interface-fullscreen: url(imagePlayer_hF.utp);
+	margin-left: 15px;
+	popup-panel: none;
+}
+
+/* ==== Vertical_popup_VERTICAL ==== */
+
+.vertical_popup_vertical{
+	border-style: none;
+	background-style: none;
+}
+.vertical_popup_vertical>>>imageChoice:content{
+	interface-fullscreen: url(imagePlayer_vF.utp);
+	border-style: none;
+	background-style: none;
+	margin-left: 15px;
+	popup-panel: none;
+}
+
+/* ==== Horizontal_popup_HORIZONTAL  ==== */
+
+.horizontal_popup_horizontal {
+	padding-top: 6px;
+	padding-left: 26px;
+	orientation: horizontal;
+}
+.horizontal_popup_horizontal>>>imageChoice{
+	buttonHalign: center;
+	buttonValign: bottom;
+}
+.horizontal_popup_horizontal>>>imageChoice:content{
+	interface-fullscreen: url(imagePlayer_hF.utp);
+	margin-left: -8px;
+	popup-panel: none;
+}
+
+.horizontal_popup_horizontal>>>imageChoice:button{
+	src: url(choice_icon.swf);
+	margin-bottom: -28px;
+}
+
+.horizontal_popup_horizontal>>>imageChoice:button.multiple{
+	src: url(mchoice_icon.swf);
+	margin-bottom: -28px;
+}
+
+/* ==== Horizontal_popup_VERTICAL ==== */
+
+.horizontal_popup_vertical {
+	padding-top: 6px;
+	padding-left: 26px;
+	orientation: horizontal;
+}
+.horizontal_popup_vertical>>>imageChoice{
+	buttonHalign: center;
+	buttonValign: bottom;
+}
+.horizontal_popup_vertical>>>imageChoice:content{
+	interface-fullscreen: url(imagePlayer_vF.utp);
+	margin-left: -8px;
+	popup-panel: none;
+}
+
+.horizontal_popup_vertical>>>imageChoice:button{
+	src: url(choice_icon.swf);
+	margin-bottom: -28px;
+}
+
+.horizontal_popup_vertical>>>imageChoice:button.multiple{
+	src: url(mchoice_icon.swf);
+	margin-bottom: -28px;
+}
+
+
+/* ================== selection ================== */
+
+
+matchChoiceInteraction{
+ 	text-align: center;
+	padding-left: 18px;
+	padding-right: 0px;
+	padding-top: 17px;
+	padding-bottom: 10px;
+ 	categories-spacing: 16px;
+	categories-position: right;
+	align-categories-widths: false;
+	items-spacing: 18px;
+	align-items-widths: true;
+	align-items-heights: false;
+}
+simpleMatchItem{
+ 	border-style: none;
+	background-style: none;
+ 	text-align: left;
+}
+simpleMatchCategory {
+	font-weight: bold;
+	color: #000000;
+	padding-bottom: -4px;
+}	
+simpleMatchCategory:button{
+	src: url(choice_icon.swf);
+}
+simpleMatchCategory:button.multiple{
+	src: url(mchoice_icon.swf);
+}
+
+
+/* ================== connection ================== */
+
+
+matchInteraction{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 18px;
+	padding-right: 0px;
+	lineThickness: 1;
+	lineColor: #585858;
+	lineAlpha: 1;
+	wrongLineColor: #ff0000;
+	correctLineColor: #00c000;
+	overLineColor: #919191;
+	horizontalGap: 30px;
+	verticalGap: 7px;
+    items-in-rows: false;
+    sets-valign: middle;
+}
+simpleAssociableChoice:button{
+	src: url(connection_icon.swf);
+}
+simpleAssociableChoice:content.$set1{
+    margin-right: 7px;
+    text-align: right; 
+}
+simpleAssociableChoice:content.$set2{
+    margin-left: 10px;
+    text-align: left; 
+}
+imageAssociableChoice{
+    buttonValign: center;
+	padding-top: 2px;     
+	padding-bottom: 2px;
+}
+imageAssociableChoice:content{
+	interface-fullscreen: url(imagePlayer_vf.utp);
+	popup-panel: none;
+}
+imageAssociableChoice:alphaBackground:over{
+	zPosition: above;
+	border-style: none;
+	background-style: solid;
+	background-color: #E3E3E3;
+	background-alpha: 0.5;
+}
+imageAssociableChoice:button{
+	src: url(connection_icon.swf);
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+
+/* ================== gaps ================== */
+
+
+textInteraction{
+	padding-left: 18px;
+	padding-top: 11px;
+	clip-content: false;
+	lineHeight: 27px;
+}
+
+/*>>> gapa editable */
+textEntryInteraction{
+	border-style: solid;
+	border-color: #a4a4a4;
+	background-style: solid;
+	background-color: #FFFFFF;
+	/*gap-size-align: longest;*/
+	gap-size-align: none;
+	keyboard-interface:url(keyboard.utp);
+	keyboard-button-valign: top;
+	keyboard-button-halign: right;
+    case-sensitive: false;
+    padding-right: 5px;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+}
+
+/*>>> gapa dla sourcelisty */
+imageEntryInteraction{
+	border-style: solid;
+	border-color: #a4a4a4;
+	background-style: solid;
+	background-color: #FFFFFF;
+}
+imageEntryInteraction:dragOver {
+	border-style: solid;
+	border-color: #a4a4a4;
+	background-style: solid;
+	background-color: #FFFFFF;	
+}
+
+/*>>> dropdown */
+
+inlineChoiceInteraction{
+	border-style: solid;
+	border-color: #a4a4a4;
+	background-style: solid;
+	background-color: #FFFFFF;
+	text-align:center;
+}
+inlineChoice{
+	padding-top: 5px;
+	padding-bottom: 3px;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+inlineChoiceInteraction:list{
+	border-style: solid;
+	border-color: #a4a4a4;
+	background-style: solid;
+	background-color: #e5e5e5;
+}
+inlineChoice:over {
+	border-style: none;
+	background-style: solid;
+	background-color: #919191;
+	color: #ffffff;
+}
+inlineChoiceInteraction:button {
+	src: url(dropdown_icon.swf);
+}
+
+/*>>> textInteraction */
+
+.image{
+	padding-left: 0px;
+	padding-right: 0px;	
+	padding-top: 0px;
+	padding-bottom: 0px;
+	text-valign: top;
+	lineHeight: 15px;
+}
+.bold_image{
+	padding-left: 0px;
+	padding-right: 0px;	
+	padding-top: 0px;
+	padding-bottom: 0px;
+	text-valign: top;
+	font-weight: bold;
+	lineHeight: 15px;
+}
+.supsub{
+	padding-left: 0px;
+	padding-right: 0px;	
+	padding-top: -1px;
+	padding-bottom: 0px;
+	lineHeight: 15px;
+}
+.bold_supsub{
+	padding-left: 0px;
+	padding-right: 0px;	
+	padding-top: 0px;
+	padding-bottom: 0px;
+	font-weight: bold;
+	lineHeight: 15px;
+}
+.formula{
+	padding-left: 0px;
+	padding-right: 0px;	
+	padding-top: -6px;
+	padding-bottom: 0px;
+	lineHeight: 22px;	
+} 
+.bold_formula{
+	padding-left: 0px;
+	padding-right: 0px;	
+	padding-top: -6px;
+	padding-bottom: 0px;
+	lineHeight: 22px;	
+	font-weight: bold;
+} 
+.link{
+	padding-left: 0px;
+	padding-top: 0px;
+}
+.bold_link{
+	font-weight: bold;
+}
+
+/* === mathModul === */
+
+mi {
+    font-style: normal;
+}
+
+ms {
+    font-style: normal;		
+}
+
+msup>>>mrow:last-child {
+        margin-left: 0px;
+        margin-top: -6px;
+        
+}
+
+msub>>>mrow:last-child {
+        margin-left: 0px;
+        margin-bottom: -6px;
+}
+
+/* keyboard - gapa editable */
+
+textEntryInteraction:keyboardButton{
+	src: url(key_icon.swf);
+	margin-left: -11;
+	margin-bottom: 1;
+}
+
+editInteraction:keyboardButton{
+	src: url(key_icon.swf);
+	margin-left: -9;
+	margin-bottom: 1;
+}
+
+keyboard{
+  	cols:11;
+	rows:3;
+}
+
+keyboard:button{
+	src: url(keyboard_icon.swf);
+	label-valign: center; 
+	label-halign: center;
+	measure-label: false;
+	margin-right: 9;
+	margin-bottom: 4;
+}
+
+keyboard:label{
+  	color: #FFFFFF;
+  	font-weight: normal;
+ 	padding-right: 7;
+	padding-bottom: 3;
+}
+
+
+/* ================== sourcelist ================== */
+
+
+sourceList{  
+	orientation: horizontal;
+	padding-right: 1px;
+	padding-left: 18px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	align-widths: true;
+	align-heights: true; 
+	itemSpacing: 3px;
+	color: #FFFFFF;
+}
+simpleSourceListItem{
+	border-style: none;
+	backgroundStyle: gradient;
+	background-gradient-colors:#747474,#797979,#5b5b5b,#5b5b5b;
+	background-gradient-alphas:1,1,1,1;
+	background-gradient-ratios:0,49,50,100;
+	background-gradient-rotation:90;
+	text-align: center;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	shadow-style: none;
+	shadow-depth: 2;
+	shadow-alpha: 0.1; 
+}
+simpleSourceListItem:over{
+	border-style: none;
+	backgroundStyle: gradient;
+	background-gradient-colors:#444444,#4e4e4e,#121212,#121212;
+	background-gradient-alphas:1,1,1,1;
+	background-gradient-ratios:0,49,50,100;
+	background-gradient-rotation:90;	
+}
+simpleSourceListItem:drag{
+	border-style: none;
+	backgroundStyle: gradient;
+	background-gradient-colors:#444444,#4e4e4e,#121212,#121212;
+	background-gradient-alphas:1,1,1,1;
+	background-gradient-ratios:0,49,50,100;
+	background-gradient-rotation: 90;
+}
+
+
+/* ================== marking ================== */
+
+
+markingInteraction{
+	padding-right: 0px;
+	padding-left: 18px;
+	padding-top: 10px;
+	padding-bottom:10px;
+	include-errors-in-result: true;
+}
+markingInteraction:button {
+	src: url(mchoice_icon.swf);
+}	
+markingInteraction:button.multiple{
+	src: url(choice_icon.swf);
+}
+
+
+/* ================== labelling ================== */
+
+
+labellingInteraction{
+	padding-right: 0px;
+	padding-left: 18px;
+	padding-top: 10px;
+	padding-bottom:10px;
+	line-color: #5A5A5A;
+	line-thickness: 2px;
+	labels-position: right;
+	labels-gap: 10px;
+	clip-content: false;
+}
+labellingInteraction>>>textInteraction{
+	padding-left: 0px;
+	padding-top: 0px;	
+}
+
+.labelling_red{
+	line-color: #ff0000;
+}
+
+
+/* ================== editing ================== */
+
+
+editInteraction {
+	border-style: solid;
+	border-thickness: 1px;
+	border-color: #969696;
+	background-style: solid;
+	background-color: #FFFFFF;
+	cols: 80;
+	rows:20;
+	keyboard-interface:url(keyboard.utp);
+	keyboard-button-valign: top;
+	keyboard-button-halign: right;
+	scrollable: false;
+	lineHeight: 15px;
+}
+
+.naam {
+	cols: 19;
+	rows:1;
+	padding-top: 5px;
+	padding-bottom: 2px;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.klas{
+	cols: 6;
+	rows:1;
+	padding-top: 5px;
+	padding-bottom: 2px;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.1a{
+	border-style: none;
+	background-style: none;
+	cols: 29;
+	rows:26;
+}
+.2aa{
+	border-style: none;
+	background-style: none;
+	cols: 29;
+	rows:12;
+}
+
+
+/* ================== identification ================== */
+
+
+identificationInteraction{
+	clip-content: false;
+	include-errors-in-result: true;
+}
+.idbold>>>identificationInteraction{
+	font-weight: bold;
+}
+
+
+/* ================== externalActivity ================== */
+
+
+externalActivity{
+	margin-top: 10px;
+	margin-left: 18px;
+}
+
+
+/* ================== TABLE ================== */
+
+
+tableInteraction{
+	background-style: none;
+	border-style: none;
+	margin-left: 3px;
+	margin-top: 6px;
+        
+	align: left;
+	text-align: left;
+     
+	columnWidths: auto;
+	spacing:-1px;
+
+	rowClasses: row1_center;
+	rowClassRotation: norepeat;		
+}
+
+	
+/* ================== CHART ================== */
+
+
+tableInteraction.chart{
+
+	background-style: none;
+	border-style: none;
+	margin-left: 19px;
+	margin-top: 6px;
+        
+	align: left;
+	text-align: left;
+     
+	columnWidths: auto;
+	spacing:-1px;
+
+	rowClasses: row1_center;
+	rowClassRotation: norepeat;	
+}
+
+
+/* ========================= */
+
+td{
+
+	border-style: solid;
+	border-color: #E3E3E3;
+	border-thickness: 1;
+	
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	
+	valign: middle;
+        
+}
+
+tr.row1_center{
+	text-align: center;
+	font-weight: bold;
+    color: #333333;
+}
+
+tr.row1_left{
+	font-weight: bold;
+    color: #333333;
+}
+
+tr.row1_center_noBold{
+	text-align: center;
+	font-weight: normal;
+}
+ 
+tr.row1_left_noBold{
+	font-weight: normal;
+}
+ 
+/* ========================= */
+
+.table_left{
+	rowClasses: row1_left;
+	rowClassRotation: norepeat;
+}
+
+.table_centre{
+	align: center;
+	text-align: center;
+}
+
+.chart_left{
+	rowClasses: row1_left;
+	rowClassRotation: norepeat;
+}
+
+.chart_centre{
+	align: center;
+	text-align: center;
+}
+
+.popup_table{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.popup_table_left{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	rowClasses: row1_left;
+	rowClassRotation: norepeat;
+}
+
+.popup_table_centre{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	align: center;
+	text-align: center;
+}
+
+.popup_chart{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.popup_chart_left{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	rowClasses: row1_left;
+	rowClassRotation: norepeat;
+}
+
+.popup_chart_centre{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	align: center;
+	text-align: center;
+}
+
+/* ========= noBold ======== */
+
+.table_noBold{
+	rowClasses: row1_center_noBold;
+	rowClassRotation: norepeat;
+}
+
+.table_noBold_left{
+	rowClasses: row1_left_noBold;
+	rowClassRotation: norepeat;
+}
+
+.table_noBold_centre{
+	align: center;
+	text-align: center;
+	
+	rowClasses: row1_center_noBold;
+	rowClassRotation: norepeat;
+}
+
+.popup_table_noBold{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	rowClasses: row1_center_noBold;
+	rowClassRotation: norepeat;
+}
+
+.popup_table_noBold_left{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	rowClasses: row1_left_noBold;
+	rowClassRotation: norepeat;
+}
+
+.popup_table_noBold_centre{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	align: center;
+	text-align: center;
+	
+	rowClasses: row1_center_noBold;
+	rowClassRotation: norepeat;
+}
+
+.chart_noBold{
+	rowClasses: row1_center_noBold;
+	rowClassRotation: norepeat;
+}
+
+.chart_noBold_left{
+	rowClasses: row1_left_noBold;
+	rowClassRotation: norepeat;
+}
+.chart_noBold_centre{
+	align: center;
+	text-align: center;
+	
+	rowClasses: row1_center_noBold;
+	rowClassRotation: norepeat;
+}
+
+.popup_chart_noBold{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	rowClasses: row1_center_noBold;
+	rowClassRotation: norepeat;
+}
+
+.popup_chart_noBold_left{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	rowClasses: row1_left_noBold;
+	rowClassRotation: norepeat;
+}
+
+.popup_chart_noBold_centre{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+	align: center;
+	text-align: center;
+	
+	rowClasses: row1_center_noBold;
+	rowClassRotation: norepeat;
+}
+
+
+/* ================== Evaluation Assistant ================== */
+
+
+evaluationAssistant{
+	background-style: none;
+	border-style: none;
+	margin-left: 3px;
+	margin-top: 6px;
+        
+	valign: top;
+	align: left;
+	text-align: left;
+     
+	columnWidths: auto;
+	spacing:-1px;
+
+	rowClasses: row1_center;
+	rowClassRotation: norepeat;		
+}
+
+evaluationComment {
+	border-style: solid;
+	border-thickness: 1px;
+	border-color: #BDBDBD;
+	background-style: solid;
+	background-color: #FFFFFF;
+	fixed-height: 54px;	
+	fixed-width: 215px;
+
+}
+
+evaluationMark {
+	display-type: dropdown;
+}
+ 
+evaluationMark:dropdown {
+	border-style: solid;
+	border-color: #a4a4a4;
+	background-style: solid;
+	background-color: #FFFFFF;
+	text-align:center;     
+}
+
+evaluationMark:dropdown:list{
+	border-style: solid;
+	border-color: #a4a4a4;
+	background-style: solid;
+	background-color: #e5e5e5;
+}
+
+evaluationMark:dropdown:over {
+	border-style: none;
+	background-style: solid;
+	background-color: #919191;
+	color: #ffffff;
+}
+
+evaluationMark:dropdown:button {
+    src: url(btn_dropdown.swf);
+}
+
+        
+/* ================== speech recognition ================== */
+
+
+speechRec{
+ interface: url(speechRecInterface.utp);
+}
+
+/* ==== list === */
+
+phraseList {
+	border-style: none;
+	background-style: none;
+	phraseListElementInterface: url(phraseListElement.utp);
+	over-color: #DF0030;
+	over-alpha: 0;
+	selected-color: #ffffff;
+	selected-alpha: 0;
+	color: #595959;
+	text-over-color: #000000;
+	text-selected-color: #000000;
+	aborder: none;
+	height: 233px;
+}
+
+#phrase{
+	color: #595959;
+}
+
+phraseList:vscroll	{
+ 	background-style: solid;
+ 	background-color: #ffffff;
+}
+
+phraseList:vscroll:upArrow	{
+	src: url(dict_scroll_up.swf);
+}
+ 
+phraseList:vscroll:downArrow	{
+	src: url(dict_scroll_down.swf);
+}
+
+phraseList:vscroll:thumb	{
+	src: url(dict02_scroll_slide.swf);
+}
+
+#scoreProgress{
+	src: url(result_progress.swf);
+}
+
+/* ==== buttons/progress/layout=== */
+
+#playStopOrg{
+	src: url(playStopOrg_icon.swf);
+	tooltip-text: Beluister het fragment;
+}
+
+#recordStopRec{
+	src: url(recordStopRec_icon.swf);
+	tooltip-text: Audio opnemen;
+}
+
+#playStopRec{
+	src: url(playStopRec_icon.swf);
+	tooltip-text: Speel opname af;
+}
+
+#playProgressRec{
+	border-style: solid;
+	border-color: #585A59;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #FFFFFF;
+	height: 5px;
+}
+
+#playProgressRec:bar{
+	border-style: solid;
+	border-color: #FFFFFF;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #A41741;
+	height: 3px;
+}
+
+#globalScoreProgress {
+	src: url(result_progress.swf);
+}
+/* font-size: 8px; wips dotyczy wysokości paska, http://bugtrack/show_bug.cgi?id=31339 */
+#progresesResults{
+	border-style: solid;
+	border-color: #585A59;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #FFFFFF;
+	height: 3px;
+	
+	font-size: 8px;
+}
+
+#progresesResults:bar{
+	border-style: solid;
+	border-color: #FFFFFF;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #A41741;
+	height: 3px;
+	
+	font-size: 8px;
+}
+
+recognitionResultList {
+    width: 339;
+    div-line-color: #595959;
+}
+
+sprec:progressResultList {
+    background-style: solid;
+    background-color: #7e7e7e;
+    border-style: none;
+    border-color: #00FF00;
+    height: 3px;
+}
+
+#sumScoreProgress{
+	color: #595959;
+}
+#scoreResults{
+	color: #595959;
+}
+#wordResults{
+	color: #595959;
+}
+#chartOrg{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	background-style: gradient;
+	background-gradient-colors: #717172,#C9C9C9,#FFFFFF;
+	background-gradient-alphas: 1,1,1;
+	background-gradient-ratios:0,50,100;
+	background-gradient-rotation: 90;
+    chart-color: #000000;
+    width: 339;
+    height: 101;
+}
+
+#chartRec{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	background-style: gradient;
+	background-gradient-colors: #717172,#C9C9C9,#FFFFFF;
+	background-gradient-alphas: 1,1,1;
+	background-gradient-ratios:0,50,100;
+	background-gradient-rotation: 90;
+    chart-color: #000000;
+    div-line-color: #595959;
+    width: 339;
+    height: 101;
+    show-buttons: false;
+}
+
+#background_phrase{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #f2f2f2;
+}
+
+#background_scoreProgress{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	border-left-style: none;
+	background-style: solid;
+	background-color: #bebebe;
+}
+
+#background_chartOrg{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #f2f2f2;
+	height: 125px;
+}
+
+#background_chartRec{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #f2f2f2;
+	height: 251px;
+}
+
+#background_currentPhrase{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #FFFFFF;
+	height: 47px;
+}
+
+#backgroundLineH_speechRec{
+	background-style: solid;
+	background-color: #595959;
+	width: 1px;
+    height: 38px;
+}
+
+#backgroundLine_buttons{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	background-style: none;
+	width: 36px;
+    height: 36px;
+}
+
+#background_globalScore{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #dcdcdc;
+	height: 36px;
+}
+
+#background_sumScore{
+	border-style: solid;
+	border-color: #595959;
+	border-thickness: 1px;
+	background-style: solid;
+	background-color: #dcdcdc;
+	height: 36px;
+}
+
+#result_speechRec{
+	content: resultaat;
+}
+
+#totaal_speechRec{
+	content: TOTAAL;
+	font-weight: bold;
+}
+
+#sumScore{
+	font-weight: bold;
+}
+
+#globalScore_percent{
+	content: %;
+}
+
+#sumScore_percent{
+	content: %;
+	font-weight: bold;
+}
+
+#trackIndicator{
+    content: $[currentPhraseNum] / $[totalPhrasesNum];
+	font-weight: bold;
+	background-style: none;
+	background-color: none;
+	text-align: justify;
+}
+
+
+/* ======================= dialog ====================== */
+
+dialog {
+    interface: url(dialogInterface.utp);   
+}
+
+P1 {
+	interface: url(dialogListElementInterfaceP1.utp);
+}
+
+P2 {
+	interface: url(dialogListElementInterfaceP2.utp);
+}
+
+P3 {
+	interface: url(dialogListElementInterfaceP3.utp);
+}
+
+P4 {
+	interface: url(dialogListElementInterfaceP4.utp);
+}
+
+/* ==== list === */
+
+dialogListPanel {
+    border-style: none;
+	background-style: none;
+	background-color: #FF0000;
+}
+
+dialogList {
+	vertical-gap: 2;
+	border-style: none;
+	background-style: none;
+	background-color: #FFFF00;
+}
+
+dialogListPanel:vscroll	{
+ 	background-style: none;
+}
+
+dialogListPanel:vscroll:upArrow	{
+	src: url(dict_scroll_up.swf);
+}
+ 
+dialogListPanel:vscroll:downArrow	{
+	src: url(dict_scroll_down.swf);
+}
+
+dialogListPanel:vscroll:thumb	{
+	src: url(dict02_scroll_slide.swf);
+}
+
+#personName{
+	font-weight: bold;
+}
+
+/* ==== buttons === */
+
+#playMe{
+	src: url(playStopRec_icon.swf);
+	tooltip-text: Speel opname af;
+}
+
+#record{
+	src: url(recordStopRec_icon.swf);
+	tooltip-text: Audio opnemen;
+}
+
+#play{
+	src: url(playStopOrg_icon.swf);
+	tooltip-text: Beluister het fragment;
+}

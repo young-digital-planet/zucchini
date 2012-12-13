@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.scripts.TestScriptsManager" tests="3" failures="0" errors="0" skipped="0" time="0,011" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation.scripts::TestScriptsManager" name="should_initialize_scripts" time="0,009"/>
+  <testcase classname="pl.ydp.automation.scripts::TestScriptsManager" name="should_load_scripts" time="0,001"/>
+  <testcase classname="pl.ydp.automation.scripts::TestScriptsManager" name="should_parse_scripts" time="0,001"/>
+</testsuite>

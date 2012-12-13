@@ -1,0 +1,103 @@
+<project name="zucchini.lib.tests" default="test"  xmlns:ivy="antlib:org.apache.ivy.ant">
+	<!--
+		mandatory properties:
+			FLEX_HOME
+		optional properties:
+			
+	-->
+	<dirname property="base.dir" file="${ant.file.zucchini.lib.tests}" />
+	
+	
+	
+	<property file="${base.dir}/../local.properties" />
+	<property file="${base.dir}/../default.properties" />
+	
+	<property name="src.dir" value="${base.dir}/src" />
+	<property name="bin.dir" value="${base.dir}/bin" />
+	<property name="assets.dir" value="${base.dir}/assets" />
+	<property name="lib.dir" value="${base.dir}/ivy-lib" />
+	<property name="zucchini.src.dir" value="${base.dir}/../src" />
+	<property name="zucchini.bin.dir" value="${base.dir}/../bin" />
+	<property name="zucchini.ivy.lib.dir" value="${base.dir}/../ivy-lib" />
+	<property name="zucchini.libs.dir" value="${base.dir}/../libs" />
+	<property name="report.dir" value="${base.dir}/tests.report" />
+	
+	
+	
+	<property name="FLEX_HOME" value="${env.FLEX_HOME}" />
+
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" onerror="fail"/>
+	<taskdef resource="flexUnitTasks.tasks">
+		   <classpath>
+		      <fileset dir="${zucchini.ivy.lib.dir}">
+		         <include name="flexUnitTasks*.jar" />
+		      </fileset>
+		   </classpath>
+	</taskdef>
+	
+	<patternset id="flex.libs">
+	       <include name="libs/playerglobal.swc" />
+	       <include name="libs/flex.swc" />
+	       <include name="libs/framework.swc" />
+	       <include name="locale/{locale}" />
+	</patternset>
+	
+	<target name="retrieve">
+		<makeurl file="${ivy.settings.file}" property="ivy.settings.url_t" validate="false"/>
+		<condition property="ivy.settings.url" value="${ivy.settings.url_t}" else="${ivy.settings.url.default}" >
+			<isset property="ivy.settings.file" />
+		</condition>
+		<ivy:configure url="${ivy.settings.url}" />
+	
+		<ivy:resolve />
+		<ivy:retrieve pattern="${lib.dir}/[artifact].[ext]" />
+	</target>
+	
+	<target name="resolve" depends="retrieve" />
+		
+	<target name="time">
+		<tstamp>
+			<format property="utopia.timestamp" pattern="HH:mm:ss dd-MM-yyyy" />
+		</tstamp>
+	</target>
+	
+	
+	<target name="test" depends="clean,resolve">
+			
+			<mkdir dir="${bin.dir}"/>
+				
+			<copy todir="${bin.dir}/assets" preservelastmodified="true" includeEmptyDirs="true">
+				<fileset dir="${assets.dir}" />
+			</copy>
+		
+			<mkdir dir="${report.dir}"/>
+		
+			<flexunit player="air" 
+				workingDir="${bin.dir}"
+				toDir="${report.dir}" 
+				haltonfailure="true" 
+				verbose="true">
+				<source dir="${zucchini.src.dir}" />
+				<testSource dir="${src.dir}">
+					<include name="**/Test*.as" />
+				</testSource>
+				<library dir="${lib.dir}" />
+				<library dir="${zucchini.ivy.lib.dir}" />
+				<library dir="${zucchini.libs.dir}" />
+			</flexunit>
+
+			<junitreport todir="${report.dir}">
+				<fileset dir="${report.dir}">
+					<include name="TEST-*.xml" />
+				</fileset>
+				<report format="frames" todir="${report.dir}/html" />
+			</junitreport>
+	</target>
+	
+
+	<target name="clean" description="Clean build location">
+		<delete dir="${bin.dir}" />
+		<delete dir="${lib.dir}" />
+		<delete dir="${report.dir}" />
+	</target>
+</project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.execution.storage.TestStorageManager" tests="2" failures="0" errors="0" skipped="0" time="0,012" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation.execution.storage::TestStorageManager" name="should_get_pattern_file" time="0,009"/>
+  <testcase classname="pl.ydp.automation.execution.storage::TestStorageManager" name="should_get_utt_file" time="0,003"/>
+</testsuite>

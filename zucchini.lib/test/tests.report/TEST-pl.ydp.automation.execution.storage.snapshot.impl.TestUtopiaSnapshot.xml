@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.execution.storage.snapshot.impl.TestUtopiaSnapshot" tests="1" failures="0" errors="0" skipped="0" time="0,001" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation.execution.storage.snapshot.impl::TestUtopiaSnapshot" name="should_get_bitmap_data_from_snapshot" time="0,001"/>
+</testsuite>

@@ -1,0 +1,68 @@
+#sendFlagsAndExitButton{
+	src: url(btn_end.swf);
+	display: none;
+	}
+#skipPageButton{
+	src: url(btn_skip.swf);
+	display: none;
+	}	
+#slownik{
+	src: url(btn_slownik.swf);
+	tooltip-text: Słownik;
+	display: none;
+	}	
+#gramatyka{
+	src: url(btn_gramatyka.swf);
+	tooltip-text: Gramatyka;
+	display: none;
+	}	
+checkButton{
+	src: url(btn_check.swf);
+	display: run-in;
+	}
+.wskazowka{
+	src: url(btn_wskazowka.swf);
+	display: none;
+	}	
+.modelowe{
+	src: url(btn_modelowe.swf);
+	display: none;
+	}	
+.teoria{
+	src: url(btn_teoria.swf);
+	display: none;
+	}
+.teoria_scroll{
+	src: url(btn_teoria.swf);
+	popup-panel: url(popupPanel_scroll.utp);
+	display: none;
+	}
+.zrodla{
+	src: url(btn_zrodla.swf);
+	tooltip-text: Kliknij - materiał dodatkowy;
+	display: run-in;
+	}
+.open_question{
+	src: url(btn_check.swf);
+	display: none;
+	}	
+
+#end_test{
+	src: url(btn_end_test.swf);
+	display: none;
+	}
+#skip_test{
+	src: url(btn_exit.swf);
+	display: run-in;
+	}	
+
+timePlugin{ 
+	display: none;
+} 
+
+
+
+
+
+
+

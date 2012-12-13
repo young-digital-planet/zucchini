@@ -1,0 +1,1 @@
+<testsuite name="makeSnapshot" errors="0" failures="1" tests="2"><testcase classname="makeSnapshot" name="check utopia structure working"><failure message="Snapshot pattern load failed"/></testcase></testsuite>

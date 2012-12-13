@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem compilerVersion="3.1.0.38" playerVersion="1.8.4" timeLimit="PT01M00S" version="2.2">	
+<title>Zadanie 1
+</title><lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+	<general>
+		<title><string>Zadanie 1</string></title>
+	</general>
+	<metaMetadata>
+      <contribute>
+        <role>
+          <source>LOMv1.0</source>
+          <value>creator</value>
+        </role>
+        <entity>Anna Strzelińska</entity>
+      </contribute>
+	</metaMetadata>
+	<classification>
+		<purpose>
+			<source>LOMv1.0</source>
+			<value>educational objective</value>
+		</purpose>
+		<taxonPath>
+			<source><string>geografia|g</string></source>
+			<taxon>
+				<id>o|I</id>
+				<entry><string>Korzystanie z różnych źródeł informacji geograficznej.</string></entry>
+			</taxon>
+		</taxonPath>
+		<taxonPath>
+			<source><string>geografia|g</string></source>
+			<taxon>
+				<id>o|II</id>
+				<entry><string>Identyfikowanie związkówi zależności oraz wyjaśnianie zjawisk i procesów.</string></entry>
+			</taxon>
+		</taxonPath>
+		<taxonPath>
+			<source><string>geografia|g</string></source>
+			<taxon>
+				<id>s|.3.2</id>
+				<entry><string>Wybrane zagadnienia geografii fizycznej. Uczeń: charakteryzuje na podstawie wykresów lub danych liczbowych przebieg temperatur powietrza i opadów atmosferycznych w ciąguroku w wybranych stacjach meteorologicznych położonych w różnych strefach klimatycznych […].</string></entry>
+			</taxon>
+		</taxonPath>
+		<taxonPath>
+			<source><string>geografia|g</string></source>
+			<taxon>
+				<id>s|.10.5</id>
+				<entry><string>Wybrane regiony świata. Relacje: człowiek przyroda gospodarka. Uczeń: wykazuje związek pomiędzy rytmem upraw i „kulturąryżu” a cechami klimatu monsunowego w Azji Południowo-Wschodniej.</string></entry>
+			</taxon>
+		</taxonPath>
+	</classification>
+	<educational>
+		<learningresourcetype>
+  			<source>ydpExercise</source>
+  			<value>id</value>
+		</learningresourcetype>
+		<typicallearningtime>PT01M00S</typicallearningtime>
+		<intendedenduserrole>
+  			<source>LOMv1.0</source>
+  			<value>learner</value>
+ 		</intendedenduserrole>
+	</educational>
+	<lifecycle>
+		<contribute>
+			<role>
+				<source>LOMv1.0</source>
+				<value>author</value>
+			</role>
+			<entity>
+			<![CDATA[ 
+				BEGIN:VCARD
+    			FN:Anna Strzelińska
+    			END:VCARD
+   			]]> 
+			</entity>
+		</contribute>
+	</lifecycle>
+	<annotation>
+ 		<entity>coursetype</entity>
+ 		<description><string>basic</string></description>
+	</annotation>
+	<annotation>
+ 		<entity>numberofpoints</entity>
+ 		<description><string>1</string></description>
+	</annotation>
+</lom>
+<properties><property name="width">795</property><property name="height">500</property></properties><stylesheet href="../common/default.css"/><layout><table cols="1" rows="3"><col/><row/><row/><row/><layer name="C_layout"><tr><td align="justify" padding-bottom="6" padding-left="6" padding-right="6" padding-top="10"><table cols="2" rows="1"><col width="min"/><col/><row/><layer><tr><td valign="middle"><module ref="dummy4"/></td><td align="justify" valign="middle"><module ref="dummy1"/></td></tr></layer></table></td></tr><tr><td align="justify" padding-bottom="6" padding-top="8"><table cols="1" rows="2"><col/><row/><row/><layer><tr><td align="center" valign="middle"><module ref="sourcelist"/></td></tr><tr><td align="justify" padding-bottom="10" padding-left="10" padding-right="10" padding-top="10"><module ref="container_dummy2"/></td></tr></layer></table></td></tr><tr><td align="justify"><table cols="2" rows="1"><col width="min"/><col/><row/><layer><tr><td><module ref="dummy3"/></td><td padding-right="245"><module ref="checkButton1"/></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody>			<!-- cannot find module for dummy 'dummy4'!-->
+<simpleText class="" id="dummy1">W tabeli zamieszczono średnie miesięczne i roczne sumy opadów atmosferycznych (w mm) w trzech stacjach (A–C). Zaznacz stację, która leży w Indiach, w klimacie zwrotnikowym monsunowym. (1 p.)<style><font weight="bold"/></style></simpleText>
+			<!-- cannot find module for dummy 'sourcelist'!-->
+<!--Inline skin: ../common/activity-chart.dls.utp--><activityContainer id="container_dummy2"><layout><table cols="1" rows="1"><col/><row/><layer><tr><td><table cols="1" rows="1"><col/><row/><layer><tr><td><module ref="dummy2"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><tableInteraction class="chart chart02" cols="14" id="dummy2" rows="4">
+	<col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/><col class="$chart"/>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Stacja</simpleText>		</td>
+		<td class="chart">
+<simpleText>I</simpleText>		</td>
+		<td class="chart">
+<simpleText>II</simpleText>		</td>
+		<td class="chart">
+<simpleText>III</simpleText>		</td>
+		<td class="chart">
+<simpleText>IV</simpleText>		</td>
+		<td class="chart">
+<simpleText>V</simpleText>		</td>
+		<td class="chart">
+<simpleText>VI</simpleText>		</td>
+		<td class="chart">
+<simpleText>VII</simpleText>		</td>
+		<td class="chart">
+<simpleText>VIII</simpleText>		</td>
+		<td class="chart">
+<simpleText>IX</simpleText>		</td>
+		<td class="chart">
+<simpleText>X</simpleText>		</td>
+		<td class="chart">
+<simpleText>XI</simpleText>		</td>
+		<td class="chart">
+<simpleText>XII</simpleText>		</td>
+		<td class="chart">
+<simpleText>Rok</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+	
+<!--Inline skin: ../common/activity-cloze.dls.utp--><activityContainer id="container_dummy2_x0y1"><layout><table cols="1" rows="2"><col/><row/><row/><layer><tr><td><table cols="1" rows="1"><col/><row/><layer><tr><td><module ref="dummy2_x0y1"/></td></tr></layer></table></td></tr><tr><td align="justify"><module ref="feedback"/></td></tr></layer></table></layout><itemBody><textInteraction class="" id="dummy2_x0y1">
+<identificationInteraction class="chart02" groupId="a" weight="0"><b>A</b></identificationInteraction></textInteraction><textFeedbackView id="feedback"/></itemBody></activityContainer>
+		</td>
+		<td class="chart">
+<simpleText>1</simpleText>		</td>
+		<td class="chart">
+<simpleText>2</simpleText>		</td>
+		<td class="chart">
+<simpleText>3</simpleText>		</td>
+		<td class="chart">
+<simpleText>8</simpleText>		</td>
+		<td class="chart">
+<simpleText>13</simpleText>		</td>
+		<td class="chart">
+<simpleText>42</simpleText>		</td>
+		<td class="chart">
+<simpleText>58</simpleText>		</td>
+		<td class="chart">
+<simpleText>52</simpleText>		</td>
+		<td class="chart">
+<simpleText>26</simpleText>		</td>
+		<td class="chart">
+<simpleText>6</simpleText>		</td>
+		<td class="chart">
+<simpleText>3</simpleText>		</td>
+		<td class="chart">
+<simpleText>3</simpleText>		</td>
+		<td class="chart">
+<simpleText>217</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+	
+<!--Inline skin: ../common/activity-cloze.dls.utp--><activityContainer id="container_dummy2_x0y2"><layout><table cols="1" rows="2"><col/><row/><row/><layer><tr><td><table cols="1" rows="1"><col/><row/><layer><tr><td><module ref="dummy2_x0y2"/></td></tr></layer></table></td></tr><tr><td align="justify"><module ref="feedback"/></td></tr></layer></table></layout><itemBody><textInteraction class="" id="dummy2_x0y2">
+<identificationInteraction class="chart02" groupId="a" weight="0"><b>B</b></identificationInteraction></textInteraction><textFeedbackView id="feedback"/></itemBody></activityContainer>
+		</td>
+		<td class="chart">
+<simpleText>410</simpleText>		</td>
+		<td class="chart">
+<simpleText>382</simpleText>		</td>
+		<td class="chart">
+<simpleText>478</simpleText>		</td>
+		<td class="chart">
+<simpleText>323</simpleText>		</td>
+		<td class="chart">
+<simpleText>228</simpleText>		</td>
+		<td class="chart">
+<simpleText>259</simpleText>		</td>
+		<td class="chart">
+<simpleText>289</simpleText>		</td>
+		<td class="chart">
+<simpleText>218</simpleText>		</td>
+		<td class="chart">
+<simpleText>121</simpleText>		</td>
+		<td class="chart">
+<simpleText>133</simpleText>		</td>
+		<td class="chart">
+<simpleText>170</simpleText>		</td>
+		<td class="chart">
+<simpleText>357</simpleText>		</td>
+		<td class="chart">
+<simpleText>3368</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+	
+<!--Inline skin: ../common/activity-cloze.dls.utp--><activityContainer id="container_dummy2_x0y3"><layout><table cols="1" rows="2"><col/><row/><row/><layer><tr><td><table cols="1" rows="1"><col/><row/><layer><tr><td><module ref="dummy2_x0y3"/></td></tr></layer></table></td></tr><tr><td align="justify"><module ref="feedback"/></td></tr></layer></table></layout><itemBody><textInteraction class="" id="dummy2_x0y3">
+<identificationInteraction class="chart02" groupId="a" weight="1"><b>C</b></identificationInteraction></textInteraction><textFeedbackView id="feedback"/></itemBody></activityContainer>
+		</td>
+		<td class="chart">
+<simpleText>3</simpleText>		</td>
+		<td class="chart">
+<simpleText>1</simpleText>		</td>
+		<td class="chart">
+<simpleText>1</simpleText>		</td>
+		<td class="chart">
+<simpleText>2</simpleText>		</td>
+		<td class="chart">
+<simpleText>14</simpleText>		</td>
+		<td class="chart">
+<simpleText>518</simpleText>		</td>
+		<td class="chart">
+<simpleText>647</simpleText>		</td>
+		<td class="chart">
+<simpleText>384</simpleText>		</td>
+		<td class="chart">
+<simpleText>276</simpleText>		</td>
+		<td class="chart">
+<simpleText>55</simpleText>		</td>
+		<td class="chart">
+<simpleText>14</simpleText>		</td>
+		<td class="chart">
+<simpleText>2</simpleText>		</td>
+		<td class="chart">
+<simpleText>2129</simpleText>		</td>
+	</tr>
+</tableInteraction></itemBody></activityContainer>
+<activityContainer class="wskazowki" id="dummy3">
+<layout><table cols="1" rows="1"><col/><row/><layer><tr><td><table cols="3" rows="1"><col/><col/><col/><row/><layer><tr><td><module ref="dummy1"/></td><td><module ref="dummy2"/></td><td><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><button class="teoria" href="script_00034_p000.utp" id="dummy1"/>
+			<!-- cannot find module for dummy 'dummy2'!-->
+			<!-- cannot find module for dummy 'dummy3'!-->
+</itemBody>
+</activityContainer><checkButton id="checkButton1"/></itemBody></assessmentItem>

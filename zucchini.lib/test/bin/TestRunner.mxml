@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication 
+xmlns:mx="http://www.adobe.com/2006/mxml" 
+creationComplete="runTests();">
+   
+   <mx:Script>
+      <![CDATA[
+         import org.flexunit.listeners.AirCIListener;
+         import org.flexunit.runner.FlexUnitCore;
+         import org.flexunit.runner.Request;
+         
+import pl.ydp.automation.TestAutomationCaptain;
+import pl.ydp.automation.TestAutomationEngine;
+import pl.ydp.automation.TestIntegrityAutomation;
+import pl.ydp.automation.TestScriptsEngine;
+import pl.ydp.automation.configuration.TestEnvironmentModel;
+import pl.ydp.automation.configuration.settings.TestSettingsGateway;
+import pl.ydp.automation.execution.TestAutomationScript;
+import pl.ydp.automation.execution.TestExecutionManager;
+import pl.ydp.automation.execution.report.TestReportData;
+import pl.ydp.automation.execution.report.TestReportDataFactory;
+import pl.ydp.automation.execution.report.TestReportExporter;
+import pl.ydp.automation.execution.report.TestReportManager;
+import pl.ydp.automation.execution.report.TestReportModel;
+import pl.ydp.automation.execution.report.impl.TestJUnitReportFormatter;
+import pl.ydp.automation.execution.storage.TestStorageManager;
+import pl.ydp.automation.execution.storage.snapshot.TestSnapshotsManager;
+import pl.ydp.automation.execution.storage.snapshot.impl.TestUtopiaSnapshot;
+import pl.ydp.automation.fs.TestFilesystemScripts;
+import pl.ydp.automation.parser.TestParserUtil;
+import pl.ydp.automation.parser.impl.TestScriptParser;
+import pl.ydp.automation.parser.vo.TestFeature;
+import pl.ydp.automation.parser.vo.TestScenario;
+import pl.ydp.automation.scripts.TestScriptsManager;
+import pl.ydp.automation.scripts.TestScriptsModel;
+import pl.ydp.automation.scripts.steps.TestStepFactory;
+import pl.ydp.automation.scripts.steps.TestStepsNamespace;
+import pl.ydp.automation.scripts.steps.TestStepsResolver;
+import pl.ydp.automation.scripts.steps.base.TestStep;
+import pl.ydp.automation.scripts.steps.impl.TestPressButtonStep;
+import pl.ydp.utils.TestEventUtils;
+import pl.ydp.utils.TestFilesystemUtil;
+
+         
+         public function runTests() : void {
+            var core : FlexUnitCore = new FlexUnitCore();
+            core.addListener(new AirCIListener());
+            
+			var request:Request = Request.qualifyClasses.apply(
+					null, 
+[TestAutomationCaptain,TestAutomationEngine,TestIntegrityAutomation,TestScriptsEngine,TestEnvironmentModel,TestSettingsGateway,TestAutomationScript,TestExecutionManager,TestReportData,TestReportDataFactory,TestReportExporter,TestReportManager,TestReportModel,TestJUnitReportFormatter,TestStorageManager,TestSnapshotsManager,TestUtopiaSnapshot,TestFilesystemScripts,TestParserUtil,TestScriptParser,TestFeature,TestScenario,TestScriptsManager,TestScriptsModel,TestStepFactory,TestStepsNamespace,TestStepsResolver,TestStep,TestPressButtonStep,TestEventUtils,TestFilesystemUtil]
+				);
+            core.run(request);
+         }
+      ]]>
+   </mx:Script>
+</mx:WindowedApplication>

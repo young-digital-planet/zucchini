@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem playerVersion="1.8.4" version="2.2">	
+<title>text type image
+
+</title><properties><property name="width">783</property><property name="height">550</property></properties><stylesheet href="../common/default.css"/><stylesheet href="../common/layout.css"/><layout><table cols="1" rows="1"><col/><row/><layer name="3aaa"><tr><td align="justify" valign="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="background"><tr><td/></tr><tr><td padding-bottom="14" padding-left="20" padding-top="12"><table cols="1" rows="1"><col width="735"/><row/><layer name="background"><tr><td align="justify" valign="justify"><module ref="background_content"/></td></tr></layer></table></td></tr></layer><layer name="content"><tr><td><module ref="pageTitle"/></td></tr><tr><td padding-left="20" padding-top="12"><table cols="1" rows="3"><col width="735"/><row/><row/><row/><layer name="bg_sizeH_content"><tr><td align="justify" valign="justify"><module ref="shape1"/></td></tr><tr><td align="justify" padding-top="27" valign="justify"><module ref="shape2"/></td></tr><tr><td align="justify" padding-top="28" valign="justify"><module ref="shape3"/></td></tr></layer><layer name="content"><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr><tr><td align="justify" padding-top="27" valign="justify"><module ref="dummy2"/></td></tr><tr><td align="justify" padding-top="28" valign="justify"><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody><shape height="502" id="background_content"/><simpleTestInfo id="pageTitle"/><shape height="149" id="shape1"/><shape height="149" id="shape2"/><shape height="149" id="shape3"/><textInteraction class="bold_image" id="dummy1">De schaduw van de bal valt op het scherm. Teken twee lijnen die de schaduw op het scherm aangeven.
+<br/>
+Klik op het middelpunt van de vlam en trek een lijn naar het scherm.
+<br/>
+Als je klaar bent, klik je op <img class="" src="media/test.swf"/> om je antwoord te controleren. 
+<br/>
+Klik op <img class="" src="media/test.swf"/> om uitleg te krijgen over de werking van de verschillende knoppen.
+<br/>
+[text type=bold_image]</textInteraction>
+<textInteraction class="image" id="dummy2">De schaduw van de bal valt op het scherm. Teken twee lijnen die de schaduw op het scherm aangeven.
+<br/>
+Klik op het middelpunt van de vlam en trek een lijn naar het scherm.
+<br/>
+Als je klaar bent, klik je op <img class="" src="media/test.swf"/> om je antwoord te controleren. 
+<br/>
+Klik op <img class="" src="media/test.swf"/> om uitleg te krijgen over de werking van de verschillende knoppen.
+<br/>
+[text type=image]</textInteraction>
+<textInteraction class="" id="dummy3">De schaduw van de bal valt op het scherm. Teken twee lijnen die de schaduw op het scherm aangeven.
+<br/>
+Klik op het middelpunt van de vlam en trek een lijn naar het scherm.
+<br/>
+Als je klaar bent, klik je op <img class="" src="media/test.swf"/> om je antwoord te controleren. 
+<br/>
+Klik op <img class="" src="media/test.swf"/> om uitleg te krijgen over de werking van de verschillende knoppen.
+<br/>
+[text]</textInteraction>
+</itemBody></assessmentItem>

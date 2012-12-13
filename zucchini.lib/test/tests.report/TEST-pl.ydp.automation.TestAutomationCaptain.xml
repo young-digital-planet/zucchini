@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.TestAutomationCaptain" tests="3" failures="0" errors="0" skipped="1" time="0,023" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation::TestAutomationCaptain" name="should_configure_automation" time="0,011"/>
+  <testcase classname="pl.ydp.automation::TestAutomationCaptain" name="should_execute_automation" time="0,011">
+    <skipped/>
+  </testcase>
+  <testcase classname="pl.ydp.automation::TestAutomationCaptain" name="should_prepare_automation" time="0,001"/>
+</testsuite>

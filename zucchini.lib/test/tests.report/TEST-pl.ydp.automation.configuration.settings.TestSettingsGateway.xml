@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.configuration.settings.TestSettingsGateway" tests="3" failures="0" errors="0" skipped="0" time="0,016" hostname="mkocieniewski" timestamp="2012-12-13T09:13:34">
+  <testcase classname="pl.ydp.automation.configuration.settings::TestSettingsGateway" name="should_no_pass_scripts_to_model_B" time="0,011"/>
+  <testcase classname="pl.ydp.automation.configuration.settings::TestSettingsGateway" name="should_pass_scripts_to_model" time="0,004"/>
+  <testcase classname="pl.ydp.automation.configuration.settings::TestSettingsGateway" name="should_no_pass_scripts_to_model_A" time="0,001"/>
+</testsuite>

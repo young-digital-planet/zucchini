@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.execution.report.TestReportManager" tests="4" failures="0" errors="0" skipped="0" time="0,011" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation.execution.report::TestReportManager" name="should_finish_report" time="0,009"/>
+  <testcase classname="pl.ydp.automation.execution.report::TestReportManager" name="should_dispatch_reports_exported_signal" time="0,001"/>
+  <testcase classname="pl.ydp.automation.execution.report::TestReportManager" name="should_initialize_report" time="0,000"/>
+  <testcase classname="pl.ydp.automation.execution.report::TestReportManager" name="should_handle_step_result" time="0,001"/>
+</testsuite>

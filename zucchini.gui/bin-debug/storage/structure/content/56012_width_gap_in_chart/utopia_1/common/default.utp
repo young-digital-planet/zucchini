@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem
+		 version="2.2"
+>
+	<properties>
+		<property name="width">928</property>
+		<property name="height">300</property>
+	</properties>
+	<stylesheet href="default.css"/>
+	<layout>
+		<table cols="1" rows="1" spacing="10">
+			<col width="1!"/>
+			<row/>
+			<layer>
+				<tr>
+					<td align="center" valign="justify">
+						<table cols="1" rows="1">
+							<col width="750"/>
+							<row/>
+							<layer>
+								<tr>
+									<td align="justify">
+										<table cols="2" rows="1">
+											<col/>
+											<col width="32"/>
+											<row/>
+											<layer>
+												<tr>
+													<td align="justify">
+														<table cols="1" rows="2">
+															<col/>
+															<row/>
+															<row/>
+															<layer>
+																<tr>
+																	<td align="justify" valign="justify">
+																		<table cols="1" rows="1">
+																			<col/>
+																			<row/>
+																			<layer name="bg_panel_top">
+																				<tr>
+																					<td align="justify" valign="justify">
+																						<module ref="panel_top"/>
+																					</td>
+																				</tr>
+																			</layer>
+																			<layer name="navigation">
+																				<tr>
+																					<td align="justify" valign="justify">
+																						<table cols="2" rows="1">
+																							<col width="1!"/>
+																							<col/>
+																							<row/>
+																							<layer name="navigation">
+																								<tr>
+																									<td padding-left="13">
+																										<table cols="1" rows="2">
+																											<col/>
+																											<row/>
+																											<row/>
+																											<layer name="title">
+																												<tr>
+																													<td padding-top="7">
+																														<module ref="testTitle"/>
+																													</td>
+																												</tr>
+																												<tr>
+																													<td padding-left="1" padding-top="1">
+																														<module ref="currentPageTitle"/>
+																													</td>
+																												</tr>
+																											</layer>
+																										</table>
+																									</td>
+																									<td align="right" padding-right="8">
+																										<module ref="pagesSwitchBox1"/>
+																									</td>
+																								</tr>
+																							</layer>
+																						</table>
+																					</td>
+																				</tr>
+																			</layer>
+																		</table>
+																	</td>
+																</tr>
+																<tr>
+																	<td align="justify" padding-top="15" valign="justify">
+																		<table cols="1" rows="1">
+																			<col/>
+																			<row/>
+																			<layer name="bg_panel_bottom">
+																				<tr>
+																					<td align="justify" valign="bottom">
+																						<table cols="1" rows="1">
+																							<col/>
+																							<row/>
+																							<layer name="panel_bottom">
+																								<tr>
+																									<td align="justify" valign="justify">
+																										<module ref="panel_bottom"/>
+																									</td>
+																								</tr>
+																							</layer>
+																						</table>
+																					</td>
+																				</tr>
+																			</layer>
+																			<layer name="pageInPage">
+																				<tr>
+																					<td align="justify" padding-left="15" padding-right="15" valign="justify">
+																						<module ref="pageInPage"/>
+																					</td>
+																				</tr>
+																			</layer>
+																			<layer name="navigation">
+																				<tr>
+																					<td align="justify" valign="bottom">
+																						<table cols="3" rows="1">
+																							<col/>
+																							<col/>
+																							<col/>
+																							<row/>
+																							<layer>
+																								<tr>
+																									<td padding-left="8">
+																										<module ref="prevItemNavigation1"/>
+																									</td>
+																									<td align="center" padding-bottom="10" valign="bottom">
+																										<module ref="indicator"/>
+																									</td>
+																									<td align="right" padding-right="8" valign="bottom">
+																										<module ref="nextItemNavigation1"/>
+																									</td>
+																								</tr>
+																							</layer>
+																						</table>
+																					</td>
+																				</tr>
+																			</layer>
+																		</table>
+																	</td>
+																</tr>
+															</layer>
+														</table>
+													</td>
+													<td padding-left="2">
+														<module ref="teacherPanel1"/>
+													</td>
+												</tr>
+											</layer>
+										</table>
+									</td>
+								</tr>
+							</layer>
+						</table>
+					</td>
+				</tr>
+			</layer>
+		</table>
+	</layout>
+	<stylesheet href="default.css"/>
+	<itemBody>
+		<shape height="40" id="panel_top">
+			<style>
+				<backgroundGradient rotation="90"/>
+			</style>
+		</shape>
+		<simpleTestInfo id="testTitle"/>
+		<simpleTestInfo id="currentPageTitle">
+			<style>
+				<background alpha="1.0" color="#F50915" style="none"/>
+			</style>
+		</simpleTestInfo>
+		<pagesSwitchBox id="pagesSwitchBox1"/>
+		<shape height="40" id="panel_bottom">
+			<style>
+				<backgroundGradient rotation="90"/>
+			</style>
+		</shape>
+		<pageInPage id="pageInPage"/>
+		<prevItemNavigation id="prevItemNavigation1"/>
+		<simpleTestInfo id="indicator"/>
+		<nextItemNavigation id="nextItemNavigation1"/>
+		<!--
+		<teacherPanel id="teacherPanel1"/>
+		-->
+	</itemBody>
+</assessmentItem>

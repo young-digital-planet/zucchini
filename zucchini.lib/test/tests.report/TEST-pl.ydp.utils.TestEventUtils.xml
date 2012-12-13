@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.utils.TestEventUtils" tests="2" failures="0" errors="0" skipped="0" time="0,003" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.utils::TestEventUtils" name="should_redispatch_clone_event" time="0,001"/>
+  <testcase classname="pl.ydp.utils::TestEventUtils" name="should_call_cleanup" time="0,002"/>
+</testsuite>

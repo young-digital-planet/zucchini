@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This is an auto generated file and is not intended for modification. -->
+
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml"
+						xmlns:flexui="flexunit.flexui.*"
+						creationComplete="onCreationComplete()" layout="absolute">
+	<mx:Script>
+		<![CDATA[
+			import pl.ydp.automation.execution.storage.snapshot.TestSnapshotsManager;
+			import pl.ydp.utils.TestFilesystemUtil;
+			import pl.ydp.utils.TestEventUtils;
+			import pl.ydp.automation.scripts.steps.base.TestStep;
+			import pl.ydp.automation.scripts.steps.TestStepsResolver;
+			import pl.ydp.automation.scripts.steps.TestStepsNamespace;
+			import pl.ydp.automation.scripts.steps.TestStepFactory;
+			import pl.ydp.automation.scripts.TestScriptsModel;
+			import pl.ydp.automation.scripts.TestScriptsManager;
+			import pl.ydp.automation.parser.vo.TestScenario;
+			import pl.ydp.automation.parser.vo.TestFeature;
+			import pl.ydp.automation.parser.impl.TestScriptParser;
+			import pl.ydp.automation.parser.TestParserUtil;
+			import pl.ydp.automation.fs.TestFilesystemScripts;
+			import pl.ydp.automation.execution.storage.snapshot.impl.TestUtopiaSnapshot;
+			import pl.ydp.automation.execution.storage.TestStorageManager;
+			import pl.ydp.automation.execution.report.impl.TestJUnitReportFormatter;
+			import pl.ydp.automation.execution.report.TestReportModel;
+			import pl.ydp.automation.execution.report.TestReportManager;
+			import pl.ydp.automation.execution.report.TestReportExporter;
+			import pl.ydp.automation.execution.report.TestReportDataFactory;
+			import pl.ydp.automation.execution.report.TestReportData;
+			import pl.ydp.automation.execution.TestExecutionManager;
+			import pl.ydp.automation.execution.TestAutomationScript;
+			import pl.ydp.automation.configuration.settings.TestSettingsGateway;
+			import pl.ydp.automation.configuration.TestEnvironmentModel;
+			import pl.ydp.automation.TestScriptsEngine;
+			import pl.ydp.automation.TestIntegrityAutomation;
+			import pl.ydp.automation.TestAutomationEngine;
+			import pl.ydp.automation.TestAutomationCaptain;
+			
+			public function currentRunTestSuite():Array
+			{
+				var testsToRun:Array = new Array();
+				testsToRun.push(pl.ydp.automation.TestAutomationCaptain);
+				testsToRun.push(pl.ydp.automation.TestAutomationEngine);
+				testsToRun.push(pl.ydp.automation.TestIntegrityAutomation);
+				testsToRun.push(pl.ydp.automation.TestScriptsEngine);
+				testsToRun.push(pl.ydp.automation.configuration.TestEnvironmentModel);
+				testsToRun.push(pl.ydp.automation.configuration.settings.TestSettingsGateway);
+				testsToRun.push(pl.ydp.automation.execution.TestAutomationScript);
+				testsToRun.push(pl.ydp.automation.execution.TestExecutionManager);
+				testsToRun.push(pl.ydp.automation.execution.report.TestReportData);
+				testsToRun.push(pl.ydp.automation.execution.report.TestReportDataFactory);
+				testsToRun.push(pl.ydp.automation.execution.report.TestReportExporter);
+				testsToRun.push(pl.ydp.automation.execution.report.TestReportManager);
+				testsToRun.push(pl.ydp.automation.execution.report.TestReportModel);
+				testsToRun.push(pl.ydp.automation.execution.report.impl.TestJUnitReportFormatter);
+				testsToRun.push(pl.ydp.automation.execution.storage.TestStorageManager);
+				testsToRun.push(pl.ydp.automation.execution.storage.snapshot.impl.TestUtopiaSnapshot);
+				testsToRun.push(pl.ydp.automation.fs.TestFilesystemScripts);
+				testsToRun.push(pl.ydp.automation.parser.TestParserUtil);
+				testsToRun.push(pl.ydp.automation.parser.impl.TestScriptParser);
+				testsToRun.push(pl.ydp.automation.parser.vo.TestFeature);
+				testsToRun.push(pl.ydp.automation.parser.vo.TestScenario);
+				testsToRun.push(pl.ydp.automation.scripts.TestScriptsManager);
+				testsToRun.push(pl.ydp.automation.scripts.TestScriptsModel);
+				testsToRun.push(pl.ydp.automation.scripts.steps.TestStepFactory);
+				testsToRun.push(pl.ydp.automation.scripts.steps.TestStepsNamespace);
+				testsToRun.push(pl.ydp.automation.scripts.steps.TestStepsResolver);
+				testsToRun.push(pl.ydp.automation.scripts.steps.base.TestStep);
+				testsToRun.push(pl.ydp.utils.TestEventUtils);
+				testsToRun.push(pl.ydp.utils.TestFilesystemUtil);
+				testsToRun.push(pl.ydp.automation.execution.storage.snapshot.TestSnapshotsManager);
+				return testsToRun;
+			}
+			
+			
+			private function onCreationComplete():void
+			{
+				testRunner.runWithFlexUnit4Runner(currentRunTestSuite(), "test");
+			}
+			
+		]]>
+	</mx:Script>
+	<flexui:FlexUnitTestRunnerUI id="testRunner">
+	</flexui:FlexUnitTestRunnerUI>
+	
+</mx:WindowedApplication>

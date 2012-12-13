@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<assessmentItem
+		 version="2.1"
+><properties><property name="width">400</property><property name="height">300</property></properties><stylesheet href="default.css"></stylesheet><layout><table cols="4" rows="1"><col></col><col></col><col></col><col></col><row></row><layer><tr><td padding-left="5"><module ref="bold"></module></td><td padding-left="5"><module ref="italic"></module></td><td padding-left="5"><module ref="underline"></module></td><td padding-left="5"><module ref="dragPanel"></module></td></tr></layer></table></layout><stylesheet href="default.css"/>
+<itemBody><twoStateButton id="bold" src="boldbutton_icon.swf" tooltipText="Vet"></twoStateButton><twoStateButton id="italic" src="italicbutton_icon.swf" tooltipText="Cursief"></twoStateButton><twoStateButton id="underline" src="underlinebutton_icon.swf" tooltipText="Onderstrepen"></twoStateButton><button id="dragPanel" src="dragbutton_icon.swf" tooltipText="Verplaats het tekstveld"></button></itemBody></assessmentItem>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-events>
+<events>
+<event action-text="Download" id="100" more-url="http://www.xmind.net/download/" open-external="true" prompt="startup" url="http://www.xmind.net/xmind/downloads/xmind-portable-3.3.0.201208102038.zip">New version: XMind 2012 (v3.3) is available.</event>
+<event action-text="View" id="102" more-url="http://www.xmind.net/newsletter/october-2012/" open-external="true" prompt="once" url="http://www.xmind.net/newsletter/october-2012/">XMind Newsletter of October 2012</event>
+</events>
+</site-events>

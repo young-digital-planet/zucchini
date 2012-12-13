@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.TestAutomationEngine" tests="2" failures="0" errors="0" skipped="0" time="0,024" hostname="mkocieniewski" timestamp="2012-12-13T09:13:34">
+  <testcase classname="pl.ydp.automation::TestAutomationEngine" name="should_prepare_scripts" time="0,023"/>
+  <testcase classname="pl.ydp.automation::TestAutomationEngine" name="should_execute_scripts" time="0,001"/>
+</testsuite>

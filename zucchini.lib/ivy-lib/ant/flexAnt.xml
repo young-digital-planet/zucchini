@@ -1,0 +1,62 @@
+<antlib>
+	<macrodef name="flexLibraryEntries" description="Odczytanie klas biblioteki z .flexLibProperties">
+		<attribute name="srcFile"/>
+		<attribute name="property"/>
+		<sequential>
+			<loadfile property="@{property}" srcFile="@{srcFile}" encoding="utf-8">
+				<filterchain>
+					<tokenfilter>
+						<containsstring contains="&lt;classEntry" />
+						<replaceregex pattern="[ \t]*&lt;classEntry path=&quot;([^&quot;]*)&quot;/&gt;[ \t]*" replace="\1 " flags="g"/>
+					</tokenfilter>
+					<striplinebreaks/>
+				</filterchain>
+			</loadfile>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="nexlLibraryEntries" description="Odczytanie klas biblioteki z nexl.xml">
+		<attribute name="srcFile"/>
+		<attribute name="property"/>
+		<sequential>
+			<loadfile property="@{property}" srcFile="@{srcFile}" encoding="utf-8">
+				<filterchain>
+					<tokenfilter>
+						<containsstring contains="implementation=" />
+						<replaceregex pattern=".*implementation=&quot;([^:]*)::([^&quot;]*)&quot;.*" replace="\1.\2 " flags="g"/>
+						<replaceregex pattern=".*implementation=&quot;([^&quot;]*)&quot;.*" replace="\1 " flags="g"/>
+					</tokenfilter>
+					<striplinebreaks/>
+				</filterchain>
+			</loadfile>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="extractSwc" description="Rozpakowanie swf'a z swc">		
+		<attribute name="src" default="NOT SET"/>
+		<attribute name="dest" default="NOT SET"/>
+		<sequential>
+			<unzip src="@{src}" dest="@{dest}" overwrite="true">
+				<patternset>
+					<include name="library.swf"/>
+				</patternset>
+			</unzip>
+			<basename property="@{src}@{dest}.basename" file="@{src}" suffix=".swc"/>
+			<delete file="@{dest}/${@{src}@{dest}.basename}.swf" />
+			<move file="@{dest}/library.swf" tofile="@{dest}/${@{src}@{dest}.basename}.swf" preservelastmodified="true" />
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="checkFlex" description="Check if given property points to FLEX home">
+		<attribute name="property" default="NOT SET" />
+		<sequential>
+			<condition property="flex.exists.@{property}">
+				<available file="${@{property}}/flex-sdk-description.xml" />
+			</condition>
+			<fail unless="flex.exists.@{property}">
+				Please set propety @{property} to valid flash SDK location.
+				ie: C:/Program Files/Adobe/Flex Builder 3/sdks/3.3.0
+			</fail>
+		</sequential>
+	</macrodef>
+</antlib>

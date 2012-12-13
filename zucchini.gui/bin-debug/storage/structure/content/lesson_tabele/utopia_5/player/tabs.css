@@ -1,0 +1,25 @@
+.tab {
+	background: #898;
+	border: solid 1px #333;
+	padding: 2px 5px;
+}
+
+.tab_selected {
+	border: solid 1px black;
+	border-bottom: solid 1px white;
+	padding: 2px 5px;
+	background: #EFEFEF;
+}
+
+.tab A, .tab A:visited {
+	color: white;
+	text-decoration: none;
+}
+.tab_selected A, .tab_selected A:visited {
+	color: black;
+	text-decoration: none;
+}
+.tabs {
+	padding: 0px;
+	spacing: 0px;
+}

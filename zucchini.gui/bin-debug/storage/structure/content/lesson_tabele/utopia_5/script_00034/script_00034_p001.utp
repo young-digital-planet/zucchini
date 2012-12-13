@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem compilerVersion="3.1.0.38" playerVersion="1.8.4" version="2.2">	
+<title>Przypomnienie teorii
+</title><lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+	<general>
+	</general>
+	<metaMetadata>
+      <contribute>
+        <role>
+          <source>LOMv1.0</source>
+          <value>creator</value>
+        </role>
+        <entity>Blanka Lach</entity>
+      </contribute>
+	</metaMetadata>
+	<educational>
+	</educational>
+	<lifecycle>
+		<contribute>
+			<role>
+				<source>LOMv1.0</source>
+				<value>author</value>
+			</role>
+			<entity>
+			<![CDATA[ 
+				BEGIN:VCARD
+    			FN:Blanka Lach
+    			END:VCARD
+   			]]> 
+			</entity>
+		</contribute>
+	</lifecycle>
+	<annotation>
+ 		<entity>numberofpoints</entity>
+ 		<description><string>0</string></description>
+	</annotation>
+</lom>
+<properties><property name="width">600</property><property name="height">200</property></properties><stylesheet href="../common/default.css"/><layout><table cols="1" rows="1"><col/><row/><layer name="back"><tr><td align="justify" valign="justify"><module ref="shape1"/></td></tr></layer><layer name="popup_650"><tr><td align="justify" padding-bottom="6" padding-left="6" padding-right="6" padding-top="6"><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td><module ref="dummy1"/></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody><shape id="shape1"><style><background alpha="0.7019608" color="#FFFFFF" style="solid"/></style></shape><activityContainer class="vertical" id="dummy1">
+<layout><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" hidden="true" rows="30"><col/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><layer><tr><td align="justify" valign="justify"><module ref="container_dummy1"/></td></tr><tr><td align="justify" valign="justify"><module ref="container_dummy2"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy3"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy4"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy5"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy6"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy7"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy8"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy9"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy10"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy11"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy12"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy13"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy14"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy15"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy16"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy17"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy18"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy19"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy20"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy21"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy22"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy23"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy24"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy25"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy26"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy27"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy28"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy29"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy30"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><!--Inline skin: ../common/vertical1.dls.utp--><activityContainer id="container_dummy1"><layout><table cols="1" rows="1"><col width="1!"/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><imagePlayer class="" id="dummy1">
+<slideShow title="Podział polityczny">
+	<slide>
+	<source height="764" src="media/ke_g_05_t02_03_p02.jpg" width="689"/>
+	</slide>
+</slideShow>
+</imagePlayer></itemBody></activityContainer>
+<!--Inline skin: ../common/vertical.dls.utp--><activityContainer id="container_dummy2"><layout><table cols="1" rows="1"><col width="1!"/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" padding-top="10" valign="justify"><module ref="dummy2"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><simpleText class="" id="dummy2"/></itemBody></activityContainer>
+<activityContainer class="horizontal" id="dummy3">
+<layout><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify"><table cols="10" rows="1"><col/><col/><col/><col/><col/><col/><col/><col/><col/><col/><row/><layer><tr><td align="justify" valign="middle"><module ref="dummy1"/></td><td align="justify" valign="middle"><module ref="container_dummy2"/></td><td align="justify" valign="middle"><module ref="dummy3"/></td><td align="justify" valign="middle"><module ref="dummy4"/></td><td align="justify" valign="middle"><module ref="dummy5"/></td><td align="justify" valign="middle"><module ref="dummy6"/></td><td align="justify" valign="middle"><module ref="dummy7"/></td><td align="justify" valign="middle"><module ref="dummy8"/></td><td align="justify" valign="middle"><module ref="dummy9"/></td><td align="justify" valign="middle"><module ref="dummy10"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><activityContainer class="vertical" id="dummy1">
+<layout><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" hidden="true" rows="30"><col/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><row/><layer><tr><td align="justify" valign="justify"><module ref="container_dummy1"/></td></tr><tr><td align="justify" valign="justify"><module ref="container_dummy2"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy3"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy4"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy5"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy6"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy7"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy8"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy9"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy10"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy11"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy12"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy13"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy14"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy15"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy16"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy17"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy18"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy19"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy20"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy21"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy22"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy23"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy24"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy25"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy26"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy27"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy28"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy29"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy30"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><!--Inline skin: ../common/vertical1.dls.utp--><activityContainer id="container_dummy1"><layout><table cols="1" rows="1"><col width="1!"/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><imagePlayer class="" id="dummy1">
+<slideShow title="">
+	<slide>
+	<source height="283" src="media/ke_g_05_t02_03_p03.jpg" width="380"/>
+	</slide>
+</slideShow>
+</imagePlayer></itemBody></activityContainer>
+<!--Inline skin: ../common/vertical.dls.utp--><activityContainer id="container_dummy2"><layout><table cols="1" rows="1"><col width="1!"/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" padding-top="10" valign="justify"><module ref="dummy2"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><simpleText class="" id="dummy2"><b>Europejskie państwa powstałe po rozpadzie Związku Socjalistycznych Republik Radzieckich (ZSRR).</b></simpleText></itemBody></activityContainer>
+			<!-- cannot find module for dummy 'dummy3'!-->
+			<!-- cannot find module for dummy 'dummy4'!-->
+			<!-- cannot find module for dummy 'dummy5'!-->
+			<!-- cannot find module for dummy 'dummy6'!-->
+			<!-- cannot find module for dummy 'dummy7'!-->
+			<!-- cannot find module for dummy 'dummy8'!-->
+			<!-- cannot find module for dummy 'dummy9'!-->
+			<!-- cannot find module for dummy 'dummy10'!-->
+			<!-- cannot find module for dummy 'dummy11'!-->
+			<!-- cannot find module for dummy 'dummy12'!-->
+			<!-- cannot find module for dummy 'dummy13'!-->
+			<!-- cannot find module for dummy 'dummy14'!-->
+			<!-- cannot find module for dummy 'dummy15'!-->
+			<!-- cannot find module for dummy 'dummy16'!-->
+			<!-- cannot find module for dummy 'dummy17'!-->
+			<!-- cannot find module for dummy 'dummy18'!-->
+			<!-- cannot find module for dummy 'dummy19'!-->
+			<!-- cannot find module for dummy 'dummy20'!-->
+			<!-- cannot find module for dummy 'dummy21'!-->
+			<!-- cannot find module for dummy 'dummy22'!-->
+			<!-- cannot find module for dummy 'dummy23'!-->
+			<!-- cannot find module for dummy 'dummy24'!-->
+			<!-- cannot find module for dummy 'dummy25'!-->
+			<!-- cannot find module for dummy 'dummy26'!-->
+			<!-- cannot find module for dummy 'dummy27'!-->
+			<!-- cannot find module for dummy 'dummy28'!-->
+			<!-- cannot find module for dummy 'dummy29'!-->
+			<!-- cannot find module for dummy 'dummy30'!-->
+</itemBody>
+</activityContainer><!--Inline skin: ../common/horizontal.dls.utp--><activityContainer id="container_dummy2"><layout><table cols="1" rows="1"><col width="1!"/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" padding-left="15" valign="justify"><module ref="dummy2"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><simpleText class="" id="dummy2">W ciągu ostatnich 20 lat ubiegłego wieku na mapie politycznej Europy zaszły bardzo duże zmiany. Państwa, takie jak <b>Związek Radziecki</b>, <b>Jugosławia</b> czy <b>Czechosłowacja</b>, uległy rozpadowi. W ten sposób powstały nowe kraje, m.in. <b>Litwa</b>, <b>Białoruś</b>, <b>Ukraina</b>, <b>Chorwacja</b> i <b>Słowacja</b>. W tym czasie doszło również do odwrotnego procesu połączenia podzielonych po II wojnie światowej Niemiec. Główną przyczyną tych przemian był upadek komunizmu – totalitarnego systemu politycznego, który dominował w Europie Wschodniej. W drugiej połowie XX w. państwa znajdujące się pod politycznym i militarnym wpływem Związku Radzieckiego były zmuszane do pełnego podporządkowywania się jego decyzjom. Dopiero upadek komunizmu oraz rozpad Związku Radzieckiego spowodował, że kraje od niego zależne odzyskały pełną suwerenność.</simpleText></itemBody></activityContainer>
+			<!-- cannot find module for dummy 'dummy3'!-->
+			<!-- cannot find module for dummy 'dummy4'!-->
+			<!-- cannot find module for dummy 'dummy5'!-->
+			<!-- cannot find module for dummy 'dummy6'!-->
+			<!-- cannot find module for dummy 'dummy7'!-->
+			<!-- cannot find module for dummy 'dummy8'!-->
+			<!-- cannot find module for dummy 'dummy9'!-->
+			<!-- cannot find module for dummy 'dummy10'!-->
+</itemBody>
+</activityContainer>			<!-- cannot find module for dummy 'dummy4'!-->
+			<!-- cannot find module for dummy 'dummy5'!-->
+			<!-- cannot find module for dummy 'dummy6'!-->
+			<!-- cannot find module for dummy 'dummy7'!-->
+			<!-- cannot find module for dummy 'dummy8'!-->
+			<!-- cannot find module for dummy 'dummy9'!-->
+			<!-- cannot find module for dummy 'dummy10'!-->
+			<!-- cannot find module for dummy 'dummy11'!-->
+			<!-- cannot find module for dummy 'dummy12'!-->
+			<!-- cannot find module for dummy 'dummy13'!-->
+			<!-- cannot find module for dummy 'dummy14'!-->
+			<!-- cannot find module for dummy 'dummy15'!-->
+			<!-- cannot find module for dummy 'dummy16'!-->
+			<!-- cannot find module for dummy 'dummy17'!-->
+			<!-- cannot find module for dummy 'dummy18'!-->
+			<!-- cannot find module for dummy 'dummy19'!-->
+			<!-- cannot find module for dummy 'dummy20'!-->
+			<!-- cannot find module for dummy 'dummy21'!-->
+			<!-- cannot find module for dummy 'dummy22'!-->
+			<!-- cannot find module for dummy 'dummy23'!-->
+			<!-- cannot find module for dummy 'dummy24'!-->
+			<!-- cannot find module for dummy 'dummy25'!-->
+			<!-- cannot find module for dummy 'dummy26'!-->
+			<!-- cannot find module for dummy 'dummy27'!-->
+			<!-- cannot find module for dummy 'dummy28'!-->
+			<!-- cannot find module for dummy 'dummy29'!-->
+			<!-- cannot find module for dummy 'dummy30'!-->
+</itemBody>
+</activityContainer></itemBody></assessmentItem>

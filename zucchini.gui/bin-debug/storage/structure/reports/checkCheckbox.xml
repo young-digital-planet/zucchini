@@ -1,0 +1,1 @@
+<testsuite name="checkCheckbox" errors="0" failures="1" tests="4"><testcase classname="checkCheckbox" name="check checkbox button"/><testcase classname="checkCheckbox" name="check checkbox button 2"><failure message="Element not found"/></testcase></testsuite>

@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
+		   
+		   implements="pl.ydp.automation.execution.structure.IStructure">
+	
+		<mx:states>
+			<mx:State name="versionFailure">
+				<mx:AddChild position="lastChild">
+					<mx:Label text="Flash version incorrect" top="10" left="10" height="40" right="10" fontFamily="Arial" textAlign="center" fontSize="30" color="#ff0000" fontWeight="bold"/>
+				</mx:AddChild>
+				<mx:AddChild position="lastChild">
+					<mx:Label text="Version {EXPECTED_VERSION.join(',')} expected at least.&#13; Current version: {Capabilities.version}" textAlign="center" top="58" left="10" right="10" height="45"/>
+				</mx:AddChild>
+				<mx:AddChild position="lastChild">
+					<mx:Label top="98" left="12" height="40" right="8" fontFamily="Verdana" textAlign="center" fontSize="12" 
+							  htmlText="Click &lt;a href=&quot;http://get.adobe.com/flashplayer/&quot; target=&quot;_blank&quot; &gt;&lt;u&gt;here&lt;/u&gt;&lt;/a&gt; and download the latest version of Flash Player." 
+							  selectable="true"/>
+				</mx:AddChild>
+			</mx:State>
+			<mx:State name="page">
+			</mx:State>
+			<mx:State name="test">
+			</mx:State>
+			<mx:State name="dictionary">
+			</mx:State>
+		</mx:states>
+		<!--
+		Aplikacja playera stron utopia. Przyjmuje jeden z argumentów:
+		@param fileURL url do plików - aplikacja sama stwierdza czy jest to test, 
+		strona czy materiał referencyjny(wedle rozszerzenia utt to testy, utp strony, 
+		utx materiał referencyjny)
+		@param pageURL - url do strony
+		@param testURL - url do testu
+		@param dictionaryURL - url do materiału referencyjnego
+		[Dodać generowanie eventu property changed - title]
+		-->
+		<mx:Script>
+			<![CDATA[
+				import com.adobe.serialization.json.JSON;
+				import com.yauthor.module.IHierarchyItem;
+				import com.yauthor.module.editor.IModuleEditor;
+				
+				import flash.display.IBitmapDrawable;
+				import flash.events.*;
+				import flash.net.*;
+				
+				import mx.core.ScrollPolicy;
+				import mx.core.UIComponent;
+				
+				import pl.ydp.automation.execution.structure.IStructureElementDescriptor;
+				import pl.ydp.jobs.IJobInfo;
+				import pl.ydp.jobs.YJobs;
+				import pl.ydp.jobs.utils.YJobsMonitor;
+				import pl.ydp.p2.Activator;
+				import pl.ydp.p2.IModule;
+				import pl.ydp.p2.LessonMode;
+				import pl.ydp.p2.constants;
+				import pl.ydp.p2.layout.events.ContentSizeEvent;
+				import pl.ydp.p2.modules.dictionary.ui.YDictionaryView;
+				import pl.ydp.p2.modules.page.YPage;
+				import pl.ydp.p2.modules.recording.YRecordingRegister;
+				import pl.ydp.p2.modules.simplechoice.YSimpleChoice;
+				import pl.ydp.p2.modules.test.controller.YTestController;
+				import pl.ydp.p2.modules.test.ui.YTestView;
+				import pl.ydp.p2.modules.unit.INavigableList;
+				import pl.ydp.p2.modules.unit.IndexChangedEvent;
+				import pl.ydp.p2.modules.unit.UnitConstants;
+				import pl.ydp.p2.modules.unit.YUnitLinearController;
+				import pl.ydp.p2.utils.EnvUtils;
+				import pl.ydp.p2.utils.FontSizeUtil;
+				import pl.ydp.p2.utils.YScrollableContainerEx;
+				import pl.ydp.utils.ConvertUtil;
+				import pl.ydp.utils.DebugUtils;
+				import pl.ydp.utils.SimplePathBase2;
+				
+				
+				private var _scriptNum:String = "0";		
+				protected var m_startPage:int = 0;
+				protected var _im:IModuleEditor;
+				
+				private var ihi:com.yauthor.module.IHierarchyItem;
+				
+				
+				protected var m_defaultSrc:String ="C:/kotas/tasks/72117_tabele/utopia_1/script_00034.utt";
+				
+				
+				
+				//HIGHLIGHT
+				//protected var m_defaultSrc:String ="C:/kotas/tasks/highlight/utopia/script_00001.utt";
+				
+				
+				public static const EXPECTED_VERSION:Array = [10,0,22,0];
+				private static const UTOPIA_XML_LINK:String = "playerinfo.xml"; //link do pliku xml z opisem playera utopii
+				
+				protected var page:YPage;
+				public var test:YTestView;
+				protected var dictionary:YDictionaryView;
+				protected var fontSize:Number;
+				private var pageLoaded:Boolean = false;
+				
+				public var externalIntefaceEnabled:Boolean;
+//				Security.allowDomain("*");
+				
+				
+				private var _lessonName:String;
+				
+				
+				
+				private function checkVersion():Boolean {
+					
+					var versionComponents:Array = Capabilities.version.split(" ")[1].split(",");
+					//versionComponents as IMarkAnswerSkinWrapper
+					for( var i:int=0; i<versionComponents.length; ++i )
+						versionComponents[i] = parseInt(versionComponents[i]);
+					
+					var comp:int = 0;
+					for( i=0; comp==0 && i<Math.min(versionComponents.length, EXPECTED_VERSION.length); ++i ) {
+						comp = versionComponents[i]-EXPECTED_VERSION[i];
+					}
+					return comp>=0;				
+					
+				}
+				
+				private function get sharedObject():SharedObject{
+					return SharedObject.getLocal( "utopiaMyTestState" );
+				}
+				
+				private function doSaveState():void {
+					var state:String = test.testState;
+					
+					sharedObject.data.state = state;
+					sharedObject.flush();
+					
+					updateSaveStatus();
+				}
+				
+				private function deleteState():void{
+					sharedObject.clear();
+					updateSaveStatus();
+				}
+				
+				private function updateSaveStatus():void{
+					var state:String = sharedObject.data.state;
+					
+					if(state == null){
+						stateStatus.text = "state not saved";
+						stateStatus.setStyle("color", "red");
+					}else{
+						stateStatus.text = "state saved";
+						stateStatus.setStyle("color", "green");
+					}
+				}
+				
+				// wołanie tej funkcji jest uzależnione od dostępności ExternalInterface
+				protected function testLoaded( event:Event ):void {
+						try {
+							var mode:String = ExternalInterface.call( "getLessonMode" ) as String;
+							test.lessonMode = LessonMode.decode(mode);
+						} catch( e:Error ) {
+							trace( "Can't retrieve lesson mode" );
+						}
+						
+						var state:String = ExternalInterface.call( "getStateString" ) as String;
+						// state 'fail' zwraca scorm runtime, gdy nie udało mu się
+						// odczytać stanu 
+						
+						if(state == null){
+							state = sharedObject.data.state;
+							updateSaveStatus();
+						}
+						
+						if ( state!=null && state!="fail" )
+							test.testState = state;
+						
+						test.testController.addEventListener(
+							UnitConstants.ITEM_CHANGED_EVENT,
+							this.currentItemChanged );
+					
+				}
+				
+				public function getCurrentPageIndex():Number {
+					return INavigableList(test.testController).currentIndex;
+				}
+				
+				public function getStateString():String {
+					return test.testState;
+				}
+				
+				public function getResult():Number {
+					return test.result.result;
+				}
+				
+				public function getMistakes():Number {
+					return test.mistakes;
+				}
+				
+				public function getHints():Number {
+					return test.hints;
+				}
+				
+				public function getSessionTime():int {
+					return test.sessionTime;
+				}
+				
+				public function getUnitStatus():String {
+					return test.unitStatus;
+				}
+				
+				public function setCurrentPageIndex( index:Number ):void {
+					INavigableList(test.testController).currentIndex = index;
+				}
+				
+				protected function currentItemChanged( event:IndexChangedEvent ):void {
+					ExternalInterface.call( "currentPageIndexChanged", event.newIndex );
+				}
+				
+				public function getCurrentEntryIndex():int{
+					return this.dictionary.dictionaryController.currentIndex;
+				}
+				
+				public function setCurrentEntryIndex(ind:int):void{
+					this.dictionary.dictionaryController.currentIndex = ind;
+				}
+				
+				public function setFontSize(size:Number):void{
+					fontSize = size;
+					
+					if(!pageLoaded || isNaN(fontSize))
+						return;
+					if(test){
+						FontSizeUtil.setTestFontSize(test, fontSize);
+					}else if(page){
+						FontSizeUtil.setPageFontSize(page, fontSize);
+					}					
+				}
+				
+				protected function dictionaryLoaded(evt:Event):void{
+					this.dictionary.dictionaryController.addEventListener(UnitConstants.ITEM_CHANGED_EVENT,
+						this.currentEntryChanged)
+				}
+				
+				protected function currentEntryChanged(evt:IndexChangedEvent):void{
+					ExternalInterface.call("currentEntryIndexChanged", evt.newIndex);
+				}
+				
+				private function onInnerPageLoaded(evt:Event):void{
+					if(!pageLoaded){
+						pageLoaded = true;	
+						setFontSize(fontSize);
+					}
+				}
+				
+				
+				
+				private function loadPage():void {
+					externalIntefaceEnabled = false;
+					/*
+					externalIntefaceEnabled = true;
+					try {
+						ExternalInterface.call( "window.location.href.toString" );
+					} catch( x:SecurityError ) {
+						trace( "Can't talk to ExternalInterface/"+x.message );
+						externalIntefaceEnabled = false;
+					}
+					*/
+					trace("___________________");
+					
+					if ( !checkVersion() ) {
+						setCurrentState( "versionFailure" );
+						return;
+					}
+					
+					horizontalScrollPolicy = ScrollPolicy.OFF;
+					verticalScrollPolicy = ScrollPolicy.OFF;	
+					
+					// zarejestrowanie modułów
+					Activator.start();
+					
+					YRecordingRegister.setRecordingManagerType( YRecordingRegister.WEB_RECORDING );
+					
+					var pap:String;
+//						= Application.application.parameters.playerAbsolutePath;
+					
+					try {
+						if ( pap==null && externalIntefaceEnabled )
+							pap = ExternalInterface.call( "window.location.href.toString" );
+					} catch( x:SecurityError ) {
+						trace( "Can't get location.href" );
+					}
+					
+					if ( pap!=null )
+						EnvUtils.playerAbsolutePath = pap;
+					
+//					fontSize = parseFloat(Application.application.parameters.fontsize);
+					
+					// pobieranie xmla z bazą do ścieżki do 
+					var urlRequest:URLRequest=new URLRequest(UTOPIA_XML_LINK);
+					var urlLoader:URLLoader=new URLLoader;
+					urlLoader.addEventListener(Event.COMPLETE,resolveFullPath);
+					urlLoader.addEventListener(IOErrorEvent.IO_ERROR, ioError);
+					urlLoader.load(urlRequest);	
+				}
+				
+				
+				//plik xml z opisem playera nie istnieje - nie trzeba ustalać pełnej ściezki dostepu
+				private function ioError(e:IOErrorEvent):void
+				{
+					finishLoadingPage();
+				}	
+				
+				//idtnieje plik xml z opisem playera - trzeba ustalić bezwzgl. sciezke dostepu	
+				private function resolveFullPath(e:Event):void {
+					//usuwanie listenera
+					e.target.removeEventListener(Event.COMPLETE, finishLoadingPage);
+					//tworzenie XMLA z info playerze
+					try{
+						var playerXML:XML = new XML(e.target.data);
+						var playerXMLList:XMLList = playerXML..contentBase;
+						// wybieranie bazy dla sciezki
+						var base:String = playerXMLList[0].@src;
+						finishLoadingPage(base);
+					}catch(e:Error){
+						finishLoadingPage();
+					}
+				}
+				
+				private function finishLoadingPage(base:String=""):void
+				{
+					//
+					// określam typ przekazanaego zasobu
+					var src:String;
+//						= application.parameters.fileURL; //sciezka wzgledna
+					var type:String = null;
+					var showLayoutTeacherPanel:*;
+//						= Application.application.parameters.showLayoutTeacherPanel;
+					/*
+					if ( src==null ) {
+						src = application.parameters.pageURL;
+						if ( src!=null ) {
+							type = "page";
+						} else {
+							src = application.parameters.testURL;
+							if ( src!=null ){
+								type = "test";
+							}else{
+								src = application.parameters.dictionaryURL
+								if(src != null)
+									type = "dictionary";
+							}
+						}
+					}
+					*/
+					if ( src==null )
+						src=m_defaultSrc;
+					
+					//sprawdzanie poprawności
+					if ( base!=null )
+					{
+						//sciezka podana poprawnie
+						var sPathBase:SimplePathBase2 = new SimplePathBase2(base);
+						src = sPathBase.resolvePath(src);
+					}
+					trace("pelna sciezka do materialu: "+src);
+					
+					//gdy niestwierdzono typu sprawdzam po rozszerzniu
+					if ( type==null ) {
+						type = "page"
+						var ix:int = src.lastIndexOf( "." );
+						if ( ix>=0 && ix<src.length-2 ) {
+							var ext:String = src.substr( ix+1 );
+							if ( ext=="utt" ){
+								type = "test";
+							}else if(ext == "utx"){
+								type = "dictionary";
+							}
+						}
+					}
+					
+					// tworzę odpowiedni obiekt i przekazuję zasób
+					var comp:UIComponent;
+					if ( type=="page" ) {
+						setCurrentState( "page", false );
+						this.page = new YPage();
+						var scroll:YScrollableContainerEx = new YScrollableContainerEx();
+						scroll.setStyle( "top", 0 );
+						scroll.setStyle( "left", 0 );
+						scroll.setStyle( "bottom", 0 );
+						scroll.setStyle( "right", 0 );
+						scroll.addChild( page );
+						this.addChild( scroll );
+						
+						page.addEventListener(
+							YPage.PAGE_LOADED_EVENT, 
+							onInnerPageLoaded);
+						
+						page.load( src, null );
+						comp = page;
+						
+						if ( externalIntefaceEnabled )
+							ExternalInterface.addCallback(
+								"setFontSize", 
+								setFontSize);
+					} else if(type == "test"){
+						setCurrentState( "test", false );
+						this.test = new YTestView();
+						
+						this.test.enableResultPreload = false;
+						
+						test.showTeacherPanel = false;
+//							ConvertUtil.getBoolean(Application.application.parameters.showDefaultTeacherPanel);
+						test.showLayoutTeacherPanel = showLayoutTeacherPanel == undefined? 
+							true: ConvertUtil.getBoolean(showLayoutTeacherPanel);
+						test.setStyle( "top", 0 );
+						test.setStyle( "left", 0 );
+						test.setStyle( "bottom", 0 );
+						test.setStyle( "right", 0 );
+						this.addChildAt( test, 0 );
+						/*
+						DebugUtils.msg( 
+							"startPageIndex: "+application.parameters.startPageIndex,
+							"utopiaPlayer" );
+						
+						var startPage:int = 
+							ConvertUtil.getInt(
+								application.parameters.startPageIndex,0,m_startPage);
+						*/
+						
+						
+						var startPage:int = m_startPage;
+						test.load( src, startPage );
+						
+						
+						var job:IJobInfo = YJobs.applicationManager.getJob(constants.UNIT_LOAD_All_JOB,test);
+						var arr:Array = YJobs.applicationManager.jobs;			
+						job.addEventListener(YJobs.JOB_DONE,allJobsLoaded);
+						
+						comp = test;
+						
+						if ( externalIntefaceEnabled ) {
+							ExternalInterface.addCallback( 
+								"getCurrentPageIndex", 
+								this.getCurrentPageIndex );
+							ExternalInterface.addCallback( 
+								"setCurrentPageIndex", 
+								this.setCurrentPageIndex );
+							ExternalInterface.addCallback( 
+								"getResult", 
+								this.getResult );
+							ExternalInterface.addCallback( 
+								"getStateString", 
+								this.getStateString );
+							ExternalInterface.addCallback( 
+								"getSessionTime", 
+								this.getSessionTime );
+							ExternalInterface.addCallback( 
+								"getMistakes", 
+								this.getMistakes );
+							ExternalInterface.addCallback( 
+								"getHints", 
+								this.getHints );
+							ExternalInterface.addCallback( 
+								"getUnitStatus", 
+								this.getUnitStatus );
+							ExternalInterface.addCallback(
+								"setFontSize", 
+								setFontSize);
+						}
+						
+						if ( externalIntefaceEnabled )
+							test.addEventListener(
+								UnitConstants.UNIT_LOADED,
+								this.testLoaded );
+						test.addEventListener(
+							YTestView.INNER_PAGE_LOADED, 
+							onInnerPageLoaded);
+					}else if(type == "dictionary"){
+						this.setCurrentState("dictionary", false);
+						
+						this.dictionary = new YDictionaryView();
+						this.dictionary.setStyle("top", 0);
+						this.dictionary.setStyle("right", 0);
+						this.dictionary.setStyle("bottom", 0);
+						this.dictionary.setStyle("left", 0);
+						this.addChild(this.dictionary);
+						
+						var startEntryInd:int = 0;
+//							ConvertUtil.getInt(application.parameters.startEntryIndex);
+						this.dictionary.load(src, startEntryInd);
+						
+						if ( externalIntefaceEnabled ) {
+							ExternalInterface.addCallback("getCurrentEntryIndex", this.getCurrentEntryIndex);
+							ExternalInterface.addCallback("setCurrentEntryIndex", this.setCurrentEntryIndex);
+						}
+						
+						this.dictionary.addEventListener(UnitConstants.UNIT_LOADED, this.dictionaryLoaded);
+						
+						comp = this.dictionary;
+					}
+					/*
+					if(comp && externalIntefaceEnabled )
+						comp.addEventListener(ContentSizeEvent.SIZE_CHANGE,
+							function(evt:Event):void{
+								var scrollContainer:YScrollableContainerEx = evt.target as YScrollableContainerEx;
+								//trace('scrollContainer.contentMeasuredWidth: ',scrollContainer.contentMeasuredWidth);
+								//trace('scrollContainer.contentMeasuredHeight: ',scrollContainer.contentMeasuredHeight);
+								//trace('scrollContainer.contentMinWidth: ',scrollContainer.contentMinWidth);
+								//trace('scrollContainer.contentMinHeight: ',scrollContainer.contentMinHeight);
+								ExternalInterface.call("setUtopiaContainerSize", scrollContainer.contentMeasuredWidth,
+									scrollContainer.contentMeasuredHeight,
+									scrollContainer.contentMinWidth,
+									scrollContainer.contentMinHeight);
+							}
+						);
+					*/
+					comp.addEventListener(ContentSizeEvent.SIZE_CHANGE, onSizeChanged);
+					
+				}
+				
+				
+				private function allJobsLoaded( e:Event):void
+				{
+					dispatchEvent( new Event( 'contentLoadingCompleted' ) );
+				}
+				
+				private function onSizeChanged( e:Event ):void
+				{
+					
+					
+					var scrollContainer:YScrollableContainerEx = e.target as YScrollableContainerEx;
+					
+//					parent.width = scrollContainer.contentMeasuredWidth;
+//					parent.height = scrollContainer.contentMeasuredHeight;
+					
+					this.width = scrollContainer.contentMeasuredWidth;
+					this.height = scrollContainer.contentMeasuredHeight;
+					/*
+					trace('scrollContainer.contentMeasuredWidth: ',scrollContainer.contentMeasuredWidth);
+					trace('scrollContainer.contentMeasuredHeight: ',scrollContainer.contentMeasuredHeight);
+					trace('scrollContainer.contentMinWidth: ',scrollContainer.contentMinWidth);
+					trace('scrollContainer.contentMinHeight: ',scrollContainer.contentMinHeight);
+					
+					trace('parent.width: ', parent.width )
+					trace('parent.height: ', parent.height )
+					
+					trace('this.width: ', this.width);
+					trace('this.height: ', this.height);
+					*/
+				}
+				
+				
+				private function traceCustomScore():void{
+					trace(JSON.encode(test.getCustomScoreReport()));
+				}
+				
+				
+				
+				public function clean():void
+				{
+					test.removeAllChildren();
+					test = null;
+				}
+				
+				public function loadLessonPage( lessonName:String, lessonPath:String, pageIndex:int ):void
+				{
+					_lessonName = lessonName;
+					m_startPage = pageIndex;
+					m_defaultSrc = lessonPath;
+					
+					loadPage();
+				}
+				
+//				IStructure
+				
+				public function getElementDescriptor(elementId:String):IStructureElementDescriptor
+				{
+					var outerPage:IModule = test.outerPage.findModule( elementId ) ;
+//					
+					
+
+					return null;
+				}
+				
+				public function getElement( elementIdOrFunc:*, elementNumber:int = 0 ):IModule
+				{
+					var element:IModule;
+					if( elementNumber == 0 ){
+						element = test.outerPage.findModule( elementIdOrFunc ) ;
+						if( element == null ){
+							element = test.innerPage.findModule( elementIdOrFunc );
+						}
+					}else{
+						element = test.outerPage.findModuleInContainerWithNumber( elementIdOrFunc, elementNumber ) ;
+						if( element == null ){
+							element = test.innerPage.findModuleInContainerWithNumber( elementIdOrFunc, elementNumber );
+						}
+					}
+					return element;
+				}
+				
+				
+				
+				
+				public function setCurrentIndex( index:int ):void
+				{
+					var controller:YTestController = test.testController as YTestController;
+					controller.setCurrentIndex( 2 );
+				}
+				
+				public function get rootItem():*
+				{
+					// TODO Auto Generated method stub
+					return null;
+				}
+				
+				public function get snapshotSource():IBitmapDrawable
+				{
+					trace('this.width: ', this.width);
+					trace('this.height: ', this.height);
+					return test;
+				}
+
+				public function get lessonName():String
+				{
+					return _lessonName;
+				}
+
+				public function get pageIndex():int
+				{
+					return m_startPage;
+				}
+
+			]]>
+		</mx:Script>	
+		<mx:HBox bottom="0" left="0" >
+			<mx:Button label="save state" id="saveStateButton" click="doSaveState()" height="24" tabEnabled="false"/>
+			<mx:Button label="delete state" id="deleteStateButton" click="deleteState()" height="24" tabEnabled="false"/>
+			<mx:Button label="show panel" id="showTPButton" click="test.showLayoutTeacherPanel=true;" height="24" tabEnabled="false"/>
+			<mx:Button label="hide panel" id="hideTPButton" click="test.showLayoutTeacherPanel=false;" height="24" tabEnabled="false"/>
+			<mx:Button label="trace custom score" click="traceCustomScore();" tabEnabled="false"/>
+			<mx:Label id="stateStatus"/>
+		</mx:HBox>
+
+	
+</mx:Canvas>

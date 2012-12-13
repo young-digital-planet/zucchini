@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<assessmentItem
+		 version="2.1"
+><properties><property name="width">400</property><property name="height">300</property></properties><stylesheet href="default.css"></stylesheet><layout><table cols="1" rows="1"><col width="1!"></col><row></row><layer><tr><td align="justify" padding-bottom="9" padding-left="9" padding-right="9" valign="justify"><table cols="1" rows="1"><col></col><row></row><layer><tr><td align="justify" valign="justify"><module ref="slide"></module></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="default.css"/>
+<itemBody><image id="slide"><style><sizeMode val="stretch-keep-aspect"></sizeMode></style></image></itemBody></assessmentItem>

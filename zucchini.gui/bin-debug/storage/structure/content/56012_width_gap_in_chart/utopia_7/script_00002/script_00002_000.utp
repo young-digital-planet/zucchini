@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem version="2.2">	
+<title>Zerowa strona szkolenia
+
+</title><properties><property name="width">400</property><property name="height">200</property></properties><stylesheet href="../common/default.css"/><layout><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td align="justify" valign="justify"><table cols="1" name="modules" rows="1"><col/><row/><layer name="modules_body"><tr><td align="justify" padding-right="6" valign="justify"><table cols="1" hidden="true" rows="3"><col/><row/><row/><row/><layer><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr><tr><td align="justify" valign="justify"><module ref="rows_spacer1"/></td></tr><tr><td align="justify" valign="justify"><module ref="dummy2"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody><activityContainer class="activity" id="dummy1">
+<layout><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row height="1!"/><layer name="panel_background"><tr><td align="justify" padding-right="96" valign="bottom"><module ref="group_panel_background"/></td></tr></layer><layer name="outline"><tr><td align="justify" valign="justify"><module ref="group_outline"/></td></tr></layer><layer name="modules"><tr><td align="justify" valign="justify"><table cols="1" name="group" rows="2"><col/><row/><row/><layer><tr><td align="justify" padding-left="16" padding-right="16" valign="justify"><table cols="1" name="activity_elements" rows="4"><col/><row/><row/><row/><row/><layer><tr><td align="justify"><module ref="dummy1"/></td></tr><tr><td align="center"><table cols="1" name="activity" rows="1"><col/><row/><layer><tr><td align="justify" padding-top="15"><table cols="1" rows="3"><col/><row/><row/><row/><layer name="activity"><tr><td align="center"><module ref="dummy2"/></td></tr><tr><td align="center"><module ref="dummy3"/></td></tr><tr><td align="center"><module ref="dummy4"/></td></tr></layer></table></td></tr></layer></table></td></tr><tr><td align="justify" valign="justify"><table cols="1" name="sourcelist" rows="1"><col/><row/><layer><tr><td align="center"><module ref="sourcelist"/></td></tr></layer></table></td></tr><tr><td align="justify"><module ref="textFeedbackView1"/></td></tr></layer></table></td></tr><tr><td align="right" padding-top="16" valign="bottom"><table cols="5" name="activity_buttons" rows="1"><col/><col/><col/><col/><col/><row/><layer name="buttons_body"><tr><td><module ref="buttons_left_limiter"/></td><td align="right"><module ref="checkButtonGr"/></td><td align="right"><module ref="showAnswersButtonGr"/></td><td align="right"><module ref="resetButtonGr"/></td><td align="right"><module ref="buttons_right_limiter"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><itemBody><shape height="28" id="group_panel_background"/><shape id="group_outline"><style><background style="none"/><backgroundGradient rotation="90"/></style></shape><textInteraction class="" id="dummy1">
+
+To jest gapa typu <textEntryInteraction class="" sizeBindingGroup="grupa1"><textAnswer answer="edit1dsafasfdasfas" weight="1"/>	
+</textEntryInteraction>
+<br/>
+
+To jest gapa typu <imageEntryInteraction class=""><textAnswer answer="drag11" weight="1"/>	
+</imageEntryInteraction>
+
+</textInteraction>
+<textInteraction class="" id="dummy2">
+To jest gapa typu <textEntryInteraction class=""><textAnswer answer="edit2" weight="1"/>	
+</textEntryInteraction>
+<br/>
+
+To jest gapa typu <imageEntryInteraction class="" sizeBindingGroup="grupa1"><textAnswer answer="drag11" weight="1"/>	
+</imageEntryInteraction>
+<br/>
+
+</textInteraction>
+<sourceList class="shuffle" id="dummy3" moveElements="true" shuffle="true">
+			<simpleSourceListItem alt="edit2">edit2</simpleSourceListItem>
+			<simpleSourceListItem alt="drag2555555">drag2555555</simpleSourceListItem>
+</sourceList>
+			<!-- cannot find module for dummy 'dummy4'!-->
+<sourceList class="shuffle" id="sourcelist" moveElements="true" shuffle="true">
+			<simpleSourceListItem alt="edit1">edit1</simpleSourceListItem>
+			<simpleSourceListItem alt="drag11">drag11</simpleSourceListItem>
+</sourceList>
+<textFeedbackView id="textFeedbackView1"/><shape height="28" id="buttons_left_limiter" width="10"/><checkButton id="checkButtonGr"/><showAnswersButton id="showAnswersButtonGr"/><resetButton id="resetButtonGr"/><shape height="28" id="buttons_right_limiter" width="10"/></itemBody>
+</activityContainer><image id="rows_spacer1" src="../common/spacer_dummy.swf"/>			<!-- cannot find module for dummy 'dummy2'!-->
+</itemBody></assessmentItem>

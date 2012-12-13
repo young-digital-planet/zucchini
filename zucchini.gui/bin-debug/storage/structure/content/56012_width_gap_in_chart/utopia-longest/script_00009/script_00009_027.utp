@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem playerVersion="1.8.4" version="2.2">	
+<title>chart TEST
+
+</title><properties><property name="width">783</property><property name="height">550</property></properties><stylesheet href="../common/default.css"/><stylesheet href="../common/layout.css"/><layout><table cols="1" rows="1"><col/><row/><layer name="1a"><tr><td align="justify" valign="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="content"><tr><td><table cols="1" hidden="true" rows="1"><col/><row/><layer><tr><td><module ref="pageTitle"/></td></tr></layer></table></td></tr><tr><td padding-bottom="14" padding-left="20" padding-top="12" valign="justify"><table cols="1" rows="1"><col width="735"/><row height="1!"/><layer name="background"><tr><td align="justify" valign="justify"><module ref="background_content"/></td></tr></layer><layer name="content"><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody><simpleTestInfo id="pageTitle"/><shape height="502" id="background_content"/><activityContainer class="activity" id="dummy1">
+<layout><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer name="buttons"><tr><td align="right" valign="bottom"><table cols="2" rows="1"><col/><col/><row/><layer name="buttons"><tr><td><module ref="popupFeedbackButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="resetButton"/></td></tr></layer></table></td></tr></layer><layer name="sourcelist"><tr><td align="justify" padding-bottom="96" valign="bottom"><module ref="sourcelist"/></td></tr></layer><layer name="activity"><tr><td><table cols="1" rows="2"><col/><row/><row/><layer name="activity"><tr><td><table cols="1" rows="1"><col/><row/><layer name="errand"><tr><td padding-left="18"><module ref="dummy2"/></td></tr></layer><layer name="errand_number"><tr><td><module ref="dummy1"/></td></tr></layer></table></td></tr><tr><td><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><itemBody><popupFeedbackButton id="popupFeedbackButton"/><resetButton id="resetButton"/>			<!-- cannot find module for dummy 'sourcelist'!-->
+<simpleText class="bold" id="dummy2">Lorem ipsum dolor sit amet</simpleText>
+<simpleText class="number" id="dummy1">2</simpleText>
+<tableInteraction class="chart" cols="3" id="dummy3" rows="4">
+	<col class="$chart"/><col class="$chart"/><col class="$chart"/>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>bodyparts</simpleText>		</td>
+		<td class="chart">
+<simpleText>how many</simpleText>		</td>
+		<td class="chart">
+<simpleText>connected to...</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Head</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="one" weight="1"/><textAnswer answer="1" weight="1"/>	
+</textEntryInteraction>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="neck" weight="1"/>	
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Feet</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="two" weight="1"/><textAnswer answer="2" weight="1"/>	
+</textEntryInteraction>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="legs" weight="1"/>	
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Fingers</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="ten" weight="1"/><textAnswer answer="10" weight="1"/>	
+</textEntryInteraction>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="hands" weight="1"/>	
+</textEntryInteraction>		</td>
+	</tr>
+</tableInteraction>
+</itemBody>
+</activityContainer></itemBody></assessmentItem>

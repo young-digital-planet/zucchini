@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.TestIntegrityAutomation" tests="1" failures="0" errors="0" skipped="0" time="0,265" hostname="mkocieniewski" timestamp="2012-12-13T09:13:34">
+  <testcase classname="pl.ydp.automation::TestIntegrityAutomation" name="should_proceed_automation" time="0,265"/>
+</testsuite>

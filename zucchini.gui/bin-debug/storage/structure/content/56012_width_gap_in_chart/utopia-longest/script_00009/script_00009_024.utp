@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem playerVersion="1.8.4" version="2.2">	
+<title>chart
+
+
+
+
+
+
+
+</title><properties><property name="width">783</property><property name="height">670</property></properties><stylesheet href="../common/default.css"/><stylesheet href="../common/layout.css"/><layout><table cols="1" rows="1"><col/><row/><layer name="2aa"><tr><td align="justify" valign="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="background"><tr><td/></tr><tr><td padding-bottom="14" padding-left="20" padding-top="12"><table cols="3" rows="1"><col width="347"/><col width="41"/><col width="347"/><row/><layer name="background"><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer name="background_content"><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify"><module ref="background_content"/></td></tr></layer></table></td></tr></layer></table></td><td align="center" padding-left="20" padding-right="21" valign="justify"><module ref="shape5"/></td><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer name="background_activity"><tr><td align="justify" valign="justify"><module ref="background_content1"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer><layer name="content"><tr><td><module ref="pageTitle"/></td></tr><tr><td padding-bottom="14" padding-left="20" padding-top="12"><table cols="3" rows="1"><col width="347"/><col width="41"/><col width="347"/><row/><layer name="content"><tr><td align="justify" valign="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="bg_sizeH_content"><tr><td align="justify"><module ref="shape1"/></td></tr><tr><td align="justify" padding-top="14"><module ref="shape2"/></td></tr></layer><layer name="content"><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr><tr><td align="justify" padding-top="14" valign="justify"><module ref="dummy2"/></td></tr></layer></table></td><td align="center" padding-left="20" padding-right="21" valign="justify"/><td align="justify" valign="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="bg_sizeH_content"><tr><td align="justify"><module ref="shape3"/></td></tr><tr><td align="justify" padding-top="14"><module ref="shape4"/></td></tr></layer><layer name="content"><tr><td align="justify" valign="justify"><module ref="dummy3"/></td></tr><tr><td align="justify" padding-top="14" valign="justify"><module ref="dummy4"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody><shape height="502" id="background_content"/><shape id="shape5"><style><borderLeft alpha="1.0" color="#D5D5D5" style="solid" width="1"/></style></shape><shape height="502" id="background_content1"/><simpleTestInfo id="pageTitle"/><shape height="244" id="shape1"/><shape height="244" id="shape2"/><activityContainer class="activity_inline" id="dummy1">
+<layout><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify" padding-bottom="26" padding-left="18" valign="bottom"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify"><module ref="textFeedbackView"/></td></tr></layer></table></td></tr></layer><layer name="buttons"><tr><td align="right" valign="bottom"><table cols="4" rows="1"><col/><col/><col/><col/><row/><layer name="buttons"><tr><td align="right" valign="bottom"><module ref="markCorrectButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="markWrongButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="showAnswersButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="resetButton"/></td></tr></layer></table></td></tr></layer><layer name="sourcelist"><tr><td align="justify" padding-bottom="96" valign="bottom"><module ref="sourcelist"/></td></tr></layer><layer name="activity"><tr><td align="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="activity"><tr><td><table cols="1" rows="1"><col/><row/><layer name="errand"><tr><td padding-left="18"><module ref="dummy2"/></td></tr></layer><layer name="errand_number"><tr><td><module ref="dummy1"/></td></tr></layer></table></td></tr><tr><td><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><itemBody><textFeedbackView id="textFeedbackView" skin.id="activity"><skin src="../common/activity-textFeedbackView.dls.utp"/></textFeedbackView><markCorrectButton id="markCorrectButton"/><markWrongButton id="markWrongButton"/><showAnswersButton id="showAnswersButton"/><resetButton id="resetButton"/>			<!-- cannot find module for dummy 'sourcelist'!-->
+<simpleText class="bold" id="dummy2">chart chart chart chart</simpleText>
+<simpleText class="number" id="dummy1">1</simpleText>
+<tableInteraction class="chart" cols="2" id="dummy3" rows="4">
+	<col class="$chart"/><col class="$chart"/>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Hoofdstad</simpleText>		</td>
+		<td class="chart">
+<simpleText>Land</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Amsterdam</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Nederland" weight="1"/><textAnswer answer="nederland" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="nederland"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Berlijn</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Duitsland" weight="1"/><textAnswer answer="duitsland" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="duitsland"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Parijs</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Frankrijk" weight="1"/><textAnswer answer="frankrijk" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="frankrijk"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+</tableInteraction>
+</itemBody>
+</activityContainer><activityContainer class="activity_inline" id="dummy2">
+<layout><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify" padding-bottom="26" padding-left="18" valign="bottom"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify"><module ref="textFeedbackView"/></td></tr></layer></table></td></tr></layer><layer name="buttons"><tr><td align="right" valign="bottom"><table cols="4" rows="1"><col/><col/><col/><col/><row/><layer name="buttons"><tr><td align="right" valign="bottom"><module ref="markCorrectButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="markWrongButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="showAnswersButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="resetButton"/></td></tr></layer></table></td></tr></layer><layer name="sourcelist"><tr><td align="justify" padding-bottom="96" valign="bottom"><module ref="sourcelist"/></td></tr></layer><layer name="activity"><tr><td align="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="activity"><tr><td><table cols="1" rows="1"><col/><row/><layer name="errand"><tr><td padding-left="18"><module ref="dummy2"/></td></tr></layer><layer name="errand_number"><tr><td><module ref="dummy1"/></td></tr></layer></table></td></tr><tr><td><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><itemBody><textFeedbackView id="textFeedbackView" skin.id="activity"><skin src="../common/activity-textFeedbackView.dls.utp"/></textFeedbackView><markCorrectButton id="markCorrectButton"/><markWrongButton id="markWrongButton"/><showAnswersButton id="showAnswersButton"/><resetButton id="resetButton"/>			<!-- cannot find module for dummy 'sourcelist'!-->
+<simpleText class="bold" id="dummy2">chart[type=chart_left]</simpleText>
+<simpleText class="number" id="dummy1">2</simpleText>
+<tableInteraction class="chart chart_left" cols="2" id="dummy3" rows="4">
+	<col class="$chart"/><col class="$chart"/>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Hoofdstad</simpleText>		</td>
+		<td class="chart">
+<simpleText>Land</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Amsterdam</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Nederland" weight="1"/><textAnswer answer="nederland" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="nederland"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Berlijn</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Duitsland" weight="1"/><textAnswer answer="duitsland" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="duitsland"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Parijs</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Frankrijk" weight="1"/><textAnswer answer="frankrijk" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="frankrijk"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+</tableInteraction>
+</itemBody>
+</activityContainer><shape height="244" id="shape3"/><shape height="244" id="shape4"/><activityContainer class="activity_inline" id="dummy3">
+<layout><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify" padding-bottom="26" padding-left="18" valign="bottom"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify"><module ref="textFeedbackView"/></td></tr></layer></table></td></tr></layer><layer name="buttons"><tr><td align="right" valign="bottom"><table cols="4" rows="1"><col/><col/><col/><col/><row/><layer name="buttons"><tr><td align="right" valign="bottom"><module ref="markCorrectButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="markWrongButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="showAnswersButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="resetButton"/></td></tr></layer></table></td></tr></layer><layer name="sourcelist"><tr><td align="justify" padding-bottom="96" valign="bottom"><module ref="sourcelist"/></td></tr></layer><layer name="activity"><tr><td align="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="activity"><tr><td><table cols="1" rows="1"><col/><row/><layer name="errand"><tr><td padding-left="18"><module ref="dummy2"/></td></tr></layer><layer name="errand_number"><tr><td><module ref="dummy1"/></td></tr></layer></table></td></tr><tr><td><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><itemBody><textFeedbackView id="textFeedbackView" skin.id="activity"><skin src="../common/activity-textFeedbackView.dls.utp"/></textFeedbackView><markCorrectButton id="markCorrectButton"/><markWrongButton id="markWrongButton"/><showAnswersButton id="showAnswersButton"/><resetButton id="resetButton"/>			<!-- cannot find module for dummy 'sourcelist'!-->
+<simpleText class="bold" id="dummy2">chart[type=chart_centre]</simpleText>
+<simpleText class="number" id="dummy1">3</simpleText>
+<tableInteraction class="chart chart_centre" cols="2" id="dummy3" rows="4">
+	<col class="$chart"/><col class="$chart"/>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Hoofdstad</simpleText>		</td>
+		<td class="chart">
+<simpleText>Land</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Amsterdam</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Nederland" weight="1"/><textAnswer answer="nederland" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="nederland"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Berlijn</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Duitsland" weight="1"/><textAnswer answer="duitsland" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="duitsland"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Parijs</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Frankrijk" weight="1"/><textAnswer answer="frankrijk" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="frankrijk"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+</tableInteraction>
+</itemBody>
+</activityContainer><activityContainer class="activity_inline" id="dummy4">
+<layout><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify" padding-bottom="26" padding-left="18" valign="bottom"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify"><module ref="textFeedbackView"/></td></tr></layer></table></td></tr></layer><layer name="buttons"><tr><td align="right" valign="bottom"><table cols="4" rows="1"><col/><col/><col/><col/><row/><layer name="buttons"><tr><td align="right" valign="bottom"><module ref="markCorrectButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="markWrongButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="showAnswersButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="resetButton"/></td></tr></layer></table></td></tr></layer><layer name="sourcelist"><tr><td align="justify" padding-bottom="96" valign="bottom"><module ref="sourcelist"/></td></tr></layer><layer name="activity"><tr><td align="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="activity"><tr><td><table cols="1" rows="1"><col/><row/><layer name="errand"><tr><td padding-left="18"><module ref="dummy2"/></td></tr></layer><layer name="errand_number"><tr><td><module ref="dummy1"/></td></tr></layer></table></td></tr><tr><td><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><itemBody><textFeedbackView id="textFeedbackView" skin.id="activity"><skin src="../common/activity-textFeedbackView.dls.utp"/></textFeedbackView><markCorrectButton id="markCorrectButton"/><markWrongButton id="markWrongButton"/><showAnswersButton id="showAnswersButton"/><resetButton id="resetButton"/>			<!-- cannot find module for dummy 'sourcelist'!-->
+<simpleText class="bold" id="dummy2">chart[type=chart_noBold]</simpleText>
+<simpleText class="number" id="dummy1">4</simpleText>
+<tableInteraction class="chart chart_noBold" cols="2" id="dummy3" rows="4">
+	<col class="$chart"/><col class="$chart"/>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Hoofdstad</simpleText>		</td>
+		<td class="chart">
+<simpleText>Land</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Amsterdam</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Nederland" weight="1"/><textAnswer answer="nederland" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="nederland"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Berlijn</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Duitsland" weight="1"/><textAnswer answer="duitsland" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="duitsland"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Parijs</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="Frankrijk" weight="1"/><textAnswer answer="frankrijk" weight="1"/>	
+		<feedbacks>
+			<feedback>
+				<condition>
+		
+					<propertyCondition operator="==" property="text" value="frankrijk"/>
+		
+				</condition>
+		<action>
+			<showText>Let op je hoofdletters</showText>
+		</action>
+			</feedback>
+		</feedbacks>
+</textEntryInteraction>		</td>
+	</tr>
+</tableInteraction>
+</itemBody>
+</activityContainer></itemBody></assessmentItem>

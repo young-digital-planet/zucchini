@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="0" name="TestAutomationCaptain" package="pl.ydp.automation" skipped="1" tests="3" time="0,023" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation::TestAutomationCaptain" name="should_configure_automation" time="0,011" />
+
+      <testcase classname="pl.ydp.automation::TestAutomationCaptain" name="should_execute_automation" time="0,011">
+          <skipped />
+
+      </testcase>
+
+      <testcase classname="pl.ydp.automation::TestAutomationCaptain" name="should_prepare_automation" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="1" name="TestAutomationEngine" package="pl.ydp.automation" skipped="0" tests="2" time="0,024" timestamp="2012-12-13T09:13:34">
+      <testcase classname="pl.ydp.automation::TestAutomationEngine" name="should_prepare_scripts" time="0,023" />
+
+      <testcase classname="pl.ydp.automation::TestAutomationEngine" name="should_execute_scripts" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="2" name="TestIntegrityAutomation" package="pl.ydp.automation" skipped="0" tests="1" time="0,265" timestamp="2012-12-13T09:13:34">
+      <testcase classname="pl.ydp.automation::TestIntegrityAutomation" name="should_proceed_automation" time="0,265" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="3" name="TestScriptsEngine" package="pl.ydp.automation" skipped="0" tests="1" time="0,010" timestamp="2012-12-13T09:13:34">
+      <testcase classname="pl.ydp.automation::TestScriptsEngine" name="should_initialize_scripts" time="0,010" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="4" name="TestEnvironmentModel" package="pl.ydp.automation.configuration" skipped="0" tests="1" time="0,001" timestamp="2012-12-13T09:13:34">
+      <testcase classname="pl.ydp.automation.configuration::TestEnvironmentModel" name="should_get_filesystem_delimiter" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="5" name="TestSettingsGateway" package="pl.ydp.automation.configuration.settings" skipped="0" tests="3" time="0,016" timestamp="2012-12-13T09:13:34">
+      <testcase classname="pl.ydp.automation.configuration.settings::TestSettingsGateway" name="should_no_pass_scripts_to_model_B" time="0,011" />
+
+      <testcase classname="pl.ydp.automation.configuration.settings::TestSettingsGateway" name="should_pass_scripts_to_model" time="0,004" />
+
+      <testcase classname="pl.ydp.automation.configuration.settings::TestSettingsGateway" name="should_no_pass_scripts_to_model_A" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="6" name="TestAutomationScript" package="pl.ydp.automation.execution" skipped="0" tests="3" time="0,014" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution::TestAutomationScript" name="should_get_name" time="0,013" />
+
+      <testcase classname="pl.ydp.automation.execution::TestAutomationScript" name="should_get_feature" time="0,000" />
+
+      <testcase classname="pl.ydp.automation.execution::TestAutomationScript" name="should_get_scenarios" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="7" name="TestExecutionManager" package="pl.ydp.automation.execution" skipped="0" tests="9" time="0,019" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_step_execution_started" time="0,011" />
+
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_step_execution_finished" time="0,002" />
+
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_finish_execution_B" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_scenario_execution_finished" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_finish_execution_C" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_scenario_execution_started" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_finish_execution_A" time="0,000" />
+
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_script_execution_started" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution::TestExecutionManager" name="should_script_execution_finished" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="8" name="TestReportData" package="pl.ydp.automation.execution.report" skipped="0" tests="1" time="0,001" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution.report::TestReportData" name="should_create_script_report" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="9" name="TestReportDataFactory" package="pl.ydp.automation.execution.report" skipped="0" tests="5" time="0,012" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution.report::TestReportDataFactory" name="should_add_steps_incorrect_result_to_report" time="0,009" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportDataFactory" name="should_add_scenario_to_report" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportDataFactory" name="should_create_script_report" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportDataFactory" name="should_add_step_to_report" time="0,000" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportDataFactory" name="should_add_steps_correct_result_to_report" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="10" name="TestReportExporter" package="pl.ydp.automation.execution.report" skipped="0" tests="3" time="0,012" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution.report::TestReportExporter" name="should_export_report" time="0,010" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportExporter" name="should_export_reports" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportExporter" name="should_add_reportdata_to_model" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="11" name="TestReportManager" package="pl.ydp.automation.execution.report" skipped="0" tests="4" time="0,011" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution.report::TestReportManager" name="should_finish_report" time="0,009" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportManager" name="should_dispatch_reports_exported_signal" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportManager" name="should_initialize_report" time="0,000" />
+
+      <testcase classname="pl.ydp.automation.execution.report::TestReportManager" name="should_handle_step_result" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="12" name="TestReportModel" package="pl.ydp.automation.execution.report" skipped="0" tests="1" time="0,000" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution.report::TestReportModel" name="should_add_script" time="0,000" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="13" name="TestJUnitReportFormatter" package="pl.ydp.automation.execution.report.impl" skipped="0" tests="1" time="0,001" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution.report.impl::TestJUnitReportFormatter" name="should_format_reportdata" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="14" name="TestStorageManager" package="pl.ydp.automation.execution.storage" skipped="0" tests="2" time="0,012" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution.storage::TestStorageManager" name="should_get_pattern_file" time="0,009" />
+
+      <testcase classname="pl.ydp.automation.execution.storage::TestStorageManager" name="should_get_utt_file" time="0,003" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="15" name="TestSnapshotsManager" package="pl.ydp.automation.execution.storage.snapshot" skipped="0" tests="2" time="0,017" timestamp="2012-12-13T09:13:34">
+      <testcase classname="pl.ydp.automation.execution.storage.snapshot::TestSnapshotsManager" name="should_get_different_pixels_count (10,10,10,10,0)" time="0,016" />
+
+      <testcase classname="pl.ydp.automation.execution.storage.snapshot::TestSnapshotsManager" name="should_get_different_pixels_count (10,10,10,11,2)" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="16" name="TestUtopiaSnapshot" package="pl.ydp.automation.execution.storage.snapshot.impl" skipped="0" tests="1" time="0,001" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.execution.storage.snapshot.impl::TestUtopiaSnapshot" name="should_get_bitmap_data_from_snapshot" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="17" name="TestFilesystemScripts" package="pl.ydp.automation.fs" skipped="0" tests="4" time="0,051" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.fs::TestFilesystemScripts" name="should_find_script_source" time="0,006" />
+
+      <testcase classname="pl.ydp.automation.fs::TestFilesystemScripts" name="should_not_find_script_source_from_directory" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.fs::TestFilesystemScripts" name="should_call_event_when_loads_script" time="0,020" />
+
+      <testcase classname="pl.ydp.automation.fs::TestFilesystemScripts" name="should_call_event_when_loads_loaded_script" time="0,024" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="18" name="TestParserUtil" package="pl.ydp.automation.parser" skipped="0" tests="1" time="0,007" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.parser::TestParserUtil" name="should_remove_extra_spaces" time="0,007" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="19" name="TestScriptParser" package="pl.ydp.automation.parser.impl" skipped="0" tests="2" time="0,003" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.parser.impl::TestScriptParser" name="should_parse_script_source_to_feature" time="0,002" />
+
+      <testcase classname="pl.ydp.automation.parser.impl::TestScriptParser" name="should_get_feature_name" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="20" name="TestFeature" package="pl.ydp.automation.parser.vo" skipped="0" tests="2" time="0,003" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.parser.vo::TestFeature" name="should_get_two_scenarios" time="0,002" />
+
+      <testcase classname="pl.ydp.automation.parser.vo::TestFeature" name="should_get_feature_name" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="21" name="TestScenario" package="pl.ydp.automation.parser.vo" skipped="0" tests="1" time="0,001" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.parser.vo::TestScenario" name="should_get_seven_sentences" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="22" name="TestScriptsManager" package="pl.ydp.automation.scripts" skipped="0" tests="3" time="0,011" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.scripts::TestScriptsManager" name="should_initialize_scripts" time="0,009" />
+
+      <testcase classname="pl.ydp.automation.scripts::TestScriptsManager" name="should_load_scripts" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.scripts::TestScriptsManager" name="should_parse_scripts" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="23" name="TestScriptsModel" package="pl.ydp.automation.scripts" skipped="0" tests="1" time="0,001" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.scripts::TestScriptsModel" name="should_get_automation_script_from_model" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="24" name="TestStepFactory" package="pl.ydp.automation.scripts.steps" skipped="0" tests="2" time="0,010" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.scripts.steps::TestStepFactory" name="should_pass_regexp" time="0,009" />
+
+      <testcase classname="pl.ydp.automation.scripts.steps::TestStepFactory" name="should_fail_regexp" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="25" name="TestStepsNamespace" package="pl.ydp.automation.scripts.steps" skipped="0" tests="1" time="0,001" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.scripts.steps::TestStepsNamespace" name="should_get_regexp_for_variable" time="0,001" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="26" name="TestStepsResolver" package="pl.ydp.automation.scripts.steps" skipped="0" tests="1" time="0,009" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.scripts.steps::TestStepsResolver" name="should_get_resolved_pattern" time="0,009" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="27" name="TestStep" package="pl.ydp.automation.scripts.steps.base" skipped="0" tests="4" time="0,024" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.automation.scripts.steps.base::TestStep" name="should_dispach_by_descriptor" time="0,019" />
+
+      <testcase classname="pl.ydp.automation.scripts.steps.base::TestStep" name="should_get_sentence" time="0,002" />
+
+      <testcase classname="pl.ydp.automation.scripts.steps.base::TestStep" name="should_dispatch_signal" time="0,001" />
+
+      <testcase classname="pl.ydp.automation.scripts.steps.base::TestStep" name="should_get_pattern" time="0,002" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="28" name="TestEventUtils" package="pl.ydp.utils" skipped="0" tests="2" time="0,003" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.utils::TestEventUtils" name="should_redispatch_clone_event" time="0,001" />
+
+      <testcase classname="pl.ydp.utils::TestEventUtils" name="should_call_cleanup" time="0,002" />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="mkocieniewski" id="29" name="TestFilesystemUtil" package="pl.ydp.utils" skipped="0" tests="2" time="0,043" timestamp="2012-12-13T09:13:35">
+      <testcase classname="pl.ydp.utils::TestFilesystemUtil" name="should_load_file" time="0,038" />
+
+      <testcase classname="pl.ydp.utils::TestFilesystemUtil" name="should_not_load_file" time="0,005" />
+
+  </testsuite>
+</testsuites>

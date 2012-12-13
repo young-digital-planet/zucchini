@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentTest title="10|Ćwiczenia" playerVersion="1.8.4" compilerVersion="3.3.0.401"><lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+	<general>
+		<description><string>Gimnazjum, biologia</string></description>
+		<title><string>10|Ćwiczenia</string></title>
+	</general>
+	<metaMetadata>
+      <contribute>
+        <role>
+          <source>LOMv1.0</source>
+          <value>creator</value>
+        </role>
+        <entity>Krystyna Bartoszyńska</entity>
+      </contribute>
+	</metaMetadata>
+	<educational>
+	</educational>
+	<lifecycle>
+		<contribute>
+			<role>
+				<source>LOMv1.0</source>
+				<value>author</value>
+			</role>
+			<entity>
+			<![CDATA[ 
+				BEGIN:VCARD
+    			FN:Krystyna Bartoszyńska
+    			END:VCARD
+   			]]> 
+			</entity>
+		</contribute>
+	</lifecycle>
+</lom>
+	<!-- global css !-->
+	<stylesheet href="common/default.css"/>
+	<!-- lesson css !-->
+	<stylesheet href="common/default.css"/>
+	<!-- test layout and css !-->
+	<testView href="common/default.utp" media="utopia"/>
+	<declarations>
+	</declarations>
+ 
+	<testPart>
+		<assessmentSection>
+			<assessmentItemRef 
+				href="script_00011/script_00011_000.utp"
+				title="Zadanie 1 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_001.utp"
+				title="Zadanie 2 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="mchoice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_002.utp"
+				title="Zadanie 3 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_003.utp"
+				title="Zadanie 4 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_004.utp"
+				title="Zadanie 5 zalecane"
+				class="A" todo="2">
+				<itemDescription>
+						<modules>
+							<module type="mchoice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_005.utp"
+				title="Zadanie 6 zalecane"
+				class="A" todo="2">
+				<itemDescription>
+						<modules>
+							<module type="id"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_006.utp"
+				title="Zadanie 7 zalecane"
+				class="A" todo="2">
+				<itemDescription>
+						<modules>
+							<module type="connection"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_007.utp"
+				title="Zadanie 8 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_008.utp"
+				title="Zadanie 9 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_009.utp"
+				title="Zadanie 10 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_010.utp"
+				title="Zadanie 11 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_011.utp"
+				title="Zadanie 12 zalecane"
+				class="A" todo="2">
+				<itemDescription>
+						<modules>
+							<module type="id"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_012.utp"
+				title="Zadanie 13 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="id"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_013.utp"
+				title="Zadanie 14 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="mmarking"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_014.utp"
+				title="Zadanie 15 zalecane"
+				class="A" todo="2">
+				<itemDescription>
+						<modules>
+							<module type="selection"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_015.utp"
+				title="Zadanie 16 zalecane"
+				class="A" todo="2">
+				<itemDescription>
+						<modules>
+							<module type="selection"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_016.utp"
+				title="Zadanie 17 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_017.utp"
+				title="Zadanie 18 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="id"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_018.utp"
+				title="Zadanie 19 zalecane"
+				class="A" todo="1">
+				<itemDescription>
+						<modules>
+							<module type="choice"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+			<assessmentItemRef 
+				href="script_00011/script_00011_019.utp"
+				title="Zadanie 20 zalecane"
+				class="A" todo="2">
+				<itemDescription>
+						<modules>
+							<module type="selection"/>
+						</modules>
+				</itemDescription>
+			</assessmentItemRef>
+		</assessmentSection>
+	</testPart>
+
+</assessmentTest>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem playerVersion="1.8.4" version="2.2">	
+<title/><lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+	<general>
+		<title><string/></title>
+	</general>
+	<metaMetadata>
+      <contribute>
+        <role>
+          <source>LOMv1.0</source>
+          <value>creator</value>
+        </role>
+        <entity>Zbigniew Jacynowicz</entity>
+      </contribute>
+	</metaMetadata>
+	<educational>
+	</educational>
+	<lifecycle>
+		<contribute>
+			<role>
+				<source>LOMv1.0</source>
+				<value>author</value>
+			</role>
+			<entity>
+			<![CDATA[ 
+				BEGIN:VCARD
+    			FN:Zbigniew Jacynowicz
+    			END:VCARD
+   			]]> 
+			</entity>
+		</contribute>
+	</lifecycle>
+</lom>
+<properties><property name="width">795</property><property name="height">500</property></properties><stylesheet href="../common/default.css"/><layout><table cols="1" rows="4"><col/><row/><row/><row/><row/><layer name="C2A_layout"><tr><td align="justify"><table cols="1" name="guide" rows="1"><col/><row/><layer name="guide_body"><tr><td align="justify" valign="justify"><module ref="container_dummy1"/></td></tr></layer></table></td></tr><tr><td align="justify" valign="justify"><table cols="1" name="spacer" rows="1"><col/><row/><layer name="spacer_body"><tr><td align="justify" valign="justify"><module ref="rows_spacer1"/></td></tr></layer></table></td></tr><tr><td align="justify" valign="justify"><table cols="1" name="content" rows="3"><col/><row/><row/><row/><layer name="content_body"><tr><td align="justify"><table cols="1" name="activity" rows="4"><col/><row/><row/><row/><row/><layer name="activity_all"><tr><td align="justify" valign="justify"><module ref="container_dummy2"/></td></tr><tr><td align="center"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" padding-top="16"><module ref="container_dummy3"/></td></tr></layer></table></td></tr><tr><td align="center"><module ref="sourcelist"/></td></tr><tr><td align="center"><module ref="textFeedbackView1"/></td></tr></layer></table></td></tr><tr><td align="justify" valign="justify"><module ref="rows_spacer3"/></td></tr><tr><td align="justify"><table cols="1" name="resources" rows="1"><col/><row/><layer name="resources_all"><tr><td><module ref="dummy4"/></td></tr></layer></table></td></tr></layer></table></td></tr><tr><td align="right" padding-top="16" valign="justify"><table cols="3" name="activity_buttons" rows="1"><col/><col/><col/><row/><layer name="buttons_body"><tr><td><module ref="checkButton1"/></td><td><module ref="showAnswersButton1"/></td><td><module ref="resetButton1"/></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody><!--Inline skin: ../common/resource-text.dls.utp--><activityContainer id="container_dummy1"><layout><table cols="1" rows="1"><col width="1!"/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><simpleText class="" id="dummy1"><b>Ignacy Krasicki „Jagnię i wilcy”</b>
+<br/>
+
+<br/>
+Zawżdy znajdzie przyczynę, kto zdobyczy pragnie.
+<br/>
+Dwóch wilków jedno w lesie nadybali jagnię;
+<br/>
+Już go mieli rozerwać, rzekło: „Jakim prawem?”.
+<br/>
+„Smacznyś, słaby i w lesie!” – Zjedli niezabawem.
+<br/>
+
+<br/>
+Ignacy Krasicki, „Bajki”, BN, Wrocław 1975.</simpleText></itemBody></activityContainer>
+<image id="rows_spacer1" src="../common/spacer_dummy.swf"/><!--Inline skin: ../common/resource-text.dls.utp--><activityContainer id="container_dummy2"><layout><table cols="1" rows="1"><col width="1!"/><row/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer><tr><td align="justify" valign="justify"><module ref="dummy2"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><simpleText class="" id="dummy2"><b>W niewielkiej przestrzeni poeta zmieścił wielość różnych form wypowiedzi: sentencję, opis sytuacji, dialog, puentę. W tabelę należy wpisać numery wersów, w których są one realizowane.</b></simpleText></itemBody></activityContainer>
+<!--Inline skin: ../common/activity-chart.dls.utp--><activityContainer id="container_dummy3"><layout><table cols="1" rows="1"><col/><row/><layer><tr><td><table cols="1" rows="1"><col/><row/><layer><tr><td><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></layout><itemBody><tableInteraction class="chart" cols="3" id="dummy3" rows="5">
+	<col class="$chart"/><col class="$chart"/><col class="$chart"/>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>Lp.</simpleText>		</td>
+		<td class="chart">
+<simpleText>Forma wypowiedzi</simpleText>		</td>
+		<td class="chart">
+<simpleText>Numer wersu</simpleText>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>1.</simpleText>		</td>
+		<td class="chart">
+<simpleText>Sentencja</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="1" weight="1"/>	
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>2.</simpleText>		</td>
+		<td class="chart">
+<simpleText>Opis sytuacji</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="1,2" weight="1"/>	
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>3.</simpleText>		</td>
+		<td class="chart">
+<simpleText>Dialog</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="3,4" weight="1"/>	
+</textEntryInteraction>		</td>
+	</tr>
+	<tr class="$chart">
+		<td class="chart">
+<simpleText>4.</simpleText>		</td>
+		<td class="chart">
+<simpleText>Puenta</simpleText>		</td>
+		<td class="chart">
+<textEntryInteraction class=""><textAnswer answer="4" weight="1"/>	
+</textEntryInteraction>		</td>
+	</tr>
+</tableInteraction></itemBody></activityContainer>
+			<!-- cannot find module for dummy 'sourcelist'!-->
+<textFeedbackView id="textFeedbackView1"/><image id="rows_spacer3" src="../common/spacer_dummy.swf"/><button class="popup" href="script_00008_p000.utp" id="dummy4" tooltipText="Odesłanie do teorii "/>
+<checkButton id="checkButton1"/><showAnswersButton id="showAnswersButton1"/><resetButton id="resetButton1"/></itemBody></assessmentItem>

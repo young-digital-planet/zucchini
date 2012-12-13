@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentTest title="Script Editor 1">
+	<!-- global css !-->
+	<stylesheet href="common/default.css"/>
+	<!-- lesson css !-->
+	<stylesheet href="common/default.css"/>
+	<!-- test layout and css !-->
+	<testView href="common/default.utp" media="utopia"/>
+	<declarations>
+	</declarations>
+ 
+	<testPart>
+		<assessmentSection>
+			<assessmentItemRef 
+				href="script_00002/script_00002_000.utp"
+				title="Zerowa strona szkolenia"
+				class="2C_popup"/>
+		</assessmentSection>
+	</testPart>
+
+</assessmentTest>

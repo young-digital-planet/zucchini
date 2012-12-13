@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="false" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="pl.ydp.automation.AutomationCaptain"/>
+    <classEntry path="pl.ydp.automation.AutomationEngine"/>
+    <classEntry path="pl.ydp.automation.ExecutionEngine"/>
+    <classEntry path="pl.ydp.automation.ScriptsEngine"/>
+    <classEntry path="pl.ydp.automation.configuration.EnvironmentModel"/>
+    <classEntry path="pl.ydp.automation.configuration.StartupOperations"/>
+    <classEntry path="pl.ydp.automation.configuration.context.IAutomationAppContext"/>
+    <classEntry path="pl.ydp.automation.configuration.impl.context.DefaultAutomationAppContext"/>
+    <classEntry path="pl.ydp.automation.configuration.impl.parameters.DefaultAutomationParameters"/>
+    <classEntry path="pl.ydp.automation.configuration.impl.scripts.fs.FilesystemScriptSource"/>
+    <classEntry path="pl.ydp.automation.configuration.impl.scripts.fs.FilesystemScripts"/>
+    <classEntry path="pl.ydp.automation.configuration.impl.scripts.parser.GherkinConfig"/>
+    <classEntry path="pl.ydp.automation.configuration.impl.scripts.steps.DefaultNamespaceVariables"/>
+    <classEntry path="pl.ydp.automation.configuration.impl.scripts.steps.DefaultStepsClasses"/>
+    <classEntry path="pl.ydp.automation.configuration.parameters.AutomationParameters"/>
+    <classEntry path="pl.ydp.automation.configuration.parameters.IAutomationParameters"/>
+    <classEntry path="pl.ydp.automation.configuration.settings.ISettings"/>
+    <classEntry path="pl.ydp.automation.configuration.settings.SettingsGateway"/>
+    <classEntry path="pl.ydp.automation.execution.AutomationScenario"/>
+    <classEntry path="pl.ydp.automation.execution.AutomationScript"/>
+    <classEntry path="pl.ydp.automation.execution.ExecutionManager"/>
+    <classEntry path="pl.ydp.automation.execution.ExecutionModel"/>
+    <classEntry path="pl.ydp.automation.execution.IAutomationContext"/>
+    <classEntry path="pl.ydp.automation.execution.IAutomationStep"/>
+    <classEntry path="pl.ydp.automation.execution.async.IAsyncWait"/>
+    <classEntry path="pl.ydp.automation.execution.report.IReportFormatter"/>
+    <classEntry path="pl.ydp.automation.execution.report.IReportTarget"/>
+    <classEntry path="pl.ydp.automation.execution.report.ReportData"/>
+    <classEntry path="pl.ydp.automation.execution.report.ReportDataFactory"/>
+    <classEntry path="pl.ydp.automation.execution.report.ReportExporter"/>
+    <classEntry path="pl.ydp.automation.execution.report.ReportManager"/>
+    <classEntry path="pl.ydp.automation.execution.report.ReportModel"/>
+    <classEntry path="pl.ydp.automation.execution.report.impl.formatters.JUnitReportFormatter"/>
+    <classEntry path="pl.ydp.automation.execution.report.impl.targets.FilesystemReportTarget"/>
+    <classEntry path="pl.ydp.automation.execution.storage.IStorageContent"/>
+    <classEntry path="pl.ydp.automation.execution.storage.StorageManager"/>
+    <classEntry path="pl.ydp.automation.execution.storage.StorageModel"/>
+    <classEntry path="pl.ydp.automation.execution.storage.StorageType"/>
+    <classEntry path="pl.ydp.automation.execution.storage.snapshot.IStorageSnapshot"/>
+    <classEntry path="pl.ydp.automation.execution.storage.snapshot.SnapshotsManager"/>
+    <classEntry path="pl.ydp.automation.execution.storage.snapshot.SnapshotsModel"/>
+    <classEntry path="pl.ydp.automation.execution.storage.snapshot.StorageSnapshotEvent"/>
+    <classEntry path="pl.ydp.automation.execution.storage.snapshot.impl.UtopiaSnapshot"/>
+    <classEntry path="pl.ydp.automation.execution.structure.IStructure"/>
+    <classEntry path="pl.ydp.automation.execution.structure.IStructureElementDescriptor"/>
+    <classEntry path="pl.ydp.automation.execution.structure.impl.ButtonDescriptor"/>
+    <classEntry path="pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructure"/>
+    <classEntry path="pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent"/>
+    <classEntry path="pl.ydp.automation.scripts.IScriptSource"/>
+    <classEntry path="pl.ydp.automation.scripts.IScripts"/>
+    <classEntry path="pl.ydp.automation.scripts.ScriptsManager"/>
+    <classEntry path="pl.ydp.automation.scripts.ScriptsModel"/>
+    <classEntry path="pl.ydp.automation.scripts.StepsManager"/>
+    <classEntry path="pl.ydp.automation.scripts.events.AutomationScriptEvent"/>
+    <classEntry path="pl.ydp.automation.scripts.events.ScriptEvent"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.IParserConfig"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.IScriptParser"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.ParserConfig"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.ParserUtil"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.impl.ScriptParser"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.vo.IFeature"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.vo.IScenario"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.vo.ISentence"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.vo.impl.Feature"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.vo.impl.Scenario"/>
+    <classEntry path="pl.ydp.automation.scripts.parser.vo.impl.Sentence"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.INamespaceVariables"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.IStepsClasses"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.IVariablesPatterns"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.StepFactory"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.StepResult"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.StepsNamespace"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.StepsRegistry"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.StepsResolver"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.base.Step"/>
+    <classEntry path="pl.ydp.automation.scripts.steps.impl.PressButtonStep"/>
+    <classEntry path="pl.ydp.utils.EventUtils"/>
+    <classEntry path="pl.ydp.utils.FilesystemUtil"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

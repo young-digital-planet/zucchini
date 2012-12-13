@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" 
+						creationComplete="onCreationComplete()" xmlns:local="*" 
+						width="870" height="860"
+						backgroundColor="#dddddd"
+						title="Zucchini GUI"
+						paddingTop="10">
+	<mx:Script>
+		<![CDATA[
+			import pl.ydp.automation.AutomationCaptain;
+			import pl.ydp.automation.execution.report.impl.formatters.JUnitReportFormatter;
+			import pl.ydp.automation.execution.report.impl.targets.FilesystemReportTarget;
+			import pl.ydp.automation.execution.storage.snapshot.SnapshotsModel;
+			
+			import utopia.UtopiaAppContext;
+			import utopia.parameters.UtopiaParameters;
+		
+			
+			
+			private var captain:AutomationCaptain;
+			
+			[Bindable]
+			private var _configurated:Boolean = false;
+			[Bindable]
+			private var _prepared:Boolean = false;
+			
+			
+			private const NORMAL_EXECUTION_LABEL:String = 'normalny';
+			private const SLOW_EXECUTION_LABEL:String = 'wolny';
+			
+			private const SNAPSHOT_COMPARE_LABEL:String = 'porównywanie';
+			private const SNAPSHOT_PATTERN_LABEL:String = 'wzorzec';
+			
+			private function onCreationComplete():void
+			{
+				captain = new AutomationCaptain();
+				
+				captain.context = new UtopiaAppContext();
+				captain.parameters =  new UtopiaParameters();
+				
+//				captain.setSettings( new ISettings() );
+				
+				captain.configuratingCompleted.addOnce( onConfiguratingCompleted );
+				captain.configure();
+			}
+			
+			private function onConfiguratingCompleted():void
+			{
+				_configurated = true;
+				
+//				captain.setSettings( new ISettings() );
+				
+//				captain.prepare();
+			}
+			
+			
+			private function prepare():void
+			{
+				
+				captain.settings.reportsFormatters = [ new JUnitReportFormatter() ];
+				captain.settings.reportsTargets = [ new FilesystemReportTarget() ];
+				
+				if( scritpsToPrepareNames.text != '' )
+					captain.settings.scriptsToPrepareNames = [ scritpsToPrepareNames.text ];
+//				if( scritpsToExecuteNames.text != '' )
+//					captain.settings.scriptsToExecuteNames = [ scritpsToPrepareNames.text ];
+				
+				captain.settings.snapshotMode = snapshotMode;
+				captain.settings.stepsInterval = stepsInterval;
+				
+				captain.preparingCompleted.addOnce( onPreparingCompleted );
+				captain.prepare();
+			}
+			
+			private function onPreparingCompleted():void
+			{
+				_prepared = true;
+				
+				structureContainer.addChild( captain.structure as DisplayObject );
+				captain.start();
+			}
+			
+			
+			
+			private function get stepsInterval():int
+			{
+				var interval:int;
+				if( executionModeGroup.selectedValue ==  NORMAL_EXECUTION_LABEL ){
+					interval = 0;
+				}else{
+					interval = parseInt( stepsIntervalInput.text );
+				}
+				return interval;
+			}
+			
+			private function get snapshotMode():String
+			{
+				var mode:String;
+				if( snapshotModeGroup.selectedValue == SNAPSHOT_PATTERN_LABEL ){
+					mode = SnapshotsModel.PATTERN_MODE;
+				}else{
+					mode = SnapshotsModel.COMPARE_MODE;
+				}
+				return mode;
+			}
+			
+			
+		]]>
+	</mx:Script>
+	
+	<mx:RadioButtonGroup id="executionModeGroup"/>
+	<mx:RadioButtonGroup id="snapshotModeGroup"/>
+	
+	
+	<mx:VBox width="100%">
+		<mx:Label text="Nawigacja" fontSize="18"/>
+		
+		<mx:HRule width="100%"/>
+		
+		<mx:VBox width="100%">
+			<mx:Label text="parametry" fontSize="14"/>
+			<mx:HBox width="100%">
+				
+				<mx:VBox width="100%">
+					<mx:HBox width="100%">
+						
+						<mx:Label text="Lista testów do uruchomienia" width="200"/>
+						<mx:TextInput width="100%" id="scritpsToPrepareNames"
+									  text=""/>
+					
+					</mx:HBox>
+					<!--
+					<mx:HBox width="100%">
+						
+						<mx:Label text="Testy do wykonania" width="200"/>
+						<mx:TextInput width="100%" id="scritpsToExecuteNames"/>
+					
+					</mx:HBox>
+					-->
+					<mx:HBox width="100%">
+						
+						<mx:Label text="Tryb wykonywania" width="200"/>
+							
+						<mx:RadioButton groupName="executionModeGroup" 
+										   label="{NORMAL_EXECUTION_LABEL}" 
+										   width="100"
+										   selected="true"/>
+						<mx:RadioButton groupName="executionModeGroup" 
+										   label="{SLOW_EXECUTION_LABEL}" 
+										   width="100"/>
+							      
+							
+					
+					</mx:HBox>
+					<mx:HBox width="100%">
+						
+						<mx:Label text="Interwał między krokami (ms)" width="200"/>
+						<mx:TextInput id="stepsIntervalInput" 
+									  text="500" 
+									  width="50" 
+									  textAlign="right"
+									  maxChars="5"
+									  restrict="0-9"
+									  enabled="{executionModeGroup.selectedValue == 'wolny'}"/>
+						
+					</mx:HBox>
+					<mx:HBox width="100%">
+						
+						<mx:Label text="Tryb wykonywania snapshotów" width="200"/>
+						
+						<mx:RadioButton groupName="snapshotModeGroup" 
+										label="{SNAPSHOT_COMPARE_LABEL}" 
+										width="100"
+										selected="true"/>
+						<mx:RadioButton groupName="snapshotModeGroup" 
+										label="{SNAPSHOT_PATTERN_LABEL}" 
+										width="100"/>
+						
+					</mx:HBox>
+
+				</mx:VBox>
+			</mx:HBox>
+		
+
+			
+			<mx:HBox width="100%" horizontalAlign="right">
+				<mx:Button label="uruchom testy" 
+						 	buttonMode="true"
+					  		click="{ prepare() }"
+					   		enabled="{_configurated}"
+					   		width="130"
+					   		height="50"/>
+			</mx:HBox>
+			
+		</mx:VBox>
+		
+	</mx:VBox>
+	<mx:VBox width="100%">
+		
+		<mx:Label text="Widok aplikacji" fontSize="18"/>
+		
+		<mx:HRule width="100%"/>
+		
+		<mx:Canvas id="structureContainer" backgroundColor="#dddddd"/>
+		
+	</mx:VBox>
+	
+	
+</mx:WindowedApplication>

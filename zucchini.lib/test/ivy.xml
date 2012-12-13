@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+	<info module="zucchini" organisation="eu.ydp">
+		<ivyauthor name="mkocieniewski"/>
+		<description>Flash BDD Framework - unit tests</description>
+	</info>
+	<configurations>
+		<conf name="default" description="All players"/>
+		<conf name="build" visibility="private" description="Configuration for build"/>
+		<conf name="test" visibility="private" description="Configuration for build"/>
+	</configurations>
+	<publications>
+	</publications>
+	<dependencies>
+		<dependency name="flexunit4" transitive="true" rev="latest.release" org="org.flexunit" conf="test->flex3.5"/>
+	</dependencies>
+</ivy-module>

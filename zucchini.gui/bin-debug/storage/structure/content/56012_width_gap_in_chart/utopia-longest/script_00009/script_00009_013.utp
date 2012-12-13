@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem playerVersion="1.8.4" version="2.2">	
+<title>connection
+
+</title><lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+	<general>
+		<title><string>connection</string></title>
+	</general>
+	<educational>
+		<learningresourcetype>
+  			<source>ydpExercise</source>
+  			<value>connection</value>
+		</learningresourcetype>
+	</educational>
+</lom>
+<properties><property name="width">783</property><property name="height">550</property></properties><stylesheet href="../common/default.css"/><stylesheet href="../common/layout.css"/><layout><table cols="1" rows="1"><col/><row/><layer name="1a"><tr><td align="justify" valign="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="content"><tr><td><table cols="1" hidden="true" rows="1"><col/><row/><layer><tr><td><module ref="pageTitle"/></td></tr></layer></table></td></tr><tr><td padding-bottom="14" padding-left="20" padding-top="12" valign="justify"><table cols="1" rows="1"><col width="735"/><row height="1!"/><layer name="background"><tr><td align="justify" valign="justify"><module ref="background_content"/></td></tr></layer><layer name="content"><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody><simpleTestInfo id="pageTitle"/><shape height="502" id="background_content"/><activityContainer class="activity_inline" id="dummy1">
+<layout><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td align="justify" valign="justify"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify" padding-bottom="26" padding-left="18" valign="bottom"><table cols="1" rows="1"><col/><row/><layer name="feedback"><tr><td align="justify"><module ref="textFeedbackView"/></td></tr></layer></table></td></tr></layer><layer name="buttons"><tr><td align="right" valign="bottom"><table cols="4" rows="1"><col/><col/><col/><col/><row/><layer name="buttons"><tr><td align="right" valign="bottom"><module ref="markCorrectButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="markWrongButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="showAnswersButton"/></td><td align="right" padding-left="2" valign="bottom"><module ref="resetButton"/></td></tr></layer></table></td></tr></layer><layer name="sourcelist"><tr><td align="justify" padding-bottom="96" valign="bottom"><module ref="sourcelist"/></td></tr></layer><layer name="activity"><tr><td align="justify"><table cols="1" rows="2"><col/><row/><row/><layer name="activity"><tr><td><table cols="1" rows="1"><col/><row/><layer name="errand"><tr><td padding-left="18"><module ref="dummy2"/></td></tr></layer><layer name="errand_number"><tr><td><module ref="dummy1"/></td></tr></layer></table></td></tr><tr><td><module ref="dummy3"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><itemBody><textFeedbackView id="textFeedbackView" skin.id="activity"><skin src="../common/activity-textFeedbackView.dls.utp"/></textFeedbackView><markCorrectButton id="markCorrectButton"/><markWrongButton id="markWrongButton"/><showAnswersButton id="showAnswersButton"/><resetButton id="resetButton"/>			<!-- cannot find module for dummy 'sourcelist'!-->
+<simpleText class="bold" id="dummy2">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</simpleText>
+<simpleText class="number" id="dummy1">01</simpleText>
+<matchInteraction class="" id="dummy3" shuffle="false">
+	<simpleMatchSet>
+		<imageAssociableChoice id="dummy3A1" matchMax="4">
+	<source height="100" src="media/makieta_100x100.jpg" width="100"/>
+		</imageAssociableChoice>
+		<imageAssociableChoice id="dummy3A2" matchMax="4">
+	<source height="100" src="media/makieta_choice.jpg" width="164"/>
+		</imageAssociableChoice>
+		<imageAssociableChoice id="dummy3A3" matchMax="4">
+	<source height="100" src="media/makieta_100x100.jpg" width="100"/>
+		</imageAssociableChoice>
+	</simpleMatchSet>
+	<simpleMatchSet>
+		<simpleAssociableChoice id="dummy3B1" matchMax="3">wetenschapper</simpleAssociableChoice>
+		<simpleAssociableChoice id="dummy3B2" matchMax="3">filosoof</simpleAssociableChoice>
+		<simpleAssociableChoice id="dummy3B3" matchMax="3">koning</simpleAssociableChoice>
+		<simpleAssociableChoice id="dummy3B4" matchMax="3">kunstenaar</simpleAssociableChoice>
+	</simpleMatchSet>
+	<connections>
+		<connection from="dummy3A1" to="dummy3B3"/>
+		<connection from="dummy3A2" to="dummy3B1"/>
+		<connection from="dummy3A3" to="dummy3B4"/>
+	</connections>
+</matchInteraction>
+</itemBody>
+</activityContainer></itemBody></assessmentItem>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.parser.impl.TestScriptParser" tests="2" failures="0" errors="0" skipped="0" time="0,003" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation.parser.impl::TestScriptParser" name="should_parse_script_source_to_feature" time="0,002"/>
+  <testcase classname="pl.ydp.automation.parser.impl::TestScriptParser" name="should_get_feature_name" time="0,001"/>
+</testsuite>

@@ -1,0 +1,136 @@
+﻿<project name="zucchini.lib" default="resolve" xmlns:ivy="antlib:org.apache.ivy.ant">
+	
+	<property name="ADL" value="${FLEX_HOME}/bin/adl.exe"/> 
+	<property name="ADT.JAR" value="${FLEX_HOME}/lib/adt.jar"/>
+	
+	<dirname property="base.dir" file="${ant.file.zucchini.lib}" />
+
+	<tstamp><format property="tstamp" pattern="yyyyMMddHHmm" timezone="GMT"/></tstamp>
+	
+	<property file="${base.dir}/local.properties" />
+	<property file="${base.dir}/default.properties"/>
+	
+	<property name="debug" value="false" />
+	
+	<property name="src.dir" value="${base.dir}/src" />
+	<property name="bin.dir" value="${base.dir}/bin" />
+	<property name="test.dir" value="${base.dir}/test"/>
+	<property name="libs.dir" value="${base.dir}/libs"/>
+	<property name="ivy.lib.dir" value="${base.dir}/ivy-lib"/>
+	<property name="doc.dir" value="${base.dir}/docs"/>
+	<property name="asdoc.dir" value="${doc.dir}/asdoc"/>
+	<property name="docs.package.file" value="${bin.dir}/zucchini_docs.zip"/>	
+	
+	<patternset id="flex.libs">
+        <include name="libs/playerglobal.swc" />
+        <include name="libs/flex.swc" />
+        <include name="libs/framework.swc" />
+        <include name="locale/{locale}" />
+	</patternset>
+	
+	
+	<target name="resolve">
+		<makeurl file="${ivy.settings.file}" property="ivy.settings.url_t" validate="false"/>
+			<condition property="ivy.settings.url" value="${ivy.settings.url_t}" else="${ivy.settings.url.default}" >
+				<isset property="ivy.settings.file" />
+			</condition>
+				
+		<ivy:configure url="${ivy.settings.url}" />
+		<ivy:retrieve file="${base.dir}/ivy.xml" pattern="${ivy.lib.dir}/[artifact].[ext]" conf="default,test,build" sync="true"/>
+		<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+		<taskdef file="${ivy.lib.dir}/ant/flexAnt.xml"/>
+	</target>
+	
+	<target name="time">
+		<tstamp>
+			<format property="utopia.timestamp" pattern="HH:mm:ss dd-MM-yyyy" />
+		</tstamp>
+	</target>
+	
+	<target name="project.file">
+		<copy file="${base.dir}/project.template.xml" tofile="${base.dir}/project.xml" encoding="UTF-8" overwrite="true">
+			<filterchain>
+				<expandproperties/>
+			</filterchain>
+		</copy>
+	</target>
+		
+	
+	<target name="build" depends="resolve">
+			<mkdir dir="${bin.dir}"/>
+			<flexLibraryEntries srcfile="${base.dir}/.flexLibProperties" property="project.classes" />
+			
+			<compc 
+				include-classes="${project.classes}"
+				output="${bin.dir}/zucchinilib.swc"
+		        actionscript-file-encoding="UTF-8" 
+		        allow-source-path-overlap="true"
+		        debug="${debug}" 
+		        target-player="${target.player}">
+		        	<source-path path-element="${src.dir}"/> 
+		      <define name="CONFIG::debug" value="${config.debug}"/>
+	        <define name="CONFIG::release" value="${config.release}"/>
+					<compiler.external-library-path dir="${FLEX_HOME}/frameworks/libs/air" append="true">
+						<include name="*.swc" />
+					</compiler.external-library-path>
+					<compiler.external-library-path dir="${ivy.lib.dir}" append="true">
+						<include name="*.swc" />
+					</compiler.external-library-path>
+					<compiler.external-library-path dir="${libs.dir}" append="true">
+						<include name="*.swc" />
+					</compiler.external-library-path>
+			</compc>
+	</target>
+	
+	<target name="test" depends="build">
+		<ant antfile="${test.dir}/build.xml" target="test" inheritall="false" inheritrefs="false">
+			<propertyset>
+	  			<propertyref prefix="FLEX_HOME" />
+			</propertyset>
+		</ant>
+	</target>
+	
+	
+	<target name="publish" depends="build">
+			<zip destfile="${docs.package.file}" basedir="${doc.dir}"/>
+			<zip destfile="${bin.dir}/zucchini_source.zip">
+				<fileset dir="src">
+					<exclude name="**/.svn"/>
+				</fileset>
+			</zip>
+			<ivy:publish
+				pubrevision="${revision}"
+				resolver="${ivy.publish.resolver}"
+				status="${ivy.publish.status}"
+				forcedeliver="true"
+				artifactspattern="${bin.dir}/[artifact].[ext]"
+				update="true" />
+		</target>	
+	<!--
+	<target name="docs" depends="resolve">
+			<mkdir dir="${asdoc.dir}"/>
+			<copy file="${base.dir}/base-asdoc-config.xml" tofile="${base.dir}/actual-asdoc-config.xml" overwrite="true" encoding="utf-8" outputencoding="utf-8">
+				<filterchain>
+					<expandproperties/>
+				</filterchain>
+			</copy>
+			<java jar="${FLEX_HOME}/lib/asdoc.jar" fork="true" dir="${base.dir}" failonerror="true" maxmemory="1024m">
+				<jvmarg line="-Dsun.io.useCanonCaches=false -Xbootclasspath/p:&quot;${FLEX_HOME}/lib/xalan.jar&quot;" />
+				<arg line="+flexlib=&quot;${FLEX_HOME}/frameworks&quot; -load-config+=actual-asdoc-config.xml" />
+			</java>
+			<delete file="${base.dir}/actual-asdoc-config.xml" />
+		</target>
+	-->
+	<target name="clean">
+		<delete dir="${bin.dir}" />
+		<delete dir="${ivy.lib.dir}"/>
+		<delete file="${base.dir}/project.xml"/>
+		<delete file="${base.dir}/metadata.xml"/>
+		<delete dir="${asdoc.dir}"/>
+		<delete>
+			<fileset dir=".">
+        		<include name="*.cache" />
+        	</fileset>
+		</delete>
+	</target>
+</project>

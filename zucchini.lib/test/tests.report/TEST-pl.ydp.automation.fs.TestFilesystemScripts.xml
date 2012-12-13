@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.fs.TestFilesystemScripts" tests="4" failures="0" errors="0" skipped="0" time="0,051" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation.fs::TestFilesystemScripts" name="should_find_script_source" time="0,006"/>
+  <testcase classname="pl.ydp.automation.fs::TestFilesystemScripts" name="should_not_find_script_source_from_directory" time="0,001"/>
+  <testcase classname="pl.ydp.automation.fs::TestFilesystemScripts" name="should_call_event_when_loads_script" time="0,020"/>
+  <testcase classname="pl.ydp.automation.fs::TestFilesystemScripts" name="should_call_event_when_loads_loaded_script" time="0,024"/>
+</testsuite>

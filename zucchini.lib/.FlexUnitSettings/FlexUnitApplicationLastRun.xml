@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testrun name="" >
+<testsuite  name="Default Test Suite" project="utopia.automation.2">
+<testsuite name="pl.ydp.automation.execution.storage.snapshot:TestSnapshotsManager" type="testsuiteclass"/>
+<testsuite name="pl.ydp.automation:TestAutomationCaptain" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation:TestAutomationEngine" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation:TestIntegrityAutomation" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation:TestScriptsEngine" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.configuration:TestEnvironmentModel" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.configuration.settings:TestSettingsGateway" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution:TestAutomationScript" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution:TestExecutionManager" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution.report:TestReportData" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution.report:TestReportDataFactory" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution.report:TestReportExporter" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution.report:TestReportManager" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution.report:TestReportModel" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution.report.impl:TestJUnitReportFormatter" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution.storage:TestStorageManager" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.execution.storage.snapshot.impl:TestUtopiaSnapshot" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.parser:TestParserUtil" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.parser.impl:TestScriptParser" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.parser.vo:TestFeature" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.parser.vo:TestScenario" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.scripts:TestScriptsManager" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.scripts:TestScriptsModel" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.scripts.steps:TestStepFactory" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.scripts.steps:TestStepsNamespace" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.scripts.steps:TestStepsResolver" type="testcaseclass"/>
+<testsuite name="pl.ydp.automation.scripts.steps.base:TestStep" type="testcaseclass"/>
+<testsuite name="pl.ydp.utils:TestEventUtils" type="testcaseclass"/>
+<testsuite name="pl.ydp.utils:TestFilesystemUtil" type="testcaseclass"/>
+</testsuite>
+</testrun>

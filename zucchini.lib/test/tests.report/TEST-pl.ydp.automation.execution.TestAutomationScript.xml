@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.execution.TestAutomationScript" tests="3" failures="0" errors="0" skipped="0" time="0,014" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation.execution::TestAutomationScript" name="should_get_name" time="0,013"/>
+  <testcase classname="pl.ydp.automation.execution::TestAutomationScript" name="should_get_feature" time="0,000"/>
+  <testcase classname="pl.ydp.automation.execution::TestAutomationScript" name="should_get_scenarios" time="0,001"/>
+</testsuite>

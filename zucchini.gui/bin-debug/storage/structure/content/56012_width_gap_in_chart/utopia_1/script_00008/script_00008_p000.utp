@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><assessmentItem playerVersion="1.8.4" version="2.2">	
+<title>Odesłanie do teorii
+</title><lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+	<general>
+	</general>
+	<metaMetadata>
+      <contribute>
+        <role>
+          <source>LOMv1.0</source>
+          <value>creator</value>
+        </role>
+        <entity>Zbigniew Jacynowicz</entity>
+      </contribute>
+	</metaMetadata>
+	<educational>
+	</educational>
+	<lifecycle>
+		<contribute>
+			<role>
+				<source>LOMv1.0</source>
+				<value>author</value>
+			</role>
+			<entity>
+			<![CDATA[ 
+				BEGIN:VCARD
+    			FN:Zbigniew Jacynowicz
+    			END:VCARD
+   			]]> 
+			</entity>
+		</contribute>
+	</lifecycle>
+</lom>
+<properties><property name="width">400</property><property name="height">200</property></properties><stylesheet href="../common/default.css"/><layout><table cols="1" rows="1"><col/><row height="1!"/><layer><tr><td align="justify" valign="justify"><table cols="1" name="modules" rows="1"><col width="300"/><row/><layer name="modules_body"><tr><td align="justify" padding-right="6" valign="justify"><table cols="1" hidden="true" rows="1"><col/><row/><layer><tr><td align="justify" valign="justify"><module ref="dummy1"/></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="../common/default.css"/>
+<itemBody><simpleText class="" id="dummy1">Sentencja (aforyzm) – zwięźle sformułowane zdanie zawierające ogólną myśl o charakterze moralnym lub filozoficznym.
+<br/>
+
+<br/>
+Opis sytuacji ukazuje tło, na którym rozgrywają się wydarzenia. 
+<br/>
+
+<br/>
+Dialog – rozmowa dwóch lub więcej osób.
+<br/>
+
+<br/>
+Puenta – krótkie, często dowcipne podsumowanie wypowiedzi lub utworu literackiego.</simpleText>
+</itemBody></assessmentItem>

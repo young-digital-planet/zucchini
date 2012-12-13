@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.execution.storage.snapshot.TestSnapshotsManager" tests="2" failures="0" errors="0" skipped="0" time="0,017" hostname="mkocieniewski" timestamp="2012-12-13T09:13:34">
+  <testcase classname="pl.ydp.automation.execution.storage.snapshot::TestSnapshotsManager" name="should_get_different_pixels_count (10,10,10,10,0)" time="0,016"/>
+  <testcase classname="pl.ydp.automation.execution.storage.snapshot::TestSnapshotsManager" name="should_get_different_pixels_count (10,10,10,11,2)" time="0,001"/>
+</testsuite>

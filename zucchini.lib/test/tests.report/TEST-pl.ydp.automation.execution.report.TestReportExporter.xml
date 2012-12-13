@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.automation.execution.report.TestReportExporter" tests="3" failures="0" errors="0" skipped="0" time="0,012" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.automation.execution.report::TestReportExporter" name="should_export_report" time="0,010"/>
+  <testcase classname="pl.ydp.automation.execution.report::TestReportExporter" name="should_export_reports" time="0,001"/>
+  <testcase classname="pl.ydp.automation.execution.report::TestReportExporter" name="should_add_reportdata_to_model" time="0,001"/>
+</testsuite>

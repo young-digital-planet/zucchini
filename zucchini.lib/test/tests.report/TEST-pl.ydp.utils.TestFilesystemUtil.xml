@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="pl.ydp.utils.TestFilesystemUtil" tests="2" failures="0" errors="0" skipped="0" time="0,043" hostname="mkocieniewski" timestamp="2012-12-13T09:13:35">
+  <testcase classname="pl.ydp.utils::TestFilesystemUtil" name="should_load_file" time="0,038"/>
+  <testcase classname="pl.ydp.utils::TestFilesystemUtil" name="should_not_load_file" time="0,005"/>
+</testsuite>

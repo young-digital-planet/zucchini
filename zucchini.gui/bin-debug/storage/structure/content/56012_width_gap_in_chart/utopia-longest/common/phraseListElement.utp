@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<assessmentItem
+		 version="2.2"
+><properties><property name="width">319</property><property name="height">80</property></properties><stylesheet href="default.css"></stylesheet><stylesheet href="default.css"></stylesheet><layout><table cols="1" rows="1"><col></col><row></row><layer><tr><td align="justify" valign="justify"><table cols="2" name="modules" rows="1"><col width="249"></col><col width="70"></col><row></row><layer name="modules"><tr><td padding-bottom="2" padding-left="5" padding-right="5" padding-top="2"><module ref="phrase"></module></td><td align="justify" padding-left="6" padding-right="5" valign="middle"><table cols="1" hidden="true" rows="1"><col></col><row></row><layer><tr><td align="justify" valign="middle"><module ref="scoreProgress"></module></td></tr></layer></table></td></tr></layer></table></td></tr></layer></table></layout><stylesheet href="default.css"/>
+<itemBody><simpleText id="phrase"></simpleText><progress id="scoreProgress"></progress></itemBody></assessmentItem>
