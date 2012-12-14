@@ -1,0 +1,24 @@
+<project id="eu.ydp.zucchini" version="1.0.0-201212140707">
+	<displayName>zucchini.lib</displayName>
+	<description>Zucchini Library</description>
+	<author>mkocieniewski</author>
+	<!-- Dokument, ktory zostanie pokazany na pierwszej stronie 
+	<about src="src.docs/about.html" />
+	-->
+	<!-- Dokumentacja projektu -->
+	<documentation name="ASDocs" href="docs/asdoc/index.html" />
+	
+	<scm type="svn" href="https://svn.intranet.ydp/ydp/projects/zucchini/trunk/zucchini.lib" />
+	
+	<ivy href="ivy.xml" />
+	
+	<artifact name="Flex library [SWC]" href="bin/zucchini.lib.swc"/>
+
+	<classification>
+		<label>Flash</label>
+		<label>Flex</label>
+		<label>Zucchini</label>
+		<label>BDD</label>
+		<label>Tests</label>
+	</classification>
+</project>

@@ -1,9 +1,6 @@
 package pl.ydp.automation.execution.structure
 {
 	import flash.display.IBitmapDrawable;
-	import flash.events.Event;
-	
-	import pl.ydp.p2.IModule;
 
 	public interface IStructure
 	{
@@ -15,7 +12,7 @@ package pl.ydp.automation.execution.structure
 		 * @return obiekt opisujący element struktury
 		 */
 		function getElementDescriptor( elementId:String ):IStructureElementDescriptor;
-		function getElement( elementIdOrFunc:*, elementNumber:int = 0 ):IModule;
+		function getElement( elementIdOrFunc:*, elementNumber:int = 0 ):*;
 		function get snapshotSource():IBitmapDrawable;
 		function clean():void;
 	}

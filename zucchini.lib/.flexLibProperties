@@ -47,8 +47,6 @@
     <classEntry path="pl.ydp.automation.execution.structure.IStructure"/>
     <classEntry path="pl.ydp.automation.execution.structure.IStructureElementDescriptor"/>
     <classEntry path="pl.ydp.automation.execution.structure.impl.ButtonDescriptor"/>
-    <classEntry path="pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructure"/>
-    <classEntry path="pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent"/>
     <classEntry path="pl.ydp.automation.scripts.IScriptSource"/>
     <classEntry path="pl.ydp.automation.scripts.IScripts"/>
     <classEntry path="pl.ydp.automation.scripts.ScriptsManager"/>

@@ -5,7 +5,6 @@ package pl.ydp.automation.configuration.impl.parameters
 	import pl.ydp.automation.configuration.impl.scripts.steps.DefaultNamespaceVariables;
 	import pl.ydp.automation.configuration.impl.scripts.steps.DefaultStepsClasses;
 	import pl.ydp.automation.configuration.parameters.AutomationParameters;
-	import pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent;
 	import pl.ydp.automation.scripts.parser.impl.ScriptParser;
 
 	public class DefaultAutomationParameters extends AutomationParameters
@@ -16,7 +15,6 @@ package pl.ydp.automation.configuration.impl.parameters
 			initNamespaceVariables();
 			initSteps();
 			initScripts();
-			initReportDestination();
 			initStructure();
 			initScriptParser();
 			
@@ -43,15 +41,9 @@ package pl.ydp.automation.configuration.impl.parameters
 			_scripts = new FilesystemScripts();
 		}
 		
-		
-		protected function initReportDestination():void
-		{
-//			_reportDestination = 
-		}
-		
 		protected function initStructure():void
 		{
-			_structure = new UtopiaStructureComponent();
+//			_structure = new IStructure();
 		}
 		
 		protected function initScriptParser():void

@@ -2,11 +2,7 @@ package pl.ydp.automation.execution.storage
 {
 	import flash.filesystem.File;
 	
-	import mockolate.ingredients.answers.ReturnsAnswer;
-	
 	import pl.ydp.automation.configuration.EnvironmentModel;
-	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.storage.IStorage;
 	
 	public class StorageManager
 	{

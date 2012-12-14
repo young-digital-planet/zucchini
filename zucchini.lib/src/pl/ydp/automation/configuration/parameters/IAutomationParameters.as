@@ -15,7 +15,6 @@ package pl.ydp.automation.configuration.parameters
 		function get namespaceVariables():INamespaceVariables;
 		function get steps():IStepsClasses;
 		function get scripts():IScripts;
-		function get reportDestination():*;
 		function get structure():IStructure;	
 		function get scriptParser():IScriptParser;
 			

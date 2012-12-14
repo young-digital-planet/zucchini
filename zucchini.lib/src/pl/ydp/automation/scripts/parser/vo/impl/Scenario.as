@@ -1,8 +1,8 @@
 package pl.ydp.automation.scripts.parser.vo.impl
 {
-	import com.adobe.utils.StringUtil;
 	
 	import mx.collections.ArrayCollection;
+	import mx.utils.StringUtil;
 	
 	import pl.ydp.automation.configuration.impl.scripts.parser.GherkinConfig;
 	import pl.ydp.automation.scripts.parser.ParserConfig;

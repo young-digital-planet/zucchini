@@ -64,16 +64,6 @@ package pl.ydp.automation.configuration.parameters
 			_scripts = value;
 		}
 
-		public function get reportDestination():*
-		{
-			return _reportDestination;
-		}
-
-		public function set reportDestination(value:*):void
-		{
-			_reportDestination = value;
-		}
-
 		public function get structure():IStructure
 		{
 			return _structure;

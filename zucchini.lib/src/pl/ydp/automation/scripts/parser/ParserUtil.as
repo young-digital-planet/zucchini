@@ -1,6 +1,6 @@
 package pl.ydp.automation.scripts.parser
 {
-	import com.adobe.utils.StringUtil;
+	
 
 	public class ParserUtil
 	{
