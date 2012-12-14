@@ -3,7 +3,6 @@ package pl.ydp.utils
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	
-	import flexunit.framework.Assert;
 	
 	import org.flexunit.assertThat;
 	import org.hamcrest.core.not;

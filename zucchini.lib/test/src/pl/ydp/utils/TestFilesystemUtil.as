@@ -4,7 +4,6 @@ package pl.ydp.utils
 	import flash.events.Event;
 	import flash.filesystem.File;
 	
-	import flashx.textLayout.debug.assert;
 	
 	import org.flexunit.assertThat;
 	import org.flexunit.asserts.assertTrue;

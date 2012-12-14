@@ -88,6 +88,7 @@
 		</ant>
 	</target>
 	
+	<target name="test.publish" depends="test,publish" />
 	
 	<target name="publish" depends="build,project.file">
 			<!--<zip destfile="${docs.package.file}" basedir="${doc.dir}"/>-->

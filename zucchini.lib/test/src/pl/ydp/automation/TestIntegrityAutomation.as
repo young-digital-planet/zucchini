@@ -19,7 +19,7 @@ package pl.ydp.automation
 	import pl.ydp.automation.configuration.impl.scripts.steps.DefaultNamespaceVariables;
 	import pl.ydp.automation.configuration.impl.scripts.steps.DefaultStepsClasses;
 	import pl.ydp.automation.configuration.parameters.IAutomationParameters;
-	import pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent;
+//	import pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent;
 	import pl.ydp.automation.scripts.IScriptSource;
 	import pl.ydp.automation.scripts.IScripts;
 	import pl.ydp.automation.scripts.parser.impl.ScriptParser;
@@ -63,6 +63,7 @@ package pl.ydp.automation
 					'And something else we can check happens too'
 		;
 				
+		
 		[Before]
 		public function setUp():void
 		{
@@ -108,7 +109,7 @@ package pl.ydp.automation
 			
 			mock( parameters ).getter( 'scripts' ).returns( scripts );
 			mock( parameters ).getter( 'reportDestination' ).returns( null );
-			mock( parameters ).getter( 'structure' ).returns( new UtopiaStructureComponent() );
+//			mock( parameters ).getter( 'structure' ).returns( new UtopiaStructureComponent() );
 			mock( parameters ).getter( 'scriptParser' ).returns( new ScriptParser() );
 			
 			captain.parameters = parameters;
@@ -121,7 +122,7 @@ package pl.ydp.automation
 		{
 		}
 		
-		
+		[Ignore('To run locally - no structure class')]
 		[Test(async)]
 		public function should_proceed_automation():void
 		{
