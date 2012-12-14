@@ -1,12 +1,14 @@
-<project id="eu.ydp.zucchini" version="${revision}">
+<project id="eu.ydp.zucchini" version="${revision}" branch="${zucchini.version}">
 	<displayName>zucchini.lib</displayName>
 	<description>Zucchini Library</description>
 	<author>mkocieniewski</author>
-	<!-- Dokument, ktory zostanie pokazany na pierwszej stronie 
+	
 	<about src="src.docs/about.html" />
-	-->
-	<!-- Dokumentacja projektu -->
+	
+	<!-- Dokumentacja projektu 
 	<documentation name="ASDocs" href="docs/asdoc/index.html" />
+	-->
+	
 	
 	<scm type="svn" href="https://svn.intranet.ydp/ydp/projects/zucchini/trunk/zucchini.lib" />
 	

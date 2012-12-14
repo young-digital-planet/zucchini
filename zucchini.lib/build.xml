@@ -39,12 +39,6 @@
 		<taskdef file="${ivy.lib.dir}/ant/flexAnt.xml"/>
 	</target>
 	
-	<target name="time">
-		<tstamp>
-			<format property="utopia.timestamp" pattern="HH:mm:ss dd-MM-yyyy" />
-		</tstamp>
-	</target>
-	
 	<target name="project.file">
 		<copy file="${base.dir}/project.template.xml" tofile="${base.dir}/project.xml" encoding="UTF-8" overwrite="true">
 			<filterchain>
