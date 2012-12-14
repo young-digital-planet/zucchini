@@ -1,6 +1,6 @@
 package utopia.steps
 {
-	import pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent;
+	import utopia.structure.UtopiaStructureComponent;
 
 	public class GoToPreviousPage extends GoToPageStep
 	{

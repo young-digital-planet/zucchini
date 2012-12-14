@@ -10,12 +10,11 @@
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
+      <libraryPathEntry kind="1" linkType="1" path="ivy-lib"/>
       <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LIB_LOCATION}/version3libs/Common"/>
       <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LIB_LOCATION}/version3libs/FlexProject"/>
       <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LIB_LOCATION}/version3libs/FlexProject_Extended"/>
       <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LOCALE_LOCATION}/version3locale/"/>
-      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/trunk/zucchini.lib/ivy-lib"/>
-      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/trunk/zucchini.lib/libs"/>
       <libraryPathEntry kind="3" linkType="1" path="/zucchini.lib/bin/zucchini.lib.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
@@ -37,5 +36,3 @@
     </buildTarget>
   </buildTargets>
 </actionScriptProperties>
-
-

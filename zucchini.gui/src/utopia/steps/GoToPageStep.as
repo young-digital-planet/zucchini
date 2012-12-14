@@ -11,7 +11,6 @@ package utopia.steps
 	import pl.ydp.automation.execution.IAutomationStep;
 	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.execution.structure.IStructureElementDescriptor;
-	import pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent;
 	import pl.ydp.automation.scripts.parser.vo.ISentence;
 	import pl.ydp.automation.scripts.parser.vo.impl.Sentence;
 	import pl.ydp.automation.scripts.steps.StepResult;
@@ -26,6 +25,8 @@ package utopia.steps
 	import pl.ydp.p2.modules.test.ui.YTestSwitcher;
 	import pl.ydp.p2.modules.test.ui.YTestView;
 	import pl.ydp.p2.modules.textinteraction.textEntry.YTextEntry;
+	
+	import utopia.structure.UtopiaStructureComponent;
 	
 	public class GoToPageStep extends Step implements IAutomationStep
 	{

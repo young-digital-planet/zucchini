@@ -10,7 +10,6 @@ package utopia.steps
 	
 	import pl.ydp.automation.execution.IAutomationStep;
 	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent;
 	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.automation.scripts.steps.base.Step;
 	import pl.ydp.p2.IModule;
@@ -20,6 +19,8 @@ package utopia.steps
 	import pl.ydp.p2.modules.simplechoice.YSimpleChoice;
 	import pl.ydp.p2.modules.textinteraction.textEntry.YTextEntry;
 	import pl.ydp.utils.FuncUtil;
+	
+	import utopia.structure.UtopiaStructureComponent;
 	
 	public class SelectButtonStep extends Step implements IAutomationStep
 	{

@@ -27,10 +27,11 @@ package utopia.steps
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsManager;
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsModel;
 	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.automation.execution.structure.impl.utopia.UtopiaStructureComponent;
 	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.automation.scripts.steps.base.Step;
 	import pl.ydp.utils.FilesystemUtil;
+	
+	import utopia.structure.UtopiaStructureComponent;
 	
 	public class MakeSnapshotStep extends Step implements IAutomationStep
 	{
