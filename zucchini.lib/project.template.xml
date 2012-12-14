@@ -3,7 +3,7 @@
 	<description>Zucchini Library</description>
 	<author>mkocieniewski</author>
 	
-	<about src="src.docs/about.html" />
+	<about src="about.html" />
 	
 	<!-- Dokumentacja projektu 
 	<documentation name="ASDocs" href="docs/asdoc/index.html" />
