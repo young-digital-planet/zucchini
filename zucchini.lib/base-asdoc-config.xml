@@ -26,9 +26,5 @@
 			<string>pl.ydp.utils</string>
 			<string>Utilities. Common classes, can be used outide utopia.</string>
 		</package>
-		<package>
-			<string>pl.ydp.p2.style</string>
-			<string>Loading, processing of style sheets.</string>
-		</package>
 	</packages>
 </flex-config>

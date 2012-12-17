@@ -99,7 +99,7 @@
 				artifactspattern="${bin.dir}/[artifact].[ext]"
 				update="true" />
 		</target>	
-	<!--
+	
 	<target name="docs" depends="resolve">
 			<mkdir dir="${asdoc.dir}"/>
 			<copy file="${base.dir}/base-asdoc-config.xml" tofile="${base.dir}/actual-asdoc-config.xml" overwrite="true" encoding="utf-8" outputencoding="utf-8">
@@ -113,7 +113,6 @@
 			</java>
 			<delete file="${base.dir}/actual-asdoc-config.xml" />
 		</target>
-	-->
 	
 	
 	<target name="clean">
