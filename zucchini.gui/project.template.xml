@@ -1,0 +1,26 @@
+<project id="eu.ydp.zucchini" version="${revision}" branch="${zucchini.version}">
+	<displayName>zucchini.lib</displayName>
+	<description>Zucchini Library</description>
+	<author>mkocieniewski</author>
+	
+	<about src="about.html" />
+	
+	<!-- Dokumentacja projektu 
+	<documentation name="ASDocs" href="docs/asdoc/index.html" />
+	-->
+	
+	
+	<scm type="svn" href="https://svn.intranet.ydp/ydp/projects/zucchini/trunk/zucchini.gui" />
+	
+	<ivy href="ivy.xml" />
+	
+	<artifact name="Zucchini GUI App [AIR]" href="bin/Zucchini.air"/>
+
+	<classification>
+		<label>Flash</label>
+		<label>Flex</label>
+		<label>Zucchini</label>
+		<label>BDD</label>
+		<label>Tests</label>
+	</classification>
+</project>

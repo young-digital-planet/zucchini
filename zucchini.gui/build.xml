@@ -1,0 +1,187 @@
+﻿<project name="zucchini.gui" default="resolve" xmlns:ivy="antlib:org.apache.ivy.ant">
+	
+	
+	<dirname property="base.dir" file="${ant.file.zucchini.gui}" />
+
+	<tstamp><format property="tstamp" pattern="yyyyMMddHHmm" timezone="GMT"/></tstamp>
+	
+	<property file="${base.dir}/local.properties" />
+	<property file="${base.dir}/default.properties"/>
+	
+	<property name="debug" value="false" />
+	
+	<property name="src.dir" value="${base.dir}/src" />
+	<property name="bin.dir" value="${base.dir}/bin" />
+	<property name="test.dir" value="${base.dir}/test"/>
+	<property name="libs.dir" value="${base.dir}/libs"/>
+	<property name="ivy.lib.dir" value="${base.dir}/ivy-lib"/>
+	<property name="doc.dir" value="${base.dir}/docs"/>
+	<property name="asdoc.dir" value="${doc.dir}/asdoc"/>
+	<property name="docs.package.file" value="${bin.dir}/zucchinigui_docs.zip"/>	
+	
+	<patternset id="flex.libs">
+        <include name="libs/playerglobal.swc" />
+        <include name="libs/flex.swc" />
+        <include name="libs/framework.swc" />
+        <include name="locale/{locale}" />
+	</patternset>
+	
+	
+	<target name="resolve">
+		<makeurl file="${ivy.settings.file}" property="ivy.settings.url_t" validate="false"/>
+			<condition property="ivy.settings.url" value="${ivy.settings.url_t}" else="${ivy.settings.url.default}" >
+				<isset property="ivy.settings.file" />
+			</condition>
+				
+		<ivy:configure url="${ivy.settings.url}" />
+		<ivy:retrieve file="${base.dir}/ivy.xml" pattern="${ivy.lib.dir}/[artifact].[ext]" conf="default,test,build" sync="true"/>
+		<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+		<taskdef file="${ivy.lib.dir}/ant/flexAnt.xml"/>
+	</target>
+	
+	<target name="project.file">
+		<copy file="${base.dir}/project.template.xml" tofile="${base.dir}/project.xml" encoding="UTF-8" overwrite="true">
+			<filterchain>
+				<expandproperties/>
+			</filterchain>
+		</copy>
+	</target>
+		
+	
+	<target name="compile" depends="resolve">
+			<mkdir dir="${bin.dir}"/>
+			
+				 <mxmlc file="${src.dir}/Zucchini.mxml"
+				 			output="${bin.dir}/zucchini.gui.swf"
+				            configname="air"
+				 			actionscript-file-encoding="UTF-8"
+				 			locale="en_US">
+				 	 		<load-config filename="${FLEX_HOME}/frameworks/air-config.xml"/>
+				 			<source-path path-element="${src.dir}"/> 
+				 			<compiler.library-path dir="${ivy.lib.dir}" append="true">
+				 				<include name="*.swc" />
+				 			</compiler.library-path>
+				 </mxmlc>
+	</target>
+	
+	
+		 <target name="package" depends="compile, certificate"
+		        description="Packages the build SWF file from a temp directory.">
+		        <java jar="${ADT}" fork="true"
+		            failonerror="true"
+		            maxmemory="512m">
+		            <arg value="-package"/>
+		            <arg value="-storetype"/>
+		            <arg value="${storetype}"/>
+		            <arg value="-keystore"/>
+		            <arg value="${keystore}"/>
+		            <arg value="-storepass"/>
+		            <arg value="${storepass}"/>
+		            <arg value="${bin.dir}/${APP_NAME}.air" />
+		        	<arg value="${src.dir}/${APP_NAME}-app.xml"/>
+		        	
+		            <arg value="-C"/>
+		            <arg value="${bin.dir}"/>
+		            <arg value="${bin.dir}/zucchini.gui.swf"/>
+		        	
+		        	
+		        	
+		        	<arg value="-C"/>
+		        	<arg value="${src.dir}"/>
+		        	<arg value="${src.dir}/files"/>
+		        </java>
+		    </target>
+	
+	<!--
+			<target name="native" depends="package">
+				<java jar="${ADT}" fork="true" failonerror="true">
+					<arg value="-package"/>
+					<arg value="-storetype"/>
+					<arg value="${storetype}"/>
+					<arg value="-target"/>
+					<arg value="native"/>
+					<arg value="${bin.dir}/${APP_NAME}.exe" />
+					<arg value="${bin.dir}/${APP_NAME}.air" />
+				</java>
+				
+			</target>
+	-->
+			
+		 <target name="certificate" unless="CERTIFICATE_FLAG">
+		        <java jar="${ADT}" fork="true"
+		            failonerror="true">
+		            <arg value="-certificate"/>
+		            
+		        	<arg value="-cn"/>
+		            <arg value="${CERT_NAME}"/>
+		        	<!--
+		            <arg value="-ou"/>
+		            <arg value="${CERT_ORG_UNIT}"/>
+		            <arg value="-o"/>
+		            <arg value="${CERT_ORG_NAME}"/>
+		            <arg value="-c"/>
+		            <arg value="${CERT_COUNTRY}"/>
+		        	-->
+		            <arg value="${CERT_KEY_TYPE}"/>
+		            <arg value="${keystore}"/>
+		            <arg value="${storepass}"/>
+		        </java>
+		    </target>
+	
+	<!--
+	<target name="test" depends="build">
+		<ant antfile="${test.dir}/build.xml" target="test" inheritall="false" inheritrefs="false">
+			<propertyset>
+	  			<propertyref prefix="FLEX_HOME" />
+			</propertyset>
+		</ant>
+	</target>
+	
+	<target name="test.publish" depends="test,publish" />
+	-->
+	
+	<target name="publish" depends="package,project.file">
+			<!--<zip destfile="${docs.package.file}" basedir="${doc.dir}"/>
+			<zip destfile="${bin.dir}/zucchinigui_source.zip">
+				<fileset dir="src">
+					<exclude name="**/.svn"/>
+				</fileset>
+			</zip>
+			-->
+			<ivy:publish
+				pubrevision="${revision}"
+				resolver="${ivy.publish.resolver}"
+				status="${ivy.publish.status}"
+				forcedeliver="true"
+				artifactspattern="${bin.dir}/[artifact].[ext]"
+				update="true" />
+		</target>	
+	
+	<target name="docs" depends="resolve">
+			<mkdir dir="${asdoc.dir}"/>
+			<copy file="${base.dir}/base-asdoc-config.xml" tofile="${base.dir}/actual-asdoc-config.xml" overwrite="true" encoding="utf-8" outputencoding="utf-8">
+				<filterchain>
+					<expandproperties/>
+				</filterchain>
+			</copy>
+			<java jar="${FLEX_HOME}/lib/asdoc.jar" fork="true" dir="${base.dir}" failonerror="true" maxmemory="1024m">
+				<jvmarg line="-Dsun.io.useCanonCaches=false -Xbootclasspath/p:&quot;${FLEX_HOME}/lib/xalan.jar&quot;" />
+				<arg line="+flexlib=&quot;${FLEX_HOME}/frameworks&quot; -load-config+=actual-asdoc-config.xml" />
+			</java>
+			<delete file="${base.dir}/actual-asdoc-config.xml" />
+		</target>
+	
+	
+	<target name="clean">
+		<delete dir="${bin.dir}" />
+		<delete dir="${ivy.lib.dir}"/>
+		<delete file="${base.dir}/project.xml"/>
+		<delete file="${base.dir}/metadata.xml"/>
+		<delete dir="${asdoc.dir}"/>
+		<delete>
+			<fileset dir=".">
+        		<include name="*.cache" />
+        	</fileset>
+		</delete>
+	</target>
+</project>

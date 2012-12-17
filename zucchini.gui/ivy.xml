@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
-	<info module="zucchini" organisation="eu.ydp">
-		<ivyauthor name="mkocieniwewski"/>
+	<info module="zucchini.gui" organisation="eu.ydp">
+		<ivyauthor name="mkocieniewski"/>
 		<description>Zucchini GUI</description>
 	</info>
 	<configurations>
@@ -10,6 +10,7 @@
 		<conf name="test" visibility="private" description="Configuration for build"/>
 	</configurations>
 	<publications>
+		<artifact name="Zucchini" ext="air" type="app" conf="default"/>
 	</publications>
 	<dependencies>
 		<dependency name="zucchini.lib" org="eu.ydp" rev="latest.integration" conf="default" transitive="true"/>
