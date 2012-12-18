@@ -77,7 +77,10 @@
 		            <arg value="${keystore}"/>
 		            <arg value="-storepass"/>
 		            <arg value="${storepass}"/>
-		            <arg value="${bin.dir}/${APP_NAME}.air" />
+		        	
+		        	<arg value="-target"/>
+		        	<arg value="bundle"/>
+		            <arg value="${bin.dir}/app" />
 		        	<arg value="${src.dir}/${APP_NAME}-app.xml"/>
 		        	
 		            <arg value="-C"/>
@@ -90,7 +93,7 @@
 		        </java>
 		    </target>
 	
-	
+	<!--
 			<target name="native">
 				<java jar="${ADT}" fork="true" failonerror="true">
 					<arg value="-package"/>
@@ -102,14 +105,14 @@
 				
 			</target>
 		<target name="install">
-			<exec executable="${bin.dir}/${APP_NAME}.exe" failonerror="true">
+			<exec executable="${bin.dir}/${APP_NAME}.exe" failonerror="true" osfamily="windows">
 				<arg value="-silent"/>
 				<arg value="-eulaAccepted"/>
 				<arg value="-location"/>
 				<arg value="${bin.dir}/app"/>
 			</exec>
 		</target>
-	
+	-->
 			
 		 <target name="certificate" unless="CERTIFICATE_FLAG">
 		        <java jar="${ADT}" fork="true"
@@ -144,7 +147,7 @@
 	<target name="test.publish" depends="test,publish" />
 	-->
 	
-	<target name="publish" depends="package,native,project.file">
+	<target name="publish" depends="package,project.file">
 			<!--<zip destfile="${docs.package.file}" basedir="${doc.dir}"/>
 			<zip destfile="${bin.dir}/zucchinigui_source.zip">
 				<fileset dir="src">
