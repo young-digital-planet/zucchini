@@ -101,6 +101,14 @@
 				</java>
 				
 			</target>
+		<target name="install">
+			<exec executable="${bin.dir}/${APP_NAME}.exe">
+				<arg value="-silent"/>
+				<arg value="-eulaAccepted"/>
+				<arg value="-location"/>
+				<arg value="${bin.dir}/app"/>
+			</exec>
+		</target>
 	
 			
 		 <target name="certificate" unless="CERTIFICATE_FLAG">
