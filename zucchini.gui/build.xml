@@ -84,28 +84,24 @@
 		            <arg value="${bin.dir}"/>
 		            <arg value="${bin.dir}/zucchini.gui.swf"/>
 		        	
-		        	
-		        	
 		        	<arg value="-C"/>
 		        	<arg value="${src.dir}"/>
 		        	<arg value="${src.dir}/files"/>
 		        </java>
 		    </target>
 	
-	<!--
-			<target name="native" depends="package">
+	
+			<target name="native">
 				<java jar="${ADT}" fork="true" failonerror="true">
 					<arg value="-package"/>
-					<arg value="-storetype"/>
-					<arg value="${storetype}"/>
 					<arg value="-target"/>
 					<arg value="native"/>
 					<arg value="${bin.dir}/${APP_NAME}.exe" />
-					<arg value="${bin.dir}/${APP_NAME}.air" />
+					<arg value="${bin.dir}/${APP_NAME}.air"/>
 				</java>
 				
 			</target>
-	-->
+	
 			
 		 <target name="certificate" unless="CERTIFICATE_FLAG">
 		        <java jar="${ADT}" fork="true"
@@ -140,7 +136,7 @@
 	<target name="test.publish" depends="test,publish" />
 	-->
 	
-	<target name="publish" depends="package,project.file">
+	<target name="publish" depends="package,native,project.file">
 			<!--<zip destfile="${docs.package.file}" basedir="${doc.dir}"/>
 			<zip destfile="${bin.dir}/zucchinigui_source.zip">
 				<fileset dir="src">
