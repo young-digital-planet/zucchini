@@ -102,7 +102,7 @@
 				
 			</target>
 		<target name="install">
-			<exec executable="${bin.dir}/${APP_NAME}.exe">
+			<exec executable="${bin.dir}/${APP_NAME}.exe" failonerror="true">
 				<arg value="-silent"/>
 				<arg value="-eulaAccepted"/>
 				<arg value="-location"/>
