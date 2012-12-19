@@ -84,7 +84,7 @@
 	
 	
 	
-	<target name="publish" depends="build,test,docs,project.file">
+	<target name="publish" depends="build,test,project.file">
 			<!--<zip destfile="${docs.package.file}" basedir="${doc.dir}"/>-->
 			<zip destfile="${bin.dir}/zucchini_source.zip">
 				<fileset dir="src">
