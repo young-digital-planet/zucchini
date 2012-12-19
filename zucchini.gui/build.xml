@@ -184,7 +184,7 @@
 				resolver="${ivy.publish.resolver}"
 				status="${ivy.publish.status}"
 				forcedeliver="true"
-				artifactspattern="${bin.dir}/[artifact].[ext]"
+				artifactspattern="${publish.dir}/[artifact].[ext]"
 				update="true" />
 		</target>	
 	
