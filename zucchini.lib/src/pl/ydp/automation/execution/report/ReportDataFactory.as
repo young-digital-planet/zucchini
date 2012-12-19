@@ -87,9 +87,9 @@ package pl.ydp.automation.execution.report
 		
 		public function finishReport( report:ReportData ):void
 		{
-				report.reportXML.@errors = ( report.reportXML.testsuite.testcase.error as XMLList ).length();
-				report.reportXML.@failures = ( report.reportXML.testsuite.testcase.failure as XMLList ).length();
-				report.reportXML.@tests = ( report.reportXML.testsuite.testcase.teststep as XMLList ).length();
+				report.reportXML.testsuite.@errors = ( report.reportXML.testsuite.testcase.error as XMLList ).length();
+				report.reportXML.testsuite.@failures = ( report.reportXML.testsuite.testcase.failure as XMLList ).length();
+				report.reportXML.testsuite.@tests = ( report.reportXML.testsuite.testcase.teststep as XMLList ).length();
 		}
 		
 	}
