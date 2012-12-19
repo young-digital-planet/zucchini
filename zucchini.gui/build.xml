@@ -78,9 +78,7 @@
 		            <arg value="-storepass"/>
 		            <arg value="${storepass}"/>
 		        	
-		        	<arg value="-target"/>
-		        	<arg value="bundle"/>
-		            <arg value="${bin.dir}/app" />
+		        	<arg value="${bin.dir}/${APP_NAME}.air" />
 		        	<arg value="${src.dir}/${APP_NAME}-app.xml"/>
 		        	
 		            <arg value="-C"/>
@@ -93,27 +91,42 @@
 		        </java>
 		    </target>
 	
-	<!--
-			<target name="native">
-				<java jar="${ADT}" fork="true" failonerror="true">
-					<arg value="-package"/>
-					<arg value="-target"/>
-					<arg value="native"/>
-					<arg value="${bin.dir}/${APP_NAME}.exe" />
-					<arg value="${bin.dir}/${APP_NAME}.air"/>
-				</java>
-				
-			</target>
-		<target name="install">
-			<exec executable="${bin.dir}/${APP_NAME}.exe" failonerror="true" osfamily="windows">
-				<arg value="-silent"/>
-				<arg value="-eulaAccepted"/>
-				<arg value="-location"/>
-				<arg value="${bin.dir}/app"/>
-			</exec>
-		</target>
-	-->
-			
+			 <target name="package.bundle" depends="package"
+			        description="Packages the build SWF file from a temp directory.">
+			        <java jar="${ADT}" fork="true"
+			            failonerror="true"
+			            maxmemory="512m">
+			            <arg value="-package"/>
+			            <arg value="-storetype"/>
+			            <arg value="${storetype}"/>
+			            <arg value="-keystore"/>
+			            <arg value="${keystore}"/>
+			            <arg value="-storepass"/>
+			            <arg value="${storepass}"/>
+			        	
+			        	<arg value="-target"/>
+			        	<arg value="bundle"/>
+			        	<arg value="${bin.dir}/app" />
+			        	<arg value="${src.dir}/${APP_NAME}-app.xml"/>
+			        	
+			            <arg value="-C"/>
+			            <arg value="${bin.dir}"/>
+			            <arg value="${bin.dir}/zucchini.gui.swf"/>
+			        	
+			        	<arg value="-C"/>
+			        	<arg value="${src.dir}"/>
+			        	<arg value="${src.dir}/files"/>
+			        	<arg value="${src.dir}/storage"/>
+			        </java>
+			 </target>
+	
+			 <target name="run">
+					<exec executable="${bin.dir}/app/${APP_NAME}.exe" failonerror="true">
+						<arg value="autostart"/>
+					</exec>
+			 </target>
+		
+	
 		 <target name="certificate" unless="CERTIFICATE_FLAG">
 		        <java jar="${ADT}" fork="true"
 		            failonerror="true">

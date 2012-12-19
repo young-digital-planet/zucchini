@@ -4,7 +4,9 @@
 						width="870" height="860"
 						backgroundColor="#dddddd"
 						title="Zucchini GUI"
-						paddingTop="10">
+						paddingTop="10"
+						invoke="onInvoke(event)"
+						>
 	<mx:Script>
 		<![CDATA[
 			import pl.ydp.automation.AutomationCaptain;
@@ -31,8 +33,32 @@
 			private const SNAPSHOT_COMPARE_LABEL:String = 'porównywanie';
 			private const SNAPSHOT_PATTERN_LABEL:String = 'wzorzec';
 			
+			private const AUTOSTART_ARG:String = 'autostart';
+			
+			private var _autoStart:Boolean = false;
+			
+			
+			private function onInvoke( event:InvokeEvent ):void
+			{
+				Debug.log( 'onInvoke()' );
+				if( event.arguments.length > 0 ){
+					var arg:String = ( event.arguments[ 0 ] as String ).toLowerCase();
+					if( arg == AUTOSTART_ARG ){
+						_autoStart = true;
+					}
+				}
+				Debug.log( 'autoStart: ' + _autoStart );
+				
+				if( _autoStart ){
+					prepare();
+				}
+				
+			}
+			
 			private function onCreationComplete():void
 			{
+				Debug.log( 'onCreationComplete()' );
+				
 				captain = new AutomationCaptain();
 				
 				captain.context = new UtopiaAppContext();
@@ -46,17 +72,17 @@
 			
 			private function onConfiguratingCompleted():void
 			{
+				Debug.log( 'onConfiguratingCompleted()' );
+				
 				_configurated = true;
 				
 //				captain.setSettings( new ISettings() );
-				
-//				captain.prepare();
 			}
 			
 			
 			private function prepare():void
 			{
-				
+				Debug.log( 'prepare()' );
 				captain.settings.reportsFormatters = [ new JUnitReportFormatter() ];
 				captain.settings.reportsTargets = [ new FilesystemReportTarget() ];
 				
@@ -74,11 +100,58 @@
 			
 			private function onPreparingCompleted():void
 			{
+				Debug.log( 'onPreparingCompleted()' );
+				
 				_prepared = true;
 				
 				structureContainer.addChild( captain.structure as DisplayObject );
+				
+				captain.completed.addOnce( onCompleted );
 				captain.start();
+				
 			}
+			private function onCompleted():void
+			{
+				Debug.log( 'onCompleted()' );
+				
+				if( _autoStart ){
+//					applicationExit();
+					exit();
+				}
+			}
+			
+			/*
+			public function applicationExit():void {
+				Debug.log( 'applicationExit()' );
+				
+				NativeApplication.nativeApplication.addEventListener(Event.EXITING, onExiting ); 
+				NativeApplication.nativeApplication.dispatchEvent( new Event( Event.EXITING, false, true ) );
+//				if (!exitingEvent.isDefaultPrevented()) {
+//					NativeApplication.nativeApplication.exit();
+//				}
+			}
+			
+			private function onExiting( event:Event ):void {
+				Debug.log( 'onExiting()' );
+
+				event.preventDefault();
+				
+				var winClosingEvent:Event;
+				for each (var win:NativeWindow in NativeApplication.nativeApplication.openedWindows) {
+					winClosingEvent = new Event(Event.CLOSING,false,true);
+					win.dispatchEvent(winClosingEvent);
+					if (!winClosingEvent.isDefaultPrevented()) {
+						win.close();
+					} else {
+						event.preventDefault();
+					}
+				}
+				
+				if (!event.isDefaultPrevented()) {
+					//perform cleanup
+				}
+			}
+			*/
 			
 			
 			
