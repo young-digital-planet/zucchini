@@ -14,7 +14,7 @@
 	
 	<ivy href="ivy.xml" />
 	
-	<artifact name="Zucchini GUI App [AIR]" href="bin/Zucchini.air"/>
+	<artifact name="Zucchini GUI App [AIR]" href="publish/Zucchini.air"/>
 
 	<classification>
 		<label>Flash</label>
