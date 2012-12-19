@@ -56,7 +56,7 @@ package pl.ydp.automation.execution.report
 				
 				for each( var target:IReportTarget in reportModel.reportsTargets ){
 					injector.injectInto( target );
-					target.send( reportData.reportXML.@name, report ).addOnce( onReportSent );
+					target.send( reportData.reportXML.testsuite.@name, report ).addOnce( onReportSent );
 				}
 				
 			}
