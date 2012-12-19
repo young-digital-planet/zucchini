@@ -18,6 +18,8 @@
 	<property name="doc.dir" value="${base.dir}/docs"/>
 	<property name="asdoc.dir" value="${doc.dir}/asdoc"/>
 	<property name="docs.package.file" value="${bin.dir}/zucchinigui_docs.zip"/>	
+	<property name="run.dir" value="${base.dir}/run"/>
+	<property name="publish.dir" value="${base.dir}/publish"/>
 	
 	<patternset id="flex.libs">
         <include name="libs/playerglobal.swc" />
@@ -48,9 +50,10 @@
 	</target>
 		
 	
-	<target name="compile" depends="resolve">
-			<mkdir dir="${bin.dir}"/>
+	<target name="compile" depends="clean, resolve">
 			
+			<mkdir dir="${bin.dir}"/>
+				
 				 <mxmlc file="${src.dir}/Zucchini.mxml"
 				 			output="${bin.dir}/zucchini.gui.swf"
 				            configname="air"
@@ -67,7 +70,11 @@
 	
 		 <target name="package" depends="compile, certificate"
 		        description="Packages the build SWF file from a temp directory.">
-		        <java jar="${ADT}" fork="true"
+		 	
+		 	<delete dir="${publish.dir}"/>
+		 	<mkdir dir="${publish.dir}"/>
+		 	
+		 	<java jar="${ADT}" fork="true"
 		            failonerror="true"
 		            maxmemory="512m">
 		            <arg value="-package"/>
@@ -78,7 +85,7 @@
 		            <arg value="-storepass"/>
 		            <arg value="${storepass}"/>
 		        	
-		        	<arg value="${bin.dir}/${APP_NAME}.air" />
+		        	<arg value="${publish.dir}/${APP_NAME}.air" />
 		        	<arg value="${src.dir}/${APP_NAME}-app.xml"/>
 		        	
 		            <arg value="-C"/>
@@ -91,9 +98,13 @@
 		        </java>
 		    </target>
 	
-			 <target name="package.bundle" depends="package"
+			 <target name="package.bundle" depends="compile, certificate"
 			        description="Packages the build SWF file from a temp directory.">
-			        <java jar="${ADT}" fork="true"
+			       
+			 		<delete dir="${run.dir}"/>
+			 		<mkdir dir="${run.dir}"/>
+			 	
+			 		<java jar="${ADT}" fork="true"
 			            failonerror="true"
 			            maxmemory="512m">
 			            <arg value="-package"/>
@@ -106,7 +117,7 @@
 			        	
 			        	<arg value="-target"/>
 			        	<arg value="bundle"/>
-			        	<arg value="${bin.dir}/app" />
+			        	<arg value="${run.dir}/" />
 			        	<arg value="${src.dir}/${APP_NAME}-app.xml"/>
 			        	
 			            <arg value="-C"/>
@@ -120,8 +131,8 @@
 			        </java>
 			 </target>
 	
-			 <target name="run">
-					<exec executable="${bin.dir}/app/${APP_NAME}.exe" failonerror="true">
+			 <target name="run" depends="package.bundle">
+					<exec executable="${run.dir}/${APP_NAME}.exe" failonerror="true">
 						<arg value="autostart"/>
 					</exec>
 			 </target>
@@ -192,11 +203,12 @@
 		</target>
 	
 	
+	
 	<target name="clean">
-		<delete dir="${bin.dir}" />
+		<delete dir="${bin.dir}"/>
 		<delete dir="${ivy.lib.dir}"/>
 		<delete file="${base.dir}/project.xml"/>
-		<delete file="${base.dir}/metadata.xml"/>
+		<!--<delete file="${base.dir}/metadata.xml"/>-->
 		<delete dir="${asdoc.dir}"/>
 		<delete>
 			<fileset dir=".">
