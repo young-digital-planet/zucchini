@@ -1,6 +1,6 @@
-<project id="eu.ydp.zucchini" version="${revision}" branch="${zucchini.version}">
-	<displayName>zucchini.lib</displayName>
-	<description>Zucchini Library</description>
+<project id="eu.ydp.zucchini" version="${revision}" branch="${zucchini.gui.version}">
+	<displayName>zucchini.gui</displayName>
+	<description>Zucchini GUI for Utopia</description>
 	<author>mkocieniewski</author>
 	
 	<about src="about.html" />
@@ -14,7 +14,7 @@
 	
 	<ivy href="ivy.xml" />
 	
-	<artifact name="Zucchini GUI App [AIR]" href="publish/Zucchini.air"/>
+	<artifact name="Zucchini GUI for Utopia App [AIR]" href="publish/Zucchini.air"/>
 
 	<classification>
 		<label>Flash</label>
@@ -22,5 +22,6 @@
 		<label>Zucchini</label>
 		<label>BDD</label>
 		<label>Tests</label>
+		<label>Utopia</label>
 	</classification>
 </project>
