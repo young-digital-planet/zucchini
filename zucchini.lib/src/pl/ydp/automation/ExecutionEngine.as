@@ -36,6 +36,7 @@ package pl.ydp.automation
 		
 		private function onAllTestsCompleted():void
 		{
+			_executionCompleted.dispatch();
 		}
 		
 		private function onAllReportsExported():void

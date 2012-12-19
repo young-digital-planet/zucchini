@@ -1,15 +1,18 @@
 package pl.ydp.automation
 {
+	import flash.desktop.NativeApplication;
+	import flash.display.NativeWindow;
 	import flash.display.Sprite;
+	import flash.events.Event;
 	
 	import org.osflash.signals.Signal;
 	
-	import pl.ydp.automation.configuration.settings.ISettings;
-	import pl.ydp.automation.configuration.settings.SettingsGateway;
 	import pl.ydp.automation.configuration.context.IAutomationAppContext;
 	import pl.ydp.automation.configuration.impl.context.DefaultAutomationAppContext;
 	import pl.ydp.automation.configuration.impl.parameters.DefaultAutomationParameters;
 	import pl.ydp.automation.configuration.parameters.IAutomationParameters;
+	import pl.ydp.automation.configuration.settings.ISettings;
+	import pl.ydp.automation.configuration.settings.SettingsGateway;
 	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.scripts.ScriptsModel;
 
@@ -27,6 +30,7 @@ package pl.ydp.automation
 		
 		private var _configuratingCompleted:Signal = new Signal();
 		private var _preparingCompleted:Signal = new Signal();
+		private var _completed:Signal = new Signal();
 		
 		
 		public function AutomationCaptain()
@@ -35,6 +39,11 @@ package pl.ydp.automation
 		}
 
 		
+		public function get completed():Signal
+		{
+			return _completed;
+		}
+
 		public function configure():void
 		{
 			if( _parameters == null ){
@@ -75,9 +84,18 @@ package pl.ydp.automation
 		
 		public function start():void
 		{
+			_engine.automationCompleted.addOnce( onAutomationCompleted );
 			_engine.start();
 		}
 		
+		private function onAutomationCompleted():void
+		{
+			_completed.dispatch();
+		}
+		
+		
+	
+
 		
 		
 		
