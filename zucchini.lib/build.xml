@@ -84,7 +84,7 @@
 	
 	
 	
-	<target name="publish" depends="build,test,project.file">
+	<target name="publish" depends="build,test,docs,project.file">
 			<!--<zip destfile="${docs.package.file}" basedir="${doc.dir}"/>-->
 			<zip destfile="${bin.dir}/zucchini_source.zip">
 				<fileset dir="src">
@@ -109,7 +109,7 @@
 			</copy>
 			<java jar="${FLEX_HOME}/lib/asdoc.jar" fork="true" dir="${base.dir}" failonerror="true" maxmemory="1024m">
 				<jvmarg line="-Dsun.io.useCanonCaches=false -Xbootclasspath/p:&quot;${FLEX_HOME}/lib/xalan.jar&quot;" />
-				<arg line="+flexlib=&quot;${FLEX_HOME}/frameworks&quot; -load-config+=actual-asdoc-config.xml" />
+				<arg line="+flexlib=&quot;${FLEX_HOME}/frameworks&quot; -load-config+=&quot;${FLEX_HOME}/frameworks/air-config.xml&quot; -load-config+=actual-asdoc-config.xml" />
 			</java>
 			<delete file="${base.dir}/actual-asdoc-config.xml" />
 		</target>
