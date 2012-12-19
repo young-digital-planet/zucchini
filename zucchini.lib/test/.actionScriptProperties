@@ -15,10 +15,9 @@
       <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LIB_LOCATION}/version3libs/FlexProject"/>
       <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LIB_LOCATION}/version3libs/FlexProject_Extended"/>
       <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LOCALE_LOCATION}/version3locale/"/>
-      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/player/trunk/utopia.automation.2/ivy-lib"/>
-      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/player/trunk/utopia.automation.2/libs"/>
+      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/trunk/zucchini.lib/ivy-lib"/>
       <libraryPathEntry kind="1" linkType="1" path="ivy-lib"/>
-      <libraryPathEntry kind="3" linkType="1" path="/utopia.automation.2/bin/utopia.automation.2.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="/zucchini.lib/bin/zucchini.lib.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>

@@ -13,7 +13,7 @@ package pl.ydp.automation.execution.report.impl.formatters
 		
 		public function format( reportData:ReportData ):String
 		{
-			delete reportData.reportXML.testcase.teststep;
+			delete reportData.reportXML.testsuite.testcase.teststep;
 			
 			return reportData.reportXML.toXMLString();
 		}

@@ -21,7 +21,7 @@ package pl.ydp.automation.execution.report
 		 */
 		public function createScriptReport( script:AutomationScript ):ReportData
 		{
-			var xml:XML = new XML( <testsuite></testsuite> );
+			var xml:XML = new XML( <testsuites><testsuite></testsuite></testsuites> );
 			var scriptReport = new ReportData( xml, script.name );
 			
 			for each( var scenario:AutomationScenario in script.automationScenarios ){
@@ -41,10 +41,10 @@ package pl.ydp.automation.execution.report
 		public function addScenario( scriptReport:ReportData, scenarioName:String ):void
 		{
 			var scenarioXML:XML = new XML( <testcase></testcase> );
-			scenarioXML.@classname = scriptReport.reportXML.@name;
+			scenarioXML.@classname = scriptReport.reportXML.testsuite.@name;
 			scenarioXML.@name = scenarioName;
 			
-			scriptReport.reportXML.appendChild( scenarioXML );
+			scriptReport.reportXML.testsuite.appendChild( scenarioXML );
 		}
 		
 		/**
@@ -57,7 +57,7 @@ package pl.ydp.automation.execution.report
 			stepXML.@name = stepName;
 			stepXML.@classname = scenarioName;
 			
-			var scenarioXML:XML = scriptReport.reportXML.testcase.(@name == scenarioName)[0] as XML;
+			var scenarioXML:XML = scriptReport.reportXML.testsuite.testcase.(@name == scenarioName)[0] as XML;
 			scenarioXML.appendChild( stepXML );
 		}
 		
@@ -68,7 +68,7 @@ package pl.ydp.automation.execution.report
 		 */
 		public function addStepResult( report:ReportData, scenarioIndex:int, stepIndex:int, result:StepResult ):void
 		{
-			var scenarioXML:XML = report.reportXML.testcase[ scenarioIndex ] as XML;
+			var scenarioXML:XML = report.reportXML.testsuite.testcase[ scenarioIndex ] as XML;
 			
 //			zmiana statusu kroku
 			var status:String = result.correctly ? 'passed' : 'failed';
@@ -87,9 +87,9 @@ package pl.ydp.automation.execution.report
 		
 		public function finishReport( report:ReportData ):void
 		{
-				report.reportXML.@errors = ( report.reportXML.testcase.error as XMLList ).length();
-				report.reportXML.@failures = ( report.reportXML.testcase.failure as XMLList ).length();
-				report.reportXML.@tests = ( report.reportXML.testcase.teststep as XMLList ).length();
+				report.reportXML.@errors = ( report.reportXML.testsuite.testcase.error as XMLList ).length();
+				report.reportXML.@failures = ( report.reportXML.testsuite.testcase.failure as XMLList ).length();
+				report.reportXML.@tests = ( report.reportXML.testsuite.testcase.teststep as XMLList ).length();
 		}
 		
 	}

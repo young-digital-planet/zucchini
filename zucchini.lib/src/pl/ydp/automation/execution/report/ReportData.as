@@ -15,7 +15,7 @@ package pl.ydp.automation.execution.report
 		public function ReportData( xml:XML, scriptName:String )
 		{
 			_reportXML = xml;
-			_reportXML.@name = scriptName;
+			_reportXML.testsuite.@name = scriptName;
 		}
 		
 		
@@ -25,12 +25,12 @@ package pl.ydp.automation.execution.report
 		
 		public function set classname( value:String ):void
 		{
-			_reportXML.@classname = value;
+			_reportXML.testsuite.@classname = value;
 		}
 		
 		public function set file( value:String ):void
 		{
-			_reportXML.@file = value;
+			_reportXML.testsuite.@file = value;
 		}
 //		---
 		
