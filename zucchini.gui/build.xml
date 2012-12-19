@@ -134,7 +134,7 @@
 			        </java>
 			 </target>
 	
-			 <target name="run" depends="package">
+			 <target name="run">
 					<exec executable="${run.dir}/${APP_NAME}.exe" failonerror="true">
 						<arg value="autostart"/>
 					</exec>
