@@ -53,21 +53,21 @@ package pl.ydp.automation.execution.report
 			
 //			then
 			assertThat( scriptReport, notNullValue() );
-			assertThat( scriptReport.reportXML.@name, equalTo( SCRIPT_NAME ) );
+			assertThat( scriptReport.reportXML.testsuite.@name, equalTo( SCRIPT_NAME ) );
 		}
 		
 		[Test]
 		public function should_add_scenario_to_report():void
 		{
 //			given
-			var report:ReportData = new ReportData( new XML( <testsuite></testsuite> ), SCRIPT_NAME );
+			var report:ReportData = new ReportData( new XML( <testsuites><testsuite></testsuite></testsuites> ), SCRIPT_NAME );
 			var scenarioName:String = 'scenarioName';
 			
 //			when
 			scriptReportFactory.addScenario( report, scenarioName );
 			
 //			then
-			var testcasesList:XMLList = report.reportXML.testcase as XMLList;
+			var testcasesList:XMLList = report.reportXML.testsuite.testcase as XMLList;
 			
 			assertThat( testcasesList.length(), equalTo( 1 ) );
 			assertThat( testcasesList[ 0 ].@name, equalTo( scenarioName ) );
@@ -80,18 +80,18 @@ package pl.ydp.automation.execution.report
 		{
 //			given
 			var report:ReportData = new ReportData( 
-				new XML( <testsuite><testcase></testcase></testsuite> ), 
+				new XML(<testsuites><testsuite><testcase></testcase></testsuite></testsuites> ), 
 				SCRIPT_NAME 
 			);
 			var scenarioName:String = 'scenarioName';
 			var stepName:String = 'stepName';
-			report.reportXML.testcase[0].@name = scenarioName;
+			report.reportXML.testsuite.testcase[0].@name = scenarioName;
 			
 //			when
 			scriptReportFactory.addStep( report, scenarioName, stepName );
 			
 //			then
-			var testcasesList:XMLList = report.reportXML.testcase as XMLList;
+			var testcasesList:XMLList = report.reportXML.testsuite.testcase as XMLList;
 			var teststepsList:XMLList = testcasesList[0].teststep as XMLList;
 			
 			assertThat( teststepsList.length(), equalTo( 1 ) );
@@ -104,7 +104,7 @@ package pl.ydp.automation.execution.report
 		{
 			//			given
 			var report:ReportData = new ReportData( 
-				new XML( <testsuite><testcase><teststep></teststep></testcase></testsuite> ), 
+				new XML( <testsuites><testsuite><testcase><teststep></teststep></testcase></testsuite></testsuites> ), 
 				SCRIPT_NAME 
 			);
 			var scenarioIndex:int = 0;
@@ -116,7 +116,7 @@ package pl.ydp.automation.execution.report
 			scriptReportFactory.addStepResult( report, scenarioIndex, stepIndex, result );
 			
 			//			then
-			var teststep:XML = report.reportXML.testcase[ scenarioIndex ].teststep[ stepIndex ];
+			var teststep:XML = report.reportXML.testsuite.testcase[ scenarioIndex ].teststep[ stepIndex ];
 			assertThat( teststep.@status, equalTo( 'passed' ) );
 		}
 		
@@ -125,7 +125,7 @@ package pl.ydp.automation.execution.report
 		{
 			//			given
 			var report:ReportData = new ReportData( 
-				new XML( <testsuite><testcase><teststep></teststep></testcase></testsuite> ), 
+				new XML( <testsuites><testsuite><testcase><teststep></teststep></testcase></testsuite></testsuites> ), 
 				SCRIPT_NAME 
 			);
 			var scenarioIndex:int = 0;
@@ -140,7 +140,7 @@ package pl.ydp.automation.execution.report
 			scriptReportFactory.addStepResult( report, scenarioIndex, stepIndex, result );
 			
 			//			then
-			var testcase:XML = report.reportXML.testcase[ scenarioIndex ];
+			var testcase:XML = report.reportXML.testsuite.testcase[ scenarioIndex ];
 			var failure:XML = testcase.failure[0];
 			assertThat( failure, notNullValue() );
 			assertThat( failure.@message, equalTo( failureMessage ) );

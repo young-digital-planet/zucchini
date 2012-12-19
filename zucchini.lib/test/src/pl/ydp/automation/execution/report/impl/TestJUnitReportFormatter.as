@@ -20,24 +20,28 @@ package pl.ydp.automation.execution.report.impl
 		private var reportData:ReportData;
 		
 		private var INPUT_REPORT_XML:XML = new XML(
-			<testsuite>
-				<testcase/>
-				<testcase>
-					<teststep/>
-					<teststep/>
-				</testcase>
-				<testcase>
-					<teststep/>
-				</testcase>
-			</testsuite>
+			<testsuites>
+				<testsuite>
+					<testcase/>
+					<testcase>
+						<teststep/>
+						<teststep/>
+					</testcase>
+					<testcase>
+						<teststep/>
+					</testcase>
+				</testsuite>
+			</testsuites>
 		);
 		
 		private var OUTPUT_REPORT_XML:XML = new XML(
-			<testsuite name="">
-				<testcase/>
-				<testcase/>
-				<testcase/>
-			</testsuite>
+			<testsuites>
+				<testsuite name="">
+					<testcase/>
+					<testcase/>
+					<testcase/>
+				</testsuite>
+			</testsuites>
 		);
 		
 		[Before]
