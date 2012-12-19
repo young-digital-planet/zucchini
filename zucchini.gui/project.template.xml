@@ -1,4 +1,4 @@
-<project id="eu.ydp.zucchini" version="${revision}" branch="${zucchini.gui.version}">
+<project id="eu.ydp.zucchini.utopia" version="${revision}" branch="${zucchini.gui.version}">
 	<displayName>zucchini.gui</displayName>
 	<description>Zucchini GUI for Utopia</description>
 	<author>mkocieniewski</author>
