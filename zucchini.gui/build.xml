@@ -69,7 +69,7 @@
 	
 	
 	
-		<target name="package" depends="compile, certificate, package.publish, package.run"/>
+		<target name="package" depends="compile, certificate, package.publish, package.run, project.file"/>
 	
 		 <target name="package.publish"
 		        description="Packages the build SWF file from a temp directory.">
