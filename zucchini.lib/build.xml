@@ -82,9 +82,9 @@
 		</ant>
 	</target>
 	
-	<target name="test.publish" depends="test,publish" />
 	
-	<target name="publish" depends="build,project.file">
+	
+	<target name="publish" depends="build,test,docs,project.file">
 			<!--<zip destfile="${docs.package.file}" basedir="${doc.dir}"/>-->
 			<zip destfile="${bin.dir}/zucchini_source.zip">
 				<fileset dir="src">
