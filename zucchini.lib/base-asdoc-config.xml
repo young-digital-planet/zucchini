@@ -13,18 +13,22 @@
 		</source-path>
 		<actionscript-file-encoding>utf-8</actionscript-file-encoding>
         <external-library-path append="true">
-        	<!--  <path-element>${ivy.lib.dir}/.swc</path-element>-->
-        	
+        	<path-element>${ivy.lib.dir}/as3-signals-utilities-async-v0.8.swc</path-element>
+        	<path-element>${ivy.lib.dir}/as3-signals-v0.8.swc</path-element>
+        	<path-element>${ivy.lib.dir}/flexunit-aircilistener-4.1.0_flex_3.5.0.swc</path-element>
+        	<path-element>${ivy.lib.dir}/flexunit-cilistener-4.1.0_flex_3.5.0.swc</path-element>
+        	<path-element>${ivy.lib.dir}/flexunit-core-4.1.0_flex_3.5.0.swc</path-element>
+        	<path-element>${ivy.lib.dir}/flexunit-uilistener-4.1.0_flex_3.5.0.swc</path-element>
+      		<path-element>${ivy.lib.dir}/hamcrest-as3-flex-1.1.3.swc</path-element>
+      		<path-element>${ivy.lib.dir}/mockolate-0.10.0.swc</path-element>
+      		<path-element>${ivy.lib.dir}/robotlegs-framework-v1.5.1.swc</path-element>
+      		<path-element>${ivy.lib.dir}/ydpUtils.swc</path-element>
+      		
         </external-library-path>
 	</compiler>
 	<output>${asdoc.dir}</output>
 	<main-title>Zucchini API</main-title>
 	<window-title>Zucchini API</window-title>
 	<footer>opensource.ydp.eu</footer>
-	<packages>
-		<package>
-			<string>pl.ydp.utils</string>
-			<string>Utilities. Common classes, can be used outide utopia.</string>
-		</package>
-	</packages>
+	
 </flex-config>
