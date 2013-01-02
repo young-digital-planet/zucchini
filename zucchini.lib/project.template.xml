@@ -5,9 +5,7 @@
 	
 	<about src="about.html" />
 	
-	<!-- Dokumentacja projektu 
 	<documentation name="ASDocs" href="docs/asdoc/index.html" />
-	-->
 	
 	
 	<scm type="svn" href="https://svn.intranet.ydp/ydp/projects/zucchini/trunk/zucchini.lib" />
