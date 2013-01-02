@@ -3,6 +3,7 @@ package pl.ydp.automation.scripts.steps
 	import flash.events.Event;
 	
 	import mockolate.mock;
+	import mockolate.nice;
 	import mockolate.prepare;
 	import mockolate.strict;
 	
@@ -20,7 +21,7 @@ package pl.ydp.automation.scripts.steps
 		
 		private const SOURCE_PATTERN:RegExp = /press {identifier} button/;
 		private const EXPECTED_PATTERN:RegExp = /press (\w+) button/;
-		private const PATTERN:RegExp = /\w/;
+		private const PATTERN:RegExp = /\w+/;
 		
 		[Before]
 		public function setUp():void
@@ -28,6 +29,7 @@ package pl.ydp.automation.scripts.steps
 		
 			namespaceVariables = strict( INamespaceVariables );
 			mock( namespaceVariables ).getter( 'variablePattern' ).returns( /{(\w+)}/g );
+			mock( namespaceVariables ).getter( 'patterns' ).returns( {identifier: PATTERN} );
 			
 			stepsResolver = new StepsResolver();
 			stepsResolver.namespaceVariables = namespaceVariables;
@@ -43,7 +45,7 @@ package pl.ydp.automation.scripts.steps
 		public function should_get_regexp_for_variable():void
 		{
 			//			when
-			var pattern:RegExp = stepsResolver.getRegExpForVariable( '{variable}' );
+			var pattern:RegExp = stepsResolver.getRegExpForVariable( '{identifier}' );
 			
 			//			then
 			assertThat( pattern, notNullValue() );
