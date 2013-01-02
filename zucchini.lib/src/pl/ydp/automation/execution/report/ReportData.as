@@ -19,23 +19,6 @@ package pl.ydp.automation.execution.report
 		}
 		
 		
-		
-		
-//		REPORT INFO FIELDS
-		
-		public function set classname( value:String ):void
-		{
-			_reportXML.testsuite.@classname = value;
-		}
-		
-		public function set file( value:String ):void
-		{
-			_reportXML.testsuite.@file = value;
-		}
-//		---
-		
-		
-		
 		public function get reportXML():XML
 		{
 			return _reportXML;

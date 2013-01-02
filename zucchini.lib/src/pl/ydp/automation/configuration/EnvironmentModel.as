@@ -1,8 +1,10 @@
 package pl.ydp.automation.configuration
 {
-	import flash.display.Screen;
 	import flash.system.Capabilities;
 
+	/**
+	 * Model danych środowiska aplikacji oraz wykonywania testów.
+	 */
 	public class EnvironmentModel
 	{
 		public static const FF_WRAPPER:String = 'ff';
@@ -21,6 +23,9 @@ package pl.ydp.automation.configuration
 			initDelimiter();
 		}
 		
+		/**
+		 * Wykrycie slash/backslash na podstawie systemu operacyjnego.
+		 */
 		internal function initDelimiter():void
 		{
 			if( Capabilities.os.indexOf( 'Windows' ) >=0 ){
@@ -30,6 +35,9 @@ package pl.ydp.automation.configuration
 			}
 		}
 		
+		/**
+		 * Fragment ścieżki determinowany środowiskiem wykonania.
+		 */
 		public function get wrapperDirName():String
 		{
 			var path:String;

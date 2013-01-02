@@ -2,11 +2,12 @@ package pl.ydp.automation.configuration.impl.scripts.steps
 {
 	import pl.ydp.automation.scripts.steps.INamespaceVariables;
 	
+	/**
+	 * Domyślna implementacja reguł syntaktyki dla pojedynczego kroku.
+	 */
 	public class DefaultNamespaceVariables implements INamespaceVariables
 	{
 		private const _variablePattern:RegExp = /{(\w+)}/g;
-		private const _regexpPrefix:String = '(';
-		private const _regexpSufix:String = ')';
 		
 		private var _patterns:Object;
 		
@@ -29,16 +30,5 @@ package pl.ydp.automation.configuration.impl.scripts.steps
 			return _variablePattern;
 		}
 
-		public function get regexpPrefix():String
-		{
-			return _regexpPrefix;
-		}
-
-		public function get regexpSufix():String
-		{
-			return _regexpSufix;
-		}
-		
-		
 	}
 }

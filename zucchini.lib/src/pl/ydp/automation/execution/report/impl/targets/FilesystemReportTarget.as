@@ -4,12 +4,14 @@ package pl.ydp.automation.execution.report.impl.targets
 	import flash.utils.setTimeout;
 	
 	import org.osflash.signals.Signal;
-	import org.robotlegs.core.IInjector;
 	
 	import pl.ydp.automation.execution.report.IReportTarget;
 	import pl.ydp.automation.execution.storage.StorageModel;
 	import pl.ydp.utils.FilesystemUtil;
 	
+	/**
+	 * Implementacja punktu docelowego raportów dla systemu plików.
+	 */
 	public class FilesystemReportTarget implements IReportTarget
 	{
 		[Inject]

@@ -1,17 +1,12 @@
 package pl.ydp.utils
 {
 	import flash.display.Loader;
-	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	import flash.filesystem.File;
 	import flash.filesystem.FileMode;
 	import flash.filesystem.FileStream;
-	import flash.net.FileReference;
-	import flash.net.URLRequest;
 	import flash.utils.ByteArray;
-	
-	import mx.events.FileEvent;
 	
 	import org.osflash.signals.Signal;
 
@@ -36,7 +31,6 @@ package pl.ydp.utils
 		public function loadFile( path:String ):Signal
 		{
 			var file:File = new File( path );
-//			file.url = path;
 			
 			var bytes:ByteArray = new ByteArray();;
 			if( file.exists ){

@@ -1,7 +1,9 @@
 package pl.ydp.automation.scripts.steps
 {
 	
-
+	/**
+	 * Reprezentacja wyniku wykonania kroku.
+	 */
 	public class StepResult
 	{
 		private var _correctly:Boolean;

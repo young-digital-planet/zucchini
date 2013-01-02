@@ -4,6 +4,9 @@ package pl.ydp.automation.execution.storage
 	
 	import pl.ydp.automation.configuration.EnvironmentModel;
 	
+	/**
+	 * Klasa rozwiązująca ścieżki do poszczególnych zasobów.
+	 */
 	public class StorageManager
 	{
 		[Inject]
@@ -16,6 +19,9 @@ package pl.ydp.automation.execution.storage
 			
 		}
 		
+		/**
+		 * @return Plik ze wzorcem snapshota dla widoku
+		 */
 		public function getPatternFile( scriptName:String, lessonName:String, pageIndex:int ):File
 		{
 			var delim:String = getDelimiter();
@@ -32,6 +38,9 @@ package pl.ydp.automation.execution.storage
 			return patternFile;
 		}
 		
+		/**
+		 * @return Plik *.utt lekcji
+		 */
 		public function getLessonFile( lessonName:String, skinName:String ):File
 		{
 			var delim:String = getDelimiter();

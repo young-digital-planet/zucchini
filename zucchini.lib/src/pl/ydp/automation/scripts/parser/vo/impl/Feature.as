@@ -9,16 +9,35 @@ package pl.ydp.automation.scripts.parser.vo.impl
 	import pl.ydp.automation.scripts.parser.ParserConfig;
 	import pl.ydp.automation.scripts.parser.vo.IFeature;
 
+	/**
+	 * Reprezentacja pojedynczego skryptu składającego się z opisu
+	 * oraz listy scenariuszy.
+	 */
 	public class Feature implements IFeature
 	{
+		
 		private var _featureRE:RegExp = ParserConfig.FEATURE_REGEXP;
 	
+		/**
+		 * Nazwa funkcjonalności, tożsama z nazwą pliku.
+		 */
 		private var _name:String;
 		
+		/**
+		 * Zawartość skryptu.
+		 */
 		private var _source:String;
+		/**
+		 * Opis funkcjonalności do przetestowania.
+		 */
 		private var _decription:String;
-		
+		/**
+		 * Fragmenty skryptu zawierające poszczególne scenariusze.
+		 */
 		private var _scenariosParts:Array;
+		/**
+		 * Lista obiektów typu Scenario (_scenariosParts zmapowane na obiekty).
+		 */
 		private var _scenarios:Array;
 		
 		

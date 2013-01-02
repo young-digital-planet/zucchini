@@ -1,12 +1,15 @@
 package pl.ydp.automation.scripts.steps
 {
-	
+	/**
+	 * Model danych przechowujących klasy kroków 
+	 * dostępnych z obiektu po nazwie.
+	 */
 	public class StepsRegistry
 	{
 		[Inject]
 		public var stepsClasses:IStepsClasses;
 		
-		private var _steps:* = {};
+		private var _steps:Object = {};
 		
 		public function StepsRegistry()
 		{
@@ -25,17 +28,10 @@ package pl.ydp.automation.scripts.steps
 			_steps[stepClass.NAME] = stepClass;
 		}
 
-		public function get steps():*
+		public function get steps():Object
 		{
 			return _steps;
 		}
 
-		public function getStep( stepName:String ):String
-		{
-			if( _steps.hasOwnProperty( stepName ) ){
-				return steps[stepName];
-			}
-			return null;
-		}
 	}
 }

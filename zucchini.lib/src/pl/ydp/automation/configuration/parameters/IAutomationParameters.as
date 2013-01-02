@@ -11,6 +11,10 @@ package pl.ydp.automation.configuration.parameters
 	 */
 	public interface IAutomationParameters
 	{
+		/**
+		 * Klasa z konfiguracją parsera skryptów 
+		 * (określa wzorce wyszukiwania wewnątrz skyptów).
+		 */
 		function get parserConfigClass():Class;
 		function get namespaceVariables():INamespaceVariables;
 		function get steps():IStepsClasses;

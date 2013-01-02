@@ -2,6 +2,9 @@ package pl.ydp.automation.scripts
 {
 	import pl.ydp.automation.execution.AutomationScript;
 
+	/**
+	 * Model danych skryptów.
+	 */
 	public class ScriptsModel
 	{
 		private var _automationScripts:Object = {};

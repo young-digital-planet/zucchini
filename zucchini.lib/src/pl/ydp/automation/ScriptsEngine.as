@@ -8,6 +8,9 @@ package pl.ydp.automation
 	import pl.ydp.automation.scripts.StepsManager;
 	import pl.ydp.automation.scripts.parser.vo.IFeature;
 
+	/**
+	 * Silnik odpowiedzialny za przygotowanie testów.
+	 */
 	public class ScriptsEngine
 	{
 		[Inject] 
@@ -27,7 +30,7 @@ package pl.ydp.automation
 		}
 		
 		/**
-		 * Proces przygotwania skryptów składa się z następujących części
+		 * Proces przygotowania skryptów składa się z następujących części
 		 * wykonywanych sekwencyjnie:
 		 * 
 		 * 1. Załadowanie skryptów

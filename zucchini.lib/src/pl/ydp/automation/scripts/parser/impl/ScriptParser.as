@@ -6,6 +6,9 @@ package pl.ydp.automation.scripts.parser.impl
 	import pl.ydp.automation.scripts.parser.vo.IFeature;
 	import pl.ydp.automation.scripts.parser.vo.impl.Feature;
 
+	/**
+	 * Parser skryptów zawierających instrukcje testów.
+	 */
 	public class ScriptParser implements IScriptParser
 	{
 	

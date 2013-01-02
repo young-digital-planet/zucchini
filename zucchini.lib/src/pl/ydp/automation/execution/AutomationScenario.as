@@ -1,6 +1,9 @@
 package pl.ydp.automation.execution
 {
-
+	/**
+	 * Reprezentacja zautomatyzowanego scenariusza.
+	 * Dostarcza listy kroków do wykonania.
+	 */
 	public class AutomationScenario
 	{
 		private var _name:String;

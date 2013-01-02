@@ -8,6 +8,9 @@ package pl.ydp.automation.configuration.impl.scripts.fs
 	import pl.ydp.automation.execution.AutomationScript;
 	import pl.ydp.automation.scripts.IScriptSource;
 	
+	/**
+	 * Implementacja pojedynczego skryptu dla systemu plików.
+	 */
 	public class FilesystemScriptSource extends EventDispatcher implements IScriptSource
 	{
 		private var _name:String;
@@ -22,7 +25,9 @@ package pl.ydp.automation.configuration.impl.scripts.fs
 			this._name = scriptName.substring(0, scriptName.search(scriptFile.type));
 		}
 		
-
+		/**
+		 * Załadowanie zawartości skryptu z pliku.
+		 */
 		public function load():void {
 			if ( _automationScript!=null ) {
 				dispatchEvent( new Event(Event.COMPLETE) );

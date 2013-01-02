@@ -1,14 +1,27 @@
 package pl.ydp.automation.execution.report
 {
+	/**
+	 * Model danych przechowujący konfigurację
+	 * raportowania testów.
+	 */
 	public class ReportModel
 	{
 		private var _instantExport:Boolean;
 		
+		/**
+		 * Lista obiektów typu ReportData
+		 */
 		private var _reportsData:Array = [];
 		
+		/**
+		 * Lista obiektów implementujących IReportTarget
+		 */
 		private var _reportsTargets:Array;
-		
+		/**
+		 * Lista obiektów implementujących IReportFormatter
+		 */
 		private var _reportsFormatters:Array;
+		
 		
 		public function ReportModel()
 		{

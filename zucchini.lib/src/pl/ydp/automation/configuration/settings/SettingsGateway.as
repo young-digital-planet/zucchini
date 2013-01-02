@@ -7,6 +7,9 @@ package pl.ydp.automation.configuration.settings
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsModel;
 	import pl.ydp.automation.scripts.ScriptsModel;
 
+	/**
+	 * Klasa pośrednicząca we wtryskiwaniu ustawień modeli danych.
+	 */
 	public class SettingsGateway
 	{
 		[Inject]

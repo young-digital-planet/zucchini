@@ -2,14 +2,10 @@ package pl.ydp.automation.execution.storage.snapshot
 {
 	import flash.display.BitmapData;
 	import flash.events.EventDispatcher;
-	import flash.utils.ByteArray;
-	
-	import mx.graphics.ImageSnapshot;
-	
-	import pl.ydp.automation.execution.storage.snapshot.impl.UtopiaSnapshot;
-	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.utils.FilesystemUtil;
 
+	/**
+	 * Klasa dostarczająca narzędzi do analizy grafiki.
+	 */
 	public class SnapshotsManager extends EventDispatcher
 	{
 		[Inject]
@@ -18,8 +14,6 @@ package pl.ydp.automation.execution.storage.snapshot
 		public function SnapshotsManager()
 		{
 		}
-		
-		
 		
 		
 		/**

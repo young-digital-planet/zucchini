@@ -2,16 +2,18 @@ package pl.ydp.automation.execution
 {
 	import flash.events.Event;
 	
-	import org.flexunit.internals.namespaces.classInternal;
 	import org.osflash.signals.Signal;
 	import org.robotlegs.core.IInjector;
 	
-	import pl.ydp.automation.execution.report.ReportManager;
-	import pl.ydp.automation.execution.report.ReportModel;
 	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.scripts.ScriptsModel;
 	import pl.ydp.automation.scripts.steps.StepResult;
 
+	/**
+	 * Zarządza bezpośrednio procesem wykonywania testów:
+	 * kontroluje przebieg, wywołuje kroki, rozgłasza sygnały
+	 * z przebiegu działania. Obsługuje kroki asynchronicznie.
+	 */
 	public class ExecutionManager 
 	{
 		[Inject]

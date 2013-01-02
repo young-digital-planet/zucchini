@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testrun name="" >
 <testsuite  name="Default Test Suite" project="test">
-<testsuite name="pl.ydp.automation.execution.storage.snapshot:TestSnapshotsManager" type="testsuiteclass"/>
 <testsuite name="pl.ydp.automation:TestAutomationCaptain" type="testcaseclass"/>
 <testsuite name="pl.ydp.automation:TestAutomationEngine" type="testcaseclass"/>
 <testsuite name="pl.ydp.automation:TestIntegrityAutomation" type="testcaseclass"/>
@@ -17,7 +16,6 @@
 <testsuite name="pl.ydp.automation.execution.report:TestReportModel" type="testcaseclass"/>
 <testsuite name="pl.ydp.automation.execution.report.impl:TestJUnitReportFormatter" type="testcaseclass"/>
 <testsuite name="pl.ydp.automation.execution.storage:TestStorageManager" type="testcaseclass"/>
-<testsuite name="pl.ydp.automation.execution.storage.snapshot.impl:TestUtopiaSnapshot" type="testcaseclass"/>
 <testsuite name="pl.ydp.automation.fs:TestFilesystemScripts" type="testcaseclass"/>
 <testsuite name="pl.ydp.automation.parser:TestParserUtil" type="testcaseclass"/>
 <testsuite name="pl.ydp.automation.parser.impl:TestScriptParser" type="testcaseclass"/>

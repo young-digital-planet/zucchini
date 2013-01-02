@@ -6,6 +6,10 @@ package pl.ydp.automation.configuration.parameters
 	import pl.ydp.automation.scripts.steps.INamespaceVariables;
 	import pl.ydp.automation.scripts.steps.IStepsClasses;
 
+	/**
+	 * Klasa bazowa dla implementacji klasy z parametrami aplikacji.
+	 * Dostarcza settery i gettery.
+	 */
 	public class AutomationParameters implements IAutomationParameters
 	{
 		protected var _parserConfigClass:Class;

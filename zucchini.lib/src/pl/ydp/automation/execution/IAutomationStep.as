@@ -2,10 +2,11 @@ package pl.ydp.automation.execution
 {
 	import org.osflash.signals.Signal;
 	
-	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.scripts.parser.vo.ISentence;
-	import pl.ydp.automation.scripts.parser.vo.impl.Sentence;
 
+	/**
+	 * API, które musi dostarczyć każdy krok.
+	 */
 	public interface IAutomationStep
 	{
 		
@@ -34,9 +35,6 @@ package pl.ydp.automation.execution
 		 * execute. Dispose może być wykonane w wyniku minięcia timeout'u, przed zakończeniem
 		 * operacji asynchronicznej. 
 		 */ 
-		function dispose():void;
-		
 		function get executionCompleted():Signal;
-		
 	}
 }

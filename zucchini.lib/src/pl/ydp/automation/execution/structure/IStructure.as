@@ -2,18 +2,32 @@ package pl.ydp.automation.execution.structure
 {
 	import flash.display.IBitmapDrawable;
 
+	/**
+	 * API dla struktury testowanej aplikacji
+	 * (przez Structure rozumiany jest komponent wyświetlający aplikację,
+	 * w tym przypadku pełni rolę wrappera, viewera...).
+	 */
 	public interface IStructure
 	{
-		function get rootItem():*;
-		
 		/**
-		 * Daje dostęp do poszczególnych elementów struktury.
-		 * @param elementId identyfikator elementu
-		 * @return obiekt opisujący element struktury
+		 * Dostarcza desktyptora elementu struktury.
+		 * @param ElementId identyfikator elementu
+		 * @return Obiekt opisujący element struktury
 		 */
 		function getElementDescriptor( elementId:String ):IStructureElementDescriptor;
+		/**
+		 * Daje dostęp do elementu struktury.
+		 * @param elementId Identyfikator elementu
+		 * @return Element struktury
+		 */
 		function getElement( elementIdOrFunc:*, elementNumber:int = 0 ):*;
+		/**
+		 * @return Element wizualny, który ma być źródłem snapshotów.
+		 */
 		function get snapshotSource():IBitmapDrawable;
+		/**
+		 * Wyczyszczenie widoku (usunięcie struktury).
+		 */
 		function clean():void;
 	}
 }

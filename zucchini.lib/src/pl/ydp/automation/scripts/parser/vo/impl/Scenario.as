@@ -4,19 +4,32 @@ package pl.ydp.automation.scripts.parser.vo.impl
 	import mx.collections.ArrayCollection;
 	import mx.utils.StringUtil;
 	
-	import pl.ydp.automation.configuration.impl.scripts.parser.GherkinConfig;
 	import pl.ydp.automation.scripts.parser.ParserConfig;
-	import pl.ydp.automation.scripts.parser.ParserUtil;
 	import pl.ydp.automation.scripts.parser.vo.IScenario;
 
+	/**
+	 * Reprezentacja pojedynczego scenariusza skryptu
+	 * składającego się z opisu oraz listy kroków.
+	 */
 	public class Scenario implements IScenario
 	{
 		private var _scenarioRE:RegExp = ParserConfig.SCENARIO_REGEXP;
 		
+		/**
+		 * Zawartość scenariusza
+		 */
 		private var _source:String;
+		/**
+		 * Opis scenariusza do przetestowania.
+		 */
 		private var _description:String;
-		
+		/**
+		 * Fragmenty scenariusza zawierające poszczególne zdania.
+		 */
 		private var _sentencesParts:Array;
+		/**
+		 * Lista obiektów typu Sentence (_sentencesParts zmapowane na obiekty).
+		 */
 		private var _sentences:Array;
 		
 		public function Scenario(source:String)

@@ -10,8 +10,7 @@ package pl.ydp.automation.scripts
 	import pl.ydp.automation.scripts.parser.vo.IFeature;
 
 	/**
-	 * Manager zapewniający kontrolę nad warstwą fizyczną
-	 * (definiuje katalog źródłowy skryptów oraz obsługę ich ładowania).
+	 * Manager zapewniający kontrolę nad źródłem skryptów.
 	 */
 	public class ScriptsManager extends EventDispatcher
 	{

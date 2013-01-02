@@ -2,12 +2,15 @@ package pl.ydp.automation.execution.report
 {
 	import org.osflash.signals.Signal;
 	
-	import pl.ydp.automation.execution.AutomationScenario;
 	import pl.ydp.automation.execution.AutomationScript;
 	import pl.ydp.automation.execution.ExecutionManager;
 	import pl.ydp.automation.scripts.ScriptsModel;
 	import pl.ydp.automation.scripts.steps.StepResult;
 
+	/**
+	 * Klasa odpowiedzialna za zarządzanie procesem 
+	 * powstawania i exportu raportów.
+	 */
 	public class ReportManager
 	{
 		[Inject]

@@ -8,11 +8,17 @@ package pl.ydp.automation.scripts.steps
 	public class StepsResolver
 	{
 		[Inject]
-		public var stepsNamespace:StepsNamespace;
+		public var namespaceVariables:INamespaceVariables;
 		[Inject]
 		public var stepsRegistry:StepsRegistry;
 		
-		private var _map:Object = {};
+		private const _regexpPrefix:String = '(';
+		private const _regexpSufix:String = ')';
+		
+		/**
+		 * Wynikowe wzorce dla kroków.
+		 */
+		private var _resolvedPatterns:Object = {};
 		
 		public function StepsResolver()
 		{
@@ -23,7 +29,7 @@ package pl.ydp.automation.scripts.steps
 		public function resolvePatterns():void
 		{
 			for each( var stepClass:Class in stepsRegistry.steps ){
-				_map[ stepClass.NAME ]  = resolvePattern( stepClass.PATTERN );
+				_resolvedPatterns[ stepClass.NAME ]  = resolvePattern( stepClass.PATTERN );
 			}
 		}
 		
@@ -34,17 +40,17 @@ package pl.ydp.automation.scripts.steps
 		public function resolvePattern( stepPattern:RegExp ):RegExp
 		{
 			var patternSource = stepPattern.source;
-			var variables:Array = patternSource.match( stepsNamespace.variablePattern );
+			var variables:Array = patternSource.match( namespaceVariables.variablePattern );
 			
 			for (var i:int = 0; i < variables.length; i++){
 				
-				var regExp:RegExp = stepsNamespace.getRegExpForVariable( variables[i] );
+				var regExp:RegExp = getRegExpForVariable( variables[i] );
 				
 				if( regExp != null ){
 					
 					patternSource = patternSource.replace(
 						variables[i], 
-						stepsNamespace.regexpPrefix + regExp.source  + stepsNamespace.regexpSufix
+						_regexpPrefix + regExp.source  + _regexpSufix
 					);
 				}
 			}
@@ -53,11 +59,26 @@ package pl.ydp.automation.scripts.steps
 		}
 		
 		
+		public function getRegExpForVariable( variable:String ):RegExp
+		{
+			var rawVariable:String;
+			
+			namespaceVariables.variablePattern.lastIndex = 0;
+			var result:Array = namespaceVariables.variablePattern.exec(variable);
+			
+			rawVariable = result[1];
+			
+			if( namespaceVariables.patterns.hasOwnProperty( rawVariable ) ){
+				return namespaceVariables.patterns[ rawVariable ];
+			}
+			return null;
+		}
+		
 		
 		public function getResolved( stepName:String ):RegExp
 		{
-			if( _map.hasOwnProperty( stepName ) ){
-				return _map[stepName];
+			if( _resolvedPatterns.hasOwnProperty( stepName ) ){
+				return _resolvedPatterns[stepName];
 			}
 			return null;
 		}

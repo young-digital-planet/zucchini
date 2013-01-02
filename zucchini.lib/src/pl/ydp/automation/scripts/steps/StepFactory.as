@@ -3,6 +3,10 @@ package pl.ydp.automation.scripts.steps
 	import pl.ydp.automation.execution.IAutomationStep;
 	import pl.ydp.automation.scripts.parser.vo.ISentence;
 
+	/**
+	 * Fabryka, której zadaniem jest dostarczanie
+	 * odpowiednich kroków.
+	 */
 	public class StepFactory
 	{
 		[Inject] 
@@ -17,7 +21,9 @@ package pl.ydp.automation.scripts.steps
 		}
 		
 		
-		
+		/**
+		 * Tworzy krok dla podanego zdania.
+		 */
 		public function getStep(sentence:ISentence):IAutomationStep
 		{
 			var stepClass:Class = findStep(sentence);
@@ -28,7 +34,10 @@ package pl.ydp.automation.scripts.steps
 			return step;
 		}
 		
-		
+		/**
+		 * Szuka kroku pasującego do zdania.
+		 * @return Klasa znalezionego kroku.
+		 */
 		private function findStep(sentence:ISentence):Class
 		{
 			var stepClass:Class;
@@ -40,7 +49,6 @@ package pl.ydp.automation.scripts.steps
 			}
 			return stepClass;
 		}
-		
 		
 		private function checkPatternFromClass(stepClass:Class, sentence:ISentence):Boolean
 		{

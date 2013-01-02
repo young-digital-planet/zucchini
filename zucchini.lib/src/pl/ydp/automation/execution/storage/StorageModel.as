@@ -2,6 +2,11 @@ package pl.ydp.automation.execution.storage
 {
 	import flash.filesystem.File;
 
+	/**
+	 * Model danych określający nazwy poszczególnych folderów
+	 * używanych przez aplikację do przechowywania danych w systemie plików.
+	 * Dostarcza również dostęp do podstawowych gałęzi struktury.
+	 */
 	public class StorageModel
 	{
 		

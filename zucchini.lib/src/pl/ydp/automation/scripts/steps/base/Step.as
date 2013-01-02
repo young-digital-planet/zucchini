@@ -16,17 +16,31 @@ package pl.ydp.automation.scripts.steps.base
 	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.utils.TimeFormatter;
 
+	/**
+	 * Klasa bazowa dla implementacji wykonywanych kroków.
+	 */
 	public class Step
 	{
+		/**
+		 * Źródłowe zdanie.
+		 */
 		protected var _sentence:ISentence;
-		protected var _resolvedPattern:*;
+		/**
+		 * Wynikowy wzorzec (po przetworzeniu).
+		 */
+		protected var _resolvedPattern:RegExp;
 		
 		protected var _executionCompleted:Signal = new Signal();
 		
+		/**
+		 * Numer szukanego elementu struktury
+		 * (większość kroków polega między innymi na wykonaniu jakiejś akcji
+		 * na znalezionym elemencie wizualnym, umożliwiając uprzednio
+		 * wyszukanie go po jego numerze - chodzi o kolejność
+		 * występowania w danej strukturze - dzięki temu można przygotować test
+		 * bez znajomości struktury aplikacji, opierając się jedynie na jej widoku).
+		 */
 		protected var _elementNumber:int;
-		
-		protected var _funcToCall:Function;
-		protected var _argToPass:*;
 		
 		[Inject]
 		public var executionModel:ExecutionModel;
@@ -75,7 +89,6 @@ package pl.ydp.automation.scripts.steps.base
 		*/
 		
 		
-		
 		/**
 		 * Zakończenie kroku z określonym opóźnieniem
 		 * (niektóre kroki mogą wymagać chwili na doładowanie
@@ -88,9 +101,11 @@ package pl.ydp.automation.scripts.steps.base
 		
 		
 		/**
-		 * Zakończenie kroku
-		 * (tej funkcji powinny używać implementacje kroków
-		 * do powiadomienia o zakończeniu wykonywania).
+		 * Zakończenie kroku.
+		 * WAŻNE !!!
+		 * Tej funkcji powinny używać implementacje kroków
+		 * do powiadomienia o zakończeniu wykonywania, aby uwzględnić
+		 * ewentualny interwał między krokami.
 		 */
 		protected function complete( correctly:Boolean, message:String = null ):void
 		{
@@ -139,7 +154,7 @@ package pl.ydp.automation.scripts.steps.base
 			return stepClass.NAME;
 		}
 		
-		public function get resolvedPattern():String
+		public function get resolvedPattern():RegExp
 		{
 			return _resolvedPattern;
 		}

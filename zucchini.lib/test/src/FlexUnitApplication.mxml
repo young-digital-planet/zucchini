@@ -7,7 +7,6 @@
 						creationComplete="onCreationComplete()" layout="absolute">
 	<mx:Script>
 		<![CDATA[
-			import pl.ydp.automation.execution.storage.snapshot.TestSnapshotsManager;
 			import pl.ydp.utils.TestFilesystemUtil;
 			import pl.ydp.utils.TestEventUtils;
 			import pl.ydp.automation.scripts.steps.base.TestStep;
@@ -21,7 +20,6 @@
 			import pl.ydp.automation.parser.impl.TestScriptParser;
 			import pl.ydp.automation.parser.TestParserUtil;
 			import pl.ydp.automation.fs.TestFilesystemScripts;
-			import pl.ydp.automation.execution.storage.snapshot.impl.TestUtopiaSnapshot;
 			import pl.ydp.automation.execution.storage.TestStorageManager;
 			import pl.ydp.automation.execution.report.impl.TestJUnitReportFormatter;
 			import pl.ydp.automation.execution.report.TestReportModel;
@@ -56,7 +54,6 @@
 				testsToRun.push(pl.ydp.automation.execution.report.TestReportModel);
 				testsToRun.push(pl.ydp.automation.execution.report.impl.TestJUnitReportFormatter);
 				testsToRun.push(pl.ydp.automation.execution.storage.TestStorageManager);
-				testsToRun.push(pl.ydp.automation.execution.storage.snapshot.impl.TestUtopiaSnapshot);
 				testsToRun.push(pl.ydp.automation.fs.TestFilesystemScripts);
 				testsToRun.push(pl.ydp.automation.parser.TestParserUtil);
 				testsToRun.push(pl.ydp.automation.parser.impl.TestScriptParser);
@@ -70,7 +67,6 @@
 				testsToRun.push(pl.ydp.automation.scripts.steps.base.TestStep);
 				testsToRun.push(pl.ydp.utils.TestEventUtils);
 				testsToRun.push(pl.ydp.utils.TestFilesystemUtil);
-				testsToRun.push(pl.ydp.automation.execution.storage.snapshot.TestSnapshotsManager);
 				return testsToRun;
 			}
 			

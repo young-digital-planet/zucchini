@@ -3,12 +3,14 @@ package pl.ydp.automation.configuration
 	import flash.events.Event;
 	
 	import org.osflash.signals.Signal;
-	import org.robotlegs.mvcs.Command;
 	
-	import pl.ydp.automation.execution.storage.StorageModel;
-	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.scripts.IScripts;
 	
+	/**
+	 * Klasa odpowiedzialna za obsługę wywołań 
+	 * operacji niezbędnych  w początkowej fazie
+	 * cyklu życia aplikacji (po konfiguracji kontekstu). 
+	 */
 	public class StartupOperations 
 	{
 		private var _operationsFinished:Signal = new Signal();
@@ -20,7 +22,7 @@ package pl.ydp.automation.configuration
 		{
 			super();
 		}
-
+		
 		public function execute():void
 		{
 			initializeScripts();

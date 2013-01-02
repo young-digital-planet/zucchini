@@ -2,6 +2,10 @@ package pl.ydp.automation.execution
 {
 	import pl.ydp.automation.scripts.parser.vo.IFeature;
 
+	/**
+	 * Reprezentacja zautomatyzowanego skryptu.
+	 * Dostarcza listy scenariuszy do wykonania.
+	 */
 	public class AutomationScript
 	{	
 		private var _feature:IFeature;

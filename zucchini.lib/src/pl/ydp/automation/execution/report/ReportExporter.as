@@ -3,6 +3,10 @@ package pl.ydp.automation.execution.report
 	import org.osflash.signals.Signal;
 	import org.robotlegs.core.IInjector;
 
+	/**
+	 * Klasa odpowiedzialna za obsługę eksportowania raportów 
+	 * z wykonania testów.
+	 */
 	public class ReportExporter
 	{
 		[Inject]

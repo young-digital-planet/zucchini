@@ -6,6 +6,9 @@ package pl.ydp.automation
 	import pl.ydp.automation.execution.report.ReportExporter;
 	import pl.ydp.automation.execution.report.ReportManager;
 
+	/**
+	 * Silnik odpowiedzialny za sterowanie wykonywaniem testów.
+	 */
 	public class ExecutionEngine
 	{
 		[Inject]

@@ -67,6 +67,9 @@ package pl.ydp.automation.scripts
 			return step;
 		}
 		
+		/**
+		 * Wydobywa parametry zawarte w zdaniu na podstawie wyrażenia regularnego kroku.
+		 */
 		private function findVariables( step:IAutomationStep ):Array
 		{
 			var stepClass:Class = Object(step).constructor;

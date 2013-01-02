@@ -34,16 +34,22 @@ package pl.ydp.automation.configuration.impl.context
 	import pl.ydp.automation.scripts.steps.INamespaceVariables;
 	import pl.ydp.automation.scripts.steps.IStepsClasses;
 	import pl.ydp.automation.scripts.steps.StepFactory;
-	import pl.ydp.automation.scripts.steps.StepsNamespace;
 	import pl.ydp.automation.scripts.steps.StepsRegistry;
 	import pl.ydp.automation.scripts.steps.StepsResolver;
 	import pl.ydp.utils.FilesystemUtil;
 	
+	/**
+	 * Domyślny kontekst aplikacji.
+	 */
 	public class DefaultAutomationAppContext extends Context implements IAutomationAppContext
 	{
 		private var _parameters:IAutomationParameters;
 		private var _settingsGateway:SettingsGateway;
-		
+		/**
+		 * Sygnał informaujący o zakończeniu inicjalizacji kontekstu, 
+		 * konfiguracji injectora oraz operacji początkowych 
+		 * wymaganych przez aplikację.
+		 */  
 		private var _contextCreated:Signal = new Signal();
 		
 		public function DefaultAutomationAppContext(contextView:DisplayObjectContainer=null)
@@ -62,7 +68,10 @@ package pl.ydp.automation.configuration.impl.context
 			finishConfiguration();
 		}
 		
-		
+		/**
+		 * Konfiguracja injectora na podstawie instancji klas\
+		 * przekazanych w parametrach.
+		 */
 		private function setMappingFromParameters():void
 		{
 			ParserConfig.configClass = _parameters.parserConfigClass;
@@ -75,6 +84,9 @@ package pl.ydp.automation.configuration.impl.context
 			
 		}
 		
+		/**
+		 * Konfiguracja injectora klasami biblioteki (niewymiennymi).
+		 */
 		private function setConstMapping():void
 		{
 			injector.mapSingleton( AutomationEngine );
@@ -87,7 +99,6 @@ package pl.ydp.automation.configuration.impl.context
 			injector.mapSingleton( ScriptsEngine );
 			injector.mapSingleton( ExecutionEngine );
 			injector.mapSingleton( ExecutionManager );
-			injector.mapSingleton( StepsNamespace );
 			injector.mapSingleton( StartupOperations );
 			injector.mapSingleton( StorageModel );
 			injector.mapSingleton( StorageManager );
@@ -106,6 +117,9 @@ package pl.ydp.automation.configuration.impl.context
 			injector.injectInto( _settingsGateway );
 		}
 		
+		/**
+		 * Wywołanie operacji wymaganych przez aplikację.
+		 */
 		private function finishConfiguration():void
 		{
 			var startupOperations:StartupOperations = injector.getInstance( StartupOperations );

@@ -1,10 +1,5 @@
 package pl.ydp.automation
 {
-	import flash.desktop.NativeApplication;
-	import flash.display.NativeWindow;
-	import flash.display.Sprite;
-	import flash.events.Event;
-	
 	import org.osflash.signals.Signal;
 	
 	import pl.ydp.automation.configuration.context.IAutomationAppContext;
@@ -14,8 +9,13 @@ package pl.ydp.automation
 	import pl.ydp.automation.configuration.settings.ISettings;
 	import pl.ydp.automation.configuration.settings.SettingsGateway;
 	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.automation.scripts.ScriptsModel;
 
+	/**
+	 * Dostarcza niezbędne API do konfiguracji oraz zarządzania 
+	 * całym procesem testowania.
+	 * Jest najwyższym punktem biblioteki - korzystanie z biblioteki 
+	 * powinno odbywać się za pośrednictwem tylko tej klasy.
+	 */
 	public class AutomationCaptain
 	{
 		
@@ -38,12 +38,18 @@ package pl.ydp.automation
 			_settingsGateway = new SettingsGateway();
 		}
 
-		
+		/**
+		 * Sygnał potwierdzający zakończenie procesu testowania.
+		 */
 		public function get completed():Signal
 		{
 			return _completed;
 		}
 
+		/**
+		 * Startowa konfiguracja środowiska wykonania testów.
+		 * Głównie obiekty przeznaczone do wtryskiwania w klasach biblioteki.
+		 */
 		public function configure():void
 		{
 			if( _parameters == null ){
@@ -67,7 +73,9 @@ package pl.ydp.automation
 			_configuratingCompleted.dispatch();
 		}
 		
-		
+		/**
+		 * Przygotowanie skryptów do uruchomienia.
+		 */
 		public function prepare():void
 		{
 			_engine.allScriptsPrepared.addOnce( onAllScriptsPrepared );
@@ -81,7 +89,9 @@ package pl.ydp.automation
 		
 		
 		
-		
+		/**
+		 * Uruchomienie procesu testowania (wykonywanie i raportowanie).
+		 */
 		public function start():void
 		{
 			_engine.automationCompleted.addOnce( onAutomationCompleted );

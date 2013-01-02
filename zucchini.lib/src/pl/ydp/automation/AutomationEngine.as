@@ -4,6 +4,10 @@ package pl.ydp.automation
 	
 	import pl.ydp.automation.scripts.ScriptsModel;
 
+	/**
+	 * Silnik zarządzający sterowaniem (przygotowaniem oraz wykonaniem) testami.
+	 * Jest punktem, łączącym proces przygotowania oraz wykonania testów.
+	 */
 	public class AutomationEngine
 	{
 		[Inject] 

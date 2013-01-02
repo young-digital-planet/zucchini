@@ -13,6 +13,8 @@ package pl.ydp.automation.configuration.impl.scripts.fs
 	import pl.ydp.utils.EventUtils;
 	import pl.ydp.utils.UriUtil;
 	
+	/** Implementacja źródła skryptów dla systemu plików.
+	 */
 	public class FilesystemScripts extends EventDispatcher implements IScripts
 	{
 		private const FEATURES_PARENT_DIRECTORY:String = 'files';
@@ -28,6 +30,9 @@ package pl.ydp.automation.configuration.impl.scripts.fs
 			this._root = scriptsDir;
 		}
 		
+		/**
+		 * Listowanie folderu źródłowego i mapowanie skryptów na obiekty.
+		 */
 		public function initialize():void {
 			var featuresDir:File = this._root.resolvePath( "features" );
 			featuresDir.addEventListener(FileListEvent.DIRECTORY_LISTING, gotDirectoryListing );

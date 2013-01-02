@@ -7,6 +7,8 @@ package pl.ydp.automation.configuration.impl.parameters
 	import pl.ydp.automation.configuration.parameters.AutomationParameters;
 	import pl.ydp.automation.scripts.parser.impl.ScriptParser;
 
+	/** Domyślna implementacja parametrów przekazywanych do aplikacji.
+	 */ 
 	public class DefaultAutomationParameters extends AutomationParameters
 	{
 		public function DefaultAutomationParameters()
