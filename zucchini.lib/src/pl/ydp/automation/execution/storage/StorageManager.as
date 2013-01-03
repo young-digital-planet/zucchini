@@ -6,6 +6,13 @@ package pl.ydp.automation.execution.storage
 	
 	/**
 	 * Klasa rozwiązująca ścieżki do poszczególnych zasobów.
+	 * 
+	 * WAŻNE:
+	 * Jest to jedyna klasa, która determinuje architekturę 
+	 * testowanej aplikacji. Dobrym rozwiązaniem byłoby
+	 * stworzenie bardziej abstrakcyjnego interfejsu (np. IStorage)
+	 * i przekazanie jego implementacji	jako parametr aplikacji,
+	 * który będzie wtryskiwany w bibliotece.
 	 */
 	public class StorageManager
 	{
