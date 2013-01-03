@@ -44,7 +44,7 @@ package pl.ydp.automation.scripts.steps.impl
 		
 		public function execute( scriptName:String ):void
 		{
-			var element = structure.getElement('elementId');
+			var element = structure.getElement( _buttonId );
 			
 			(element as Button).dispatchEvent( new Event(MouseEvent.CLICK));
 			
