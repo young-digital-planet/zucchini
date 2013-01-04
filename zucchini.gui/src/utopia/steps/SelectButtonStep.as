@@ -38,30 +38,7 @@ package utopia.steps
 		
 		public function execute(scriptName:String):void
 		{
-			var utopiaStructure:UtopiaStructure = structure as UtopiaStructure;
-			var element;
-			
-			if( _option.charAt(0) == '#' ){
-				
-				_elementNumber = parseInt( _option.substring( 1, _option.length ) );
-				
-				element = utopiaStructure.getElement( utopiaStepsUtil.getCheckTypeFunc( YSimpleChoice ), _elementNumber );
-				
-			}else{
-				_elementNumber = 0;
-				
-				var functions:Array = [
-					utopiaStepsUtil.getCheckIdFunc( YSimpleChoice, _option ), 
-					utopiaStepsUtil.getCheckContentFunc( YSimpleChoice, _option ) 
-				];
-				
-				for each( var func:Function in functions ){
-					element = utopiaStructure.getElement( func, _elementNumber );
-					if( element != null ){
-						break;
-					}
-				}
-			}
+			var element = utopiaStepsUtil.getElementByParam( structure as UtopiaStructure, _option, YSimpleChoice );
 			
 			if( element == null ){
 				

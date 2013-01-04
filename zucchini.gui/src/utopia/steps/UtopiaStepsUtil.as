@@ -3,11 +3,54 @@ package utopia.steps
 	import flash.display.DisplayObject;
 	
 	import pl.ydp.p2.IModule;
+	
+	import utopia.structure.UtopiaStructure;
 
 	public class UtopiaStepsUtil
 	{
 		public function UtopiaStepsUtil()
 		{
+		}
+		
+		
+		public function getElementByParam( structure:UtopiaStructure, 
+											param:String, 
+											elementClass:Class,
+											checkTypeFunc:Function = null,
+											checkIdFunc:Function = null,
+											checkContentFunc:Function = null):*
+		{
+			var element;
+			var elementNumber:int;
+			
+			if( checkTypeFunc == null ){
+				checkTypeFunc = getCheckTypeFunc( elementClass );
+			}
+			if( checkIdFunc == null ){
+				checkIdFunc = getCheckIdFunc( elementClass, param );
+			}
+			if( checkContentFunc == null ){
+				checkContentFunc = getCheckContentFunc( elementClass, param );
+			}
+			
+			if( param.charAt(0) == '#' ){
+				
+				elementNumber = parseInt( param.substring( 1, param.length ) );
+				element = structure.getElement( checkTypeFunc, elementNumber );
+				
+			}else{
+				elementNumber = 0;
+				
+				var functions:Array = [	checkIdFunc, checkContentFunc ];
+				
+				for each( var func:Function in functions ){
+					element = structure.getElement( func, elementNumber );
+					if( element != null ){
+						break;
+					}
+				}
+			}
+			return element;
 		}
 		
 		

@@ -35,22 +35,8 @@ package utopia.steps
 		
 		public function execute(scriptName:String):void
 		{
-			var func:Function;
-			if( _textInput.charAt(0) == '#' ){
-				
-				_elementNumber = parseInt( _textInput.substring( 1, _textInput.length ) );
-				
-				func = utopiaStepsUtil.getCheckTypeFunc( YTextEntry );
-				
-			}else{
-				_elementNumber = 0;
-				
-				func = utopiaStepsUtil.getCheckIdFunc( YTextEntry, _textInput);
-			}
-
-			var utopiaStructure:UtopiaStructure = structure as UtopiaStructure;
-			var element = utopiaStructure.getElement( func, _elementNumber );
-				
+			var element = utopiaStepsUtil.getElementByParam( structure as UtopiaStructure, _textInput, YTextEntry );
+			
 			if( element == null ){
 				
 				elementNotFound();

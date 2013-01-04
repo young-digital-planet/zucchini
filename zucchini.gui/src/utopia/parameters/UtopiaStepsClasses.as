@@ -2,6 +2,7 @@ package utopia.parameters
 {
 	import pl.ydp.automation.configuration.impl.scripts.steps.DefaultStepsClasses;
 	
+	import utopia.steps.DragSourcelistItemStep;
 	import utopia.steps.FillTextInputStep;
 	import utopia.steps.GoToNextPage;
 	import utopia.steps.GoToPageStep;
@@ -21,7 +22,8 @@ package utopia.parameters
 				GoToPreviousPage,
 				FillTextInputStep,
 				SelectButtonStep,
-				MakeSnapshotStep
+				MakeSnapshotStep,
+				DragSourcelistItemStep
 			];
 		}
 	}
