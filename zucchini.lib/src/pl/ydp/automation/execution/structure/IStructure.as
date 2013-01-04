@@ -1,5 +1,6 @@
 package pl.ydp.automation.execution.structure
 {
+	import flash.display.DisplayObject;
 	import flash.display.IBitmapDrawable;
 
 	/**
@@ -29,5 +30,9 @@ package pl.ydp.automation.execution.structure
 		 * Wyczyszczenie widoku (usunięcie struktury).
 		 */
 		function clean():void;
+		/**
+		 * Kontener zawierający widok aplikacji.
+		 */
+		function get component():DisplayObject;
 	}
 }
