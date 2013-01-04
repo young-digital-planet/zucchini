@@ -1,26 +1,15 @@
 package utopia.steps
 {
-	import com.yauthor.module.Result;
-	
-	import flash.display.DisplayObject;
 	import flash.events.Event;
-	import flash.events.MouseEvent;
-	import flash.events.TimerEvent;
-	import flash.utils.Timer;
 	
 	import pl.ydp.automation.execution.IAutomationStep;
 	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.automation.scripts.steps.base.Step;
-	import pl.ydp.p2.IModule;
 	import pl.ydp.p2.modules.button.YButton;
 	import pl.ydp.p2.modules.button.YTwoStateButton;
-	import pl.ydp.p2.modules.simplechoice.YChoiceInteraction;
 	import pl.ydp.p2.modules.simplechoice.YSimpleChoice;
-	import pl.ydp.p2.modules.textinteraction.textEntry.YTextEntry;
-	import pl.ydp.utils.FuncUtil;
 	
-	import utopia.structure.UtopiaStructureComponent;
+	import utopia.structure.UtopiaStructure;
 	
 	public class SelectButtonStep extends Step implements IAutomationStep
 	{
@@ -49,7 +38,7 @@ package utopia.steps
 		
 		public function execute(scriptName:String):void
 		{
-			var utopiaStructure:UtopiaStructureComponent = structure as UtopiaStructureComponent;
+			var utopiaStructure:UtopiaStructure = structure as UtopiaStructure;
 			var element;
 			
 			if( _option.charAt(0) == '#' ){

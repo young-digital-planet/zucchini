@@ -1,6 +1,6 @@
 package utopia.steps
 {
-	import utopia.structure.UtopiaStructureComponent;
+	import utopia.structure.UtopiaStructure;
 
 	public class GoToPreviousPage extends GoToPageStep
 	{
@@ -15,7 +15,7 @@ package utopia.steps
 		
 		override public function execute( scriptName:String ):void
 		{
-			var utopiaStructure:UtopiaStructureComponent = structure as UtopiaStructureComponent;
+			var utopiaStructure:UtopiaStructure = structure as UtopiaStructure;
 			_pageIndex = utopiaStructure.test.testController.currentItem.index - 1;
 			
 			super.execute( scriptName );

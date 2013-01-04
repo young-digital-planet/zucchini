@@ -1,32 +1,16 @@
 package utopia.steps
 {
-	import com.yauthor.feedback.YUserActionEvent;
-	
-	import flash.display.DisplayObject;
 	import flash.events.Event;
-	import flash.events.EventDispatcher;
-	import flash.events.MouseEvent;
 	
-	import pl.ydp.automation.execution.IAutomationContext;
 	import pl.ydp.automation.execution.IAutomationStep;
 	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.automation.execution.structure.IStructureElementDescriptor;
-	import pl.ydp.automation.scripts.parser.vo.ISentence;
-	import pl.ydp.automation.scripts.parser.vo.impl.Sentence;
-	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.automation.scripts.steps.base.Step;
-	import pl.ydp.p2.IModule;
-	import pl.ydp.p2.modules.YActivity;
 	import pl.ydp.p2.modules.button.YButton;
 	import pl.ydp.p2.modules.button.YTwoStateButton;
-	import pl.ydp.p2.modules.simplechoice.YSimpleChoice;
-	import pl.ydp.p2.modules.test.ITestSection;
-	import pl.ydp.p2.modules.test.controller.YTestController;
 	import pl.ydp.p2.modules.test.ui.YTestSwitcher;
 	import pl.ydp.p2.modules.test.ui.YTestView;
-	import pl.ydp.p2.modules.textinteraction.textEntry.YTextEntry;
 	
-	import utopia.structure.UtopiaStructureComponent;
+	import utopia.structure.UtopiaStructure;
 	
 	public class GoToPageStep extends Step implements IAutomationStep
 	{
@@ -57,7 +41,7 @@ package utopia.steps
 		
 		public function execute( scriptName:String ):void
 		{
-			var utopiaStructure:UtopiaStructureComponent = structure as UtopiaStructureComponent;
+			var utopiaStructure:UtopiaStructure = structure as UtopiaStructure;
 			
 			var func:Function = utopiaStepsUtil.getCheckTypeFunc( YTestSwitcher )
 			var element = utopiaStructure.getElement( func );

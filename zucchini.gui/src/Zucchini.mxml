@@ -104,7 +104,7 @@
 				
 				_prepared = true;
 				
-				structureContainer.addChild( captain.structure as DisplayObject );
+				structureContainer.addChild( captain.structure.component as DisplayObject );
 				
 				captain.completed.addOnce( onCompleted );
 				captain.start();

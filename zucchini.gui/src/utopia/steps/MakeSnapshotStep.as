@@ -7,14 +7,6 @@ package utopia.steps
 	
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
-	import flash.display.Loader;
-	import flash.display.LoaderInfo;
-	import flash.events.Event;
-	import flash.events.IOErrorEvent;
-	import flash.filesystem.File;
-	import flash.filesystem.FileMode;
-	import flash.filesystem.FileStream;
-	import flash.geom.Rectangle;
 	import flash.utils.ByteArray;
 	
 	import mx.graphics.ImageSnapshot;
@@ -27,11 +19,10 @@ package utopia.steps
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsManager;
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsModel;
 	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.automation.scripts.steps.base.Step;
 	import pl.ydp.utils.FilesystemUtil;
 	
-	import utopia.structure.UtopiaStructureComponent;
+	import utopia.structure.UtopiaStructure;
 	
 	public class MakeSnapshotStep extends Step implements IAutomationStep
 	{
@@ -66,8 +57,8 @@ package utopia.steps
 		
 		public function execute( scriptName:String ):void
 		{
-			var lessonName = ( structure as UtopiaStructureComponent ).lessonName;
-			var pageIndex = ( structure as UtopiaStructureComponent ).pageIndex;
+			var lessonName = ( structure as UtopiaStructure ).lessonName;
+			var pageIndex = ( structure as UtopiaStructure ).pageIndex;
 			
 			_currentSnapshot = ImageSnapshot.captureBitmapData( structure.snapshotSource );
 			var snapshotImage = ImageSnapshot.captureImage( structure.snapshotSource, 0, new mx.graphics.codec.PNGEncoder() );

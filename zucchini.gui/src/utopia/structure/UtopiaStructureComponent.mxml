@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
-		   
-		   implements="pl.ydp.automation.execution.structure.IStructure">
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml">
 	
 		<mx:states>
 			<mx:State name="versionFailure">
@@ -75,13 +73,13 @@
 				
 				
 				private var _scriptNum:String = "0";		
-				protected var m_startPage:int = 0;
+				public var startPage:int = 0;
 				protected var _im:IModuleEditor;
 				
 				private var ihi:com.yauthor.module.IHierarchyItem;
 				
 				
-				protected var m_defaultSrc:String ="C:/kotas/tasks/72117_tabele/utopia_1/script_00034.utt";
+				public var defaultSrc:String ="C:/kotas/tasks/72117_tabele/utopia_1/script_00034.utt";
 				
 				
 				
@@ -102,7 +100,7 @@
 //				Security.allowDomain("*");
 				
 				
-				private var _lessonName:String;
+				public var lessonName:String;
 				
 				
 				
@@ -252,7 +250,7 @@
 				
 				
 				
-				private function loadPage():void {
+				public function loadPage():void {
 					externalIntefaceEnabled = false;
 					/*
 					externalIntefaceEnabled = true;
@@ -351,7 +349,7 @@
 					}
 					*/
 					if ( src==null )
-						src=m_defaultSrc;
+						src=defaultSrc;
 					
 					//sprawdzanie poprawności
 					if ( base!=null )
@@ -426,7 +424,6 @@
 						*/
 						
 						
-						var startPage:int = m_startPage;
 						test.load( src, startPage );
 						
 						
@@ -525,26 +522,10 @@
 				private function onSizeChanged( e:Event ):void
 				{
 					
-					
 					var scrollContainer:YScrollableContainerEx = e.target as YScrollableContainerEx;
-					
-//					parent.width = scrollContainer.contentMeasuredWidth;
-//					parent.height = scrollContainer.contentMeasuredHeight;
 					
 					this.width = scrollContainer.contentMeasuredWidth;
 					this.height = scrollContainer.contentMeasuredHeight;
-					/*
-					trace('scrollContainer.contentMeasuredWidth: ',scrollContainer.contentMeasuredWidth);
-					trace('scrollContainer.contentMeasuredHeight: ',scrollContainer.contentMeasuredHeight);
-					trace('scrollContainer.contentMinWidth: ',scrollContainer.contentMinWidth);
-					trace('scrollContainer.contentMinHeight: ',scrollContainer.contentMinHeight);
-					
-					trace('parent.width: ', parent.width )
-					trace('parent.height: ', parent.height )
-					
-					trace('this.width: ', this.width);
-					trace('this.height: ', this.height);
-					*/
 				}
 				
 				
@@ -553,81 +534,15 @@
 				}
 				
 				
-				
-				public function clean():void
-				{
-					test.removeAllChildren();
-					test = null;
-				}
-				
 				public function loadLessonPage( lessonName:String, lessonPath:String, pageIndex:int ):void
 				{
-					_lessonName = lessonName;
-					m_startPage = pageIndex;
-					m_defaultSrc = lessonPath;
+					lessonName = lessonName;
+					startPage = pageIndex;
+					defaultSrc = lessonPath;
 					
 					loadPage();
 				}
-				
-//				IStructure
-				
-				public function getElementDescriptor(elementId:String):IStructureElementDescriptor
-				{
-					var outerPage:IModule = test.outerPage.findModule( elementId ) ;
-//					
-					
 
-					return null;
-				}
-				
-				public function getElement( elementIdOrFunc:*, elementNumber:int = 0 ):*
-				{
-					var element:IModule;
-					if( elementNumber == 0 ){
-						element = test.outerPage.findModule( elementIdOrFunc ) ;
-						if( element == null ){
-							element = test.innerPage.findModule( elementIdOrFunc );
-						}
-					}else{
-						element = test.outerPage.findModuleInContainerWithNumber( elementIdOrFunc, elementNumber ) ;
-						if( element == null ){
-							element = test.innerPage.findModuleInContainerWithNumber( elementIdOrFunc, elementNumber );
-						}
-					}
-					return element;
-				}
-				
-				
-				
-				
-				public function setCurrentIndex( index:int ):void
-				{
-					var controller:YTestController = test.testController as YTestController;
-					controller.setCurrentIndex( 2 );
-				}
-				
-				public function get rootItem():*
-				{
-					// TODO Auto Generated method stub
-					return null;
-				}
-				
-				public function get snapshotSource():IBitmapDrawable
-				{
-					trace('this.width: ', this.width);
-					trace('this.height: ', this.height);
-					return test;
-				}
-
-				public function get lessonName():String
-				{
-					return _lessonName;
-				}
-
-				public function get pageIndex():int
-				{
-					return m_startPage;
-				}
 
 			]]>
 		</mx:Script>	

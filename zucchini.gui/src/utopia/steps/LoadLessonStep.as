@@ -1,22 +1,14 @@
 package utopia.steps
 {
 	import flash.events.Event;
-	import flash.events.TimerEvent;
-	import flash.utils.Timer;
 	
 	import pl.ydp.automation.execution.IAutomationStep;
 	import pl.ydp.automation.execution.storage.StorageManager;
 	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.automation.scripts.steps.base.Step;
-	import pl.ydp.jobs.IJobInfo;
-	import pl.ydp.jobs.YJobs;
-	import pl.ydp.p2.constants;
-	import pl.ydp.p2.layout.grid.grid_internal;
-	import pl.ydp.storage.events.StorageEvent;
-	import pl.ydp.utils.TimeFormatter;
 	
-	import utopia.structure.UtopiaStructureComponent;
+	import utopia.structure.UtopiaStructure;
 	
 	public class LoadLessonStep extends Step implements IAutomationStep
 	{
@@ -50,8 +42,8 @@ package utopia.steps
 		{
 			var lessonPath:String = storageManager.getLessonFile( _lessonName, _skinName ).nativePath;
 			
-			( structure as UtopiaStructureComponent ).addEventListener( 'contentLoadingCompleted', onLoadingCompleted );
-			( structure as UtopiaStructureComponent ).loadLessonPage( _lessonName, lessonPath, _pageIndex );
+			( structure as UtopiaStructure ).component.addEventListener( 'contentLoadingCompleted', onLoadingCompleted );
+			( structure as UtopiaStructure ).loadLessonPage( _lessonName, lessonPath, _pageIndex );
 		}
 		
 		

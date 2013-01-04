@@ -1,17 +1,11 @@
 package utopia.steps
 {
-	import com.yauthor.module.Result;
-	
-	import flash.display.DisplayObject;
-	
 	import pl.ydp.automation.execution.IAutomationStep;
 	import pl.ydp.automation.execution.structure.IStructure;
-	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.automation.scripts.steps.base.Step;
-	import pl.ydp.p2.IModule;
 	import pl.ydp.p2.modules.textinteraction.textEntry.YTextEntry;
 	
-	import utopia.structure.UtopiaStructureComponent;
+	import utopia.structure.UtopiaStructure;
 	
 	public class FillTextInputStep extends Step implements IAutomationStep
 	{
@@ -54,7 +48,7 @@ package utopia.steps
 				func = utopiaStepsUtil.getCheckIdFunc( YTextEntry, _textInput);
 			}
 
-			var utopiaStructure:UtopiaStructureComponent = structure as UtopiaStructureComponent;
+			var utopiaStructure:UtopiaStructure = structure as UtopiaStructure;
 			var element = utopiaStructure.getElement( func, _elementNumber );
 				
 			if( element == null ){
