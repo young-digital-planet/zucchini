@@ -10,7 +10,7 @@
 		<conf name="test" visibility="private" description="Configuration for build"/>
 	</configurations>
 	<publications>
-		<artifact name="Zucchini" ext="air" type="app" conf="default"/>
+		<artifact name="Zucchini" ext="zip" type="zip" conf="default"/>
 	</publications>
 	<dependencies>
 		<dependency name="zucchini.lib" org="eu.ydp" rev="latest.integration" conf="default" transitive="true"/>

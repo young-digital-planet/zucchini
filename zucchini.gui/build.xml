@@ -67,11 +67,21 @@
 				 </mxmlc>
 	</target>
 	
+		<target name="package.zip">
+			<zip destfile="${publish.dir}/${APP_NAME}.zip">
+				<fileset dir="${run.dir}">
+					<exclude name="**/.svn"/>
+					<exclude name="storage/**"/>
+				</fileset>
+			</zip>
+			
+			
+		</target>	
 	
+		<target name="package" depends="compile, certificate, package.run, package.zip, project.file"/>
 	
-		<target name="package" depends="compile, certificate, package.publish, package.run, project.file"/>
-	
-		 <target name="package.publish"
+		<!-- 
+		<target name="package.publish"
 		        description="Packages the build SWF file from a temp directory.">
 		 	
 		 	<delete dir="${publish.dir}"/>
@@ -100,7 +110,7 @@
 		        	<arg value="${src.dir}/files"/>
 		        </java>
 		    </target>
-	
+	-->
 			 <target name="package.run"
 			        description="Packages the build SWF file from a temp directory.">
 			       
