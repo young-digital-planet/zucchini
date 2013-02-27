@@ -18,7 +18,7 @@ package pl.ydp.automation.scripts.steps.impl
 	{
 		
 		public static const NAME:String = 'pressButton';
-		public static const PATTERN:RegExp = /I press {identifier}/;
+		public static const PATTERN:RegExp = /I press "{identifier}"/;
 		
 		private var _buttonId:String;
 		
