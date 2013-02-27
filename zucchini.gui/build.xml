@@ -211,6 +211,8 @@
 	<target name="clean">
 		<delete dir="${bin.dir}"/>
 		<delete dir="${ivy.lib.dir}"/>
+		<delete dir="${publish.dir}"/>
+		<delete dir="${run.dir}"/>
 		<delete file="${base.dir}/project.xml"/>
 		<!--<delete file="${base.dir}/metadata.xml"/>-->
 		<delete dir="${asdoc.dir}"/>
