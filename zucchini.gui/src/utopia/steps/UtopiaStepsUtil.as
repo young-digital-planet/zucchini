@@ -3,6 +3,9 @@ package utopia.steps
 	import flash.display.DisplayObject;
 	
 	import pl.ydp.p2.IModule;
+	import pl.ydp.p2.managers.YPopupManager;
+	import pl.ydp.p2.modules.page.YPage;
+	import pl.ydp.p2.modules.page.YPopupPanel;
 	
 	import utopia.structure.UtopiaStructure;
 
@@ -11,7 +14,6 @@ package utopia.steps
 		public function UtopiaStepsUtil()
 		{
 		}
-		
 		
 		public function getElementByParam( structure:UtopiaStructure, 
 											param:String, 

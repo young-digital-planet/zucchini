@@ -4,6 +4,7 @@ package utopia.steps.asserts
 	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.scripts.steps.base.Step;
 	import pl.ydp.p2.IModule;
+	import pl.ydp.p2.modules.edit.YEditInteraction;
 	import pl.ydp.p2.modules.sourcelist.ISourceListDraggable;
 	import pl.ydp.p2.modules.sourcelist.YSimpleSourceListItem;
 	import pl.ydp.p2.modules.textinteraction.imageEntry.YImageEntryInteraction;
@@ -50,6 +51,8 @@ package utopia.steps.asserts
 		{
 			var textEntryElement:YTextEntry = utopiaStepsUtil.getElementByParam( structure as UtopiaStructure, _gap, YTextEntry );
 			var imageEntryElement:YImageEntryInteraction = utopiaStepsUtil.getElementByParam( structure as UtopiaStructure, _gap, YImageEntryInteraction );
+			var editInteraction:YEditInteraction = utopiaStepsUtil.getElementByParam( structure as UtopiaStructure, _gap, YEditInteraction );
+			
 			
 			if( textEntryElement == null && imageEntryElement == null ){
 			
@@ -68,6 +71,12 @@ package utopia.steps.asserts
 					
 					
 					if( ( imageEntryElement.sourceListItem as YSimpleSourceListItem ).node.toString() == _value ){
+						correct = true;
+					}
+					
+				}if( editInteraction != null ){
+					
+					if( editInteraction.text == _value ){
 						correct = true;
 					}
 					

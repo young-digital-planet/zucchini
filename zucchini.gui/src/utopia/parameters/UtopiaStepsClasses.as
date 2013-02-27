@@ -9,7 +9,12 @@ package utopia.parameters
 	import utopia.steps.GoToPreviousPage;
 	import utopia.steps.LoadLessonStep;
 	import utopia.steps.MakeSnapshotStep;
+	import utopia.steps.PressButtonStep;
 	import utopia.steps.SelectButtonStep;
+	import utopia.steps.SelectDictionaryKeywordStep;
+	import utopia.steps.asserts.AssertFillGapAddidionalDictionaryKeywordDescriptionStep;
+	import utopia.steps.asserts.AssertFillGapAddidionalDictionaryKeywordStep;
+	import utopia.steps.asserts.AssertFillGapStep;
 	
 	public class UtopiaStepsClasses extends DefaultStepsClasses
 	{
@@ -23,7 +28,12 @@ package utopia.parameters
 				FillTextInputStep,
 				SelectButtonStep,
 				MakeSnapshotStep,
-				DragSourcelistItemStep
+				DragSourcelistItemStep,
+				AssertFillGapStep,
+				PressButtonStep,
+				SelectDictionaryKeywordStep,
+				AssertFillGapAddidionalDictionaryKeywordStep,
+				AssertFillGapAddidionalDictionaryKeywordDescriptionStep
 			];
 		}
 	}
