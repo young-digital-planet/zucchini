@@ -67,18 +67,23 @@
 				 </mxmlc>
 	</target>
 	
-		<target name="package.zip">
-			<zip destfile="${publish.dir}/${APP_NAME}.zip">
-				<fileset dir="${run.dir}">
-					<exclude name="**/.svn"/>
-					<exclude name="storage/**"/>
-				</fileset>
-			</zip>
-			
-			
+	<target name="publish">
+		<zip destfile="${publish.dir}/${APP_NAME}.zip">
+						<fileset dir="${run.dir}">
+							<exclude name="**/.svn"/>
+							<exclude name="storage/**"/>
+						</fileset>
+					</zip>
+			<ivy:publish
+				pubrevision="${revision}"
+				resolver="${ivy.publish.resolver}"
+				status="${ivy.publish.status}"
+				forcedeliver="true"
+				artifactspattern="${publish.dir}/[artifact].[ext]"
+				update="true" />
 		</target>	
 	
-		<target name="package" depends="compile, certificate, package.run, package.zip, project.file"/>
+		<target name="package" depends="compile, certificate, package.run, project.file, publish"/>
 	
 		<!-- 
 		<target name="package.publish"
