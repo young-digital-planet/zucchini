@@ -14,7 +14,7 @@
 	</publications>
 	<dependencies>
 		<dependency name="flash.utils" org="eu.ydp" rev="latest.release" conf="default" transitive="true"/>
-		<dependency name="robotlegs" transitive="true" rev="latest.release" org="org.robotlegs" conf="default"/>
+		<dependency name="robotlegs" transitive="true" rev="1.5.1" org="org.robotlegs" conf="default"/>
 		<dependency name="as3signals" org="eu.ydp" rev="latest.release" conf="default" transitive="false"/>
 		<dependency name="flexunit4" transitive="true" rev="latest.release" org="org.flexunit" conf="test->flex3.5"/>
 	</dependencies>
