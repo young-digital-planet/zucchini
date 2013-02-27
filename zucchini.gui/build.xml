@@ -72,6 +72,7 @@
 						<fileset dir="${run.dir}">
 							<exclude name="**/.svn"/>
 							<exclude name="storage/**"/>
+							<exclude name="files/**"/>
 						</fileset>
 					</zip>
 			<ivy:publish
