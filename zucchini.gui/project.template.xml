@@ -14,7 +14,7 @@
 	
 	<ivy href="ivy.xml" />
 	
-	<artifact name="Zucchini GUI for Utopia App [AIR]" href="publish/Zucchini.air"/>
+	<artifact name="Zucchini GUI for Utopia App - deploy package" href="publish/Zucchini.zip"/>
 
 	<classification>
 		<label>Flash</label>

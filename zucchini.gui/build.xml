@@ -67,7 +67,25 @@
 				 </mxmlc>
 	</target>
 	
-	<target name="publish">
+		<target name="package.deploy">
+			<mkdir dir="${publish.dir}"/>
+			
+			<zip destfile="${publish.dir}/${APP_NAME}.zip">
+				<fileset dir="${run.dir}">
+					<exclude name="**/.svn"/>
+					<exclude name="storage/**"/>
+					<exclude name="files/**"/>
+				</fileset>
+				<fileset dir="${deploy.dir}"/>
+			</zip>
+				
+			</target>	
+	
+		<target name="package" depends="compile, certificate, package.run, package.deploy, project.file"/>
+	
+		<!-- 
+		
+		<target name="publish">
 		<mkdir dir="${publish.dir}"/>
 		<zip destfile="${publish.dir}/${APP_NAME}.zip">
 						<fileset dir="${run.dir}">
@@ -75,7 +93,7 @@
 							<exclude name="storage/**"/>
 							<exclude name="files/**"/>
 						</fileset>
-					</zip>
+				</zip>
 			<ivy:publish
 				pubrevision="${revision}"
 				resolver="${ivy.publish.resolver}"
@@ -84,10 +102,7 @@
 				artifactspattern="${publish.dir}/[artifact].[ext]"
 				update="true" />
 		</target>	
-	
-		<target name="package" depends="compile, certificate, package.run, project.file"/>
-	
-		<!-- 
+		
 		<target name="package.publish"
 		        description="Packages the build SWF file from a temp directory.">
 		 	
