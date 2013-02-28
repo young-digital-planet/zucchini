@@ -68,6 +68,7 @@
 	</target>
 	
 	<target name="publish">
+		<mkdir dir="${publish.dir}"/>
 		<zip destfile="${publish.dir}/${APP_NAME}.zip">
 						<fileset dir="${run.dir}">
 							<exclude name="**/.svn"/>
