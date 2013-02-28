@@ -35,6 +35,19 @@ package utopia.parameters
 				AssertFillGapAddidionalDictionaryKeywordStep,
 				AssertFillGapAddidionalDictionaryKeywordDescriptionStep
 			];
+			
+			logSteps();
+		}
+		
+		private function logSteps():void
+		{
+			var stepsOutput:String;
+			stepsOutput = '-----STEPS START-----';
+			for each( var clazz:Class in _classes ){
+				stepsOutput += '\n' + clazz.NAME + '\n' + clazz.PATTERN + '\n';
+			}
+			stepsOutput += '-----STEPS END-----';
+			Debug.log( stepsOutput );
 		}
 	}
 }
