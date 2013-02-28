@@ -84,7 +84,7 @@
 				update="true" />
 		</target>	
 	
-		<target name="package" depends="compile, certificate, package.run, project.file, publish"/>
+		<target name="package" depends="compile, certificate, package.run, project.file"/>
 	
 		<!-- 
 		<target name="package.publish"
