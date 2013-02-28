@@ -20,6 +20,7 @@
 	<property name="docs.package.file" value="${bin.dir}/zucchinigui_docs.zip"/>	
 	<property name="run.dir" value="${base.dir}/run"/>
 	<property name="publish.dir" value="${base.dir}/publish"/>
+	<property name="deploy.dir" value="${base.dir}/deploy"/>
 	
 	<patternset id="flex.libs">
         <include name="libs/playerglobal.swc" />
