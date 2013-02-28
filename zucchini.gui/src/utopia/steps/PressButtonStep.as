@@ -49,7 +49,7 @@ package utopia.steps
 			var element = utopiaStepsUtil.getElementByParam( structure as UtopiaStructure, _buttonId, YButton );
 			
 			(element as YButton).dispatchEvent( new Event( YButton.CLICK ) );
-			(element as YButton)._doAction();
+			(element as YButton).executeAction();
 			
 			completeWithDelay( 2000, createResult( true ) );
 		}
