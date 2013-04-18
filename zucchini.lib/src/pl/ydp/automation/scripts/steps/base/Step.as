@@ -94,11 +94,10 @@ package pl.ydp.automation.scripts.steps.base
 		 * (niektóre kroki mogą wymagać chwili na doładowanie
 		 * mimo, że wszystkie eventy już zostały przechwycone).
 		 */
-		protected function completeWithDelay( delay:int, result:StepResult ):void
+		protected function completeWithDelay( delay:int, correctly:Boolean, message:String = null ):void
 		{
-			setTimeout( complete, delay, result );
+			setTimeout( complete, delay, correctly, message );
 		}
-		
 		
 		/**
 		 * Zakończenie kroku.
