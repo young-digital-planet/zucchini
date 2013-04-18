@@ -51,7 +51,7 @@ package utopia.steps
 			(element as YButton).dispatchEvent( new Event( YButton.CLICK ) );
 			(element as YButton).executeAction();
 			
-			completeWithDelay( 2000, createResult( true ) );
+			completeWithDelay( 2000, true );
 		}
 		
 	}

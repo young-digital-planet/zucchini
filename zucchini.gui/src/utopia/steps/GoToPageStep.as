@@ -53,7 +53,7 @@ package utopia.steps
 		}
 		private function onPageLoaded( e:Event ):void
 		{
-			completeWithDelay( 1000,  createResult( true ) );
+			completeWithDelay( 1000, true );
 		}
 		
 		public function dispose():void

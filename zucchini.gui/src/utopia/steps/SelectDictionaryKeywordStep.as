@@ -67,7 +67,7 @@ package utopia.steps
 				
 				(element as YDictionaryItemList).dictionaryController.currentIndex = itemIndex;
 				
-				completeWithDelay( 1000, createResult( true ) );
+				completeWithDelay( 1000, true );
 			}
 		}
 	}

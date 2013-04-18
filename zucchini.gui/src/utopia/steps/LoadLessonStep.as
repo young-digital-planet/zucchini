@@ -49,7 +49,7 @@ package utopia.steps
 		
 		private function onLoadingCompleted( e:Event ):void
 		{
-			completeWithDelay( 1000, new StepResult( true ) );
+			completeWithDelay( 1000, true );
 		}
 		
 		public function dispose():void
