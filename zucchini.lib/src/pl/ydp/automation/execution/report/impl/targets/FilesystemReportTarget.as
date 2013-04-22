@@ -8,6 +8,7 @@ package pl.ydp.automation.execution.report.impl.targets
 	import pl.ydp.automation.execution.report.IReportTarget;
 	import pl.ydp.automation.execution.storage.StorageModel;
 	import pl.ydp.utils.FilesystemUtil;
+	import pl.ydp.utils.functions.getSignalAndDispatch;
 	
 	/**
 	 * Implementacja punktu docelowego raportów dla systemu plików.
@@ -26,15 +27,13 @@ package pl.ydp.automation.execution.report.impl.targets
 		
 		public function send( scriptName:String, report:String):Signal
 		{
-			var signal:Signal = new Signal();
-			
 			var path:String = storageModel.getReportsFile().resolvePath( scriptName + '.xml' ).nativePath;
 			var bytes:ByteArray = new ByteArray();
 			bytes.writeUTFBytes( report );
 			
 			filesystemUtil.saveFile( path, bytes );
-			setTimeout( signal.dispatch, 0 );
-			return signal;
+			
+			return getSignalAndDispatch();
 		}
 	}
 }

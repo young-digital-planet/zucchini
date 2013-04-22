@@ -7,6 +7,7 @@ package pl.ydp.automation.execution.report.impl.targets
 	import org.osflash.signals.Signal;
 	
 	import pl.ydp.automation.execution.report.IReportTarget;
+	import pl.ydp.utils.functions.getSignalAndDispatch;
 	
 	public class ArthropodReportTarget implements IReportTarget
 	{
@@ -16,12 +17,9 @@ package pl.ydp.automation.execution.report.impl.targets
 		
 		public function send(scriptName:String, report:String):Signal
 		{
-			var signal:Signal = new Signal();
-			
 			Debug.log( report );
 			
-			setTimeout( signal.dispatch, 0 );
-			return signal;
+			return getSignalAndDispatch();
 		}
 	}
 }
