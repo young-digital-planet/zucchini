@@ -24,6 +24,7 @@ package pl.ydp.automation.configuration.impl.context
 	import pl.ydp.automation.execution.storage.StorageModel;
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsManager;
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsModel;
+	import pl.ydp.automation.execution.storage.snapshot.algorithm.ComparisonAlgorithmSupplier;
 	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.scripts.IScripts;
 	import pl.ydp.automation.scripts.ScriptsManager;
@@ -81,7 +82,6 @@ package pl.ydp.automation.configuration.impl.context
 			injector.mapValue( IScripts, _parameters.scripts );
 			injector.mapValue( IStructure, _parameters.structure );
 			injector.mapValue( IScriptParser, _parameters.scriptParser );
-			
 		}
 		
 		/**
@@ -108,6 +108,7 @@ package pl.ydp.automation.configuration.impl.context
 			injector.mapSingleton( ReportExporter );
 			injector.mapSingleton( SnapshotsModel );
 			injector.mapSingleton( SnapshotsManager );
+			injector.mapSingleton( ComparisonAlgorithmSupplier );
 			injector.mapSingleton( EnvironmentModel );
 			injector.mapSingleton( FilesystemUtil );
 			injector.mapSingleton( ExecutionModel );
