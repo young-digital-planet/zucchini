@@ -1,4 +1,4 @@
-package pl.ydp.automation.execution.report.impl
+package pl.ydp.automation.execution.report.impl.formatters
 {
 	import flash.events.Event;
 	
@@ -11,7 +11,6 @@ package pl.ydp.automation.execution.report.impl
 	import org.hamcrest.object.equalTo;
 	
 	import pl.ydp.automation.execution.report.ReportData;
-	import pl.ydp.automation.execution.report.impl.formatters.JUnitReportFormatter;
 
 	public class TestJUnitReportFormatter
 	{		
