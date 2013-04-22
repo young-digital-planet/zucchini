@@ -1,16 +1,15 @@
 package pl.ydp.automation.execution.report.impl.formatters
 {
-	import mockolate.mock;
-	import mockolate.strict;
+	import flash.events.Event;
 	
-	import org.flexunit.assertThat;
-	import org.hamcrest.object.equalTo;
+	import mockolate.prepare;
+	
+	import org.flexunit.async.Async;
 	
 	import pl.ydp.automation.execution.report.ReportData;
 
-	public class TestLogReportFormatter
+	public class TestLogReportFormatter extends AbstractTestReportFormatter
 	{		
-		private var logFormatter:LogReportFormatter;
 		private var reportData:ReportData;
 		
 		private var INPUT_REPORT_XML:XML = new XML(
@@ -42,42 +41,29 @@ package pl.ydp.automation.execution.report.impl.formatters
 			'-----REPORT END-----\n'
 		;
 		
-		
 		[Before]
-		public function setUp():void
+		override public function setUp():void
 		{
-			logFormatter = new LogReportFormatter();
-
-			reportData = strict( ReportData, null, [ INPUT_REPORT_XML ,'' ] );
-			mock( reportData ).getter( 'reportXML' ).callsSuper();
-		}
-		
-		[After]
-		public function tearDown():void
-		{
+			setTestData( 
+				new LogReportFormatter(), 
+				INPUT_REPORT_XML, 
+				OUTPUT_REPORT 
+			);
+			super.setUp();
 		}
 		
 		[Test]
-		public function should_format_reportdata():void
+		override public function should_format_reportdata():void
 		{
-//			when
-			var report:String = logFormatter.format( reportData );
-			
-//			then
-			assertThat( report, equalTo( OUTPUT_REPORT ) );
+			super.should_format_reportdata();
 		}
 		
-		
-		[BeforeClass]
+		[BeforeClass(async, timeout=100)]
 		public static function setUpBeforeClass():void
 		{
+			Async.proceedOnEvent(TestLogReportFormatter,
+				prepare( ReportData ),
+				Event.COMPLETE);
 		}
-		
-		[AfterClass]
-		public static function tearDownAfterClass():void
-		{
-		}
-		
-		
 	}
 }
