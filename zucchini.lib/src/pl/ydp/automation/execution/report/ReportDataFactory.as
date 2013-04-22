@@ -11,6 +11,8 @@ package pl.ydp.automation.execution.report
 	 */
 	public class ReportDataFactory
 	{
+		public static const STATUS_FAILED:String = 'failed';
+		public static const STATUS_PASSED:String = 'passed';
 		
 		public function ReportDataFactory()
 		{
@@ -71,7 +73,7 @@ package pl.ydp.automation.execution.report
 			var scenarioXML:XML = report.reportXML.testsuite.testcase[ scenarioIndex ] as XML;
 			
 //			zmiana statusu kroku
-			var status:String = result.correctly ? 'passed' : 'failed';
+			var status:String = result.correctly ? STATUS_PASSED : STATUS_FAILED;
 			var stepXML:XML = scenarioXML.teststep[ stepIndex ] as XML;
 			stepXML.@status = status;
 			
