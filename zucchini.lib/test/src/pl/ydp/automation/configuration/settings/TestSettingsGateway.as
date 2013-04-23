@@ -47,7 +47,6 @@ package pl.ydp.automation.configuration.settings
 			settingsGateway.snapshotModel = snapshotsModel;
 			settingsGateway.environmentModel = environmentModel;
 			settingsGateway.executionModel = executionModel;
-			
 		}
 		
 		[After]
@@ -63,6 +62,7 @@ package pl.ydp.automation.configuration.settings
 			mock( scriptsModel ).setter( 'scriptsToExecuteNames' ).once();
 			mock( reportModel ).setter( 'reportsTargets' ).once();
 			mock( reportModel ).setter( 'reportsFormatters' ).once();
+			mock( reportModel ).setter( 'instantExport' ).once();
 			mock( snapshotsModel ).setter( 'mode' ).once();
 			mock( environmentModel ).setter( 'executionWrapper' ).once();
 			mock( executionModel ).setter( 'executionMode' ).once();
@@ -84,6 +84,7 @@ package pl.ydp.automation.configuration.settings
 			mock( scriptsModel ).setter( 'scriptsToExecuteNames' ).never();
 			mock( reportModel ).setter( 'reportsTargets' ).never();
 			mock( reportModel ).setter( 'reportsFormatters' ).never();
+			mock( reportModel ).setter( 'instantExport' ).never();
 			mock( snapshotsModel ).setter( 'mode' ).never();
 			mock( environmentModel ).setter( 'executionWrapper' ).never();
 			mock( executionModel ).setter( 'executionMode' ).never();
@@ -104,6 +105,7 @@ package pl.ydp.automation.configuration.settings
 			mock( scriptsModel ).setter( 'scriptsToExecuteNames' ).never();
 			mock( reportModel ).setter( 'reportsTargets' ).never();
 			mock( reportModel ).setter( 'reportsFormatters' ).never();
+			mock( reportModel ).setter( 'instantExport' ).never();
 			mock( snapshotsModel ).setter( 'mode' ).never();
 			mock( environmentModel ).setter( 'executionWrapper' ).never();
 			mock( executionModel ).setter( 'executionMode' ).never();

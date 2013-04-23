@@ -36,5 +36,11 @@ package pl.ydp.automation.configuration.settings
 		 * Interwał między wykionaniem poszczególnych kroków (w milisekundach).
 		 */
 		function get stepsInterval():int;
+		/**
+		 * Flaga określająca moment eksportu raportu feature'a.
+		 * <code>true</code> - eksport raportów na koniec każdego feature'a
+		 * <code>false</code> - eksport raportu po zakończeniu ostatniego feature'a
+		 */
+		function get instantExport():Boolean;
 	}
 }

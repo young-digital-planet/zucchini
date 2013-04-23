@@ -69,6 +69,7 @@ package pl.ydp.automation.configuration.settings
 			snapshotMode = _settings.snapshotMode;
 			executionWrapper = _settings.executionWrapper;
 			stepsInterval = _settings.stepsInterval;
+			instantExport = _settings.instantExport;
 		}
 		
 		
@@ -132,6 +133,14 @@ package pl.ydp.automation.configuration.settings
 		public function set stepsInterval( value:int ):void
 		{
 			executionModel.stepsInterval = value;
+		}
+		
+		/**
+		 * Przekazanie flagi określającej moment eksportu raportu.
+		 */
+		public function set instantExport( value:Boolean ):void
+		{
+			reportModel.instantExport = value;
 		}
 	}
 }
