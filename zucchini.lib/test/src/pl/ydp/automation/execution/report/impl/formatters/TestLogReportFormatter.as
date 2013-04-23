@@ -30,7 +30,7 @@ package pl.ydp.automation.execution.report.impl.formatters
 		
 		private var OUTPUT_REPORT:String = "" +
 			"\n-----REPORT START-----\n\n" +
-			"SUITE:\n\tFAILED - CASE: check checkbox button 2\n" +
+			"SUITE: checkCheckbox\n\tFAILED - CASE: check checkbox button 2\n" +
 			"\t\tOK - STEP: loadLesson - 10 ms\n" +
 			"\t\tFAILED (Element not found) - STEP: selectButton - 20 ms\n" +
 			"\tOK - CASE: check checkbox button\n" +

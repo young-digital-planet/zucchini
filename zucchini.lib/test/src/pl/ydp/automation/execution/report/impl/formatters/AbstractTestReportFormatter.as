@@ -19,7 +19,7 @@ package pl.ydp.automation.execution.report.impl.formatters
 		
 		public function setUp():void
 		{
-			reportData = strict( ReportData, null, [ inputReportXML ,'' ] );
+			reportData = strict( ReportData, null, [ inputReportXML ] );
 			mock( reportData ).getter( 'reportXML' ).callsSuper();
 		}
 		

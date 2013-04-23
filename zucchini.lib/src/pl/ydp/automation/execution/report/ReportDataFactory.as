@@ -24,7 +24,8 @@ package pl.ydp.automation.execution.report
 		public function createScriptReport( script:AutomationScript ):ReportData
 		{
 			var xml:XML = new XML( <testsuites><testsuite></testsuite></testsuites> );
-			var scriptReport = new ReportData( xml, script.name );
+			xml.testsuite.@name = script.name;
+			var scriptReport = new ReportData( xml );
 			
 			for each( var scenario:AutomationScenario in script.automationScenarios ){
 				addScenario( scriptReport, scenario.name );

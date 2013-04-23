@@ -60,7 +60,8 @@ package pl.ydp.automation.execution.report
 		public function should_add_scenario_to_report():void
 		{
 //			given
-			var report:ReportData = new ReportData( new XML( <testsuites><testsuite></testsuite></testsuites> ), SCRIPT_NAME );
+			var report:ReportData = new ReportData( new XML( <testsuites><testsuite></testsuite></testsuites> ) );
+			report.reportXML.testsuite.@name = SCRIPT_NAME;
 			var scenarioName:String = 'scenarioName';
 			
 //			when
@@ -80,8 +81,7 @@ package pl.ydp.automation.execution.report
 		{
 //			given
 			var report:ReportData = new ReportData( 
-				new XML(<testsuites><testsuite><testcase></testcase></testsuite></testsuites> ), 
-				SCRIPT_NAME 
+				new XML(<testsuites><testsuite><testcase></testcase></testsuite></testsuites> )
 			);
 			var scenarioName:String = 'scenarioName';
 			var stepName:String = 'stepName';
@@ -105,8 +105,7 @@ package pl.ydp.automation.execution.report
 		{
 			//			given
 			var report:ReportData = new ReportData( 
-				new XML( <testsuites><testsuite><testcase><teststep></teststep></testcase></testsuite></testsuites> ), 
-				SCRIPT_NAME 
+				new XML( <testsuites><testsuite><testcase><teststep></teststep></testcase></testsuite></testsuites> ) 
 			);
 			var scenarioIndex:int = 0;
 			var stepIndex:int = 0;
@@ -129,8 +128,7 @@ package pl.ydp.automation.execution.report
 		{
 			//			given
 			var report:ReportData = new ReportData( 
-				new XML( <testsuites><testsuite><testcase><teststep></teststep></testcase></testsuite></testsuites> ), 
-				SCRIPT_NAME 
+				new XML( <testsuites><testsuite><testcase><teststep></teststep></testcase></testsuite></testsuites> ) 
 			);
 			var scenarioIndex:int = 0;
 			var stepIndex:int = 0;

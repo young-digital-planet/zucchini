@@ -30,7 +30,7 @@ package pl.ydp.automation.execution.report.impl.formatters
 		
 		private var OUTPUT_REPORT_XML:XML = new XML(
 			<testsuites>
-				<testsuite name="">
+				<testsuite>
 					<testcase/>
 					<testcase/>
 					<testcase/>

@@ -74,7 +74,7 @@ package pl.ydp.automation.execution.report.impl.formatters
 		
 		private function getSuiteLine( suiteXML:XML ):String
 		{
-			return '\n' + 'SUITE:\n';
+			return '\n' + 'SUITE: ' + suiteXML.@name + '\n';
 		}
 		
 		private function getCaseLine( caseXML:XML, statusStr:String ):String

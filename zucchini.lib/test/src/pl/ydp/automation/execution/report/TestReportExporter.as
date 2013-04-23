@@ -33,7 +33,7 @@ package pl.ydp.automation.execution.report
 		[Before]
 		public function setUp():void
 		{
-			reportData = nice( ReportData, null, [ new XML(), '' ] )
+			reportData = nice( ReportData, null, [ new XML() ] )
 			reportModel = strict( ReportModel );
 			injector = nice( IInjector );
 			

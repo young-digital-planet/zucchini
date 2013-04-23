@@ -10,14 +10,13 @@ package pl.ydp.automation.execution.report
 	public class TestReportData
 	{		
 		private var report:ReportData;
-		private var SCRIPT_NAME:String = 'scriptName';
 		private var reportXML:XML;
 		
 		[Before]
 		public function setUp():void
 		{
 			reportXML = new XML( <testsuites><testsuite></testsuite></testsuites> );
-			report = new ReportData( reportXML, SCRIPT_NAME );
+			report = new ReportData( reportXML );
 		}
 		
 		[After]
@@ -30,7 +29,6 @@ package pl.ydp.automation.execution.report
 		{
 			assertThat( report, notNullValue() );
 			assertThat( report.reportXML, equalTo( reportXML ) );
-			assertThat( report.reportXML.testsuite.@name, equalTo( SCRIPT_NAME ) );
 		}
 		
 		

@@ -12,17 +12,14 @@ package pl.ydp.automation.execution.report
 		 */
 		private var _reportXML:XML;
 		
-		public function ReportData( xml:XML, scriptName:String )
+		public function ReportData( xml:XML )
 		{
 			_reportXML = xml;
-			_reportXML.testsuite.@name = scriptName;
 		}
-		
 		
 		public function get reportXML():XML
 		{
 			return _reportXML;
 		}
-
 	}
 }

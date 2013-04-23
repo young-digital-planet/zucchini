@@ -63,7 +63,7 @@ package pl.ydp.automation.execution.report
 		public function should_handle_step_result():void
 		{
 //			given
-			var report:ReportData = new ReportData( new XML(), '' );
+			var report:ReportData = new ReportData( new XML() );
 			mock( scriptReportFactory ).method( 'addStepResult' ).once();
 			var result:StepResult = nice( StepResult );
 			
@@ -78,7 +78,7 @@ package pl.ydp.automation.execution.report
 		public function should_finish_report():void
 		{
 //			given
-			var report:ReportData = nice( ReportData, null, [ new XML(), '' ] );
+			var report:ReportData = nice( ReportData, null, [ new XML() ] );
 			reportManager.currentReportData = report;
 			
 			mock( scriptReportFactory ).method( 'finishReport' ).once();

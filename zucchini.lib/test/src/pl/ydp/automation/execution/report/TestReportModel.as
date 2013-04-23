@@ -15,7 +15,7 @@ package pl.ydp.automation.execution.report
 		public function setUp():void
 		{
 			reportModel = new ReportModel();
-			report = new ReportData( new XML(), '');
+			report = new ReportData( new XML() );
 		}
 		
 		[After]
