@@ -9,6 +9,7 @@ package pl.ydp.automation.scripts.steps
 		private var _correctly:Boolean;
 		private var _message:String;
 		private var _error:Error;
+		private var _time:int;
 		
 		public function StepResult( correctly:Boolean = false )
 		{
@@ -43,6 +44,16 @@ package pl.ydp.automation.scripts.steps
 		public function set error(value:Error):void
 		{
 			_error = value;
+		}
+
+		public function get time():int
+		{
+			return _time;
+		}
+
+		public function set time(value:int):void
+		{
+			_time = value;
 		}
 
 

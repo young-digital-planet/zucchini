@@ -16,29 +16,27 @@ package pl.ydp.automation.execution.report.impl.formatters
 			<testsuites>
 			  <testsuite name="checkCheckbox" errors="0" failures="1" tests="4">
 				<testcase classname="checkCheckbox" name="check checkbox button 2">
-				  <teststep name="loadLesson" classname="check checkbox button 2" status="passed"/>
-				  <teststep name="selectButton" classname="check checkbox button 2" status="failed"/>
+				  <teststep name="loadLesson" classname="check checkbox button 2" status="passed" time="10"/>
+				  <teststep name="selectButton" classname="check checkbox button 2" status="failed" time="20"/>
 				  <failure message="Element not found"/>
 				</testcase>
 				<testcase classname="checkCheckbox" name="check checkbox button">
-				  <teststep name="loadLesson" classname="check checkbox button" status="passed"/>
-				  <teststep name="selectButton" classname="check checkbox button" status="passed"/>
+				  <teststep name="loadLesson" classname="check checkbox button" status="passed" time="30"/>
+				  <teststep name="selectButton" classname="check checkbox button" status="passed" time="40"/>
 				</testcase>
 			  </testsuite>
 			</testsuites>
 		);
 		
-		private var OUTPUT_REPORT:String = '' +
-			
-			'\n-----REPORT START-----\n\n' +
-			'SUITE:\n' +
-			'\tFAILED - CASE: check checkbox button 2\n' +
-			'\t\tOK - STEP: loadLesson\n' +
-			'\t\tFAILED (Element not found) - STEP: selectButton\n' +
-			'\tOK - CASE: check checkbox button\n' +
-			'\t\tOK - STEP: loadLesson\n' +
-			'\t\tOK - STEP: selectButton\n\n' +
-			'-----REPORT END-----\n'
+		private var OUTPUT_REPORT:String = "" +
+			"\n-----REPORT START-----\n\n" +
+			"SUITE:\n\tFAILED - CASE: check checkbox button 2\n" +
+			"\t\tOK - STEP: loadLesson - 10 ms\n" +
+			"\t\tFAILED (Element not found) - STEP: selectButton - 20 ms\n" +
+			"\tOK - CASE: check checkbox button\n" +
+			"\t\tOK - STEP: loadLesson - 30 ms\n" +
+			"\t\tOK - STEP: selectButton - 40 ms\n\n" +
+			"-----REPORT END-----\n"
 		;
 		
 		[Before]

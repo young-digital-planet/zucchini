@@ -1,6 +1,8 @@
 package pl.ydp.automation.execution
 {
 	import flash.events.Event;
+	import flash.utils.Timer;
+	import flash.utils.getTimer;
 	
 	import org.osflash.signals.Signal;
 	import org.robotlegs.core.IInjector;
@@ -46,6 +48,9 @@ package pl.ydp.automation.execution
 		
 		private var _executionStarted:Signal = new Signal();
 		private var _allTestsCompleted:Signal = new Signal();
+		
+		
+		private var _stepStartTime:int;
 		
 		public function ExecutionManager()
 		{
@@ -134,16 +139,15 @@ package pl.ydp.automation.execution
 		{
 			step.executionCompleted.addOnce( onExecutionCompleted );
 			injector.injectInto( step );
+			_stepStartTime = getTimer();
 			step.execute( _currentScript.name );
 		}
 		
-		private function onSendEvent( event:Event ):void
-		{
-			
-		}
 		
 		private function onExecutionCompleted( result:StepResult ):void
 		{
+			result.time = getStepExecutionTime();
+			
 			_stepFinished.dispatch( result );
 			
 			if( result.correctly ){
@@ -157,7 +161,12 @@ package pl.ydp.automation.execution
 			}
 		}
 		
-		
+		private function getStepExecutionTime():int
+		{
+			var stepEndTime:int = getTimer();
+			var executionTime:int = stepEndTime - _stepStartTime;
+			return executionTime;
+		}
 		
 		/**
 		 * Informuje czy są jeszcze do wykonania jakieś skrypty.

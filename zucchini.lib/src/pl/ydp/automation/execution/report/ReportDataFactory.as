@@ -76,7 +76,7 @@ package pl.ydp.automation.execution.report
 			var status:String = result.correctly ? STATUS_PASSED : STATUS_FAILED;
 			var stepXML:XML = scenarioXML.teststep[ stepIndex ] as XML;
 			stepXML.@status = status;
-			
+			stepXML.@time = result.time;
 			
 			if( !result.correctly ){
 //				dodanie węzła błędu

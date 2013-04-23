@@ -12,9 +12,9 @@ package pl.ydp.automation.execution.report
 	import org.hamcrest.object.notNullValue;
 	
 	import pl.ydp.automation.execution.AutomationScript;
-	import pl.ydp.automation.scripts.steps.StepResult;
 	import pl.ydp.automation.execution.report.ReportData;
 	import pl.ydp.automation.execution.report.ReportDataFactory;
+	import pl.ydp.automation.scripts.steps.StepResult;
 
 	public class TestReportDataFactory
 	{		
@@ -85,6 +85,7 @@ package pl.ydp.automation.execution.report
 			);
 			var scenarioName:String = 'scenarioName';
 			var stepName:String = 'stepName';
+			
 			report.reportXML.testsuite.testcase[0].@name = scenarioName;
 			
 //			when
@@ -110,7 +111,9 @@ package pl.ydp.automation.execution.report
 			var scenarioIndex:int = 0;
 			var stepIndex:int = 0;
 			var result:StepResult = strict( StepResult );
+			var time:int = 1234;
 			mock( result ).getter( 'correctly' ).returns( true );
+			mock( result ).getter( 'time' ).returns( time );
 			
 			//			when
 			scriptReportFactory.addStepResult( report, scenarioIndex, stepIndex, result );
@@ -118,6 +121,7 @@ package pl.ydp.automation.execution.report
 			//			then
 			var teststep:XML = report.reportXML.testsuite.testcase[ scenarioIndex ].teststep[ stepIndex ];
 			assertThat( teststep.@status, equalTo( 'passed' ) );
+			assertThat( teststep.@time, equalTo( time.toString() ) );
 		}
 		
 		[Test]
@@ -132,9 +136,10 @@ package pl.ydp.automation.execution.report
 			var stepIndex:int = 0;
 			var failureMessage:String = 'failureMessage';
 			var result:StepResult = strict( StepResult );
+			var time:int = 1234;
 			mock( result ).getter( 'correctly' ).returns( false );
 			mock( result ).getter( 'message' ).returns( failureMessage );
-			
+			mock( result ).getter( 'time' ).returns( time );
 			
 			//			when
 			scriptReportFactory.addStepResult( report, scenarioIndex, stepIndex, result );
@@ -147,6 +152,7 @@ package pl.ydp.automation.execution.report
 			
 			var teststep:XML = testcase.teststep[ stepIndex ];
 			assertThat( teststep.@status, equalTo( 'failed' ) );
+			assertThat( teststep.@time, equalTo( time.toString() ) );
 		}
 		
 		

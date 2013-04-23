@@ -84,7 +84,7 @@ package pl.ydp.automation.execution.report.impl.formatters
 		
 		private function getStepLine( stepXML:XML, statusStr:String ):String
 		{
-			return '\t\t' + statusStr + ' - ' +  'STEP: ' + stepXML.@name + '\n';
+			return '\t\t' + statusStr + ' - ' +  'STEP: ' + stepXML.@name + ' - ' + stepXML.@time + ' ms\n';
 		}
 		
 		
