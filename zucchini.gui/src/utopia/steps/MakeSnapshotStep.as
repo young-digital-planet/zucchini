@@ -18,6 +18,7 @@ package utopia.steps
 	import pl.ydp.automation.execution.storage.StorageManager;
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsManager;
 	import pl.ydp.automation.execution.storage.snapshot.SnapshotsModel;
+	import pl.ydp.automation.execution.storage.snapshot.algorithm.ComparisonAlgorithmSupplier;
 	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.scripts.steps.base.Step;
 	import pl.ydp.utils.FilesystemUtil;

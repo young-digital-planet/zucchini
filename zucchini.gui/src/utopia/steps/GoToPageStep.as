@@ -56,10 +56,5 @@ package utopia.steps
 			completeWithDelay( 1000, true );
 		}
 		
-		public function dispose():void
-		{
-			
-		}
-		
 	}
 }
