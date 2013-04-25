@@ -17,7 +17,9 @@ package pl.ydp.automation.configuration.impl.scripts.fs
 	 */
 	public class FilesystemScripts extends EventDispatcher implements IScripts
 	{
-		private const FEATURES_PARENT_DIRECTORY:String = 'files';
+		public static const FEATURES_PARENT_DIRECTORY:String = 'files';
+		public static const FEATURES_FOLDER:String = 'features';
+		public static const FEATURE_EXTENSION:String = 'feature';
 		private var _root:File;
 		private var _scripts:Object = { };
 		private var _scriptsCount:int = 0;
@@ -34,28 +36,40 @@ package pl.ydp.automation.configuration.impl.scripts.fs
 		 * Listowanie folderu źródłowego i mapowanie skryptów na obiekty.
 		 */
 		public function initialize():void {
-			var featuresDir:File = this._root.resolvePath( "features" );
-			featuresDir.addEventListener(FileListEvent.DIRECTORY_LISTING, gotDirectoryListing );
-			featuresDir.addEventListener(IOErrorEvent.IO_ERROR, EventUtils.redispatch(this) );
-			featuresDir.getDirectoryListingAsync();
+			var featuresDir:File = this._root.resolvePath( FEATURES_FOLDER );
+			findScriptsInDir( featuresDir );
+			dispatchEvent( new Event(Event.COMPLETE) );
+		}
+		
+		
+		
+		private function findScriptsInDir( dir:File ):void
+		{
+			var files:Array = dir.getDirectoryListing();
+			for each( var file:File in files ) {
+				if ( file.isDirectory ){
+					findScriptsInDir( file );
+				}else if ( isFeature( file ) ) {
+					addScript( file );
+				}
+			}
+			_scriptsCount = getScriptsCount();
+		}
+
+		private function isFeature( file:File ):Boolean
+		{
+			return file.extension == FEATURE_EXTENSION;
+		}
+		
+		private function addScript( file:File ):void
+		{
+			_scripts[UriUtil.filename(file.name)] = 
+				new FilesystemScriptSource(file);
 		}
 		
 		public function getScriptSource( name:String ):IScriptSource {
 			return _scripts[name];
 		}
-		
-		protected function gotDirectoryListing( e:FileListEvent ):void {
-			for each( var aFile:File in e.files ) {
-				if ( !aFile.isDirectory && aFile.extension=="feature" ) {
-					_scripts[UriUtil.filename(aFile.name)] = 
-						new FilesystemScriptSource(aFile);
-				}
-			}
-			_scriptsCount = getScriptsCount();
-			dispatchEvent( new Event(Event.COMPLETE) );
-		}
-
-	
 		
 		private function getScriptsCount():int
 		{
