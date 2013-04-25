@@ -274,7 +274,7 @@
 					// zarejestrowanie modułów
 					Activator.start();
 					
-					YRecordingRegister.setRecordingManagerType( YRecordingRegister.WEB_RECORDING );
+//					YRecordingRegister.setRecordingManagerType( YRecordingRegister.WEB_RECORDING );
 					
 					var pap:String;
 //						= Application.application.parameters.playerAbsolutePath;
