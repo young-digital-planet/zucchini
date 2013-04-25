@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+		 width="100%" 
+		 height="100%"
+		 >
+	
+	<mx:Script>
+		<![CDATA[
+			import asx.array.first;
+			
+			import mx.collections.ArrayCollection;
+			
+			import org.hamcrest.text.containsString;
+			
+			import pl.ydp.automation.configuration.impl.scripts.fs.FilesystemScripts;
+			
+			[Bindable]
+			private var _provider:ArrayCollection;
+			
+			private var _selectedScripts:ArrayCollection;
+			
+			public function set featuresRootDir( dir:File ):void
+			{
+				var dirInfo:Object = getInfoObjectFromDir( dir );
+				var arr:Array = dirInfo.dirs;
+				_provider = new ArrayCollection( [dirInfo] );
+			}
+				
+			
+			private function getInfoObjectFromDir( dir:File ):Object
+			{
+				var filesFromDir:Array = dir.getDirectoryListing();
+				var dirsInfos:Array = [];
+				var scripts:Array = [];
+				
+				for each( var file:File in filesFromDir ){
+					if( file.isDirectory ){
+						
+						var dirInfo:Object = getInfoObjectFromDir( file );
+						dirsInfos.push( dirInfo );
+						
+					}else if ( isFeature( file ) ) {
+						var featureName:String = removeFeatureExtension( file.name );
+						scripts.push( featureName );
+					}
+				}
+				var item:Object = getDirInfoObject( dir, dirsInfos, scripts );
+				return item;
+			}
+			
+			private function removeFeatureExtension( fileName:String ):String
+			{
+				var extensionIndex:int = fileName.lastIndexOf( '.' + FilesystemScripts.FEATURE_EXTENSION );
+				var name:String = fileName.substr( 0, extensionIndex ); 
+				return name;
+			}
+			
+			private function getDirInfoObject( dir:File, dirs:Array, scripts:Array ):Object
+			{
+				var item:Object = {};
+				item.name = dir.name;
+				item.url = dir.url;
+				item.dirs = dirs;
+				item.scripts = scripts;
+				return item;
+			}
+			
+			
+			private function isFeature( file:File ):Boolean
+			{
+				return file.extension == FilesystemScripts.FEATURE_EXTENSION;
+			}
+			
+			
+			
+			public function get selectedScripts():Array
+			{
+				_selectedScripts = new ArrayCollection();
+				var items:Array = dirsGrid.selectedItems;
+				for each( var item:Object in items ){
+					findScriptsInDir( item );
+				}
+				return _selectedScripts.toArray();
+			}
+			
+			private function findScriptsInDir( dirInfo:Object ):void
+			{
+				for each( var info:Object in dirInfo.dirs ) {
+					findScriptsInDir( info );
+				}
+				for each ( var script:String in dirInfo.scripts ){
+					if( !_selectedScripts.contains( script ) ) {
+						_selectedScripts.addItem( script );
+					}
+				}
+			}
+			
+			
+		]]>
+	</mx:Script>
+
+	<mx:AdvancedDataGrid id="dirsGrid" 
+						 width="100%" 
+						 height="100%"
+						 selectionMode="multipleRows" 
+						 showHeaders="false">
+		<mx:dataProvider>
+			<mx:HierarchicalData source="{_provider}"
+								 childrenField="dirs"/>
+		</mx:dataProvider>
+		<mx:columns>
+			<mx:Array>
+				<mx:AdvancedDataGridColumn dataField="name"/>
+				
+			</mx:Array>
+		</mx:columns>
+	</mx:AdvancedDataGrid>
+
+</mx:VBox>

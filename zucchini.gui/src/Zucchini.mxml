@@ -5,12 +5,17 @@
 						backgroundColor="#dddddd"
 						title="Zucchini GUI"
 						paddingTop="10"
-						invoke="onInvoke(event)"
+						invoke="onInvoke(event)" xmlns:view="utopia.view.*"
 						>
 	<mx:Script>
 		<![CDATA[
+			import com.carlcalderon.arthropod.Debug;
+			
 			import pl.ydp.automation.AutomationCaptain;
+			import pl.ydp.automation.configuration.impl.scripts.fs.FilesystemScripts;
 			import pl.ydp.automation.execution.report.impl.formatters.JUnitReportFormatter;
+			import pl.ydp.automation.execution.report.impl.formatters.LogReportFormatter;
+			import pl.ydp.automation.execution.report.impl.targets.ArthropodReportTarget;
 			import pl.ydp.automation.execution.report.impl.targets.FilesystemReportTarget;
 			import pl.ydp.automation.execution.storage.snapshot.SnapshotsModel;
 			
@@ -40,24 +45,21 @@
 			
 			private function onInvoke( event:InvokeEvent ):void
 			{
-				Debug.log( 'onInvoke()' );
 				if( event.arguments.length > 0 ){
 					var arg:String = ( event.arguments[ 0 ] as String ).toLowerCase();
 					if( arg == AUTOSTART_ARG ){
 						_autoStart = true;
 					}
 				}
-				Debug.log( 'autoStart: ' + _autoStart );
 				
 				if( _autoStart ){
 					prepare();
 				}
-				
 			}
 			
 			private function onCreationComplete():void
 			{
-				Debug.log( 'onCreationComplete()' );
+				setViewerDir();
 				
 				captain = new AutomationCaptain();
 				
@@ -72,8 +74,6 @@
 			
 			private function onConfiguratingCompleted():void
 			{
-				Debug.log( 'onConfiguratingCompleted()' );
-				
 				_configurated = true;
 				
 //				captain.setSettings( new ISettings() );
@@ -82,12 +82,15 @@
 			
 			private function prepare():void
 			{
-				Debug.log( 'prepare()' );
-				captain.settings.reportsFormatters = [ new JUnitReportFormatter() ];
-				captain.settings.reportsTargets = [ new FilesystemReportTarget() ];
+//				Debug.log( 'prepare()' );
+//				captain.settings.reportsFormatters = [ new JUnitReportFormatter() ];
+//				captain.settings.reportsTargets = [ new FilesystemReportTarget() ];
 				
-				if( scritpsToPrepareNames.text != '' )
-					captain.settings.scriptsToPrepareNames = [ scritpsToPrepareNames.text ];
+				captain.settings.reportsFormatters = [ new LogReportFormatter ];
+				captain.settings.reportsTargets = [ new ArthropodReportTarget() ];
+				
+				captain.settings.scriptsToPrepareNames = dirsViewer.selectedScripts;
+				
 //				if( scritpsToExecuteNames.text != '' )
 //					captain.settings.scriptsToExecuteNames = [ scritpsToPrepareNames.text ];
 				
@@ -100,8 +103,6 @@
 			
 			private function onPreparingCompleted():void
 			{
-				Debug.log( 'onPreparingCompleted()' );
-				
 				_prepared = true;
 				
 				structureContainer.addChild( captain.structure.component as DisplayObject );
@@ -112,47 +113,12 @@
 			}
 			private function onCompleted():void
 			{
-				Debug.log( 'onCompleted()' );
+//				Debug.log( 'onCompleted()' );
 				
 				if( _autoStart ){
-//					applicationExit();
 					exit();
 				}
 			}
-			
-			/*
-			public function applicationExit():void {
-				Debug.log( 'applicationExit()' );
-				
-				NativeApplication.nativeApplication.addEventListener(Event.EXITING, onExiting ); 
-				NativeApplication.nativeApplication.dispatchEvent( new Event( Event.EXITING, false, true ) );
-//				if (!exitingEvent.isDefaultPrevented()) {
-//					NativeApplication.nativeApplication.exit();
-//				}
-			}
-			
-			private function onExiting( event:Event ):void {
-				Debug.log( 'onExiting()' );
-
-				event.preventDefault();
-				
-				var winClosingEvent:Event;
-				for each (var win:NativeWindow in NativeApplication.nativeApplication.openedWindows) {
-					winClosingEvent = new Event(Event.CLOSING,false,true);
-					win.dispatchEvent(winClosingEvent);
-					if (!winClosingEvent.isDefaultPrevented()) {
-						win.close();
-					} else {
-						event.preventDefault();
-					}
-				}
-				
-				if (!event.isDefaultPrevented()) {
-					//perform cleanup
-				}
-			}
-			*/
-			
 			
 			
 			private function get stepsInterval():int
@@ -177,6 +143,15 @@
 				return mode;
 			}
 			
+			private function setViewerDir():void
+			{
+				var featuresPath:String = 
+					FilesystemScripts.FEATURES_PARENT_DIRECTORY + 
+					'/' + 
+					FilesystemScripts.FEATURES_FOLDER;
+				dirsViewer.featuresRootDir = File.applicationDirectory.resolvePath( featuresPath );
+			}
+			
 			
 		]]>
 	</mx:Script>
@@ -185,87 +160,73 @@
 	<mx:RadioButtonGroup id="snapshotModeGroup"/>
 	
 	
-	<mx:VBox width="100%">
-		<mx:Label text="Nawigacja" fontSize="18"/>
+	<mx:VBox width="100%" height="250">
+		<mx:Label text="Ustawienia" fontSize="18"/>
 		
 		<mx:HRule width="100%"/>
-		
-		<mx:VBox width="100%">
-			<mx:Label text="parametry" fontSize="14"/>
-			<mx:HBox width="100%">
+			
+		<mx:HBox width="100%" height="100%">
+					
+			<view:FeaturesDirectoriesViewer id="dirsViewer"/>
+
+			<mx:VBox width="420"
+					 height="100%" 
+					 horizontalAlign="right">
 				
-				<mx:VBox width="100%">
-					<mx:HBox width="100%">
-						
-						<mx:Label text="Lista testów do uruchomienia" width="200"/>
-						<mx:TextInput width="100%" id="scritpsToPrepareNames"
-									  text=""/>
-					
-					</mx:HBox>
-					<!--
-					<mx:HBox width="100%">
-						
-						<mx:Label text="Testy do wykonania" width="200"/>
-						<mx:TextInput width="100%" id="scritpsToExecuteNames"/>
-					
-					</mx:HBox>
-					-->
-					<mx:HBox width="100%">
-						
-						<mx:Label text="Tryb wykonywania" width="200"/>
+						<mx:HBox width="100%">
 							
-						<mx:RadioButton groupName="executionModeGroup" 
-										   label="{NORMAL_EXECUTION_LABEL}" 
-										   width="100"
-										   selected="true"/>
-						<mx:RadioButton groupName="executionModeGroup" 
-										   label="{SLOW_EXECUTION_LABEL}" 
-										   width="100"/>
-							      
+							<mx:Label text="Tryb wykonywania" width="200"/>
 							
-					
-					</mx:HBox>
-					<mx:HBox width="100%">
+							<mx:RadioButton groupName="executionModeGroup" 
+											label="{NORMAL_EXECUTION_LABEL}" 
+											width="100"
+											selected="true"/>
+							<mx:RadioButton groupName="executionModeGroup" 
+											label="{SLOW_EXECUTION_LABEL}" 
+											width="100"/>
+							
+							
+							
+						</mx:HBox>
+						<mx:HBox width="100%">
+							
+							<mx:Label text="Interwał między krokami (ms)" width="200"/>
+							<mx:TextInput id="stepsIntervalInput" 
+										  text="500" 
+										  width="50" 
+										  textAlign="right"
+										  maxChars="5"
+										  restrict="0-9"
+										  enabled="{executionModeGroup.selectedValue == 'wolny'}"/>
+							
+						</mx:HBox>
+						<mx:HBox width="100%">
+							
+							<mx:Label text="Tryb wykonywania snapshotów" width="200"/>
+							
+							<mx:RadioButton groupName="snapshotModeGroup" 
+											label="{SNAPSHOT_COMPARE_LABEL}" 
+											width="100"
+											selected="true"/>
+							<mx:RadioButton groupName="snapshotModeGroup" 
+											label="{SNAPSHOT_PATTERN_LABEL}" 
+											width="100"/>
+							
+						</mx:HBox>
 						
-						<mx:Label text="Interwał między krokami (ms)" width="200"/>
-						<mx:TextInput id="stepsIntervalInput" 
-									  text="500" 
-									  width="50" 
-									  textAlign="right"
-									  maxChars="5"
-									  restrict="0-9"
-									  enabled="{executionModeGroup.selectedValue == 'wolny'}"/>
-						
-					</mx:HBox>
-					<mx:HBox width="100%">
-						
-						<mx:Label text="Tryb wykonywania snapshotów" width="200"/>
-						
-						<mx:RadioButton groupName="snapshotModeGroup" 
-										label="{SNAPSHOT_COMPARE_LABEL}" 
-										width="100"
-										selected="true"/>
-						<mx:RadioButton groupName="snapshotModeGroup" 
-										label="{SNAPSHOT_PATTERN_LABEL}" 
-										width="100"/>
-						
-					</mx:HBox>
-
-				</mx:VBox>
-			</mx:HBox>
-		
-
-			
-			<mx:HBox width="100%" horizontalAlign="right">
-				<mx:Button label="uruchom testy" 
-						 	buttonMode="true"
-					  		click="{ prepare() }"
-					   		enabled="{_configurated}"
-					   		width="130"
-					   		height="50"/>
-			</mx:HBox>
-			
-		</mx:VBox>
+						<mx:Spacer height="100%"/>		
+				
+						<mx:Button label="uruchom testy" 
+						   buttonMode="true"
+						   click="{ prepare() }"
+						   enabled="{_configurated}"
+						   width="130"
+						   height="50"/>
+				
+					</mx:VBox>
+				
+		</mx:HBox>
+				
 		
 	</mx:VBox>
 	<mx:VBox width="100%">
