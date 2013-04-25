@@ -6,11 +6,7 @@
 	
 	<mx:Script>
 		<![CDATA[
-			import asx.array.first;
-			
 			import mx.collections.ArrayCollection;
-			
-			import org.hamcrest.text.containsString;
 			
 			import pl.ydp.automation.configuration.impl.scripts.fs.FilesystemScripts;
 			
