@@ -83,11 +83,11 @@
 			private function prepare():void
 			{
 //				Debug.log( 'prepare()' );
-//				captain.settings.reportsFormatters = [ new JUnitReportFormatter() ];
-//				captain.settings.reportsTargets = [ new FilesystemReportTarget() ];
+				captain.settings.reportsFormatters = [ new JUnitReportFormatter() ];
+				captain.settings.reportsTargets = [ new FilesystemReportTarget() ];
 				
-				captain.settings.reportsFormatters = [ new LogReportFormatter ];
-				captain.settings.reportsTargets = [ new ArthropodReportTarget() ];
+//				captain.settings.reportsFormatters = [ new LogReportFormatter() ];
+//				captain.settings.reportsTargets = [ new ArthropodReportTarget() ];
 				
 				captain.settings.scriptsToPrepareNames = dirsViewer.selectedScripts;
 				
