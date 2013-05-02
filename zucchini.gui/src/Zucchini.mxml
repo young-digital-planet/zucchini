@@ -98,7 +98,7 @@
 				}
 				
 				captain.settings.scriptsToPrepareNames = dirsViewer.selectedScripts;
-				
+				captain.settings.stopOnFailure = stopOnFailureCheckbox.selected;
 //				if( scritpsToExecuteNames.text != '' )
 //					captain.settings.scriptsToExecuteNames = [ scritpsToPrepareNames.text ];
 				
@@ -220,6 +220,11 @@
 											label="{SNAPSHOT_PATTERN_LABEL}" 
 											width="100"/>
 							
+						</mx:HBox>
+						<mx:HBox width="100%">
+							
+							<mx:Text text="Przerwij feature jeśli scenariusz nie przeszedł" width="200"/>
+							<mx:CheckBox id="stopOnFailureCheckbox"/>
 						</mx:HBox>
 						
 						<mx:Spacer height="100%"/>		
