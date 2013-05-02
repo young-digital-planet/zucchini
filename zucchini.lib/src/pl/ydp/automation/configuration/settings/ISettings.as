@@ -29,11 +29,11 @@ package pl.ydp.automation.configuration.settings
 		 */ 
 		function get snapshotMode():String;
 		/**
-		 * Środowisko wykonania testów (-> ExecutionModel.executionWrapper).
+		 * Środowisko wykonania testów (-> EnvironmentModel.executionWrapper).
 		 */
 		function get executionWrapper():String;
 		/**
-		 * Interwał między wykionaniem poszczególnych kroków (w milisekundach).
+		 * Interwał między wykonaniem poszczególnych kroków (w milisekundach).
 		 */
 		function get stepsInterval():int;
 		/**
@@ -42,5 +42,12 @@ package pl.ydp.automation.configuration.settings
 		 * <code>false</code> - eksport raportu po zakończeniu ostatniego feature'a
 		 */
 		function get instantExport():Boolean;
+		/**
+		 * Przekazanie flagi określającej sposób kontynuacji 
+		 * wykonywania testów po case'ie, który zakończył się niepowodzeniem.
+		 * <code>true</code> - case failed => suite (feature) failed - przejście do następnego suite'a
+		 * <code>false</code> - case failed => przejście do następnego case'a
+		 */
+		function get stopOnFailure():Boolean;
 	}
 }

@@ -90,10 +90,16 @@ package pl.ydp.automation.execution.report
 		
 		public function finishReport( report:ReportData ):void
 		{
-				report.reportXML.testsuite.@errors = ( report.reportXML.testsuite.testcase.error as XMLList ).length();
-				report.reportXML.testsuite.@failures = ( report.reportXML.testsuite.testcase.failure as XMLList ).length();
-				report.reportXML.testsuite.@tests = ( report.reportXML.testsuite.testcase.teststep as XMLList ).length();
+			var suiteXML:XMLList = report.reportXML.testsuite;
+			suiteXML.@errors = ( suiteXML.testcase.error as XMLList ).length();
+			suiteXML.@failures = ( suiteXML.testcase.failure as XMLList ).length();
+			suiteXML.@tests = ( suiteXML.testcase.teststep as XMLList ).length();
 		}
 		
+		public function skipScenario( report:ReportData, scenarioIndex:int, stepIndex:int):void
+		{
+//			var scenarioXML:XML = report.reportXML.testsuite.testcase[ scenarioIndex ] as XML;
+//			...
+		}
 	}
 }

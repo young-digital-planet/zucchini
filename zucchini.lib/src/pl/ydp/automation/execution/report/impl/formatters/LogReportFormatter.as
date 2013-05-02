@@ -1,5 +1,9 @@
 package pl.ydp.automation.execution.report.impl.formatters
 {
+	import com.carlcalderon.arthropod.Debug;
+	
+	import org.hamcrest.object.hasProperty;
+	
 	import pl.ydp.automation.execution.report.IReportFormatter;
 	import pl.ydp.automation.execution.report.ReportData;
 	import pl.ydp.automation.execution.report.ReportDataFactory;
@@ -45,6 +49,8 @@ package pl.ydp.automation.execution.report.impl.formatters
 			if( caseFailed( caseXML ) ){
 				statusStr = 'FAILED';
 				failureMessage = getFailureMessageFromCase( caseXML );
+			}else if( caseSkipped( caseXML ) ){
+				statusStr = 'SKIPPED';
 			}else{
 				statusStr = 'OK';
 			}
@@ -57,12 +63,16 @@ package pl.ydp.automation.execution.report.impl.formatters
 			return caseStr;
 		}
 		
+		
+		
 		private function stepToString( stepXML:XML, failureMessage:String = null ):String
 		{
 			var stepStr:String = '';
 			var statusStr:String;
 			if( stepFailed( stepXML ) ){
 				statusStr = 'FAILED (' + failureMessage + ')';
+			}else if( stepSkipped( stepXML ) ){
+				statusStr = 'SKIPPED';
 			}else{
 				statusStr = 'OK';
 			}
@@ -84,7 +94,12 @@ package pl.ydp.automation.execution.report.impl.formatters
 		
 		private function getStepLine( stepXML:XML, statusStr:String ):String
 		{
-			return '\t\t' + statusStr + ' - ' +  'STEP: ' + stepXML.@name + ' - ' + stepXML.@time + ' ms\n';
+			var timeStr:String = '';
+			var time:String = stepXML.@time;
+			if( time != '' ){
+				timeStr = ' - ' + time + ' ms';
+			}
+			return '\t\t' + statusStr + ' - ' +  'STEP: ' + stepXML.@name + timeStr + '\n';
 		}
 		
 		
@@ -102,9 +117,26 @@ package pl.ydp.automation.execution.report.impl.formatters
 			return failureXML.length() > 0;
 		}
 		
+		private function caseSkipped(caseXML:XML):Boolean
+		{
+			var steps = caseXML.teststep;
+			var skipped:Boolean = false;
+			for each( var step:XML in steps ){
+				if( !step.hasOwnProperty('@status') ){
+					skipped = true;
+				}
+			}
+			return skipped;
+		}
+		
 		private function stepFailed( stepXML:XML ):Boolean
 		{
 			return stepXML.@status == ReportDataFactory.STATUS_FAILED;
+		}
+		private function stepSkipped( stepXML:XML ):Boolean
+		{
+			var status:String = stepXML.@status;
+			return status == '';
 		}
 		
 	}

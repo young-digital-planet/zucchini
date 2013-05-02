@@ -8,6 +8,8 @@ package pl.ydp.automation.execution
 		public static const NORMAL_EXECUTION:String = 'normalExecution';
 		public static const SLOW_EXECUTION:String = 'slowExecution';
 		
+		private var _stopOnFailure:Boolean = false;
+		
 		/**
 		 * Odstęp czasu między wykonaniem kolejnych kroków wyrażony w milisekundach.
 		 * Nadaje sens oglądaniu wykonanywania testów przez testera,
@@ -40,6 +42,16 @@ package pl.ydp.automation.execution
 			if( value >= 0 ){
 				_stepsInterval = value;
 			}
+		}
+
+		public function get stopOnFailure():Boolean
+		{
+			return _stopOnFailure;
+		}
+
+		public function set stopOnFailure(value:Boolean):void
+		{
+			_stopOnFailure = value;
 		}
 
 

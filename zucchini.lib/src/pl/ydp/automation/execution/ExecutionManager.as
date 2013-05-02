@@ -95,15 +95,13 @@ package pl.ydp.automation.execution
 		 */
 		internal function nextScenario():void
 		{
-			if( _currentScenarioIndex > -1 ){
-				_scenarioFinished.dispatch();
-				
-				structure.clean();
+			if( wasScenarioBefore ){
+				finishPreviousScenario();
 			}
 			
 			_currentScenarioIndex++;
 			
-			if( isNextScenario ){
+			if( isNextScenarioInCurrentScript ){
 				
 				_currentScenario = _currentScript.automationScenarios[ _currentScenarioIndex ];
 				_scenarioStarted.dispatch();
@@ -122,7 +120,7 @@ package pl.ydp.automation.execution
 		{
 			_currentStepIndex++;
 			
-			if( isNextStep ){
+			if( isNextStepInCurrentScenario ){
 				_stepStarted.dispatch();
 				_currentStep = _currentScenario.steps[ _currentStepIndex ];
 				_stepStarted.dispatch();
@@ -147,18 +145,46 @@ package pl.ydp.automation.execution
 		private function onExecutionCompleted( result:StepResult ):void
 		{
 			result.time = getStepExecutionTime();
-			
 			_stepFinished.dispatch( result );
 			
-			if( result.correctly ){
-					
-				nextStep();
-			
-			}else{ // przerywamy aktualny scenariusz i przechodzimy do kolejnego
-//				...
-				nextScenario();
-				
+			continueExecution( result.correctly );
+		}
+		
+		private function continueExecution( lastResultCorrectly:Boolean ):void
+		{
+			if( lastResultCorrectly ){
+				doAfterCorrectResult();
+			}else{
+				doAfterIncorrectResult();
 			}
+		}
+		
+		private function doAfterCorrectResult():void
+		{
+			nextStep();
+		}
+		
+		private function doAfterIncorrectResult():void
+		{
+			if( executionModel.stopOnFailure ){
+				if( wasScenarioBefore ){
+					finishPreviousScenario();
+				}
+				nextScript();
+			}else{
+				nextScenario();	
+			}
+		}
+		
+		private function get wasScenarioBefore():Boolean
+		{
+			return _currentScenarioIndex > -1;
+		}
+		
+		private function finishPreviousScenario():void
+		{
+			_scenarioFinished.dispatch();
+			structure.clean();
 		}
 		
 		private function getStepExecutionTime():int
@@ -168,28 +194,17 @@ package pl.ydp.automation.execution
 			return executionTime;
 		}
 		
-		/**
-		 * Informuje czy są jeszcze do wykonania jakieś skrypty.
-		 */
 		private function get isNextScript():Boolean
 		{
 			return scriptsModel.scriptsToExecute.length > _currentScriptIndex;
 		}
 		
-		/**
-		 * Informuje czy są jeszcze do wykonania jakieś scenariusze
-		 * w aktualnym skrypcie.
-		 */
-		private function get isNextScenario():Boolean
+		private function get isNextScenarioInCurrentScript():Boolean
 		{
 			return _currentScript.automationScenarios.length > _currentScenarioIndex;
 		}
 		
-		/**
-		 * Informuje czy są jeszcze do wykonania jakieś kroki
-		 * w aktualnym scenariuszu.
-		 */
-		private function get isNextStep():Boolean
+		private function get isNextStepInCurrentScenario():Boolean
 		{
 			return _currentScenario.steps.length > _currentStepIndex;
 		}
@@ -248,6 +263,7 @@ package pl.ydp.automation.execution
 		{
 			return _executionStarted;
 		}
+
 		
 	}
 }

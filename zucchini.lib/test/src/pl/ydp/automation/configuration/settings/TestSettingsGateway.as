@@ -67,6 +67,7 @@ package pl.ydp.automation.configuration.settings
 			mock( environmentModel ).setter( 'executionWrapper' ).once();
 			mock( executionModel ).setter( 'executionMode' ).once();
 			mock( executionModel ).setter( 'stepsInterval' ).once();
+			mock( executionModel ).setter( 'stopOnFailure' ).once();
 			
 //			when
 			settingsGateway.postConstructOperations();
@@ -89,6 +90,7 @@ package pl.ydp.automation.configuration.settings
 			mock( environmentModel ).setter( 'executionWrapper' ).never();
 			mock( executionModel ).setter( 'executionMode' ).never();
 			mock( executionModel ).setter( 'stepsInterval' ).never();
+			mock( executionModel ).setter( 'stopOnFailure' ).never();
 			
 			//			when
 			settingsGateway.postConstructOperations();
@@ -110,6 +112,7 @@ package pl.ydp.automation.configuration.settings
 			mock( environmentModel ).setter( 'executionWrapper' ).never();
 			mock( executionModel ).setter( 'executionMode' ).never();
 			mock( executionModel ).setter( 'stepsInterval' ).never();
+			mock( executionModel ).setter( 'stopOnFailure' ).never();
 			
 			//			when
 			settingsGateway.settings = settings;

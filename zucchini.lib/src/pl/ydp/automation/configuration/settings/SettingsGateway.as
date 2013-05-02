@@ -70,77 +70,56 @@ package pl.ydp.automation.configuration.settings
 			executionWrapper = _settings.executionWrapper;
 			stepsInterval = _settings.stepsInterval;
 			instantExport = _settings.instantExport;
+			stopOnFailure = _settings.stopOnFailure;
+			
 		}
 		
 		
 //		API - dostępne po konfiguracji AutomationCaptain'a
 		
-		/**
-		 * Określenie listy nazw skryptów, które mają być wzięte
-		 * pod uwagę przy dalszych operacjach na skryptach.
-		 */
 		public function set scriptsToPrepareNames( scriptsNames:Array ):void
 		{
 			scriptsModel.scriptsToPrepareNames = scriptsNames;
 		}
 		
-		
-		/**
-		 * Określenie listy nazw skryptów, które mają zostać wykonane.
-		 */
 		public function set scriptsToExecuteNames( scriptsNames:Array ):void
 		{
 			scriptsModel.scriptsToExecuteNames = scriptsNames;
 		}
 		
-		/**
-		 * Przekazanie listy obiektów wysyłających raporty do punktów docelowych.
-		 */
 		public function set reportsTargets( reportsClasses:Array ):void
 		{
 			reportModel.reportsTargets = reportsClasses;
 		}
 		
-		/**
-		 * Przekazanie listy obiektów formatujących dane do docelowych raportu.
-		 */
 		public function set reportsFormatters( value:Array ):void
 		{
 			reportModel.reportsFormatters = value;
 		}
 		
-		/**
-		 * Przekazanie trybu wykonywania snapshota.
-		 */
 		public function set snapshotMode( value:String ):void
 		{
 			snapshotModel.mode = value;
 		}
 		
-		/**
-		 * Przekazanie nazwy wrappera, który będzie osadzał Structure
-		 * (wewnętrzny aplikacji bądź zewnętrzna przeglądarka).
-		 */
 		public function set executionWrapper( value:String ):void
 		{
 			environmentModel.executionWrapper = value;
 		}
 				
-		/**
-		 * Przekazanie interwały czasowego między wykonywanymi krokami.
-		 * @param value Wielkość interwału w milisekundach
-		 */
 		public function set stepsInterval( value:int ):void
 		{
 			executionModel.stepsInterval = value;
 		}
 		
-		/**
-		 * Przekazanie flagi określającej moment eksportu raportu.
-		 */
 		public function set instantExport( value:Boolean ):void
 		{
 			reportModel.instantExport = value;
+		}
+		
+		public function set stopOnFailure( value:Boolean ):void
+		{
+			executionModel.stopOnFailure = value;
 		}
 	}
 }
