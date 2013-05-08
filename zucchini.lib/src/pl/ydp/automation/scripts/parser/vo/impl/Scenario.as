@@ -40,15 +40,22 @@ package pl.ydp.automation.scripts.parser.vo.impl
 		
 		private function parse():void
 		{
-			var scenarioParts:ArrayCollection = new ArrayCollection(
-				_source.split(ParserConfig.SENTENCES_DELIMITER)
-			);
+			var scenarioParts:ArrayCollection = getScenarioParts();
+			
 			var scenarioPart:String = scenarioParts.removeItemAt(0) as String;
 			_description = StringUtil.trim( getDescription(_source) );
 			
 			clearParts(scenarioParts);
 			
 			parseSentences(scenarioParts.toArray());
+		}
+		
+		private function getScenarioParts():ArrayCollection
+		{
+			var parts:ArrayCollection = new ArrayCollection(
+				_source.split(ParserConfig.SENTENCES_DELIMITER)
+			);
+			return parts;
 		}
 		
 		private function getDescription(scenarioPart:String):String
@@ -71,7 +78,11 @@ package pl.ydp.automation.scripts.parser.vo.impl
 		private function clearParts(sentencesParts:ArrayCollection):void
 		{
 			for(var i:int = 0; i < sentencesParts.length; i++){
-				if((sentencesParts[i] as String).search(ParserConfig.SENTENCES_DELIMITER) != -1){
+				
+				var sentence:String = ( sentencesParts[i] as String );
+				var sentenceIsCorrect:Boolean = ( sentence.search(ParserConfig.SENTENCES_DELIMITER) != -1 );
+				
+				if( sentenceIsCorrect ){
 					sentencesParts.removeItemAt(i);
 				}
 			}
@@ -86,6 +97,7 @@ package pl.ydp.automation.scripts.parser.vo.impl
 		{
 			return _sentences;
 		}
+
 
 
 	}

@@ -1,4 +1,4 @@
-package pl.ydp.automation.parser.vo
+package pl.ydp.automation.parser.vo.impl
 {
 	import org.flexunit.asserts.assertEquals;
 	

@@ -44,6 +44,13 @@ package pl.ydp.automation.scripts.parser
 			return _config.SENTENCES_DELIMITER;
 		}
 		
+		/**
+		 * Wzorzec do rozpoznania pętli w scenariuszu.
+		 */
+		public static function get SCENARIO_OUTLINE():RegExp
+		{
+			return _config.SCENARIO_OUTLINE;
+		}
 		
 		
 		public static function set configClass( parserConfigClass:Class ):void

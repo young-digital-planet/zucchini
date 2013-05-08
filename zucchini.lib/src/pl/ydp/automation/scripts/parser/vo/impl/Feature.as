@@ -8,6 +8,7 @@ package pl.ydp.automation.scripts.parser.vo.impl
 	import pl.ydp.automation.execution.AutomationScript;
 	import pl.ydp.automation.scripts.parser.ParserConfig;
 	import pl.ydp.automation.scripts.parser.vo.IFeature;
+	import pl.ydp.automation.scripts.parser.impl.ScenarioOutlineParser;
 
 	/**
 	 * Reprezentacja pojedynczego skryptu składającego się z opisu
@@ -17,7 +18,8 @@ package pl.ydp.automation.scripts.parser.vo.impl
 	{
 		
 		private var _featureRE:RegExp = ParserConfig.FEATURE_REGEXP;
-	
+		private var _outlineRE:RegExp = ParserConfig.SCENARIO_OUTLINE;
+		
 		/**
 		 * Nazwa funkcjonalności, tożsama z nazwą pliku.
 		 */
@@ -31,10 +33,6 @@ package pl.ydp.automation.scripts.parser.vo.impl
 		 * Opis funkcjonalności do przetestowania.
 		 */
 		private var _decription:String;
-		/**
-		 * Fragmenty skryptu zawierające poszczególne scenariusze.
-		 */
-		private var _scenariosParts:Array;
 		/**
 		 * Lista obiektów typu Scenario (_scenariosParts zmapowane na obiekty).
 		 */
@@ -50,27 +48,70 @@ package pl.ydp.automation.scripts.parser.vo.impl
 		
 		private function parse():void
 		{
-			var scriptParts:ArrayCollection = new ArrayCollection(
+			var scriptParts:ArrayCollection = getScriptParts();
+			
+			var featurePart:String = scriptParts.removeItemAt(0) as String;
+			_decription = getDescription( featurePart );
+			
+			var scenariosSources:Array = getScenariosFromParts( scriptParts.toArray() );
+			
+			parseScenarios( scenariosSources );
+		}
+		
+		private function getScriptParts():ArrayCollection
+		{
+			var parts:ArrayCollection = new ArrayCollection(
 				_source.split(ParserConfig.SCENARIOS_DELIMITER)
 			);
-			var featurePart:String = scriptParts.removeItemAt(0) as String;
-			_decription = StringUtil.trim( getDescription( featurePart ) );
-			
-			parseScenarios(scriptParts.toArray());
+			return parts;
 		}
+		
 		private function getDescription(featurePart:String):String
 		{
 			_featureRE.lastIndex = 0;
 			var featureResult = _featureRE.exec(featurePart);
-			return featureResult[1];
+			var description:String = StringUtil.trim( featureResult[1] );
+			return description;
 		}
 		
-		private function parseScenarios(scenariosParts:Array):void
+		private function getScenariosFromParts( scriptParts:Array):Array
 		{
-			_scenariosParts = scenariosParts;
+			var scenariosSources:Array = [];
+			
+			for each( var scenarioSource:String in scriptParts ){
+				var scenariosTmp:Array;
+				if( isScenarioOutline( scenarioSource ) ){
+					scenariosTmp = getScenariosFromOutline( scenarioSource );
+				}else{
+					scenariosTmp = [scenarioSource];
+				}
+				scenariosSources = scenariosSources.concat( scenariosTmp );
+			}
+			return scenariosSources;
+		}
+		
+		
+		
+		private function isScenarioOutline(scenarioSource:String):Boolean
+		{
+			var isOutline:Boolean = _outlineRE.test( scenarioSource );
+			return isOutline;
+		}	
+		
+		private function getScenariosFromOutline(scenarioSource:String):Array
+		{
+			var scenarioOutline:ScenarioOutlineParser = new ScenarioOutlineParser( scenarioSource );
+			scenarioOutline.parse();
+			return scenarioOutline.scenariosSources;
+		}
+		
+		
+		
+		private function parseScenarios(scenariosSources:Array):void
+		{
 			_scenarios = new Array();
-			for each(var scenarioPart:String in _scenariosParts){
-				var scenario:Scenario = new Scenario(scenarioPart);
+			for each(var scenarioContent:String in scenariosSources){
+				var scenario:Scenario = new Scenario(scenarioContent);
 				_scenarios.push(scenario);
 			}
 		}
@@ -89,10 +130,6 @@ package pl.ydp.automation.scripts.parser.vo.impl
 		{
 			return _name;
 		}
-
-	
-		
-
 
 	}
 }

@@ -96,10 +96,5 @@ package pl.ydp.automation.execution.report
 			suiteXML.@tests = ( suiteXML.testcase.teststep as XMLList ).length();
 		}
 		
-		public function skipScenario( report:ReportData, scenarioIndex:int, stepIndex:int):void
-		{
-//			var scenarioXML:XML = report.reportXML.testsuite.testcase[ scenarioIndex ] as XML;
-//			...
-		}
 	}
 }
