@@ -23,7 +23,6 @@ package pl.ydp.automation
 		
 		public function AutomationEngine()
 		{
-			
 		}
 		
 		
@@ -66,7 +65,5 @@ package pl.ydp.automation
 		{
 			return _automationCompleted;
 		}
-		
-		
 	}
 }

@@ -28,7 +28,6 @@ package pl.ydp.automation.configuration
 			initializeScripts();
 			
 		}
-		
 		private function initializeScripts():void
 		{
 			scripts.addEventListener( Event.COMPLETE, onComplete );
@@ -40,23 +39,14 @@ package pl.ydp.automation.configuration
 			finished();
 		}
 
-		
-		
-		
-		
 		private function finished():void
 		{
 			_operationsFinished.dispatch();
 		}
 		
-		
 		public function get operationsFinished():Signal
 		{
 			return _operationsFinished;
 		}
-		
-		
-		
-		
 	}
 }

@@ -14,7 +14,6 @@ package pl.ydp.automation.scripts
 		
 		public function ScriptsModel()
 		{
-			
 		}
 		
 		
@@ -31,9 +30,6 @@ package pl.ydp.automation.scripts
 			return null;
 		}
 
-		
-		
-		
 		public function get scriptsToPrepareNames():Array
 		{
 			return _scriptsToPrepareNames;
@@ -44,7 +40,6 @@ package pl.ydp.automation.scripts
 			_scriptsToPrepareNames = value;
 		}
 
-		
 		public function get scriptsToExecute():Array
 		{
 			var scripts:Array = [];
@@ -75,7 +70,5 @@ package pl.ydp.automation.scripts
 		{
 			_scriptsToExecuteNames = value;
 		}
-
-
 	}
 }

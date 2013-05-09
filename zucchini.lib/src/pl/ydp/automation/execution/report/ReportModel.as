@@ -25,7 +25,6 @@ package pl.ydp.automation.execution.report
 		
 		public function ReportModel()
 		{
-			
 		}
 		
 		
@@ -34,7 +33,6 @@ package pl.ydp.automation.execution.report
 			_reportsData.push( report );
 		}
 
-		
 		public function get reportsData():Array
 		{
 			return _reportsData;
@@ -69,7 +67,5 @@ package pl.ydp.automation.execution.report
 		{
 			_reportsFormatters = value;
 		}
-
-		
 	}
 }

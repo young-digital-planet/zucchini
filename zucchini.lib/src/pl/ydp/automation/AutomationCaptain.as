@@ -24,9 +24,7 @@ package pl.ydp.automation
 		
 		private var _settingsGateway:SettingsGateway;
 		
-		
 		private var _engine:AutomationEngine;
-		
 		
 		private var _configuratingCompleted:Signal = new Signal();
 		private var _preparingCompleted:Signal = new Signal();
@@ -65,7 +63,6 @@ package pl.ydp.automation
 			_context.startup();
 		}
 
-		
 		private function onContextCreated():void
 		{
 			_engine = _context.engine;
@@ -88,7 +85,6 @@ package pl.ydp.automation
 		}
 		
 		
-		
 		/**
 		 * Uruchomienie procesu testowania (wykonywanie i raportowanie).
 		 */
@@ -104,11 +100,6 @@ package pl.ydp.automation
 		}
 		
 		
-	
-
-		
-		
-		
 		public function set parameters( parameters:IAutomationParameters ):void
 		{
 			_parameters = parameters;
@@ -119,7 +110,6 @@ package pl.ydp.automation
 			_context = appContext;
 		}
 		
-
 		public function get configuratingCompleted():Signal
 		{
 			return _configuratingCompleted;
@@ -139,9 +129,6 @@ package pl.ydp.automation
 		{
 			return _context.structure;
 		}
-
-		
-		
 		
 		public function get settings():SettingsGateway
 		{
@@ -152,7 +139,5 @@ package pl.ydp.automation
 		{
 			_settingsGateway.settings = value;
 		}
-		
-
 	}
 }

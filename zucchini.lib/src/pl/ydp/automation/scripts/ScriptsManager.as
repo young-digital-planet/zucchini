@@ -36,10 +36,7 @@ package pl.ydp.automation.scripts
 		
 		public function ScriptsManager()
 		{
-			
 		}
-	
-	
 		
 		public function initializeScripts():void
 		{
@@ -58,7 +55,6 @@ package pl.ydp.automation.scripts
 			_initialized = true;
 			_scriptsInitialized.dispatch();
 		}
-		
 		
 		public function prepareScriptsArray():void
 		{
@@ -137,8 +133,6 @@ package pl.ydp.automation.scripts
 			}
 		}
 		
-		
-		
 
 		public function get loadedScriptsCount():int
 		{
@@ -164,7 +158,5 @@ package pl.ydp.automation.scripts
 		{
 			return _allScriptsParsed;
 		}
-
-		
 	}
 }

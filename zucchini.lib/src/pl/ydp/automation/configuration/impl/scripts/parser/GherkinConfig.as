@@ -13,8 +13,5 @@ package pl.ydp.automation.configuration.impl.scripts.parser
 		
 		public static const SCENARIO_OUTLINE:RegExp = /(.*)Examples:(.*)/ms;
 		
-		public function GherkinConfig()
-		{
-		}
 	}
 }

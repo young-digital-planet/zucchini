@@ -20,7 +20,6 @@ package pl.ydp.automation.execution.report
 		{
 		}
 		
-		
 		/**
 		 * Przechwycenie modelu danych wykonanego skryptu (feature).
 		 */
@@ -33,9 +32,6 @@ package pl.ydp.automation.execution.report
 			}
 			
 		}
-		
-		
-		
 		
 		/**
 		 * Eksport wszystkich raportów z modelu do odpowiednich formatów.
@@ -71,13 +67,9 @@ package pl.ydp.automation.execution.report
 			_reportExported.dispatch();
 		}
 		
-
 		public function get reportExported():Signal
 		{
 			return _reportExported;
 		}
-		
-		
-		
 	}
 }

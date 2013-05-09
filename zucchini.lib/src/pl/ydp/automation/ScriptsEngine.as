@@ -20,13 +20,10 @@ package pl.ydp.automation
 		[Inject] 
 		public var scriptsModel:ScriptsModel;
 		
-		
 		private var _allScriptsAutomated:Signal = new Signal();
 		
 		public function ScriptsEngine()
 		{
-			
-			
 		}
 		
 		/**
@@ -66,12 +63,10 @@ package pl.ydp.automation
 			scriptsManager.parseScripts();
 		}
 		
-		
 		private function onScriptParsed( feature:IFeature ):void
 		{
 			automateScript( feature );
 		}
-		
 		
 		//	STEPS MANAGER
 		
@@ -93,8 +88,5 @@ package pl.ydp.automation
 		{
 			return _allScriptsAutomated;
 		}
-		
-		
-		
 	}
 }

@@ -21,10 +21,8 @@ package pl.ydp.automation.scripts
 		public var stepsFactory:StepFactory;
 		
 		
-		
 		public function StepsManager()
 		{
-			
 		}
 		
 		
@@ -78,6 +76,5 @@ package pl.ydp.automation.scripts
 			var variables:Array = regExp.exec( step.sentence.source );
 			return variables;
 		}
-		
 	}
 }

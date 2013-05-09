@@ -1,7 +1,5 @@
 package pl.ydp.automation.execution
 {
-	import flash.events.Event;
-	import flash.utils.Timer;
 	import flash.utils.getTimer;
 	
 	import org.osflash.signals.Signal;
@@ -38,7 +36,6 @@ package pl.ydp.automation.execution
 		private var _currentStep:IAutomationStep;
 		
 		
-		
 		private var _scriptStarted:Signal = new Signal();
 		private var _scenarioStarted:Signal = new Signal();
 		private var _stepStarted:Signal = new Signal();
@@ -49,12 +46,10 @@ package pl.ydp.automation.execution
 		private var _executionStarted:Signal = new Signal();
 		private var _allTestsCompleted:Signal = new Signal();
 		
-		
 		private var _stepStartTime:int;
 		
 		public function ExecutionManager()
 		{
-			
 		}
 		
 		
@@ -64,7 +59,6 @@ package pl.ydp.automation.execution
 			
 			nextScript();
 		}
-		
 		
 		/**
 		 * Zlecenie wykonania kolejnego skryptu.
@@ -87,7 +81,6 @@ package pl.ydp.automation.execution
 			}else{
 				_allTestsCompleted.dispatch();
 			}
-			
 		}
 		
 		/**
@@ -263,7 +256,5 @@ package pl.ydp.automation.execution
 		{
 			return _executionStarted;
 		}
-
-		
 	}
 }

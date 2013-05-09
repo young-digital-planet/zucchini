@@ -15,8 +15,7 @@ package pl.ydp.automation.configuration
 		
 		private var _executionWrapper:String = INTERNAL_WRAPPER;
 		private var _filesystemDelimiter:String = '/';
-		
-		
+
 		
 		public function EnvironmentModel()
 		{
@@ -64,9 +63,6 @@ package pl.ydp.automation.configuration
 		{
 			return _filesystemDelimiter;
 		}
-		
-		
-		
 
 	}
 }

@@ -6,7 +6,6 @@ package pl.ydp.automation.execution.report.impl.formatters
 	public class JUnitReportFormatter implements IReportFormatter
 	{
 		
-		
 		public function JUnitReportFormatter()
 		{
 		}
@@ -17,6 +16,5 @@ package pl.ydp.automation.execution.report.impl.formatters
 			
 			return reportData.reportXML.toXMLString();
 		}
-		
 	}
 }

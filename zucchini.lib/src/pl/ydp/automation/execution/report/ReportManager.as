@@ -33,7 +33,6 @@ package pl.ydp.automation.execution.report
 		 */
 		public function ReportManager()
 		{
-			
 		}
 		
 		[PostConstruct]
@@ -150,7 +149,5 @@ package pl.ydp.automation.execution.report
 		{
 			return _exportedReportsCount;
 		}
-
-		
 	}
 }

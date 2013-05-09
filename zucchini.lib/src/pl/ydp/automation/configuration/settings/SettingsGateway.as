@@ -26,16 +26,13 @@ package pl.ydp.automation.configuration.settings
 		public var executionModel:ExecutionModel;
 		
 		
-		
 		private var _settings:ISettings;
 		
 		private var _isPostConstruct:Boolean = false;
 		
 		public function SettingsGateway()
 		{
-			
 		}
-		
 		
 		[PostConstruct]
 		public function postConstructOperations():void
@@ -46,7 +43,6 @@ package pl.ydp.automation.configuration.settings
 			}
 		}
 		
-		
 		public function set settings( value:ISettings ):void
 		{
 			_settings = value;
@@ -54,7 +50,6 @@ package pl.ydp.automation.configuration.settings
 				passSettings();
 			}
 		}
-		
 		
 		/**
 		 * Przekazanie danych z obiektu zawierającego ustawienia
