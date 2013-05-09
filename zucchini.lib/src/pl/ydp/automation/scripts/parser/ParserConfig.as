@@ -10,18 +10,6 @@ package pl.ydp.automation.scripts.parser
 	{
 		private static var _config:Class = GherkinConfig;
 		
-		public function ParserConfig()
-		{
-			
-		}
-		
-		/**
-		 * Wzorzec do uzyskania opisu funkcjonalności
-		 */
-		public static function get FEATURE_REGEXP():RegExp
-		{
-			return _config.FEATURE_REGEXP;
-		}
 		/**
 		 * Wzorzec do wykonania split'a na funkcjonalności (Feature)
 		 */
@@ -29,13 +17,7 @@ package pl.ydp.automation.scripts.parser
 		{
 			return _config.SCENARIOS_DELIMITER;
 		}
-		/**
-		 * Wzorzec do uzyskania opisu scenariusza (Scenario)
-		 */
-		public static function get SCENARIO_REGEXP():RegExp
-		{
-			return _config.SCENARIO_REGEXP;
-		}
+		
 		/**
 		 * Wzorzec do wykonania split'a na scenariuszu
 		 */
@@ -52,11 +34,18 @@ package pl.ydp.automation.scripts.parser
 			return _config.SCENARIO_OUTLINE;
 		}
 		
+		/**
+		 * Wzorzec do wykonania split'a na pliku z Feature'em
+		 */
+		public static function get FEATURE_DELIMITER():RegExp
+		{
+			return _config.FEATURE_DELIMITER;
+		}
+		
 		
 		public static function set configClass( parserConfigClass:Class ):void
 		{
 			_config = parserConfigClass;
 		}
-		
 	}
 }

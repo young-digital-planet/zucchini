@@ -11,55 +11,38 @@ package pl.ydp.automation.scripts.parser.impl
 	{
 		private var _outlineRE:RegExp = ParserConfig.SCENARIO_OUTLINE;
 		
-		private var _source:String;
 		
-		private var _scenariosSources:Array;
-		
-		/**
-		 * Lista zestawów zmiennych do podstawienia.
-		 * (każdy zestaw zawiera wartości dla nowego scenariusza).
-		 * Np.:
-		 * [
-		 * 	{param1: value1, param2: value2, param3: value3},
-		 * 	{param1: value1, param2: value2, param3: value3},
-		 * 	{param1: value1, param2: value2, param3: value3},
-		 * ]
-		 */
-		private var _parameters:Array;
-		
-		
-		public function ScenarioOutlineParser( scenarioSource:String )
+		public function parse( source:String ):Array
 		{
-			scenarioSource = ParserUtil.removeExtraSpaces(scenarioSource);
-			_source = scenarioSource;
-		}
-		
-		public function parse():void
-		{
-			var scenarioParts:ArrayCollection = getScenarioOutlineParts();
+			var outlineSource = ParserUtil.removeExtraSpaces( source );
+			var scenarioParts:ArrayCollection = getScenarioOutlineParts( outlineSource );
 			
 			var examplesSource:String = scenarioParts[2];
-			parseExamples( examplesSource );
+			var parameters:Array = parseExamples( examplesSource );
 			
 			var scenarioSource:String = scenarioParts[1];
-			createScenarios( scenarioSource );
+			var scenariosSources:Array = createScenariosSources( scenarioSource, parameters );
+			
+			return scenariosSources;
 		}
 		
-		private function getScenarioOutlineParts():ArrayCollection
+		
+		private function getScenarioOutlineParts( source:String ):ArrayCollection
 		{
 			var parts:ArrayCollection = new ArrayCollection(
-				_source.split(ParserConfig.SCENARIO_OUTLINE)
+				source.split(ParserConfig.SCENARIO_OUTLINE)
 			);
 			return parts;
 		}
 		
-		private function parseExamples(examplesSource:String):void
+		private function parseExamples(examplesSource:String):Array
 		{
 			var examplesLines:ArrayCollection = new ArrayCollection( getLinesFromSource( examplesSource ) );
 			var paramsSource:String = examplesLines.removeItemAt(0) as String;
 			var params:Array = getArrayFromLine( paramsSource );
 			
-			parseValues( params, examplesLines );
+			var parameters:Array = parseParameters( params, examplesLines );
+			return parameters;
 		}
 		
 		private function getLinesFromSource(examplesSource:String):Array
@@ -73,10 +56,20 @@ package pl.ydp.automation.scripts.parser.impl
 			var params:Array = ParserUtil.getArrayFromString( paramsSource, '|' );
 			return params;
 		}
-
-		private function parseValues(params:Array, examplesLines:ArrayCollection):void
+		
+		/**
+		 * Lista zestawów zmiennych do podstawienia.
+		 * (każdy zestaw zawiera wartości dla nowego scenariusza).
+		 * Np.:
+		 * [
+		 * 	{param1: value1, param2: value2, param3: value3},
+		 * 	{param1: value1, param2: value2, param3: value3},
+		 * 	{param1: value1, param2: value2, param3: value3},
+		 * ]
+		 */
+		private function parseParameters(params:Array, examplesLines:ArrayCollection):Array
 		{
-			_parameters = [];
+			var parameters:Array = [];
 			
 			for each( var line:String in examplesLines ){
 				var values:Array = getArrayFromLine( line );
@@ -87,16 +80,17 @@ package pl.ydp.automation.scripts.parser.impl
 					var value:String = StringUtil.trim( values[i] );
 					lineParams[ param ] = value;
 				}
-				_parameters.push( lineParams );
+				parameters.push( lineParams );
 			}
+			return parameters;
 		}
 		
-		private function createScenarios( scenarioSource:String ):void
+		private function createScenariosSources( scenarioSource:String, parameters:Array ):Array
 		{
-			_scenariosSources = [];
+			var scenariosSources:Array = [];
 
 			var scenarioIndex:int = 1;
-			for each( var params:Object in _parameters ){
+			for each( var params:Object in parameters ){
 				
 				var newScenarioSource:String = getScenarioSourceWithNewDescription( scenarioSource, scenarioIndex );
 				
@@ -105,10 +99,11 @@ package pl.ydp.automation.scripts.parser.impl
 					var value:String = params[key]; 
 					newScenarioSource = setValuesInScenario( newScenarioSource, key, value );
 				}
-				_scenariosSources.push( newScenarioSource );
+				scenariosSources.push( newScenarioSource );
 				
 				scenarioIndex++;
 			}
+			return scenariosSources;
 		}
 		
 		private function getScenarioSourceWithNewDescription( scenarioSource:String, scenarioIndex:int ):String
@@ -124,12 +119,5 @@ package pl.ydp.automation.scripts.parser.impl
 			var newScenarioSource = scenarioSource.replace( patternStr, valueStr );
 			return newScenarioSource;
 		}
-		
-		public function get scenariosSources():Array
-		{
-			return _scenariosSources;
-		}
-
-
 	}
 }

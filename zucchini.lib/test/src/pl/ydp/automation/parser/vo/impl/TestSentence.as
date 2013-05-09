@@ -3,11 +3,13 @@ package pl.ydp.automation.parser.vo.impl
 	import org.flexunit.assertThat;
 	import org.hamcrest.object.equalTo;
 	
-	import pl.ydp.automation.scripts.parser.vo.impl.Scenario;
+	import pl.ydp.automation.scripts.parser.vo.impl.Sentence;
 
-
-	public class TestScenario
+	public class TestSentence
 	{		
+		private const SOURCE:String = 
+			'New sentence source \n';
+		
 		[Before]
 		public function setUp():void
 		{
@@ -19,17 +21,12 @@ package pl.ydp.automation.parser.vo.impl
 		}
 		
 		[Test]
-		public function should_create_scenario():void
+		public function should_create_sentence():void
 		{
-			var description:String = 'description';
-			var sentences:Array = [];
+			var sentence:Sentence = new Sentence( SOURCE );
 			
-			var scenario:Scenario = new Scenario( description, sentences );
-			
-			assertThat( scenario.description, equalTo( description ) );
-			assertThat( scenario.sentences, equalTo( sentences ) );
+			assertThat( sentence.source, equalTo( SOURCE ) );
 		}
-		
 		
 		[BeforeClass]
 		public static function setUpBeforeClass():void

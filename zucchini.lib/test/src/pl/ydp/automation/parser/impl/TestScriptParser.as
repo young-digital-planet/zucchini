@@ -24,6 +24,7 @@ package pl.ydp.automation.parser.impl
 		private var feature:IFeature;
 		
 		private const SCRIPT_NAME:String = 'scriptName';
+		
 		private const SCRIPT_CONTENT:String = 
 			'Feature: Some terse yet descriptive text of what is desired\n' +
 			'   Scenario: Some determinable business situation\n' +

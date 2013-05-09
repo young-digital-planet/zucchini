@@ -4,13 +4,12 @@ package pl.ydp.automation.parser.impl
 	import org.hamcrest.object.equalTo;
 	
 	import pl.ydp.automation.scripts.parser.impl.ScenarioOutlineParser;
-	import pl.ydp.automation.scripts.parser.vo.impl.Scenario;
 
 	public class TestScenarioOutlineParser
 	{		
-		private var scenarioOutline:ScenarioOutlineParser;
+		private var scenarioOutlineParser:ScenarioOutlineParser;
 		
-		private var outlineSource:String = 
+		private const OUTLINE_SOURCE:String = 
 			'controlling order \n' +
 			'Given there are <start> cucumbers \n' +
 			'When I eat <eat> cucumbers \n' +
@@ -22,13 +21,13 @@ package pl.ydp.automation.parser.impl
 			'	|  21   |  22  |  23   |';
 		
 		
-		private var firstScenarioOutput:String =
+		private const FIRST_SCENARIO_OUTPUT:String =
 			'( 1 ) controlling order \n' +
 			'Given there are "1 1" cucumbers \n' +
 			'When I eat "12" cucumbers \n' +
 			'Then I should have "13" cucumbers \n';
 		
-		private var secondScenarioOutput:String =
+		private const SECOND_SCENARIO_OUTPUT:String =
 			'( 2 ) controlling order \n' +
 			'Given there are "21" cucumbers \n' +
 			'When I eat "22" cucumbers \n' +
@@ -38,6 +37,7 @@ package pl.ydp.automation.parser.impl
 		[Before]
 		public function setUp():void
 		{
+			scenarioOutlineParser = new ScenarioOutlineParser();
 		}
 		
 		[After]
@@ -50,19 +50,17 @@ package pl.ydp.automation.parser.impl
 		public function should_parse_scenario_outline():void
 		{
 //			given
-			scenarioOutline = new ScenarioOutlineParser( outlineSource );
 			
 //			when
-			scenarioOutline.parse();
+			var scenarios:Array = scenarioOutlineParser.parse( OUTLINE_SOURCE );
 			
 //			then
-			var scenarios:Array = scenarioOutline.scenariosSources;
 			var firstScenario:String = scenarios[0];
 			var secondScenario:String = scenarios[1];
 			
 			assertThat( scenarios.length,  equalTo(2) );
-			assertThat( firstScenario, equalTo( firstScenarioOutput ) );
-			assertThat( secondScenario, equalTo( secondScenarioOutput ) );
+			assertThat( firstScenario, equalTo( FIRST_SCENARIO_OUTPUT ) );
+			assertThat( secondScenario, equalTo( SECOND_SCENARIO_OUTPUT ) );
 		}
 		
 		[BeforeClass]
