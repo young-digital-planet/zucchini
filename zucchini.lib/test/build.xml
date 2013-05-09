@@ -86,12 +86,6 @@
 				<library dir="${zucchini.libs.dir}" />
 			</flexunit>
 
-			<junitreport todir="${report.dir}">
-				<fileset dir="${report.dir}">
-					<include name="TEST-*.xml" />
-				</fileset>
-				<report format="frames" todir="${report.dir}/html" />
-			</junitreport>
 	</target>
 	
 
