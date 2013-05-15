@@ -1,6 +1,7 @@
 package pl.ydp.automation.execution
 {
 	import flash.utils.getTimer;
+	import flash.utils.setTimeout;
 	
 	import org.osflash.signals.Signal;
 	import org.robotlegs.core.IInjector;
@@ -140,7 +141,11 @@ package pl.ydp.automation.execution
 			result.time = getStepExecutionTime();
 			_stepFinished.dispatch( result );
 			
-			continueExecution( result.correctly );
+			if( executionModel.executionMode == ExecutionModel.SLOW_EXECUTION ){
+				setTimeout( continueExecution, executionModel.stepsInterval, result );
+			}else{
+				continueExecution( result.correctly );
+			}
 		}
 		
 		private function continueExecution( lastResultCorrectly:Boolean ):void

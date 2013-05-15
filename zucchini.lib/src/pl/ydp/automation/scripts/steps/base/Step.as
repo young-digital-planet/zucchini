@@ -1,20 +1,14 @@
 package pl.ydp.automation.scripts.steps.base
 {
 	import flash.events.Event;
-	import flash.events.EventDispatcher;
-	import flash.events.TimerEvent;
-	import flash.utils.Timer;
 	import flash.utils.setTimeout;
 	
 	import org.osflash.signals.Signal;
 	
-	import pl.ydp.automation.execution.ExecutionModel;
 	import pl.ydp.automation.execution.structure.IStructure;
 	import pl.ydp.automation.execution.structure.IStructureElementDescriptor;
 	import pl.ydp.automation.scripts.parser.vo.ISentence;
-	import pl.ydp.automation.scripts.steps.INamespaceVariables;
 	import pl.ydp.automation.scripts.steps.StepResult;
-	import pl.ydp.utils.TimeFormatter;
 
 	/**
 	 * Klasa bazowa dla implementacji wykonywanych kroków.
@@ -42,8 +36,6 @@ package pl.ydp.automation.scripts.steps.base
 		 */
 		protected var _elementNumber:int;
 		
-		[Inject]
-		public var executionModel:ExecutionModel;
 		
 		public function Step( resolvedPattern:RegExp )
 		{
@@ -110,12 +102,7 @@ package pl.ydp.automation.scripts.steps.base
 		{
 			var result:StepResult = createResult( correctly, message )
 			
-			if( executionModel.executionMode == ExecutionModel.SLOW_EXECUTION ){
-				
-				setTimeout( dispatchComplete, executionModel.stepsInterval, result );
-			}else{
-				dispatchComplete( result );
-			}
+			dispatchComplete( result );
 		}
 		
 		protected function createResult( correctly:Boolean, message:String = null ):StepResult

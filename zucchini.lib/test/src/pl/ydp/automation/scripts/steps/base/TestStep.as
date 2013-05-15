@@ -26,8 +26,7 @@ package pl.ydp.automation.scripts.steps.base
 	{		
 		private var sentence:ISentence;
 		private var step:Step;
-		private var executionModel:ExecutionModel;
-		
+
 		
 		private const SENTENCE_SOURCE:String = 'press btn_1 button';
 		private const PATTERN:RegExp = /.*/;
@@ -39,10 +38,8 @@ package pl.ydp.automation.scripts.steps.base
 			sentence = strict( ISentence );
 			mock( sentence ).getter( 'source' ).returns( SENTENCE_SOURCE );
 			
-			executionModel = strict( ExecutionModel );
 			
 			step = new Step( PATTERN );
-			step.executionModel = executionModel;
 		}
 		
 		[After]
@@ -79,8 +76,6 @@ package pl.ydp.automation.scripts.steps.base
 			var signal:Signal = new Signal();
 			var stepResult:StepResult = nice( StepResult );
 			var elementId:String = 'elementId';
-			
-			mock( executionModel ).getter( 'executionMode' ).returns( ExecutionModel.NORMAL_EXECUTION );
 			
 			var descriptor:IStructureElementDescriptor = nice( IStructureElementDescriptor );
 			mock( descriptor ).getter( 'stepCompleted' ).returns( signal );

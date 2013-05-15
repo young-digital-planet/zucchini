@@ -213,6 +213,7 @@ package pl.ydp.automation.execution
 //			given
 			
 			mock( executionModel ).getter('stopOnFailure').returns( false );
+			mock( executionModel ).getter('executionMode').returns( ExecutionModel.NORMAL_EXECUTION );
 			
 			var result:StepResult = nice( StepResult );
 			var signal:Signal = new Signal();
@@ -250,6 +251,7 @@ package pl.ydp.automation.execution
 			//			given
 			
 			mock( executionModel ).getter('stopOnFailure').returns( false );
+			mock( executionModel ).getter('executionMode').returns( ExecutionModel.NORMAL_EXECUTION );
 			
 			var firstResult:StepResult = nice( StepResult );
 			mock( firstResult ).getter('correctly').returns( true );
@@ -302,6 +304,8 @@ package pl.ydp.automation.execution
 			//			given
 			
 			mock( executionModel ).getter('stopOnFailure').returns( false );
+			mock( executionModel ).getter('executionMode').returns( ExecutionModel.NORMAL_EXECUTION );
+			
 			
 			var firstResult:StepResult = nice( StepResult );
 			mock( firstResult ).getter('correctly').returns( false );
