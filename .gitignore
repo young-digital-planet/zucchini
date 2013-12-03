@@ -1,0 +1,67 @@
+
+# /zucchini.gui/
+/zucchini.gui/*.settings
+/zucchini.gui/bin-debug
+/zucchini.gui/ivy-lib
+/zucchini.gui/local.properties
+/zucchini.gui/bin
+/zucchini.gui/project.xml
+/zucchini.gui/run
+/zucchini.gui/publish
+
+# /zucchini.gui/deploy/
+
+# /zucchini.gui/src/storage/structure/content/
+/zucchini.gui/src/storage/structure/content/lesson_tabele
+/zucchini.gui/src/storage/structure/content/lesson_zle_wyswietlanie
+
+# /zucchini.gui/src/storage/structure/content/lesson_zle_wyswietlanie/utopia_1/common/
+
+# /zucchini.gui/src/storage/structure/content/lesson_zle_wyswietlanie/utopia_1/common/ext/
+
+# /zucchini.gui/src/storage/structure/content/lesson_zle_wyswietlanie/utopia_1/common/ext/pageDoneControllerPlugin/
+
+# /zucchini.gui/src/storage/structure/content/lesson_zle_wyswietlanie/utopia_1/common/ext/timePlugin/
+
+# /zucchini.gui/src/storage/structure/content/lesson_zle_wyswietlanie/utopia_1/player/
+
+# /zucchini.gui/src/storage/structure/content/lesson_zle_wyswietlanie/utopia_1/script_00011/
+
+# /zucchini.gui/src/storage/structure/content/lesson_zle_wyswietlanie/utopia_1/script_00011/media/
+
+# /zucchini.gui/src/utopia/steps/asserts/
+
+# /zucchini.gui/src/utopia/view/
+
+# /zucchini.lib/
+/zucchini.lib/*.FlexUnitSettings
+/zucchini.lib/*.properties
+/zucchini.lib/*.settings
+/zucchini.lib/bin
+/zucchini.lib/bin-debug
+/zucchini.lib/ivy-lib
+/zucchini.lib/actual-asdoc-config.xml
+
+# /zucchini.lib/src/com/
+
+# /zucchini.lib/src/com/carlcalderon/
+
+# /zucchini.lib/src/com/carlcalderon/arthropod/
+
+# /zucchini.lib/src/pl/ydp/automation/execution/storage/snapshot/algorithm/
+
+# /zucchini.lib/src/pl/ydp/automation/execution/storage/snapshot/algorithm/impl/
+
+# /zucchini.lib/src/pl/ydp/utils/functions/
+
+# /zucchini.lib/test/
+/zucchini.lib/test/bin
+/zucchini.lib/test/bin-debug
+/zucchini.lib/test/ivy-lib
+/zucchini.lib/test/tests.report
+
+# /zucchini.lib/test/src/pl/ydp/automation/execution/report/impl/targets/
+
+# /zucchini.lib/test/src/pl/ydp/automation/execution/storage/snapshot/algorithm/
+
+# /zucchini.lib/test/src/pl/ydp/automation/execution/storage/snapshot/algorithm/impl/
